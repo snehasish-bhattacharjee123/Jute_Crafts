@@ -72,7 +72,48 @@ function ProductHeroSlider() {
 }
 
 function Product() {
-  
+  // Modal state for viewing images larger (similar to Gallery)
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [squareView, setSquareView] = useState(true);
+  const [showMeta, setShowMeta] = useState(true);
+
+  const openModal = (image) => {
+    setSelectedImage(image);
+    setSquareView(true);
+    setShowMeta(true);
+    try {
+      document.body.style.overflow = 'hidden';
+    } catch {}
+  };
+  const closeModal = () => {
+    setSelectedImage(null);
+    try {
+      document.body.style.overflow = '';
+    } catch {}
+  };
+
+  useEffect(() => {
+    if (!selectedImage) return;
+    const onKey = (e) => { if (e.key === 'Escape') closeModal(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [selectedImage]);
+
+  const handleShare = async () => {
+    if (!selectedImage) return;
+    const url = window.location.origin + selectedImage.src;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: selectedImage.title || 'Product Image', url });
+      } else {
+        await navigator.clipboard.writeText(url);
+        alert('Image link copied to clipboard');
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const thumbs = {
     sisal: [
       '/images/Jute Boucle Rug.jpg',
@@ -125,7 +166,18 @@ function Product() {
       {items.length > 0 && (
         <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2">
           {items.map((src, i) => (
-            <img key={i} src={src} alt={`${title} ${i + 1}`} className="w-full h-16 sm:h-20 object-cover rounded" />
+            <div
+              key={i}
+              onClick={() => openModal({ src, alt: `${title} ${i + 1}`, title })}
+              className="group relative overflow-hidden rounded h-16 sm:h-20 cursor-zoom-in"
+            >
+              <img
+                src={src}
+                alt={`${title} ${i + 1}`}
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105 will-change-transform"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+            </div>
           ))}
         </div>
       )}
@@ -158,7 +210,13 @@ function Product() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6">
             {/* Row 1: Large image + Text (Sisal) */}
             <div className="md:col-span-7">
-              <img src={'/images/carpet.jpg'} alt="Close-up of sisal weave texture" loading="lazy" className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded" />
+              <img
+                src={'/images/carpet.jpg'}
+                alt="Close-up of sisal weave texture"
+                loading="lazy"
+                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
+                onClick={() => openModal({ src: '/images/carpet.jpg', alt: 'Close-up of sisal weave texture', title: 'SISAL RUGS' })}
+              />
             </div>
             <div className="md:col-span-5">
               <TextBlock
@@ -179,12 +237,24 @@ function Product() {
               />
             </div>
             <div className="md:col-span-7 order-1 md:order-none">
-              <img src={'/images/Elma Geometric Jute Rug _ Natural.jpg'} alt="Jute rug arranged in modern living room" loading="lazy" className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded" />
+              <img
+                src={'/images/Elma Geometric Jute Rug _ Natural.jpg'}
+                alt="Jute rug arranged in modern living room"
+                loading="lazy"
+                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
+                onClick={() => openModal({ src: '/images/Elma Geometric Jute Rug _ Natural.jpg', alt: 'Jute rug arranged in modern living room', title: 'JUTE RUGS' })}
+              />
             </div>
 
             
             <div className="md:col-span-7">
-              <img src={'/images/flat-lay-monochromatic-assortment-textiles.jpg'} alt="Flat lay of jacquard textile patterns" loading="lazy" className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded" />
+              <img
+                src={'/images/flat-lay-monochromatic-assortment-textiles.jpg'}
+                alt="Flat lay of jacquard textile patterns"
+                loading="lazy"
+                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
+                onClick={() => openModal({ src: '/images/flat-lay-monochromatic-assortment-textiles.jpg', alt: 'Flat lay of jacquard textile patterns', title: 'JACQUARD RUGS' })}
+              />
             </div>
             <div className="md:col-span-5">
               <TextBlock
@@ -204,12 +274,24 @@ function Product() {
               />
             </div>
             <div className="md:col-span-7 order-1 md:order-none">
-              <img src={'/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg'} alt="Beige handwoven wool rug with dotted pattern" loading="lazy" className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded" />
+              <img
+                src={'/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg'}
+                alt="Beige handwoven wool rug with dotted pattern"
+                loading="lazy"
+                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
+                onClick={() => openModal({ src: '/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg', alt: 'Beige handwoven wool rug with dotted pattern', title: 'WOOL RUGS' })}
+              />
             </div>
 
            
             <div className="md:col-span-7">
-              <img src={'/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg'} alt="Outdoor-friendly PET rugs styled in patio" loading="lazy" className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded" />
+              <img
+                src={'/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg'}
+                alt="Outdoor-friendly PET rugs styled in patio"
+                loading="lazy"
+                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
+                onClick={() => openModal({ src: '/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg', alt: 'Outdoor-friendly PET rugs styled in patio', title: 'INDOOR/OUTDOOR COLLECTION' })}
+              />
             </div>
             <div className="md:col-span-5">
               <TextBlock
@@ -230,11 +312,70 @@ function Product() {
               />
             </div>
             <div className="md:col-span-7 order-1 md:order-none">
-              <img src={'/images/Otirač Boja bež - SINSAY - 7661Z-08X.jpg'} alt="Assorted decorative doormats in beige tones" loading="lazy" className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded" />
+              <img
+                src={'/images/Otirač Boja bež - SINSAY - 7661Z-08X.jpg'}
+                alt="Assorted decorative doormats in beige tones"
+                loading="lazy"
+                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
+                onClick={() => openModal({ src: '/images/Otirač Boja bež - SINSAY - 7661Z-08X.jpg', alt: 'Assorted decorative doormats in beige tones', title: 'DOOR MATS' })}
+              />
             </div>
         </div>
       </div>
     </section>
+
+    {/* Product Image Modal (similar to Gallery) */}
+    {selectedImage && (
+      <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-[200] p-4" onClick={closeModal}>
+        <div className="relative" role="dialog" aria-modal="true" aria-label="Product image viewer" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="fixed left-1/2 -translate-x-1/2 flex items-center gap-2"
+            style={{ top: 'calc(var(--header-h, 0px) + 8px)' }}
+          >
+            <button
+              onClick={() => setSquareView(!squareView)}
+              aria-label="Toggle View"
+              title={squareView ? 'Full View' : 'Square View'}
+              className="w-10 h-10 rounded-full bg-white/95 text-textDark shadow hover:bg-white flex items-center justify-center"
+            >
+              {squareView ? (
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 3H5a2 2 0 00-2 2v3m0 8v3a2 2 0 002 2h3m8 0h3a2 2 0 002-2v-3M21 8V5a2 2 0 00-2-2h-3"/></svg>
+              ) : (
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="5" y="5" width="14" height="14" rx="1"/></svg>
+              )}
+            </button>
+            <button onClick={handleShare} aria-label="Share" title="Share" className="w-10 h-10 rounded-full bg-white/95 text-textDark shadow hover:bg-white flex items-center justify-center">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4m0 0L8 6m4-4v16"/></svg>
+            </button>
+            <button onClick={() => setShowMeta(!showMeta)} aria-label="Toggle Details" title={showMeta ? 'Hide Details' : 'Show Details'} className="w-10 h-10 rounded-full bg-white/95 text-textDark shadow hover:bg-white flex items-center justify-center">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/></svg>
+            </button>
+            <button onClick={closeModal} aria-label="Close" title="Close" className="w-10 h-10 rounded-full bg-primary text-textLight shadow hover:bg-primary/90 flex items-center justify-center">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+          </div>
+
+          <div className={squareView ? 'w-[90vw] max-w-[640px] aspect-square' : 'w-[92vw] max-w-[1100px] max-h-[80vh]'}>
+            <div className="w-full h-full bg-black/40 rounded-lg overflow-hidden flex items-center justify-center">
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className={squareView ? 'w-full h-full object-cover' : 'max-w-full max-h-full object-contain'}
+              />
+            </div>
+          </div>
+
+          {showMeta && (
+            <div className="mt-4 bg-black/60 rounded-lg p-4 text-textLight">
+              <h3 className="text-lg font-heading font-semibold">{selectedImage.title || 'Untitled'}</h3>
+              {selectedImage.alt && (
+                <p className="text-sm font-body mt-1">{selectedImage.alt}</p>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    )}
 
     {/* Removed duplicate alternating section */}
 

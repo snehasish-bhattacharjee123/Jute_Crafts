@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
@@ -63,10 +63,33 @@ function App() {
       window.removeEventListener('scroll', onResizeScroll);
     };
   }, []);
+
+  const scrollToFooter = () => {
+    try {
+      const header = document.querySelector('.site-header.nav');
+      const headerH = header ? header.offsetHeight : 0;
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const targets = ['#get-in-touch', '#contact', '#site-footer'];
+      let el = null;
+      for (const sel of targets) {
+        el = document.querySelector(sel);
+        if (el) break;
+      }
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - headerH - 8;
+      window.scrollTo({ top, behavior: reduce ? 'auto' : 'smooth' });
+    } catch {
+      const el = document.getElementById('get-in-touch') || document.getElementById('site-footer');
+      el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <Router>
       <div className="min-h-screen bg-bgGrey">
         <Header />
+        {/* Spacer to account for fixed header height except over hero (hero compensates with negative margin) */}
+        <div aria-hidden="true" className="header-spacer" style={{ height: 'var(--header-h)' }}></div>
 
         <ErrorBoundary>
         <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
@@ -150,12 +173,17 @@ function App() {
                       
                       <div className="pt-2 reveal">
                         <div className="flex flex-col sm:flex-row gap-3">
-                          <a href="/products" className="inline-flex">
+                          <Link to="/products" className="inline-flex">
                             <button className="px-5 py-3 rounded-full bg-gold text-secondary font-body hover:bg-gold/90 transition">Explore Products</button>
-                          </a>
-                          <a href="/contact" className="inline-flex">
-                            <button className="px-5 py-3 rounded-full border border-primary text-primary font-body hover:bg-primary/5 transition">Contact</button>
-                          </a>
+                          </Link>
+                          <button
+                            type="button"
+                            onClick={scrollToFooter}
+                            className="px-5 py-3 rounded-full border border-primary text-primary font-body hover:bg-primary/5 transition"
+                            aria-label="Contact us"
+                          >
+                            Contact
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -176,48 +204,62 @@ function App() {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <Card
-                      title="SISAL RUGS"
-                      description="Durable and natural sisal fiber rugs that add texture and warmth to any space. Perfect for high-traffic areas with their stain-resistant properties."
-                      image="/images/download (4).jpg"
-                      badge="Editor’s Pick"
-                      featured
-                    />
-                    <Card
-                      title="JUTE RUGS"
-                      description="Handwoven jute rugs featuring natural fibers and traditional craftsmanship. Eco-friendly and biodegradable with a unique rustic charm."
-                      image="/images/Jute Boucle Rug.jpg"
-                      badge="Best Seller"
-                      featured
-                    />
-                    <Card
-                      title="JACQUARD RUGS"
-                      description="Intricate jacquard woven rugs with detailed patterns and designs. Perfect for adding elegance and sophistication to your interior spaces."
-                      image="/images/download.jpg"
-                    />
-                    <Card
-                      title="WOOL RUGS"
-                      description="Luxurious wool rugs that provide superior comfort and insulation. Naturally stain-resistant and available in various pile heights and textures."
-                      image="/images/download (3).jpg"
-                      badge="New"
-                    />
-                    <Card
-                      title="Indoor/Outdoor Collection"
-                      description="Versatile rugs designed for both indoor and outdoor use. Weather-resistant materials that maintain their beauty in any environment."
-                      image="/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg"
-                      badge="Eco-Friendly"
-                    />
-                    <Card
-                      title="DOOR MATS"
-                      description="Functional and stylish door mats that protect your floors while welcoming guests. Available in various sizes and materials for every entryway."
-                      image="/images/Otirač Boja bež - SINSAY - 7661Z-08X.jpg"
-                    />
+                    <Link to="/products" className="block">
+                      <Card
+                        title="SISAL RUGS"
+                        description="Durable and natural sisal fiber rugs that add texture and warmth to any space. Perfect for high-traffic areas with their stain-resistant properties."
+                        image="/images/download (4).jpg"
+                        badge="Editor’s Pick"
+                        featured
+                      />
+                    </Link>
+                    <Link to="/products" className="block">
+                      <Card
+                        title="JUTE RUGS"
+                        description="Handwoven jute rugs featuring natural fibers and traditional craftsmanship. Eco-friendly and biodegradable with a unique rustic charm."
+                        image="/images/Jute Boucle Rug.jpg"
+                        badge="Best Seller"
+                        featured
+                      />
+                    </Link>
+                    <Link to="/products" className="block">
+                      <Card
+                        title="JACQUARD RUGS"
+                        description="Intricate jacquard woven rugs with detailed patterns and designs. Perfect for adding elegance and sophistication to your interior spaces."
+                        image="/images/download.jpg"
+                      />
+                    </Link>
+                    <Link to="/products" className="block">
+                      <Card
+                        title="WOOL RUGS"
+                        description="Luxurious wool rugs that provide superior comfort and insulation. Naturally stain-resistant and available in various pile heights and textures."
+                        image="/images/download (3).jpg"
+                        badge="New"
+                      />
+                    </Link>
+                    <Link to="/products" className="block">
+                      <Card
+                        title="Indoor/Outdoor Collection"
+                        description="Versatile rugs designed for both indoor and outdoor use. Weather-resistant materials that maintain their beauty in any environment."
+                        image="/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg"
+                        badge="Eco-Friendly"
+                      />
+                    </Link>
+                    <Link to="/products" className="block">
+                      <Card
+                        title="DOOR MATS"
+                        description="Functional and stylish door mats that protect your floors while welcoming guests. Available in various sizes and materials for every entryway."
+                        image="/images/Otirač Boja bež - SINSAY - 7661Z-08X.jpg"
+                      />
+                    </Link>
                   </div>
 
                   <div className="text-center mt-12">
-                    <Button variant="gold">
-                      View Full Collection
-                    </Button>
+                    <Link to="/products" className="inline-flex">
+                      <Button variant="gold">
+                        View Full Collection
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </section>
@@ -313,7 +355,14 @@ function App() {
                     Ready to bring the beauty of natural jute into your home? Contact us today for custom orders and inquiries.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="/contact" className="inline-flex"><Button variant="gold">Contact Us</Button></a>
+                    <button
+                      type="button"
+                      onClick={scrollToFooter}
+                      className=" px-6 py-3 rounded-full bg-gold text-secondary font-body hover:bg-gold/90 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                      aria-label="Contact us"
+                    >
+                      Contact Us
+                    </button>
                   </div>
                 </div>
               </section>

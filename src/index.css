@@ -29,3 +29,150 @@ code {
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
+
+/* ===== Navbar overlay/solid theming and transitions ===== */
+.site-header.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  padding-top: env(safe-area-inset-top, 0px);
+  transition: background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease, color 200ms ease;
+  will-change: background-color, backdrop-filter;
+}
+
+/* Light-on-dark overlay state over hero */
+.nav--overlay {
+  background: rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  backdrop-filter: saturate(140%) blur(10px);
+}
+
+/* Fallback when backdrop-filter is not supported */
+@supports not ((-webkit-backdrop-filter: blur(0)) or (backdrop-filter: blur(0))) {
+  .nav--overlay {
+    background: rgba(24, 24, 27, 0.2);
+  }
+}
+
+/* Solid state after hero */
+.nav--solid {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  color: #111827; /* gray-900 */
+}
+
+/* Theme scoping for readable brand/links */
+.nav--light .nav__brand,
+.nav--light .nav__link {
+  color: rgba(255, 255, 255, 0.95);
+}
+.nav--light .nav__link:hover,
+.nav--light .nav__link:focus {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  outline: none;
+}
+
+.nav--dark .nav__brand,
+.nav--dark .nav__link {
+  color: #111827; /* gray-900 */
+}
+.nav--dark .nav__link:hover,
+.nav--dark .nav__link:focus {
+  color: #116054; /* approx primary */
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  outline: none;
+}
+
+/* Active link */
+.nav__link.is-active {
+  color: #1E7163; /* primary */
+  font-weight: 600;
+}
+
+/* Accessible focus styles for interactive items in nav */
+.nav a:focus-visible,
+.nav button:focus-visible {
+  outline: 2px solid #C68C53; /* gold */
+  outline-offset: 2px;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .site-header.nav,
+  .nav__link {
+    transition: none;
+  }
+}
+
+/* ===== Footer typography & interactions ===== */
+.footer-base {
+  font-size: clamp(0.95rem, 0.28vw + 0.9rem, 1.05rem);
+  line-height: 1.7;
+}
+
+.footer-heading {
+  font-size: clamp(1.05rem, 0.5vw + 1rem, 1.25rem);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.footer-link {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+.footer-link:hover,
+.footer-link:focus {
+  text-decoration: underline;
+}
+
+.social-btn {
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+.social-btn:hover,
+.social-btn:focus {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+/* ===== Footer reveal animation ===== */
+.footer-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 200ms ease, transform 200ms ease;
+  will-change: opacity, transform;
+}
+
+.footer-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion: show without animation */
+@media (prefers-reduced-motion: reduce) {
+  .footer-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Anchor landing correction under fixed header */
+#get-in-touch,
+#contact,
+#site-footer {
+  scroll-margin-top: var(--header-h, 0px);
+}
+
+/* Keep existing styles below */

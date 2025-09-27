@@ -140,10 +140,13 @@ function Gallery() {
 
      
       {selectedImage && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4" onClick={closeModal}>
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-[200] p-4" onClick={closeModal}>
           <div className="relative" onClick={e => e.stopPropagation()}>
             {}
-            <div className="absolute -top-14 left-1/2 -translate-x-1/2 flex items-center gap-2">
+            <div
+              className="fixed left-1/2 -translate-x-1/2 flex items-center gap-2"
+              style={{ top: 'calc(var(--header-h, 0px) + 8px)' }}
+            >
               <button onClick={() => setSquareView(!squareView)} aria-label="Toggle View" title={squareView ? 'Full View' : 'Square View'} className="w-10 h-10 rounded-full bg-white/95 text-textDark shadow hover:bg-white flex items-center justify-center">
                 {squareView ? (
                   
