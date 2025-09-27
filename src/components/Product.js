@@ -76,20 +76,33 @@ function Product() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [squareView, setSquareView] = useState(true);
   const [showMeta, setShowMeta] = useState(true);
+  // Keep a handle to the clicked element so we can scroll it into view
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [shareCopied, setShareCopied] = useState(false);
+  const lastTapRef = useRef(0);
 
-  const openModal = (image) => {
+  const openModal = (image, anchor = null) => {
     setSelectedImage(image);
     setSquareView(true);
     setShowMeta(true);
+    setAnchorEl(anchor);
+    // Scroll the page to the clicked section so it remains behind the overlay
     try {
-      document.body.style.overflow = 'hidden';
+      anchor?.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
     } catch {}
+    // If you prefer locking background scroll, uncomment below:
+    // try { document.body.style.overflow = 'hidden'; } catch {}
   };
   const closeModal = () => {
+    const el = anchorEl;
     setSelectedImage(null);
+    setAnchorEl(null);
+    // Restore/ensure the same section stays centered after closing
     try {
-      document.body.style.overflow = '';
+      el?.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
     } catch {}
+    // If you locked background scroll in openModal, also revert it here:
+    // try { document.body.style.overflow = ''; } catch {}
   };
 
   useEffect(() => {
@@ -99,6 +112,7 @@ function Product() {
     return () => window.removeEventListener('keydown', onKey);
   }, [selectedImage]);
 
+
   const handleShare = async () => {
     if (!selectedImage) return;
     const url = window.location.origin + selectedImage.src;
@@ -107,7 +121,8 @@ function Product() {
         await navigator.share({ title: selectedImage.title || 'Product Image', url });
       } else {
         await navigator.clipboard.writeText(url);
-        alert('Image link copied to clipboard');
+        setShareCopied(true);
+        setTimeout(() => setShareCopied(false), 1500);
       }
     } catch (e) {
       console.error(e);
@@ -168,7 +183,7 @@ function Product() {
           {items.map((src, i) => (
             <div
               key={i}
-              onClick={() => openModal({ src, alt: `${title} ${i + 1}`, title })}
+              onClick={(e) => openModal({ src, alt: `${title} ${i + 1}`, title }, e.currentTarget)}
               className="group relative overflow-hidden rounded h-16 sm:h-20 cursor-zoom-in"
             >
               <img
@@ -215,7 +230,7 @@ function Product() {
                 alt="Close-up of sisal weave texture"
                 loading="lazy"
                 className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
-                onClick={() => openModal({ src: '/images/carpet.jpg', alt: 'Close-up of sisal weave texture', title: 'SISAL RUGS' })}
+                onClick={(e) => openModal({ src: '/images/carpet.jpg', alt: 'Close-up of sisal weave texture', title: 'SISAL RUGS' }, e.currentTarget)}
               />
             </div>
             <div className="md:col-span-5">
@@ -242,7 +257,7 @@ function Product() {
                 alt="Jute rug arranged in modern living room"
                 loading="lazy"
                 className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
-                onClick={() => openModal({ src: '/images/Elma Geometric Jute Rug _ Natural.jpg', alt: 'Jute rug arranged in modern living room', title: 'JUTE RUGS' })}
+                onClick={(e) => openModal({ src: '/images/Elma Geometric Jute Rug _ Natural.jpg', alt: 'Jute rug arranged in modern living room', title: 'JUTE RUGS' }, e.currentTarget)}
               />
             </div>
 
@@ -253,7 +268,7 @@ function Product() {
                 alt="Flat lay of jacquard textile patterns"
                 loading="lazy"
                 className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
-                onClick={() => openModal({ src: '/images/flat-lay-monochromatic-assortment-textiles.jpg', alt: 'Flat lay of jacquard textile patterns', title: 'JACQUARD RUGS' })}
+                onClick={(e) => openModal({ src: '/images/flat-lay-monochromatic-assortment-textiles.jpg', alt: 'Flat lay of jacquard textile patterns', title: 'JACQUARD RUGS' }, e.currentTarget)}
               />
             </div>
             <div className="md:col-span-5">
@@ -279,7 +294,7 @@ function Product() {
                 alt="Beige handwoven wool rug with dotted pattern"
                 loading="lazy"
                 className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
-                onClick={() => openModal({ src: '/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg', alt: 'Beige handwoven wool rug with dotted pattern', title: 'WOOL RUGS' })}
+                onClick={(e) => openModal({ src: '/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg', alt: 'Beige handwoven wool rug with dotted pattern', title: 'WOOL RUGS' }, e.currentTarget)}
               />
             </div>
 
@@ -290,7 +305,7 @@ function Product() {
                 alt="Outdoor-friendly PET rugs styled in patio"
                 loading="lazy"
                 className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
-                onClick={() => openModal({ src: '/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg', alt: 'Outdoor-friendly PET rugs styled in patio', title: 'INDOOR/OUTDOOR COLLECTION' })}
+                onClick={(e) => openModal({ src: '/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg', alt: 'Outdoor-friendly PET rugs styled in patio', title: 'INDOOR/OUTDOOR COLLECTION' }, e.currentTarget)}
               />
             </div>
             <div className="md:col-span-5">
@@ -317,7 +332,7 @@ function Product() {
                 alt="Assorted decorative doormats in beige tones"
                 loading="lazy"
                 className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
-                onClick={() => openModal({ src: '/images/Otirač Boja bež - SINSAY - 7661Z-08X.jpg', alt: 'Assorted decorative doormats in beige tones', title: 'DOOR MATS' })}
+                onClick={(e) => openModal({ src: '/images/Otirač Boja bež - SINSAY - 7661Z-08X.jpg', alt: 'Assorted decorative doormats in beige tones', title: 'DOOR MATS' }, e.currentTarget)}
               />
             </div>
         </div>
@@ -326,32 +341,78 @@ function Product() {
 
     {/* Product Image Modal (similar to Gallery) */}
     {selectedImage && (
-      <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-[200] p-4" onClick={closeModal}>
+      <div className="fixed inset-0 bg-black/70 backdrop-blur-sm md:backdrop-blur flex items-center justify-center z-[9999] p-4" onClick={closeModal}>
         <div className="relative" role="dialog" aria-modal="true" aria-label="Product image viewer" onClick={(e) => e.stopPropagation()}>
+          {/* Title centered at top like reference */}
           <div
-            className="fixed left-1/2 -translate-x-1/2 flex items-center gap-2"
-            style={{ top: 'calc(var(--header-h, 0px) + 8px)' }}
+            className="fixed left-1/2 -translate-x-1/2 z-[10000]"
+            style={{ top: 'calc(env(safe-area-inset-top) + 10px)' }}
           >
+            <div className="px-3 py-1 rounded bg-black/60 text-white text-[13px] md:text-sm font-semibold shadow-sm">
+              {selectedImage.title || 'Untitled'}
+            </div>
+          </div>
+
+          {/* Controls at top-right (icons updated to match requested set) */}
+          <div
+            className="fixed z-[10000] flex items-center gap-2 md:gap-2.5"
+            style={{ top: 'calc(env(safe-area-inset-top) + 10px)', right: 'calc(env(safe-area-inset-right) + 12px)' }}
+          >
+            {/* Fullscreen corners icon for view toggle */}
             <button
-              onClick={() => setSquareView(!squareView)}
-              aria-label="Toggle View"
-              title={squareView ? 'Full View' : 'Square View'}
-              className="w-10 h-10 rounded-full bg-white/95 text-textDark shadow hover:bg-white flex items-center justify-center"
+              type="button"
+              tabIndex={0}
+              onClick={() => setSquareView(v => !v)}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSquareView(v => !v); } }}
+              aria-label="Zoom"
+              title={squareView ? 'Show full (contain)' : 'Show square (cover)'}
+              className="inline-flex items-center justify-center h-11 w-11 p-2.5 rounded-full text-white bg-black/40 hover:bg-black/50 ring-1 ring-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-white/40"
             >
-              {squareView ? (
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 3H5a2 2 0 00-2 2v3m0 8v3a2 2 0 002 2h3m8 0h3a2 2 0 002-2v-3M21 8V5a2 2 0 00-2-2h-3"/></svg>
-              ) : (
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="5" y="5" width="14" height="14" rx="1"/></svg>
-              )}
+              <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 8V5a1 1 0 011-1h3M4 16v3a1 1 0 001 1h3M20 8V5a1 1 0 00-1-1h-3M20 16v3a1 1 0 01-1 1h-3"/>
+              </svg>
             </button>
-            <button onClick={handleShare} aria-label="Share" title="Share" className="w-10 h-10 rounded-full bg-white/95 text-textDark shadow hover:bg-white flex items-center justify-center">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4m0 0L8 6m4-4v16"/></svg>
+
+            {/* Magnify with plus icon for Details toggle */}
+            <button
+              type="button"
+              tabIndex={0}
+              onClick={() => setShowMeta(v => !v)}
+              aria-label="Details"
+              title={showMeta ? 'Hide details' : 'Show details'}
+              className="inline-flex items-center justify-center h-11 w-11 p-2.5 rounded-full text-white bg-black/40 hover:bg-black/50 ring-1 ring-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-white/40"
+            >
+              <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="11" cy="11" r="6"></circle>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35"></path>
+                <path strokeLinecap="round" d="M11 8v6M8 11h6"></path>
+              </svg>
             </button>
-            <button onClick={() => setShowMeta(!showMeta)} aria-label="Toggle Details" title={showMeta ? 'Hide Details' : 'Show Details'} className="w-10 h-10 rounded-full bg-white/95 text-textDark shadow hover:bg-white flex items-center justify-center">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/></svg>
+
+            {/* Share arrow */}
+            <button
+              type="button"
+              tabIndex={0}
+              onClick={handleShare}
+              aria-label="Share"
+              title="Share"
+              className="inline-flex items-center justify-center h-11 w-11 p-2.5 rounded-full text-white bg-black/40 hover:bg-black/50 ring-1 ring-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-white/40"
+            >
+              <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4m0 0L8 6m4-4v16"/>
+              </svg>
             </button>
-            <button onClick={closeModal} aria-label="Close" title="Close" className="w-10 h-10 rounded-full bg-primary text-textLight shadow hover:bg-primary/90 flex items-center justify-center">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>
+
+            {/* Close */}
+            <button
+              type="button"
+              tabIndex={0}
+              onClick={closeModal}
+              aria-label="Close"
+              title="Close"
+              className="inline-flex items-center justify-center h-11 w-11 p-2.5 rounded-full text-white bg-primary/90 hover:bg-primary ring-1 ring-white/20 shadow focus:outline-none focus:ring-2 focus:ring-white/40"
+            >
+              <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
           </div>
 
@@ -360,17 +421,28 @@ function Product() {
               <img
                 src={selectedImage.src}
                 alt={selectedImage.alt}
-                className={squareView ? 'w-full h-full object-cover' : 'max-w-full max-h-full object-contain'}
+                className={squareView ? 'w-full h-full object-cover cursor-zoom-out' : 'max-w-full max-h-full object-contain cursor-zoom-in'}
+                onDoubleClick={() => setSquareView(v => !v)}
+                onTouchStart={() => {
+                  const now = Date.now();
+                  if (now - lastTapRef.current < 300) { setSquareView(v => !v); }
+                  lastTapRef.current = now;
+                }}
               />
             </div>
           </div>
 
           {showMeta && (
-            <div className="mt-4 bg-black/60 rounded-lg p-4 text-textLight">
-              <h3 className="text-lg font-heading font-semibold">{selectedImage.title || 'Untitled'}</h3>
+            <div className="mt-4 bg-black/50 rounded-lg p-3 text-textLight">
               {selectedImage.alt && (
-                <p className="text-sm font-body mt-1">{selectedImage.alt}</p>
+                <p className="text-sm font-body">{selectedImage.alt}</p>
               )}
+            </div>
+          )}
+
+          {shareCopied && (
+            <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[10000] px-3 py-1.5 rounded-full bg-black/70 text-white text-sm shadow">
+              Copied
             </div>
           )}
         </div>

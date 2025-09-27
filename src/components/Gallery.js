@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
   const [squareView, setSquareView] = useState(true); // default open as square
   const [showMeta, setShowMeta] = useState(true);
-
+  const [shareCopied, setShareCopied] = useState(false);
+  const lastTapRef = useRef(0);
   const categories = [
     { id: 'all', name: 'All' },
     { id: 'products', name: 'Products' },
@@ -44,10 +45,12 @@ function Gallery() {
 
   
   useEffect(() => {
+    if (!selectedImage) return;
     const onKey = (e) => { if (e.key === 'Escape') closeModal(); };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, []);
+  }, [selectedImage]);
+
 
   const handleShare = async () => {
     if (!selectedImage) return;
@@ -57,7 +60,8 @@ function Gallery() {
         await navigator.share({ title: selectedImage.title || 'Gallery Image', url });
       } else {
         await navigator.clipboard.writeText(url);
-        alert('Image link copied to clipboard');
+        setShareCopied(true);
+        setTimeout(() => setShareCopied(false), 1500);
       }
     } catch (e) {
       console.error(e);
@@ -140,51 +144,120 @@ function Gallery() {
 
      
       {selectedImage && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-[200] p-4" onClick={closeModal}>
-          <div className="relative" onClick={e => e.stopPropagation()}>
-            {}
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm md:backdrop-blur flex items-center justify-center z-[10000] p-4" onClick={closeModal}>
+          <div
+            className="relative"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Gallery image viewer"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Centered title */}
             <div
-              className="fixed left-1/2 -translate-x-1/2 flex items-center gap-2"
-              style={{ top: 'calc(var(--header-h, 0px) + 8px)' }}
+              className="fixed left-1/2 -translate-x-1/2 z-[10000]"
+              style={{ top: 'calc(env(safe-area-inset-top) + 10px)' }}
             >
-              <button onClick={() => setSquareView(!squareView)} aria-label="Toggle View" title={squareView ? 'Full View' : 'Square View'} className="w-10 h-10 rounded-full bg-white/95 text-textDark shadow hover:bg-white flex items-center justify-center">
-                {squareView ? (
-                  
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 3H5a2 2 0 00-2 2v3m0 8v3a2 2 0 002 2h3m8 0h3a2 2 0 002-2v-3M21 8V5a2 2 0 00-2-2h-3"/></svg>
-                ) : (
-                  
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="5" y="5" width="14" height="14" rx="1"/></svg>
-                )}
+              <div className="px-3 py-1 rounded bg-black/60 text-white text-[13px] md:text-sm font-semibold shadow-sm">
+                {selectedImage.title || 'Untitled'}
+              </div>
+            </div>
+
+            {/* Controls: View toggle, Details, Share, Close (icons updated) */}
+            <div
+              className="fixed z-[10000] flex items-center gap-2 md:gap-2.5"
+              style={{ top: 'calc(env(safe-area-inset-top) + 10px)', right: 'calc(env(safe-area-inset-right) + 12px)' }}
+            >
+              {/* Fullscreen corners icon for view toggle */}
+              <button
+                type="button"
+                
+                tabIndex={0}
+                onClick={() => setSquareView(v => !v)}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSquareView(v => !v); } }}
+                aria-label="Zoom"
+                title={squareView ? 'Show full (contain)' : 'Show square (cover)'}
+                className="inline-flex items-center justify-center h-11 w-11 p-2.5 rounded-full text-white bg-black/40 hover:bg-black/50 ring-1 ring-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-white/40"
+              >
+                <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 8V5a1 1 0 011-1h3M4 16v3a1 1 0 001 1h3M20 8V5a1 1 0 00-1-1h-3M20 16v3a1 1 0 01-1 1h-3"/>
+                </svg>
               </button>
-              <button onClick={handleShare} aria-label="Share" title="Share" className="w-10 h-10 rounded-full bg-white/95 text-textDark shadow hover:bg-white flex items-center justify-center">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4m0 0L8 6m4-4v16"/></svg>
+
+              {/* Magnify with plus icon for Details toggle (per request) */}
+              <button
+                type="button"
+                
+                tabIndex={0}
+                onClick={() => setShowMeta(v => !v)}
+                aria-label="Details"
+                title={showMeta ? 'Hide details' : 'Show details'}
+                className="inline-flex items-center justify-center h-11 w-11 p-2.5 rounded-full text-white bg-black/40 hover:bg-black/50 ring-1 ring-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-white/40"
+              >
+                <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="6"></circle>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35"></path>
+                  <path strokeLinecap="round" d="M11 8v6M8 11h6"></path>
+                </svg>
               </button>
-              <button onClick={() => setShowMeta(!showMeta)} aria-label="Toggle Details" title={showMeta ? 'Hide Details' : 'Show Details'} className="w-10 h-10 rounded-full bg-white/95 text-textDark shadow hover:bg-white flex items-center justify-center">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/></svg>
+
+              {/* Share arrow */}
+              <button
+                type="button"
+                
+                tabIndex={0}
+                onClick={handleShare}
+                aria-label="Share"
+                title="Share"
+                className="inline-flex items-center justify-center h-11 w-11 p-2.5 rounded-full text-white bg-black/40 hover:bg-black/50 ring-1 ring-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-white/40"
+              >
+                <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4m0 0L8 6m4-4v16"/>
+                </svg>
               </button>
-              <button onClick={closeModal} aria-label="Close" title="Close" className="w-10 h-10 rounded-full bg-primary text-textLight shadow hover:bg-primary/90 flex items-center justify-center">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>
+
+              {/* Close */}
+              <button
+                type="button"
+                
+                tabIndex={0}
+                onClick={closeModal}
+                aria-label="Close"
+                title="Close"
+                className="inline-flex items-center justify-center h-11 w-11 p-2.5 rounded-full text-white bg-primary/90 hover:bg-primary ring-1 ring-white/20 shadow focus:outline-none focus:ring-2 focus:ring-white/40"
+              >
+                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>
               </button>
             </div>
 
-            
+            {/* Image viewer */}
             <div className={squareView ? 'w-[90vw] max-w-[640px] aspect-square' : 'w-[92vw] max-w-[1100px] max-h-[80vh]'}>
               <div className="w-full h-full bg-black/40 rounded-lg overflow-hidden flex items-center justify-center">
                 <img
                   src={selectedImage.src}
                   alt={selectedImage.alt}
-                  className={squareView ? 'w-full h-full object-cover' : 'max-w-full max-h-full object-contain'}
+                  className={squareView ? 'w-full h-full object-cover cursor-zoom-out' : 'max-w-full max-h-full object-contain cursor-zoom-in'}
+                  onDoubleClick={() => setSquareView(v => !v)}
+                  onTouchStart={() => {
+                    const now = Date.now();
+                    if (now - lastTapRef.current < 300) { setSquareView(v => !v); }
+                    lastTapRef.current = now;
+                  }}
                 />
               </div>
             </div>
 
-           
             {showMeta && (
-              <div className="mt-4 bg-black/60 rounded-lg p-4 text-textLight">
-                <h3 className="text-lg font-heading font-semibold">{selectedImage.title || 'Untitled'}</h3>
-                {selectedImage.description && (
-                  <p className="text-sm font-body mt-1">{selectedImage.description}</p>
+              <div className="mt-4 bg-black/60 rounded-lg p-3 text-white">
+                {selectedImage.alt && (
+                  <p className="text-sm font-body">{selectedImage.alt}</p>
                 )}
+              </div>
+            )}
+
+            {/* Share toast */}
+            {shareCopied && (
+              <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[10000] px-3 py-1.5 rounded-full bg-black/70 text-white text-sm shadow">
+                Copied
               </div>
             )}
           </div>
