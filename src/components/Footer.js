@@ -1,28 +1,43 @@
-import React, { useEffect } from 'react';
-import { FiMail, FiPhone, FiMapPin, FiInstagram, FiFacebook, FiTwitter } from 'react-icons/fi';
+import React, { useEffect } from "react";
+import {
+  FiMail,
+  FiPhone,
+  FiMapPin,
+  FiInstagram,
+  FiFacebook,
+  FiTwitter,
+} from "react-icons/fi";
 
 const Footer = () => {
   useEffect(() => {
-    const els = document.querySelectorAll('.footer-reveal');
-    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = document.querySelectorAll(".footer-reveal");
+    const reduce =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
-      els.forEach((el) => el.classList.add('footer-revealed'));
+      els.forEach((el) => el.classList.add("footer-revealed"));
       return;
     }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add('footer-revealed');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("footer-revealed");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
 
   return (
-    <footer id="site-footer" className="text-textLight bg-secondary relative footer-base">
+    <footer
+      id="site-footer"
+      className="text-textLight bg-secondary relative footer-base"
+    >
       {/* Top CTA strip */}
       {/* <div className="bg-gradient-to-r from-primary to-bronze">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -42,11 +57,12 @@ const Footer = () => {
         </div>
       </div> */}
 
-      
-      <div id="get-in-touch" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div
+        id="get-in-touch"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14"
+      >
         <div id="contact" className="sr-only" aria-hidden="true"></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          
           <div className="footer-reveal">
             <div className="flex items-center gap-3 mb-4">
               <img
@@ -55,50 +71,82 @@ const Footer = () => {
                 className="h-12 sm:h-14 w-auto object-contain bg-white rounded-md p-1 ring-1 ring-white/20 shadow"
                 loading="lazy"
               />
-              <h4 className="footer-heading text-lg font-heading font-semibold">MKT RUGS</h4>
+              <h4 className="footer-heading text-lg font-heading font-semibold">
+                MKT RUGS
+              </h4>
             </div>
             <p className="font-body text-sm leading-relaxed text-bgLight/90">
-              FROM FARM TO FLOOR — Manufacturer & Exporter of premium rugs and carpets. Sustainable materials, timeless designs, and superior craftsmanship.
+              FROM FARM TO FLOOR — Evolved from MAKATURBIDS (2008) to MKT Rugs
+              serving five continents. Field-fed Banarasi jute through 500MT
+              biomass-powered facilities with 35% faster FOB dispatch. "Give the
+              earth back its voice, one fibre at a time."
             </p>
 
-           
             <div className="mt-5 flex items-center gap-3">
-              <a aria-label="Follow on Instagram" href="#" className="social-btn p-2 rounded-full bg-white/5 hover:bg-white/10 transition ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80">
+              <a
+                aria-label="Follow on Instagram"
+                href="#"
+                className="social-btn p-2 rounded-full bg-white/5 hover:bg-white/10 transition ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+              >
                 <FiInstagram className="w-5 h-5" />
               </a>
-              <a aria-label="Follow on Facebook" href="#" className="social-btn p-2 rounded-full bg-white/5 hover:bg-white/10 transition ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80">
+              <a
+                aria-label="Follow on Facebook"
+                href="#"
+                className="social-btn p-2 rounded-full bg-white/5 hover:bg-white/10 transition ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+              >
                 <FiFacebook className="w-5 h-5" />
               </a>
-              <a aria-label="Follow on Twitter" href="#" className="social-btn p-2 rounded-full bg-white/5 hover:bg-white/10 transition ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80">
+              <a
+                aria-label="Follow on Twitter"
+                href="#"
+                className="social-btn p-2 rounded-full bg-white/5 hover:bg-white/10 transition ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+              >
                 <FiTwitter className="w-5 h-5" />
               </a>
             </div>
           </div>
 
-         
           <nav aria-labelledby="footer-quick-links" className="footer-reveal">
-            <h5 id="footer-quick-links" className="footer-heading text-base font-heading font-semibold mb-4 text-gold">Quick Links</h5>
+            <h5
+              id="footer-quick-links"
+              className="footer-heading text-base font-heading font-semibold mb-4 text-gold"
+            >
+              Quick Links
+            </h5>
             <ul className="space-y-2">
               <li>
-                <a href="#about" className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-textLight transition">
+                <a
+                  href="#about"
+                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                >
                   <span className="h-1 w-1 rounded-full bg-gold mr-2 transition-transform group-hover:scale-150"></span>
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#products" className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-textLight transition">
+                <a
+                  href="#products"
+                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                >
                   <span className="h-1 w-1 rounded-full bg-gold mr-2 transition-transform group-hover:scale-150"></span>
                   Our Products
                 </a>
               </li>
               <li>
-                <a href="/enquiry" className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-textLight transition">
+                <a
+                  href="/enquiry"
+                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                >
                   <span className="h-1 w-1 rounded-full bg-gold mr-2 transition-transform group-hover:scale-150"></span>
                   Enquiry
                 </a>
               </li>
               <li>
-                <a href="#contact" className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-textLight transition">
+                <a
+                  href="#contact"
+                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                >
                   <span className="h-1 w-1 rounded-full bg-gold mr-2 transition-transform group-hover:scale-150"></span>
                   Contact
                 </a>
@@ -108,29 +156,63 @@ const Footer = () => {
 
           {/* Resources */}
           <nav aria-labelledby="footer-resources" className="footer-reveal">
-            <h5 id="footer-resources" className="footer-heading text-base font-heading font-semibold mb-4 text-gold">Resources</h5>
+            <h5
+              id="footer-resources"
+              className="footer-heading text-base font-heading font-semibold mb-4 text-gold"
+            >
+              Resources
+            </h5>
             <ul className="space-y-2">
               <li>
-                <a href="#collections" className="footer-link font-body text-sm text-bgLight/90 hover:text-textLight transition">Collections</a>
+                <a
+                  href="#collections"
+                  className="footer-link font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                >
+                  Collections
+                </a>
               </li>
               <li>
-                <a href="#care" className="footer-link font-body text-sm text-bgLight/90 hover:text-textLight transition">Care Guide</a>
+                <a
+                  href="#care"
+                  className="footer-link font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                >
+                  Care Guide
+                </a>
               </li>
               <li>
-                <a href="#faq" className="footer-link font-body text-sm text-bgLight/90 hover:text-textLight transition">FAQ</a>
+                <a
+                  href="#faq"
+                  className="footer-link font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                >
+                  FAQ
+                </a>
               </li>
               <li>
-                <a href="#blog" className="footer-link font-body text-sm text-bgLight/90 hover:text-textLight transition">Blog</a>
+                <a
+                  href="#blog"
+                  className="footer-link font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                >
+                  Blog
+                </a>
               </li>
             </ul>
           </nav>
 
-          
           <div className="footer-reveal">
-            <h5 className="text-base font-heading font-semibold mb-4 text-gold">Stay in the loop</h5>
-            <p className="font-body text-sm text-bgLight/90 mb-3">Get 10% off your first order + design tips, care guides, and new collection launches.</p>
-            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-3">
-              <label htmlFor="newsletter" className="sr-only">Email address</label>
+            <h5 className="text-base font-heading font-semibold mb-4 text-gold">
+              Stay in the loop
+            </h5>
+            <p className="font-body text-sm text-bgLight/90 mb-3">
+              Get 10% off your first order + design tips, care guides, and new
+              collection launches.
+            </p>
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="flex flex-col sm:flex-row gap-3"
+            >
+              <label htmlFor="newsletter" className="sr-only">
+                Email address
+              </label>
               <input
                 id="newsletter"
                 type="email"
@@ -146,7 +228,9 @@ const Footer = () => {
                 Subscribe
               </button>
             </form>
-            <p className="mt-2 text-[11px] text-white/60 font-body">No spam. Unsubscribe anytime.</p>
+            <p className="mt-2 text-[11px] text-white/60 font-body">
+              No spam. Unsubscribe anytime.
+            </p>
 
             <div className="mt-6 space-y-2 text-sm font-body text-bgLight/90">
               <p className="flex items-start gap-2">
@@ -159,7 +243,10 @@ const Footer = () => {
               </p>
               <p className="flex items-start gap-2">
                 <FiMapPin className="w-4 h-4 mt-0.5" aria-hidden="true" />
-                <span>India, Gopalnagar, Near Post Office, North 24 Parganas, Kolkata</span>
+                <span>
+                  India, Gopalnagar, Near Post Office, North 24 Parganas,
+                  Kolkata
+                </span>
               </p>
               <p className="pt-2">
                 <a
@@ -169,7 +256,13 @@ const Footer = () => {
                   className="social-btn inline-flex items-center gap-2 px-3 py-2 rounded-full bg-green-600 text-white hover:bg-green-500 transition shadow ring-1 ring-white/10"
                   aria-label="Start WhatsApp chat"
                 >
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.8 11.8 0 0012 0C5.38 0 0 5.38 0 12c0 2.1.55 4.06 1.52 5.76L0 24l6.37-1.66A11.9 11.9 0 0012 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.2-3.48-8.52zM12 22a9.9 9.9 0 01-5.05-1.38l-.36-.21-3.78 1 1.01-3.66-.24-.38A9.99 9.99 0 1122 12 10 10 0 0112 22zm5.38-7.62c-.3-.15-1.77-.87-2.04-.96-.27-.09-.47-.15-.67.15-.2.3-.77.96-.95 1.16-.18.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.88-.78-1.48-1.74-1.65-2.04-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.08-.8.37-.28.3-1.06 1.03-1.06 2.5s1.09 2.9 1.24 3.1c.15.2 2.14 3.27 5.18 4.58.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.07-.12-.27-.2-.57-.35z"/></svg>
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M20.52 3.48A11.8 11.8 0 0012 0C5.38 0 0 5.38 0 12c0 2.1.55 4.06 1.52 5.76L0 24l6.37-1.66A11.9 11.9 0 0012 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.2-3.48-8.52zM12 22a9.9 9.9 0 01-5.05-1.38l-.36-.21-3.78 1 1.01-3.66-.24-.38A9.99 9.99 0 1122 12 10 10 0 0112 22zm5.38-7.62c-.3-.15-1.77-.87-2.04-.96-.27-.09-.47-.15-.67.15-.2.3-.77.96-.95 1.16-.18.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.88-.78-1.48-1.74-1.65-2.04-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.08-.8.37-.28.3-1.06 1.03-1.06 2.5s1.09 2.9 1.24 3.1c.15.2 2.14 3.27 5.18 4.58.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.07-.12-.27-.2-.57-.35z" />
+                  </svg>
                   WhatsApp Chat
                 </a>
               </p>
@@ -177,21 +270,38 @@ const Footer = () => {
           </div>
         </div>
 
-        
         <div className="footer-reveal mt-12 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"></div>
 
-        
         <div className="footer-reveal mt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-bgLight/75">
-          <p className="font-body">&copy; {new Date().getFullYear()} MKT RUGS. All rights reserved.</p>
+          <p className="font-body">
+            &copy; {new Date().getFullYear()} MKT RUGS. All rights reserved.
+          </p>
           <div className="flex items-center gap-4">
-            <a href="#" className="footer-link hover:text-textLight transition">Privacy Policy</a>
+            <a href="#" className="footer-link hover:text-textLight transition">
+              Privacy Policy
+            </a>
             <span className="opacity-40">•</span>
-            <a href="#" className="footer-link hover:text-textLight transition">Terms</a>
+            <a href="#" className="footer-link hover:text-textLight transition">
+              Terms
+            </a>
             <span className="opacity-40">•</span>
-            <a href="#top" className="footer-link hover:text-textLight transition inline-flex items-center">
+            <a
+              href="#top"
+              className="footer-link hover:text-textLight transition inline-flex items-center"
+            >
               Back to top
-              <svg className="w-3.5 h-3.5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+              <svg
+                className="w-3.5 h-3.5 ml-1"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 15l7-7 7 7"
+                />
               </svg>
             </a>
           </div>

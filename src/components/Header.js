@@ -3,10 +3,12 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [overHero, setOverHero] = useState(true); // start true so it's transparent at top
+  const [overHero, setOverHero] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const headerRef = useRef(null);
 
+  // ✅ Update CSS var for header height
   useEffect(() => {
     const setH = () => {
       const h = headerRef.current?.offsetHeight || 0;
@@ -17,6 +19,7 @@ const Header = () => {
     return () => window.removeEventListener("resize", setH);
   }, []);
 
+  // ✅ Observe hero visibility
   useEffect(() => {
     const hero = document.querySelector("#hero");
     if (!hero) {
@@ -25,31 +28,44 @@ const Header = () => {
     }
 
     const io = new IntersectionObserver(
-      ([entry]) => {
-        setOverHero(entry.isIntersecting);
-      },
-      { root: null, threshold: 0, rootMargin: "-64px 0px 0px 0px" }
+      ([entry]) => setOverHero(entry.isIntersecting),
+      {
+        root: null,
+        threshold: 0.1,
+      }
     );
+
     io.observe(hero);
     return () => io.disconnect();
   }, []);
 
+  // ✅ Track scroll position
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 80);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // ✅ Smooth mount animation
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 80);
     return () => clearTimeout(t);
   }, []);
 
-  // ✅ Tailwind classes for transparent vs solid
-  const headerClasses = overHero
-    ? "bg-transparent text-white"
-    : "bg-white/90 backdrop-blur-md shadow text-gray-900";
+  // ✅ Classes for transparent vs glassmorphism
+  const headerClasses =
+    overHero && !scrolled
+      ? "bg-transparent text-white"
+      : "bg-white/80 backdrop-blur-md text-gray-900 shadow";
 
   return (
     <header
       ref={headerRef}
       className={`site-header fixed top-0 left-0 right-0 w-full z-[100] ${headerClasses} ${
         mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
-      } transition-all duration-300 ease-out`}
+      } transition-all duration-500 ease-out`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
@@ -58,7 +74,7 @@ const Header = () => {
             <img
               src="/images/MKT Rugs_1 PNG.png"
               alt="MKT RUGS Logo"
-              className="h-12 sm:h-14 md:h-16 w-auto object-contain"
+              className="h-16 sm:h-20 md:h-24 w-auto object-contain transition-all duration-300"
             />
             <div className="leading-tight">
               <div className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-wide">
@@ -74,7 +90,13 @@ const Header = () => {
           <nav className="hidden md:flex space-x-8">
             {["/", "/about", "/products", "/gallery", "/contact"].map(
               (path, i) => {
-                const labels = ["Home", "About Us", "Products", "Gallery", "Contact"];
+                const labels = [
+                  "Home",
+                  "About Us",
+                  "Products",
+                  "Gallery",
+                  "Contact",
+                ];
                 return (
                   <NavLink
                     key={path}
