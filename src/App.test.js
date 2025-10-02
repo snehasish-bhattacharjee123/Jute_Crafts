@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders app without crashing', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  // Check for a key element in the app, like the main heading
+  const headingElement = screen.getByText(/Natural Fibre Rugs & Carpets/i);
+  expect(headingElement).toBeInTheDocument();
 });

@@ -121,10 +121,10 @@ function App() {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start reveal">
                     
                     <div className="grid grid-cols-2 gap-6">
-                      <img src="/images/download (2).jpg" alt="Artisan pouring beans" className="w-full h-48 sm:h-56 object-cover rounded-lg shadow" />
-                      <img src="/images/carpet.jpg" alt="Rug texture" className="w-full h-48 sm:h-56 object-cover rounded-lg shadow" />
-                      <img src="/images/Elma Geometric Jute Rug _ Natural.jpg" alt="Geometric jute" className="w-full h-48 sm:h-56 object-cover rounded-lg shadow" />
-                      <img src="/images/Naturals Basket.jpg" alt="Natural basket" className="w-full h-48 sm:h-56 object-cover rounded-lg shadow" />
+                      <img src="images/HOME_2.jpg" alt="Rug texture" className="w-full h-48 sm:h-56 object-cover rounded-lg shadow" />
+                      <img src="/images/HOME_1.jpg" alt="Artisan pouring beans" className="w-full h-48 sm:h-56 object-cover rounded-lg shadow" />
+                      <img src="/images/HOME_3.jpg" alt="Geometric jute" className="w-full h-48 sm:h-56 object-cover rounded-lg shadow" />
+                      <img src="/images/HOME_4.jpg" alt="Natural basket" className="w-full h-48 sm:h-56 object-cover rounded-lg shadow" />
                     </div>
 
                     
@@ -208,7 +208,7 @@ function App() {
                       <Card
                         title="SISAL RUGS"
                         description="Durable and natural sisal fiber rugs that add texture and warmth to any space. Perfect for high-traffic areas with their stain-resistant properties."
-                        image="/images/download (4).jpg"
+                        image="/images/PRODUCTS_1.jpg"
                         badge="Editor’s Pick"
                         featured
                       />
@@ -217,7 +217,7 @@ function App() {
                       <Card
                         title="JUTE RUGS"
                         description="Handwoven jute rugs featuring natural fibers and traditional craftsmanship. Eco-friendly and biodegradable with a unique rustic charm."
-                        image="/images/Jute Boucle Rug.jpg"
+                        image="/images/PRODUCTS_2.jpg"
                         badge="Best Seller"
                         featured
                       />
@@ -226,14 +226,14 @@ function App() {
                       <Card
                         title="JACQUARD RUGS"
                         description="Intricate jacquard woven rugs with detailed patterns and designs. Perfect for adding elegance and sophistication to your interior spaces."
-                        image="/images/download.jpg"
+                        image="/images/PRODUCTS_3.jpg"
                       />
                     </Link>
                     <Link to="/products" className="block">
                       <Card
                         title="WOOL RUGS"
                         description="Luxurious wool rugs that provide superior comfort and insulation. Naturally stain-resistant and available in various pile heights and textures."
-                        image="/images/download (3).jpg"
+                        image="/images/PRODUCTS_4.jpg"
                         badge="New"
                       />
                     </Link>
@@ -241,7 +241,7 @@ function App() {
                       <Card
                         title="Indoor/Outdoor Collection"
                         description="Versatile rugs designed for both indoor and outdoor use. Weather-resistant materials that maintain their beauty in any environment."
-                        image="/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg"
+                        image="/images/PRODUCTS_5.jpg"
                         badge="Eco-Friendly"
                       />
                     </Link>
@@ -249,7 +249,7 @@ function App() {
                       <Card
                         title="DOOR MATS"
                         description="Functional and stylish door mats that protect your floors while welcoming guests. Available in various sizes and materials for every entryway."
-                        image="/images/Otirač Boja bež - SINSAY - 7661Z-08X.jpg"
+                        image="/images/PRODUCTS_6.jpg"
                       />
                     </Link>
                   </div>
@@ -273,13 +273,13 @@ function App() {
                       <div className="relative max-w-md mx-auto">
                         
                         <img
-                          src="/images/White Natural Jute Rug, Hand Braided Rug, Jute Rug, Warm Rug, Custom Area Rug, Yoga Mat Indoor Rug.jpg"
+                          src="/images/ABOUT US.jpg"
                           alt="Rolled mats in basket"
                           className="w-full h-80 md:h-96 object-contain rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                         />
                         
                         <img
-                          src="/images/flat-lay-monochromatic-assortment-textiles.jpg"
+                          src="/images/02.jpg"
                           alt="Wooden cabinet with decor"
                           className="w-3/4 md:w-2/3 mt-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 mx-auto"
                         />
@@ -325,17 +325,17 @@ function App() {
                       
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <img
-                          src="/images/Summer Novelty Coir Doormat _ The Company Store.jpg"
+                          src="/images/03.jpg"
                           alt="Product thumbnail 1"
                           className="rounded-lg shadow-sm hover:shadow-md hover:scale-105 cursor-pointer transition-all duration-300"
                         />
                         <img
-                          src="/images/carpet.jpg"
+                          src="/images/04.jpg"
                           alt="Product thumbnail 2"
                           className="rounded-lg shadow-sm hover:shadow-md hover:scale-105 cursor-pointer transition-all duration-300"
                         />
                         <img
-                          src="/images/Hart in Terracotta.jpg"
+                          src="/images/05.jpg"
                           alt="Product thumbnail 3"
                           className="rounded-lg shadow-sm hover:shadow-md hover:scale-105 cursor-pointer transition-all duration-300"
                         />

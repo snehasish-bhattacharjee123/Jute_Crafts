@@ -57,10 +57,10 @@ function CertificatesGrid() {
 function HeroSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
   const images = [
-    '/images/background-zoom-calls-with-cozy-living-room.jpg',
-    '/images/Elma Geometric Jute Rug _ Natural.jpg',
-    '/images/carpet.jpg',
-    '/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg',
+    '/images/B_1.jpg',
+    '/images/B_2.jpg',
+    '/images/B_3.jpg',
+    '/images/B_4.jpg',
   ];
 
   useEffect(() => {
