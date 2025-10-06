@@ -40,12 +40,12 @@ const Hero = () => {
 
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-textLight mb-6 leading-tight">
-          From Farm to Floor — MKT Rugs
+          Authentic, Handcrafted Rugs. From Our Farm to Your Floor.
         </h1>
         <p className="text-lg sm:text-xl font-body text-textLight mb-8 max-w-2xl mx-auto leading-relaxed">
-          Four generations of expertise. From a single loom in Howrah to five
-          continents. Field-fed Banarasi jute transformed through
-          biomass-powered facilities with 35% faster FOB dispatch.
+          Experience the journey where tradition weaves into timeless art. From
+          field-fed natural fibers to your living space, we bring you authentic
+          handcrafted rugs that tell a story of heritage and craftsmanship.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
           <Link to="/products">
@@ -58,16 +58,16 @@ const Hero = () => {
               variant="secondary"
               className="border-2 !border-white !text-white hover:!bg-white hover:!text-secondary focus:!ring-white focus:ring-offset-secondary"
             >
-              Learn About More
+              Learn More
             </Button>
           </Link>
           <button
             type="button"
             onClick={scrollToContact}
-            aria-label="Contact us"
+            aria-label="Download brochure"
             className="px-5 py-3 rounded-full bg-gold text-secondary font-body hover:bg-gold/90 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-secondary shadow"
           >
-            Contact Us
+            Download Brochure
           </button>
         </div>
       </div>

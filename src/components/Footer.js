@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FiMail,
   FiPhone,
@@ -9,6 +9,30 @@ import {
 } from "react-icons/fi";
 
 const Footer = () => {
+  // Newsletter subscribe state
+  const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+  const [error, setError] = useState("");
+
+  // Simulated subscribe handler (replace with EmailJS or backend logic)
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError("");
+    setSubscribed(false);
+    // Simulate async request
+    setTimeout(() => {
+      if (email && email.includes("@")) {
+        setSubscribed(true);
+        setEmail("");
+      } else {
+        setError("Please enter a valid email address.");
+      }
+      setSubmitting(false);
+    }, 1200);
+  };
+
   useEffect(() => {
     const els = document.querySelectorAll(".footer-reveal");
     const reduce =
@@ -76,31 +100,52 @@ const Footer = () => {
               </h4>
             </div>
             <p className="font-body text-sm leading-relaxed text-bgLight/90">
-              FROM FARM TO FLOOR — Evolved from MAKATURBIDS (2008) to MKT Rugs
-              serving five continents. Field-fed Banarasi jute through 500MT
-              biomass-powered facilities with 35% faster FOB dispatch. "Give the
-              earth back its voice, one fibre at a time."
+              MKT Rugs is a B2B export specialist in handcrafted natural carpets
+              from West Bengal, India. With 100+ in-house artisans and over 1000
+              auxiliary workers, we deliver high-quality rugs with full control
+              from raw fiber to finished floor.
             </p>
 
             <div className="mt-5 flex items-center gap-3">
               <a
                 aria-label="Follow on Instagram"
-                href="#"
-                className="social-btn p-2 rounded-full bg-white/5 hover:bg-white/10 transition ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                href="https://instagram.com/mktrugs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-btn p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-pink-500 hover:to-yellow-400 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
                 <FiInstagram className="w-5 h-5" />
               </a>
               <a
                 aria-label="Follow on Facebook"
-                href="#"
-                className="social-btn p-2 rounded-full bg-white/5 hover:bg-white/10 transition ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                href="https://facebook.com/mktrugs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-btn p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-blue-600 hover:to-blue-300 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
                 <FiFacebook className="w-5 h-5" />
               </a>
               <a
+                aria-label="Follow on YouTube"
+                href="https://youtube.com/@mktrugs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-btn p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-red-600 hover:to-yellow-400 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.117C19.228 3.5 12 3.5 12 3.5s-7.228 0-9.391.569A2.994 2.994 0 0 0 .502 6.186C0 8.36 0 12 0 12s0 3.64.502 5.814a2.994 2.994 0 0 0 2.107 2.117C4.772 20.5 12 20.5 12 20.5s7.228 0 9.391-.569a2.994 2.994 0 0 0 2.107-2.117C24 15.64 24 12 24 12s0-3.64-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+              </a>
+              <a
                 aria-label="Follow on Twitter"
-                href="#"
-                className="social-btn p-2 rounded-full bg-white/5 hover:bg-white/10 transition ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                href="https://twitter.com/mktrugs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-btn p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-blue-400 hover:to-blue-600 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
                 <FiTwitter className="w-5 h-5" />
               </a>
@@ -117,8 +162,8 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#about"
-                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                  href="/about"
+                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   <span className="h-1 w-1 rounded-full bg-gold mr-2 transition-transform group-hover:scale-150"></span>
                   About Us
@@ -126,8 +171,8 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#products"
-                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                  href="/products"
+                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   <span className="h-1 w-1 rounded-full bg-gold mr-2 transition-transform group-hover:scale-150"></span>
                   Our Products
@@ -136,7 +181,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/enquiry"
-                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   <span className="h-1 w-1 rounded-full bg-gold mr-2 transition-transform group-hover:scale-150"></span>
                   Enquiry
@@ -144,8 +189,8 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#contact"
-                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                  href="/contact"
+                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   <span className="h-1 w-1 rounded-full bg-gold mr-2 transition-transform group-hover:scale-150"></span>
                   Contact
@@ -165,32 +210,32 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#collections"
-                  className="footer-link font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                  href="/collections"
+                  className="footer-link font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   Collections
                 </a>
               </li>
               <li>
                 <a
-                  href="#care"
-                  className="footer-link font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                  href="/care"
+                  className="footer-link font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   Care Guide
                 </a>
               </li>
               <li>
                 <a
-                  href="#faq"
-                  className="footer-link font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                  href="/faq"
+                  className="footer-link font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   FAQ
                 </a>
               </li>
               <li>
                 <a
-                  href="#blog"
-                  className="footer-link font-body text-sm text-bgLight/90 hover:text-textLight transition"
+                  href="/blog"
+                  className="footer-link font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   Blog
                 </a>
@@ -199,15 +244,12 @@ const Footer = () => {
           </nav>
 
           <div className="footer-reveal">
+            {/* Newsletter/Subscribe */}
             <h5 className="text-base font-heading font-semibold mb-4 text-gold">
               Stay in the loop
             </h5>
-            <p className="font-body text-sm text-bgLight/90 mb-3">
-              Get 10% off your first order + design tips, care guides, and new
-              collection launches.
-            </p>
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleSubscribe}
               className="flex flex-col sm:flex-row gap-3"
             >
               <label htmlFor="newsletter" className="sr-only">
@@ -219,18 +261,26 @@ const Footer = () => {
                 required
                 placeholder="Enter your email"
                 className="w-full rounded-full bg-white/10 placeholder:text-white/60 text-white px-4 py-3 text-sm outline-none ring-1 ring-white/15 focus:ring-2 focus:ring-gold"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-medium text-white hover:bg-gold transition-colors duration-300"
+                className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-medium text-white hover:bg-gold hover:scale-105 transition-all duration-200"
                 aria-label="Subscribe to newsletter"
+                disabled={submitting}
               >
-                Subscribe
+                {submitting ? "Subscribing..." : "Subscribe"}
               </button>
             </form>
-            <p className="mt-2 text-[11px] text-white/60 font-body">
-              No spam. Unsubscribe anytime.
-            </p>
+            {subscribed && (
+              <p className="mt-2 text-[13px] text-green-300 font-body">
+                Thank you for subscribing!
+              </p>
+            )}
+            {error && (
+              <p className="mt-2 text-[13px] text-red-300 font-body">{error}</p>
+            )}
 
             <div className="mt-6 space-y-2 text-sm font-body text-bgLight/90">
               <p className="flex items-start gap-2">

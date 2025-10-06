@@ -5,23 +5,13 @@ function CertificatesGrid() {
   const certs = [
     {
       src: "/images/certifications/iso9001.png",
-      alt: "ISO 9001",
-      desc: "Quality Management System (ISO 9001) certified units",
+      alt: "ISO 9001:2015",
+      desc: "Quality Management System (ISO 9001:2015) certified units",
     },
     {
-      src: "/images/certifications/sa8000.png",
-      alt: "SA 8000",
-      desc: "Social accountability certification for responsible practices",
-    },
-    {
-      src: "/images/certifications/iso14001.png",
-      alt: "ISO 14001",
-      desc: "Environmental Management System (ISO 14001)",
-    },
-    {
-      src: "/images/certifications/qms.png",
-      alt: "QMS",
-      desc: "Quality Management Systems across facilities",
+      src: "/images/certifications/cepc.png",
+      alt: "CEPC Logo",
+      desc: "CEPC Logo certification",
     },
   ];
   const [open, setOpen] = React.useState(false);
@@ -115,10 +105,10 @@ function CertificatesGrid() {
 function HeroSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
   const images = [
-    "/images/B_1.jpg",
-    "/images/B_2.jpg",
-    "/images/B_3.jpg",
-    "/images/B_4.jpg",
+    "/images/PRODUCTS_1.jpg",
+    "/images/PRODUCTS_2.jpg",
+    "/images/PRODUCTS_3.jpg",
+    "/images/PRODUCTS_4.jpg",
   ];
 
   useEffect(() => {
@@ -139,7 +129,7 @@ function HeroSlider() {
         >
           <img
             src={image}
-            alt="Hero Image"
+            alt="Craftsmanship showcase"
             className="object-cover w-full h-full"
           />
         </div>
@@ -150,11 +140,10 @@ function HeroSlider() {
       <div className="absolute inset-0 flex items-center justify-center px-4">
         <div className="text-center max-w-3xl">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-textLight">
-            Where the Yarn Began — From Farm to Floor
+            Witness the Craftsmanship of Bengal
           </h1>
           <p className="mt-3 sm:mt-4 text-sm sm:text-base text-textLight/90 font-body">
-            "Give the earth back its voice, one fibre at a time." — Four
-            generations from MAKATURBIDS to MKT Rugs serving five continents.
+            From Farm to Floor — Authentic handcrafted rugs from West Bengal
           </p>
         </div>
       </div>
@@ -218,51 +207,45 @@ function AboutUs() {
   const milestones = [
     {
       year: "2008",
-      text: "First loom on Hooghly River banks - MAKATURBIDS founded by Mr. Prabir Sarkar",
+      text: "Our journey began as Maa Kali Traders, a small yarn-making company with 10 Ton Monthly Capacity",
       img: "/images/download.jpg",
       side: "left",
     },
     {
-      year: "2012",
-      text: "Became quiet engine powering India's top rug brands - Export houses noticed",
+      year: "2011",
+      text: "Monthly Hand-made Yarn making Capacity increased beyond 50 Ton Monthly",
       img: "/images/download (3).jpg",
       side: "right",
     },
     {
-      year: "2014",
-      text: '"Preferred Gold Supplier" citation from Eastern India Jute Exporters\' Forum',
+      year: "2016",
+      text: "We built 2 company godowns",
       img: "/images/Jute Boucle Rug.jpg",
       side: "left",
     },
     {
-      year: "2016",
-      text: "Rahul Sarkar joins with CAD sketches and global market vision",
+      year: "2017",
+      text: "We evolved into an integrated carpet manufacturing company",
       img: "/images/carpet.jpg",
       side: "right",
     },
     {
-      year: "2020",
-      text: "MKT RUGS launched - 500MT Monthly Yarn Capacity, Biomass Steam powered",
+      year: "2019",
+      text: "Installed 10,000 square metre capacity Stitching Machines for Bulk Production",
       img: "/images/flat-lay-monochromatic-assortment-textiles.jpg",
       side: "left",
     },
     {
-      year: "2021",
-      text: "Carbon-Balanced Facility audit completed under Indian Green Building Council",
+      year: "2022",
+      text: "Monthly Hand-made Yarn making capacity exceeded 100 Metric Tons",
       img: "/images/Naturals Basket.jpg",
       side: "right",
     },
     {
-      year: "2022",
-      text: "First 100% Sea Grass Collection launched in Scandinavia within 60 days",
+      year: "2024",
+      text: "MKT Rugs was established, specializing in B2B export operations from Gopalnagar, West Bengal, India",
       img: "/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg",
       side: "left",
-    },
-    {
-      year: "2023",
-      text: "MKT Rugs Debut - Full-service export house shipping to five continents",
-      img: "/images/Hart in Terracotta.jpg",
-      side: "right",
     },
   ];
   const [lastVisible, setLastVisible] = React.useState(-1);
@@ -343,61 +326,35 @@ function AboutUs() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="text-3xl font-heading font-semibold text-textDark mb-2">
-                Where the Yarn Began — MKT RUGS
+              <h2 className="text-3xl font-heading font-semibold text-textDark mb-6">
+                Our History
               </h2>
-              <blockquote className="border-l-4 border-gold pl-4 italic text-textDark/80 font-accent mb-5">
-                "Give the earth back its voice, one fibre at a time." — Mr.
-                Prabir Sarkar, Founder
-              </blockquote>
-              <div className="grid gap-6">
-                <div>
+              <div className="space-y-6">
+                <div className="border-l-4 border-gold pl-6">
                   <h3 className="text-xl font-heading text-textDark mb-2">
-                    The First Loom (2008)
+                    2008
                   </h3>
-                  <ul className="list-disc list-inside text-textDark/90 font-body space-y-1">
-                    <li>
-                      In 2008, on the banks of the Hooghly River, a single loom
-                      rattled to life inside a modest shed in Howrah.
-                    </li>
-                    <li>
-                      Mr. Prabir Sarkar, a first-generation entrepreneur,
-                      believed jute could script a richer language than burlap
-                      sacks.
-                    </li>
-                    <li>
-                      He called his venture MAKATURBIDS with the motto to "give
-                      the earth back its voice, one fibre at a time."
-                    </li>
-                    <li>
-                      By sunrise and kerosene lamp, the team transformed
-                      field-fed Banarasi jute into tight, lustrous yarn and
-                      braid.
-                    </li>
-                  </ul>
+                  <p className="text-textDark/90 font-body">
+                    Our journey began as Maa Kali Traders, a yarn-making company
+                    with 10 Ton Monthly Capacity.
+                  </p>
                 </div>
-                <div>
+                <div className="border-l-4 border-gold pl-6">
                   <h3 className="text-xl font-heading text-textDark mb-2">
-                    A New Shuttle (2016-2020)
+                    2017
                   </h3>
-                  <ul className="list-disc list-inside text-textDark/90 font-body space-y-1">
-                    <li>
-                      When Rahul Sarkar joined in 2016, he carried CAD sketches
-                      and daring questions about direct market entry.
-                    </li>
-                    <li>
-                      MAKATURBIDS quietly transitioned from material maker to
-                      celebrated supplier for India's overseas rug houses.
-                    </li>
-                    <li>
-                      Hand-woven samples featured seaside jute in banana fibre
-                      and moon-washed textures in sea grass.
-                    </li>
-                    <li>
-                      Recognizing this evolution deserved its own banner, Rahul
-                      launched MKT RUGS in 2020, formally christened in 2023.
-                    </li>
-                  </ul>
+                  <p className="text-textDark/90 font-body">
+                    We evolved into an integrated carpet manufacturing company.
+                  </p>
+                </div>
+                <div className="border-l-4 border-gold pl-6">
+                  <h3 className="text-xl font-heading text-textDark mb-2">
+                    2024
+                  </h3>
+                  <p className="text-textDark/90 font-body">
+                    MKT Rugs was established, specializing in B2B export
+                    operations from Gopalnagar, West Bengal, India.
+                  </p>
                 </div>
                 <div className="pt-2">
                   <div className="flex flex-col sm:flex-row gap-3">
@@ -544,40 +501,15 @@ function AboutUs() {
               Our Values
             </h2>
             <p className="text-lg text-textDark max-w-2xl mx-auto leading-relaxed font-body">
-              These core principles guide everything we do, from sourcing to
-              delivery.
+              Quality is at the heart of everything we do.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="flex justify-center">
+            <div className="text-center p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 max-w-md">
+              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg
-                  className="w-8 h-8 text-textLight"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
-                Sustainability
-              </h3>
-              <p className="text-textDark font-body">
-                Committed to eco-friendly practices and natural materials.
-              </p>
-            </div>
-
-            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-textLight"
+                  className="w-10 h-10 text-textLight"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -590,59 +522,12 @@ function AboutUs() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
+              <h3 className="text-2xl font-semibold text-textDark mb-4 font-heading">
                 Quality
               </h3>
-              <p className="text-textDark font-body">
-                Every product undergoes rigorous quality control.
-              </p>
-            </div>
-
-            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-textLight"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
-                Community
-              </h3>
-              <p className="text-textDark font-body">
-                Supporting local artisans and fair trade practices.
-              </p>
-            </div>
-
-            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-textLight"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
-                Innovation
-              </h3>
-              <p className="text-textDark font-body">
-                Blending traditional techniques with modern design.
+              <p className="text-textDark font-body text-lg">
+                Every product undergoes 5 Step Quality Control to ensure the
+                highest standards of excellence.
               </p>
             </div>
           </div>
@@ -654,55 +539,42 @@ function AboutUs() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div>
               <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textDark mb-4">
-                From Farm to Floor: Our Integrated Platform
+                Our Facilities
               </h2>
               <div className="w-24 h-1 bg-gold mb-6"></div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
-                <div className="bg-white rounded-lg p-4 text-center shadow-sm border border-gray-100">
-                  <div className="text-2xl font-heading text-secondary">
-                    500MT
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                  <div className="text-3xl font-heading text-secondary mb-2">
+                    150 MT
                   </div>
-                  <div className="text-xs text-textDark/70">
-                    Monthly Yarn Capacity
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg p-4 text-center shadow-sm border border-gray-100">
-                  <div className="text-2xl font-heading text-secondary">
-                    150km
-                  </div>
-                  <div className="text-xs text-textDark/70">
-                    Farm Supply Chain
+                  <div className="text-sm text-textDark/70 font-body">
+                    Monthly Yarn Manufacturing Capacity
                   </div>
                 </div>
-                <div className="bg-white rounded-lg p-4 text-center shadow-sm border border-gray-100 col-span-2 sm:col-span-1">
-                  <div className="text-2xl font-heading text-secondary">
-                    35%
+                <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                  <div className="text-3xl font-heading text-secondary mb-2">
+                    20,000+
                   </div>
-                  <div className="text-xs text-textDark/70">
-                    Faster FOB Dispatch
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg p-4 text-center shadow-sm border border-gray-100">
-                  <div className="text-2xl font-heading text-secondary">
-                    50 sqm
-                  </div>
-                  <div className="text-xs text-textDark/70">
-                    Minimum Order Qty
+                  <div className="text-sm text-textDark/70 font-body">
+                    Monthly Carpet Making Capacity (sqm)
                   </div>
                 </div>
-                <div className="bg-white rounded-lg p-4 text-center shadow-sm border border-gray-100">
-                  <div className="text-2xl font-heading text-secondary">5</div>
-                  <div className="text-xs text-textDark/70">
-                    Continents Served
+                <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                  <div className="text-3xl font-heading text-secondary mb-2">
+                    6
+                  </div>
+                  <div className="text-sm text-textDark/70 font-body">
+                    Owned Manufacturing Facilities
                   </div>
                 </div>
-                <div className="bg-white rounded-lg p-4 text-center shadow-sm border border-gray-100">
-                  <div className="text-2xl font-heading text-secondary">
-                    2030
+                <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                  <div className="text-3xl font-heading text-secondary mb-2">
+                    ✓
                   </div>
-                  <div className="text-xs text-textDark/70">
-                    1,000 Families Goal
+                  <div className="text-sm text-textDark/70 font-body">
+                    Integrated Facility - From Raw Fibre Processing to Carpet
+                    Manufacturing
                   </div>
                 </div>
               </div>
@@ -793,51 +665,56 @@ function AboutUs() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                alt="John Smith - CEO"
-                className="w-48 h-48 rounded-full mx-auto mb-4 object-cover shadow-lg"
-              />
+              <div className="w-48 h-48 bg-primary/10 rounded-full mx-auto mb-6 flex items-center justify-center">
+                <svg
+                  className="w-24 h-24 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
+              </div>
               <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
-                John Smith
+                Rahul Sarder
               </h3>
-              <p className="text-secondary font-medium mb-2">CEO & Founder</p>
+              <p className="text-secondary font-medium mb-2">CEO</p>
               <p className="text-textDark font-body">
-                Leading the company with vision and dedication since 1970.
+                Leading MKT Rugs with vision and dedication to excellence.
               </p>
             </div>
 
             <div className="text-center">
-              <img
-                src="/images/flat-lay-monochromatic-assortment-textiles.jpg"
-                alt="Sarah Johnson - Design Director"
-                className="w-48 h-48 rounded-full mx-auto mb-4 object-cover shadow-lg"
-              />
+              <div className="w-48 h-48 bg-secondary/10 rounded-full mx-auto mb-6 flex items-center justify-center">
+                <svg
+                  className="w-24 h-24 text-secondary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
+              </div>
               <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
-                Sarah Johnson
-              </h3>
-              <p className="text-secondary font-medium mb-2">Design Director</p>
-              <p className="text-textDark font-body">
-                Blending traditional patterns with contemporary aesthetics.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <img
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                alt="Michael Chen - Operations Manager"
-                className="w-48 h-48 rounded-full mx-auto mb-4 object-cover shadow-lg"
-              />
-              <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
-                Michael Chen
+                Dattatreyo Paul
               </h3>
               <p className="text-secondary font-medium mb-2">
-                Operations Manager
+                Global Trade Manager
               </p>
               <p className="text-textDark font-body">
-                Ensuring sustainable practices throughout our supply chain.
+                Managing global trade operations and international partnerships.
               </p>
             </div>
           </div>
