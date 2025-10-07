@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
+import SEOHelmet from "./SEOHelmet";
 import Button from "./Button";
 
 function CertificatesGrid() {
   const certs = [
     {
-      src: "/images/certifications/iso9001.png",
+      src: "/images/Home_1.jpg",
       alt: "ISO 9001:2015",
-      desc: "Quality Management System (ISO 9001:2015) certified units",
+      desc: "Quality Management System (ISO 9001:2015) certified units.",
+      pdf: "/images/page3.pdf", // 🔹 Add your PDF path here
     },
     {
-      src: "/images/certifications/cepc.png",
+      src: "/images/Home_2.jpg",
       alt: "CEPC Logo",
-      desc: "CEPC Logo certification",
+      desc: "Recognized by the Carpet Export Promotion Council (CEPC).",
+      pdf: "/images/page3.pdf", // 🔹 Add your PDF path here
     },
   ];
+
   const [open, setOpen] = React.useState(false);
   const [active, setActive] = React.useState(null);
 
@@ -26,15 +30,16 @@ function CertificatesGrid() {
     setActive(null);
   };
 
-  return (
+   return (
     <>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 items-center">
+      {/* Grid Section */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 items-center justify-center">
         {certs.map((c, i) => (
           <button
             key={i}
             type="button"
             onClick={() => onOpen(c)}
-            className="border border-gold/40 bg-white rounded-md p-3 text-center shadow-sm h-24 flex items-center justify-center hover:shadow hover:scale-[1.02] transition"
+            className="border border-gold/40 bg-white rounded-md p-4 text-center shadow-sm h-28 flex items-center justify-center hover:shadow-md hover:scale-[1.03] transition"
             aria-label={`Open ${c.alt} certificate`}
           >
             <img
@@ -46,6 +51,7 @@ function CertificatesGrid() {
         ))}
       </div>
 
+      {/* Modal */}
       {open && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4"
@@ -53,6 +59,7 @@ function CertificatesGrid() {
           aria-modal="true"
         >
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full overflow-hidden">
+            {/* Header */}
             <div className="p-4 border-b flex items-center justify-between">
               <h3 className="text-lg font-heading text-textDark">
                 {active?.alt}
@@ -77,20 +84,34 @@ function CertificatesGrid() {
                 </svg>
               </button>
             </div>
+
+            {/* Body */}
             <div className="p-4 grid gap-3">
               <img
                 src={active?.src}
                 alt={`${active?.alt} large`}
-                className="w-full h-40 object-contain"
+                className="w-full h-48 object-contain"
               />
-              <p className="text-sm text-textDark/80 font-body">
+              <p className="text-sm text-textDark/80 font-body text-center">
                 {active?.desc}
               </p>
             </div>
-            <div className="p-4 border-t flex justify-end">
+
+            {/* Footer */}
+            <div className="p-4 border-t flex justify-between">
+              {active?.pdf && (
+                <a
+                  href={active.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded bg-gold text-white font-medium hover:bg-gold/90 transition"
+                >
+                  Open Certificate
+                </a>
+              )}
               <button
                 onClick={onClose}
-                className="px-4 py-2 rounded bg-primary text-white hover:bg-primary/90"
+                className="px-4 py-2 rounded bg-secondary text-white font-medium hover:bg-secondary/90 transition"
               >
                 Close
               </button>
@@ -119,7 +140,7 @@ function HeroSlider() {
   }, [images.length]);
 
   return (
-    <div className="relative w-full h-[40vh] sm:h-[50vh] lg:h-[65vh] overflow-hidden">
+    <div className="relative w-full h-[40vh] sm:h-[50vh] lg:h-[60vh] overflow-hidden">
       {images.map((image, index) => (
         <div
           key={index}
@@ -187,6 +208,7 @@ function HeroSlider() {
 }
 
 function AboutUs() {
+  
   useEffect(() => {
     const elements = document.querySelectorAll(".reveal");
     const obs = new IntersectionObserver(
@@ -319,6 +341,11 @@ function AboutUs() {
 
   return (
     <div className="min-h-screen bg-bgGrey">
+      <SEOHelmet
+        title="About MKT Rugs — From Farm to Floor | MKT Rugs"
+        description="Learn about MKT Rugs: authentic handcrafted rugs from West Bengal, integrated production, and sustainable natural fibres."
+        canonical="https://www.mktrugs.com/about"
+      />
       {/* Hero Slider */}
       <HeroSlider />
 
@@ -361,9 +388,9 @@ function AboutUs() {
                     <a href="/enquiry" className="inline-flex">
                       <Button variant="gold">Request a Quote</Button>
                     </a>
-                    <a href="/products" className="inline-flex">
+                    {/* <a href="/products" className="inline-flex">
                       <Button variant="secondary">Shop Our Collection</Button>
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>
@@ -457,7 +484,7 @@ function AboutUs() {
                           alt={m.text}
                           className="w-full h-64 object-cover object-top rounded-lg shadow hover:scale-105 hover:shadow-lg transition-transform duration-500 will-change-transform"
                         />
-                        <figcaption className="text-xs text-textDark/70 mt-2 font-body">
+                        <figcaption className="mt-3 font-body text-sm sm:text-base text-textDark bg-white/90 backdrop-blur rounded-md px-3 py-2 shadow-sm border border-gray-100">
                           {m.text}
                         </figcaption>
                       </figure>
@@ -494,103 +521,157 @@ function AboutUs() {
         </div>
       </section>
 
-      <section className="py-16 bg-bgLight reveal">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textDark mb-4">
-              Our Values
-            </h2>
-            <p className="text-lg text-textDark max-w-2xl mx-auto leading-relaxed font-body">
-              Quality is at the heart of everything we do.
-            </p>
-          </div>
+      <section className="py-20 bg-bgLight reveal">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Heading */}
+    <div className="text-center mb-12">
+      <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textDark mb-4">
+        Our Values
+      </h2>
+      <p className="text-lg text-textDark max-w-2xl mx-auto leading-relaxed font-body">
+        Quality is at the heart of everything we do.
+      </p>
+    </div>
 
-          <div className="flex justify-center">
-            <div className="text-center p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 max-w-md">
-              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg
-                  className="w-10 h-10 text-textLight"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-semibold text-textDark mb-4 font-heading">
-                Quality
-              </h3>
-              <p className="text-textDark font-body text-lg">
-                Every product undergoes 5 Step Quality Control to ensure the
-                highest standards of excellence.
-              </p>
-            </div>
-          </div>
+    {/* Cards */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+      {/* 1️⃣ Quality */}
+      <div className="text-center p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
+        <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg
+            className="w-10 h-10 text-textLight"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
         </div>
-      </section>
+        <h3 className="text-2xl font-semibold text-textDark mb-4 font-heading">
+          Quality
+        </h3>
+        <p className="text-textDark font-body text-lg leading-relaxed">
+          Every product undergoes a 5-step quality control process to ensure
+          the highest standards of excellence.
+        </p>
+      </div>
 
-      <section className="py-16 bg-bgGrey reveal">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textDark mb-4">
-                Our Facilities
-              </h2>
-              <div className="w-24 h-1 bg-gold mb-6"></div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-                <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                  <div className="text-3xl font-heading text-secondary mb-2">
-                    150 MT
-                  </div>
-                  <div className="text-sm text-textDark/70 font-body">
-                    Monthly Yarn Manufacturing Capacity
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                  <div className="text-3xl font-heading text-secondary mb-2">
-                    20,000+
-                  </div>
-                  <div className="text-sm text-textDark/70 font-body">
-                    Monthly Carpet Making Capacity (sqm)
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                  <div className="text-3xl font-heading text-secondary mb-2">
-                    6
-                  </div>
-                  <div className="text-sm text-textDark/70 font-body">
-                    Owned Manufacturing Facilities
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                  <div className="text-3xl font-heading text-secondary mb-2">
-                    ✓
-                  </div>
-                  <div className="text-sm text-textDark/70 font-body">
-                    Integrated Facility - From Raw Fibre Processing to Carpet
-                    Manufacturing
-                  </div>
-                </div>
-              </div>
-
-              <CertificatesGrid />
-            </div>
-            <div>
-              <img
-                src="/images/flat-lay-monochromatic-assortment-textiles.jpg"
-                alt="Craftsmanship and facilities"
-                className="rounded-lg w-full h-80 object-cover shadow-md"
-              />
-            </div>
-          </div>
+      {/* 2️⃣ Sustainability */}
+      <div className="text-center p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
+        <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg
+            className="w-10 h-10 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 8c-1.657 0-3 1.343-3 3 0 2 3 5 3 5s3-3 3-5c0-1.657-1.343-3-3-3zM12 4v1m0 14v1m8-8h1M4 12H3m15.364 6.364l.707.707M6.343 6.343l-.707-.707m12.728 0l.707-.707M6.343 17.657l-.707.707"
+            />
+          </svg>
         </div>
-      </section>
+        <h3 className="text-2xl font-semibold text-textDark mb-4 font-heading">
+          Sustainability
+        </h3>
+        <p className="text-textDark font-body text-lg leading-relaxed">
+          We prioritize eco-friendly materials and responsible production to
+          protect our planet for future generations.
+        </p>
+      </div>
+
+      {/* 3️⃣ Craftsmanship */}
+      <div className="text-center p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
+        <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg
+            className="w-10 h-10 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+        </div>
+        <h3 className="text-2xl font-semibold text-textDark mb-4 font-heading">
+          Craftsmanship
+        </h3>
+        <p className="text-textDark font-body text-lg leading-relaxed">
+          Our skilled artisans blend traditional weaving with modern design
+          precision to create timeless, high-quality rugs.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <section className="py-20 bg-bgGrey reveal">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Left Content */}
+      <div>
+        <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textDark mb-4">
+          Our Facilities
+        </h2>
+        <div className="w-24 h-1 bg-gold mb-8"></div>
+
+        {/* Stats Cards */}
+        <div className="grid grid-cols-2 gap-6 mb-10">
+          {[
+            { value: "150 MT", label: "Monthly Yarn Manufacturing Capacity" },
+            { value: "20,000+", label: "Monthly Carpet Making Capacity (sqm)" },
+            { value: "6", label: "Owned Manufacturing Facilities" },
+            {
+              value: "✓",
+              label:
+                "Integrated Facility – From Raw Fibre Processing to Carpet Manufacturing",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-xl p-6 text-center shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="text-3xl font-heading text-secondary mb-2">
+                {item.value}
+              </div>
+              <div className="text-sm text-textDark/80 font-body leading-relaxed">
+                {item.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Certificates */}
+        <CertificatesGrid />
+      </div>
+
+      {/* Right Image */}
+      <div className="flex justify-center items-center">
+        <div className="relative">
+          <div className="absolute inset-0 -translate-x-4 -translate-y-4 bg-gold/10 rounded-2xl blur-md"></div>
+          <img
+            src="/images/flat-lay-monochromatic-assortment-textiles.jpg"
+            alt="Craftsmanship and facilities"
+            className="relative rounded-2xl w-full h-96 object-cover shadow-xl border border-white"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {false && (
         <section className="py-16 bg-white reveal">

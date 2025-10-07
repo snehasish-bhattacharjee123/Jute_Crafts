@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import SEOHelmet from "./SEOHelmet";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 
@@ -32,7 +33,7 @@ function ProductHeroSlider() {
 
   return (
     <section
-      className="relative min-h-[60vh] sm:min-h-[50vh] lg:min-h-[60vh]"
+      className="relative h-[40vh] sm:h-[50vh] lg:h-[60vh]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -240,34 +241,35 @@ function Product() {
   };
 
   const thumbs = {
-    sisal: [
+    // Bengal Folk Craft — heritage jute/sisal craftsmanship
+    bengal: [
       "/images/Jute Boucle Rug.jpg",
-      "/images/download (6).jpg",
       "/images/Elma Geometric Jute Rug _ Natural.jpg",
-    ],
-    jute: [
-      "/images/White Natural Jute Rug, Hand Braided Rug, Jute Rug, Warm Rug, Custom Area Rug, Yoga Mat Indoor Rug.jpg",
       "/images/Naturals Basket.jpg",
-      "/images/download (4).jpg",
+    ],
+    // Coastal Wave — indoor/outdoor, coastal tones and practical textures
+    coastal: [
+      "/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg",
+      "/images/Summer Novelty Coir Doormat _ The Company Store.jpg",
+      "/images/Rugs to complete a room_ #serenaandlily.jpg",
+    ],
+    // Banana Bloom — banana fibre narratives (using natural fibre placeholders)
+    banana: [
+      "/images/carpet.jpg",
+      "/images/download (6).jpg",
       "/images/download (7).jpg",
     ],
-    jacquard: [
-      "/images/download (2).jpg",
-      "/images/download (3).jpg",
-      "/images/download (5).jpg",
-    ],
-    wool: [
+    // EarthBound — earthy wool and jute blends
+    earthbound: [
       "/images/Hart in Terracotta.jpg",
       "/images/download.jpg",
-      "/images/download (1).jpg",
+      "/images/White Natural Jute Rug, Hand Braided Rug, Jute Rug, Warm Rug, Custom Area Rug, Yoga Mat Indoor Rug.jpg",
     ],
-    outdoor: [
-      "/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg",
-      "/images/Summer Novelty Coir Doormat _ The Company Store.jpg",
-    ],
-    mats: [
-      "/images/Otirač Boja bež - SINSAY - 7661Z-08X.jpg",
-      "/images/Rugs to complete a room_ #serenaandlily.jpg",
+    // Spectrum Weaves — jacquard/CAD driven designs
+    spectrum: [
+      "/images/flat-lay-monochromatic-assortment-textiles.jpg",
+      "/images/download (2).jpg",
+      "/images/download (5).jpg",
     ],
   };
 
@@ -330,6 +332,11 @@ function Product() {
 
   return (
     <div className="min-h-screen bg-bgGrey pb-28 md:pb-0">
+      <SEOHelmet
+        title="Rug Collections — Bengal Folk Craft, Coastal Wave, Banana Bloom | MKT Rugs"
+        description="Explore handcrafted rug collections: Bengal Folk Craft, Coastal Wave, Banana Bloom, EarthBound, Spectrum Weaves."
+        canonical="https://www.mktrugs.com/products"
+      />
       <ProductHeroSlider />
 
       <section className="bg-white py-8 sm:py-12">
@@ -353,19 +360,19 @@ function Product() {
       <section className="py-6 sm:py-10">
         <div className="max-w-7xl mx-auto px-0 sm:px-4 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6">
-            {/* Row 1: Large image + Text (Sisal) */}
+            {/* Row 1: Large image + Text — Bengal Folk Craft */}
             <div className="md:col-span-7">
               <img
                 src={"/images/carpet.jpg"}
-                alt="Close-up of sisal weave texture"
+                alt="Hand-braided natural fibre texture"
                 loading="lazy"
                 className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
                 onClick={(e) =>
                   openModal(
                     {
                       src: "/images/carpet.jpg",
-                      alt: "Close-up of sisal weave texture",
-                      title: "SISAL RUGS",
+                      alt: "Hand-braided natural fibre texture",
+                      title: "Bengal Folk Craft",
                     },
                     e.currentTarget
                   )
@@ -374,44 +381,108 @@ function Product() {
             </div>
             <div className="md:col-span-5">
               <TextBlock
-                title="SISAL RUGS"
-                tagline="Natural Agave Fibre Excellence"
+                title="Bengal Folk Craft"
+                tagline="Heritage braids from the looms of Bengal"
                 bullets={[
-                  "Rich golden hue from sustainable agave plants",
-                  "Highly durable for high-traffic commercial areas",
-                  "Dyed, spun and woven with traditional techniques",
-                  "Part of our sea grass collection launched in Scandinavia",
+                  "Hand-braided jute and sisal, rooted in Bengal traditions",
+                  "Earth-warm palettes and robust textures for daily living",
+                  "From cottage looms to export-grade finishing",
+                  "Sourced and crafted within our eastern India cluster",
                 ]}
-                items={thumbs.sisal}
+                items={thumbs.bengal}
               />
             </div>
 
-            {/* Row 2: Text (Jute) + Large image */}
+            {/* Row 2: Text + Large image — Coastal Wave Collection */}
             <div className="md:col-span-5 order-2 md:order-none">
               <TextBlock
-                title="JUTE RUGS"
-                tagline="Field-Fed Banarasi Heritage"
+                title="Coastal Wave Collection"
+                tagline="Sea-breeze hues, indoor–outdoor ease"
                 bullets={[
-                  "100% eco-friendly & biodegradable Banarasi jute",
-                  "Transformed from field-fed fibres by sunrise & kerosene lamp",
-                  "Lustrous yarn and braid with traditional craftsmanship",
-                  "Handwoven for durability & moon-washed textures",
+                  "All-weather weaves in coastal neutrals and ocean blues",
+                  "Easy-care textures designed for patios and shore homes",
+                  "PET and coir options for durability and quick dry-down",
+                  "Ripple patterns inspired by tidal lines and dune grasses",
                 ]}
-                items={thumbs.jute}
+                items={thumbs.coastal}
               />
             </div>
             <div className="md:col-span-7 order-1 md:order-none">
               <img
+                src={"/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg"}
+                alt="Coastal-ready indoor/outdoor weave in patio setting"
+                loading="lazy"
+                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
+                onClick={(e) =>
+                  openModal(
+                    {
+                      src: "/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg",
+                      alt: "Coastal-ready indoor/outdoor weave in patio setting",
+                      title: "Coastal Wave Collection",
+                    },
+                    e.currentTarget
+                  )
+                }
+              />
+            </div>
+
+            <div className="md:col-span-7">
+              <img
                 src={"/images/Elma Geometric Jute Rug _ Natural.jpg"}
-                alt="Jute rug arranged in modern living room"
+                alt="Banana-blend flatweave in warm interior"
                 loading="lazy"
                 className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
                 onClick={(e) =>
                   openModal(
                     {
                       src: "/images/Elma Geometric Jute Rug _ Natural.jpg",
-                      alt: "Jute rug arranged in modern living room",
-                      title: "JUTE RUGS",
+                      alt: "Banana-blend flatweave in warm interior",
+                      title: "Banana Bloom Collection",
+                    },
+                    e.currentTarget
+                  )
+                }
+              />
+            </div>
+            <div className="md:col-span-5">
+              <TextBlock
+                title="Banana Bloom Collection"
+                tagline="Banana fibre stories, spun with sunshine"
+                bullets={[
+                  "Banana fibre yarns blended for supple strength",
+                  "Naturally variegated tones with organic sheen",
+                  "Plant-forward textures with low VOC finishing",
+                  "Sustainably sourced within our 50–150 km belt",
+                ]}
+                items={thumbs.banana}
+              />
+            </div>
+
+            <div className="md:col-span-5 order-2 md:order-none">
+              <TextBlock
+                title="EarthBound Collection"
+                tagline="Grounded blends of wool and jute"
+                bullets={[
+                  "Cushy wool piles anchored by hardy jute warps",
+                  "Earth-tone palettes for calm, restorative rooms",
+                  "Thermal comfort with everyday durability",
+                  "Hand-finished edges for heirloom longevity",
+                ]}
+                items={thumbs.earthbound}
+              />
+            </div>
+            <div className="md:col-span-7 order-1 md:order-none">
+              <img
+                src={"/images/Hart in Terracotta.jpg"}
+                alt="Wool–jute blend rug adding warmth to living area"
+                loading="lazy"
+                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
+                onClick={(e) =>
+                  openModal(
+                    {
+                      src: "/images/Hart in Terracotta.jpg",
+                      alt: "Wool–jute blend rug adding warmth to living area",
+                      title: "EarthBound Collection",
                     },
                     e.currentTarget
                   )
@@ -422,15 +493,15 @@ function Product() {
             <div className="md:col-span-7">
               <img
                 src={"/images/flat-lay-monochromatic-assortment-textiles.jpg"}
-                alt="Flat lay of jacquard textile patterns"
+                alt="Jacquard patterns in monochrome study"
                 loading="lazy"
                 className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
                 onClick={(e) =>
                   openModal(
                     {
                       src: "/images/flat-lay-monochromatic-assortment-textiles.jpg",
-                      alt: "Flat lay of jacquard textile patterns",
-                      title: "JACQUARD RUGS",
+                      alt: "Jacquard patterns in monochrome study",
+                      title: "Spectrum Weaves Collection",
                     },
                     e.currentTarget
                   )
@@ -439,113 +510,15 @@ function Product() {
             </div>
             <div className="md:col-span-5">
               <TextBlock
-                title="JACQUARD RUGS"
-                tagline="CAD-Designed Excellence"
+                title="Spectrum Weaves Collection"
+                tagline="CAD-driven motifs, precision-woven"
                 bullets={[
-                  "Digitally controlled looms with CAD patterns",
-                  "Blend of premium wool, sisal and field-fed jute",
-                  "Soft, durable, and refined for luxury interiors",
-                  "Co-created with in-house CAD studio capabilities",
+                  "Digitally guided looms render crisp geometric fields",
+                  "Tone-on-tone and contrast palettes for modern spaces",
+                  "Premium yarn selections for definition and drape",
+                  "Studio-to-loom pipeline for rapid sampling",
                 ]}
-                items={thumbs.jacquard}
-              />
-            </div>
-
-            <div className="md:col-span-5 order-2 md:order-none">
-              <TextBlock
-                title="WOOL RUGS"
-                tagline="Volume & Luxury Combined"
-                bullets={[
-                  "Premium wool for volume and comfort",
-                  "Soft, insulating, and naturally flame-retardant",
-                  "Available in diverse textures and pile heights",
-                  "Blended with natural fibres for enhanced durability",
-                ]}
-                items={thumbs.wool}
-              />
-            </div>
-            <div className="md:col-span-7 order-1 md:order-none">
-              <img
-                src={
-                  "/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg"
-                }
-                alt="Beige handwoven wool rug with dotted pattern"
-                loading="lazy"
-                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
-                onClick={(e) =>
-                  openModal(
-                    {
-                      src: "/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg",
-                      alt: "Beige handwoven wool rug with dotted pattern",
-                      title: "WOOL RUGS",
-                    },
-                    e.currentTarget
-                  )
-                }
-              />
-            </div>
-
-            <div className="md:col-span-7">
-              <img
-                src={"/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg"}
-                alt="Outdoor-friendly PET rugs styled in patio"
-                loading="lazy"
-                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
-                onClick={(e) =>
-                  openModal(
-                    {
-                      src: "/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg",
-                      alt: "Outdoor-friendly PET rugs styled in patio",
-                      title: "INDOOR/OUTDOOR COLLECTION",
-                    },
-                    e.currentTarget
-                  )
-                }
-              />
-            </div>
-            <div className="md:col-span-5">
-              <TextBlock
-                title="INDOOR/OUTDOOR COLLECTION"
-                tagline="100% Recycled PET Innovation"
-                bullets={[
-                  "Constructed from 100% recycled PET yarns",
-                  "Stain-resistant and weather-ready for any environment",
-                  "Part of our circular runs program for sustainability",
-                  "Electric trucking delivery via MetZip Logistics",
-                ]}
-                items={thumbs.outdoor}
-              />
-            </div>
-
-            <div className="md:col-span-5 order-2 md:order-none">
-              <TextBlock
-                title="DOOR MATS"
-                tagline="Tufted & Woven Coir Mastery"
-                bullets={[
-                  "Woven & tufted coir with natural rubber backing",
-                  "Vinyl-backed variants for high-traffic commercial use",
-                  "Effective dirt trapping with artisanal style",
-                  "Biomass steam-powered production process",
-                ]}
-                items={thumbs.mats}
-              />
-            </div>
-            <div className="md:col-span-7 order-1 md:order-none">
-              <img
-                src={"/images/Otirač Boja bež - SINSAY - 7661Z-08X.jpg"}
-                alt="Assorted decorative doormats in beige tones"
-                loading="lazy"
-                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
-                onClick={(e) =>
-                  openModal(
-                    {
-                      src: "/images/Otirač Boja bež - SINSAY - 7661Z-08X.jpg",
-                      alt: "Assorted decorative doormats in beige tones",
-                      title: "DOOR MATS",
-                    },
-                    e.currentTarget
-                  )
-                }
+                items={thumbs.spectrum}
               />
             </div>
           </div>
@@ -821,3 +794,5 @@ function Product() {
 }
 
 export default Product;
+
+

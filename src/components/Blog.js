@@ -93,6 +93,7 @@
 
 // src/pages/Blog.jsx
 import React, { useState } from "react";
+import SEOHelmet from "./SEOHelmet";
 
 const blogs = [
   {
@@ -127,6 +128,11 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-[#f8f5f2] text-[#3c2f2f] font-body">
+      <SEOHelmet
+        title="Insights on Natural Fibre Rugs | MKT Rugs"
+        description="Read insights on natural fibre rugs, sustainability, and artisan craftsmanship from MKT Rugs."
+        canonical="https://www.mktrugs.com/blog"
+      />
       {/* Hero Section */}
       <section className="text-center py-20 px-6 border-b border-[#e9ddd1]">
         <h1 className="text-3xl sm:text-5xl font-heading font-semibold mb-4">

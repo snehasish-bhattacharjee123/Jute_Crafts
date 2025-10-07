@@ -111,77 +111,88 @@
 
 // src/pages/WhyUs.jsx
 import React from "react";
-import { Helmet } from "react-helmet"; // ✅ For SEO metadata
+import { Helmet } from "react-helmet";
 
-const advantages = [
+const problemSolutions = [
   {
-    title: "From Farm to Floor",
-    desc: "We source raw jute and natural fibers within a 50 km radius — reducing carbon footprint while ensuring authentic, traceable craftsmanship.",
+    problem: "Late Shipments",
+    solutionTitle: "From Farm to Floor",
+    solutionDesc:
+      "We source raw jute and natural fibers locally within a 50 km radius. Close sourcing and integrated production reduce delays — your rugs arrive on time.",
   },
   {
-    title: "Eco-Friendly Production",
-    desc: "Our looms run on clean energy and every fiber is biodegradable. Sustainability is not a trend for us — it's tradition.",
+    problem: "Quality Doesn’t Match Samples",
+    solutionTitle: "Consistent Craftsmanship",
+    solutionDesc:
+      "Every sample matches the final product. Skilled artisans ensure each rug reflects the design, texture, and quality you expect.",
   },
   {
-    title: "Global Export Expertise",
-    desc: "Trusted by importers worldwide for transparent costing, SEDEX-SMETA compliance, and reliable logistics.",
+    problem: "Endless Wait for Replies",
+    solutionTitle: "Responsive Support",
+    solutionDesc:
+      "Our team provides prompt answers and regular updates — no more waiting endlessly for status updates.",
   },
   {
-    title: "Design Studio Collaboration",
-    desc: "Our in-house CAD studio lets you co-create bespoke rug patterns and textures — MOQ as low as 50 sqm.",
+    problem: "Stale or Old Designs",
+    solutionTitle: "Innovative Design Studio",
+    solutionDesc:
+      "Our in-house CAD studio collaborates with you to create fresh, unique rug designs — MOQ as low as 50 sqm.",
   },
   {
-    title: "Skilled Artisans",
-    desc: "Generations of weavers bring unmatched precision to every weave — ensuring durability and timeless beauty.",
+    problem: "Worries About Unethical Practices",
+    solutionTitle: "Ethical & Transparent Production",
+    solutionDesc:
+      "We maintain strict social compliance (SEDEX/SMETA) and transparent costing — you can trust our processes.",
   },
   {
-    title: "Shortest Lead Time",
-    desc: "Integrated production and close-knit sourcing mean 35% faster FOB dispatch times than industry average.",
+    problem: "Concerned About Sustainability",
+    solutionTitle: "Eco-Friendly Production",
+    solutionDesc:
+      "Our looms run on clean energy and every fiber is biodegradable. Sustainability is not a trend — it’s tradition.",
   },
 ];
 
 const WhyUs = () => {
   return (
-    <div className="min-h-screen bg-[#f8f5f2] text-[#3c2f2f] font-body">
+    <div className="min-h-screen bg-bgGrey text-textDark font-body">
       {/* SEO Metadata */}
       <Helmet>
-        <title>Why Choose MKT Rugs | Sustainable Handmade Rugs</title>
+        <title>Why Choose MKT Rugs | Problem Solved Rugs</title>
         <meta
           name="description"
-          content="Discover why MKT Rugs is the preferred choice for sustainable, handcrafted rugs. From eco-friendly production to skilled artisans, experience the MKT advantage."
+          content="Discover how MKT Rugs solves common rug industry problems — from late shipments to sustainability concerns — while providing authentic, handcrafted rugs."
         />
         <meta
           name="keywords"
-          content="MKT Rugs, Sustainable Rugs, Handmade Rugs, Eco-Friendly Rugs, Artisan Rugs"
+          content="MKT Rugs, Handmade Rugs, Eco-Friendly Rugs, Artisan Rugs, Sustainable Rugs"
         />
         <link rel="canonical" href="https://www.mktrugs.com/why-us" />
       </Helmet>
 
       {/* Hero Section */}
       <section
-        className="relative bg-cover bg-center min-h-[50vh] flex items-center justify-center"
+        className="relative bg-cover bg-center h-[40vh] sm:h-[50vh] lg:h-[60vh] flex items-center justify-center"
         style={{ backgroundImage: "url('/images/Home_1.jpg')" }}
       >
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center px-6">
-          <h1 className="text-3xl sm:text-5xl font-heading text-white font-semibold drop-shadow-lg">
+          <h1 className="text-3xl sm:text-5xl font-heading text-textLight font-semibold drop-shadow-lg">
             Why Choose MKT Rugs
           </h1>
-          <p className="mt-3 text-white/90 max-w-2xl mx-auto text-sm sm:text-base">
-            Crafting sustainable, authentic rugs that bring nature into your
-            living space.
+          <p className="mt-3 text-textLight/90 max-w-2xl mx-auto text-sm sm:text-base">
+            Solving common rug industry problems with sustainable, authentic craftsmanship.
           </p>
         </div>
       </section>
 
-      {/* Advantages Section */}
+      {/* Problem → Solution Section */}
       <section className="max-w-6xl mx-auto py-20 px-6 sm:px-10">
-        <h2 className="text-center text-2xl sm:text-3xl font-heading font-semibold mb-16 text-[#2b1d1d]">
-          The MKT Rugs Advantage
+        <h2 className="text-center text-2xl sm:text-3xl font-heading font-semibold mb-16 text-textDark">
+          How MKT Rugs Solves Your Problems
         </h2>
 
-        <div className="space-y-16">
-          {advantages.map((item, index) => (
+        <div className="space-y-20">
+          {problemSolutions.map((item, index) => (
             <div
               key={index}
               className={`flex flex-col sm:flex-row items-start gap-8 ${
@@ -191,17 +202,20 @@ const WhyUs = () => {
               }`}
             >
               {/* Number */}
-              <div className="text-[#c49b63] text-5xl sm:text-6xl font-bold font-heading leading-none opacity-80 flex-shrink-0 sm:w-[100px] text-center">
+              <div className="text-gold text-5xl sm:text-6xl font-bold font-heading leading-none flex-shrink-0 sm:w-[100px] text-center opacity-80">
                 {(index + 1).toString().padStart(2, "0")}
               </div>
 
               {/* Content */}
               <div className="flex-1 text-center sm:text-left">
-                <h3 className="font-heading text-lg sm:text-xl font-semibold mb-2 text-[#2b1d1d]">
-                  {item.title}
+                <h4 className="text-sm sm:text-base text-red-600 font-semibold mb-1">
+                  Problem: {item.problem}
+                </h4>
+                <h3 className="font-heading text-lg sm:text-xl font-semibold mb-2 text-textDark">
+                  Solution: {item.solutionTitle}
                 </h3>
-                <p className="text-sm sm:text-base text-[#4a3a3a]/90 leading-relaxed max-w-xl mx-auto sm:mx-0">
-                  {item.desc}
+                <p className="text-sm sm:text-base text-textDark/80 leading-relaxed max-w-xl mx-auto sm:mx-0">
+                  {item.solutionDesc}
                 </p>
               </div>
             </div>
@@ -218,28 +232,7 @@ const WhyUs = () => {
         </div>
       </section>
 
-      {/* Split Section with Image & Text */}
-      <section className="flex flex-col md:flex-row items-center justify-center bg-[#e9ddd1]">
-        <div className="md:w-1/2 w-full p-4">
-          <img
-            src="/images/Home_1.jpg"
-            alt="Skilled artisan"
-            className="w-full h-full object-cover rounded-lg scale-95 md:scale-90 mx-auto transition-transform duration-500"
-          />
-        </div>
-        <div className="md:w-1/2 w-full py-12 px-8 md:px-12 text-[#2b1d1d] text-center md:text-left">
-          <h3 className="text-2xl sm:text-3xl font-heading font-semibold mb-4">
-            Designed for Sustainable Living
-          </h3>
-          <p className="text-sm sm:text-base leading-relaxed text-[#4a3a3a]/90">
-            Each MKT Rug is a story of nature, craft, and community. We empower
-            artisans, preserve traditional techniques, and ensure your floors
-            carry the warmth of purpose and authenticity.
-          </p>
-        </div>
-      </section>
-
-      {/* Optional Call-To-Action at Bottom */}
+      {/* CTA Section */}
       <section className="bg-[#f3ebe3] py-16 text-center">
         <h4 className="text-xl sm:text-2xl font-semibold mb-6 text-[#2b1d1d]">
           Ready to Transform Your Space?
@@ -256,6 +249,8 @@ const WhyUs = () => {
 };
 
 export default WhyUs;
+
+
 
 
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import SEOHelmet from './SEOHelmet';
 
 function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -70,8 +71,13 @@ function Gallery() {
 
   return (
     <div className="min-h-screen bg-bgGrey">
+      <SEOHelmet
+        title="Rug Gallery — Natural Fibres & Craft | MKT Rugs"
+        description="Browse our gallery of handcrafted rugs, facilities, and artisan craftsmanship in natural fibres."
+        canonical="https://www.mktrugs.com/gallery"
+      />
       
-      <section className="relative h-[32vh] sm:h-[40vh] lg:h-[50vh]">
+      <section className="relative h-[40vh] sm:h-[50vh] lg:h-[60vh]">
         <img
           src="/images/background-zoom-calls-with-cozy-living-room.jpg"
           alt="Gallery hero background"

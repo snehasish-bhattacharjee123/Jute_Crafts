@@ -513,6 +513,7 @@
 // export default App;
 
 import React, { Suspense, lazy, useEffect, useState } from "react";
+import SEOHelmet from "./components/SEOHelmet";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -656,6 +657,13 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-bgGrey">
+        <SEOHelmet
+          title="Handcrafted Natural Fibre Rugs | MKT Rugs"
+          description="From farm to floor: handcrafted natural fibre rugs from West Bengal. Explore collections and contact MKT Rugs."
+          canonical="https://www.mktrugs.com/"
+          image="https://www.mktrugs.com/images/HOME_1.jpg"
+          type="website"
+        />
         <Header />
         <div
           aria-hidden="true"
@@ -842,13 +850,13 @@ function App() {
                                     Explore Products
                                   </button>
                                 </Link>
-                                <button
+                                {/* <button
                                   type="button"
                                   onClick={scrollToFooter}
                                   className="px-5 py-3 rounded-full border border-primary text-primary font-body hover:bg-primary/5 transition"
                                 >
                                   Contact
-                                </button>
+                                </button> */}
                               </div>
                             </div>
                           </div>
@@ -856,83 +864,8 @@ function App() {
                       </div>
                     </section>
 
-                    {/* === ABOUT MKT RUGS SECTION === */}
-                    <section id="about" className="py-12 md:py-16 bg-bgGrey">
-                      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="text-center mb-12 reveal">
-                          <div className="inline-flex items-center gap-3 mb-3">
-                            <span className="w-8 h-[2px] bg-gold"></span>
-                            <span className="uppercase tracking-[0.3em] text-sm text-gold font-accent">
-                              Our Story
-                            </span>
-                          </div>
-                          <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textDark mb-6">
-                            About MKT Rugs
-                          </h2>
-                        </div>
 
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                          <div className="space-y-6 reveal">
-                            <p className="font-body text-base text-textDark leading-relaxed">
-                              Established in 2024, MKT Rugs specializes in
-                              export operations from Gopalnagar, West Bengal,
-                              India. We are powered by over 100 in-house
-                              artisans and more than 1000 auxiliary workers. Our
-                              journey began in 2008 as Maa Kali Traders, a
-                              yarn-making company that evolved into an
-                              integrated carpet manufacturing company in 2017.
-                              We've proudly worked for India's top export
-                              houses.
-                            </p>
-                            <p className="font-body text-base text-textDark leading-relaxed">
-                              Our commitment to quality begins with sourcing raw
-                              jute and other natural fibers like sisal,
-                              seagrass, and banana fiber. Through hand-spun,
-                              hand-braided, and hand-twisted yarn, we ensure
-                              strict quality control, delivering beautiful,
-                              high-quality natural carpets. This end-to-end
-                              control, "From Farm To Floor," is our promise to
-                              you.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                              <Link to="/products" className="inline-flex">
-                                <Button variant="gold">
-                                  View Our Products
-                                </Button>
-                              </Link>
-                              <button
-                                type="button"
-                                onClick={scrollToFooter}
-                                className="px-5 py-3 rounded-full border border-primary text-primary font-body hover:bg-primary/5 transition"
-                              >
-                                Contact Us
-                              </button>
-                            </div>
-                          </div>
-                          <div className="relative reveal">
-                            <img
-                              src="/images/ABOUT US.jpg"
-                              alt="Traditional rug making process at MKT Rugs"
-                              className="w-full h-96 object-cover rounded-lg shadow-lg"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg"></div>
-                            <div className="absolute bottom-6 left-6 right-6">
-                              <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4">
-                                <h4 className="font-heading text-lg text-textDark mb-2">
-                                  From Farm to Floor
-                                </h4>
-                                <p className="font-body text-sm text-textDark/80">
-                                  Complete control from raw fiber sourcing to
-                                  finished product delivery.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-
-                    {/* === PRODUCT COLLECTION SECTION === */}
+                     {/* === PRODUCT COLLECTION SECTION === */}
                     <section id="products" className="py-8 md:py-12 bg-bgLight">
                       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-8">
@@ -1199,6 +1132,188 @@ function App() {
                         </div>
                       </div>
                     </section>
+
+                    {/* === ABOUT MKT RUGS SECTION === */}
+                    {/* <section id="about" className="py-12 md:py-16 bg-bgGrey">
+                      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="text-center mb-12 reveal">
+                          <div className="inline-flex items-center gap-3 mb-3">
+                            <span className="w-8 h-[2px] bg-gold"></span>
+                            <span className="uppercase tracking-[0.3em] text-sm text-gold font-accent">
+                              Our Story
+                            </span>
+                          </div>
+                          <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textDark mb-6">
+                            About MKT Rugs
+                          </h2>
+                        </div>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                          <div className="space-y-6 reveal">
+                            <p className="font-body text-base text-textDark leading-relaxed">
+                              Established in 2024, MKT Rugs specializes in
+                              export operations from Gopalnagar, West Bengal,
+                              India. We are powered by over 100 in-house
+                              artisans and more than 1000 auxiliary workers. Our
+                              journey began in 2008 as Maa Kali Traders, a
+                              yarn-making company that evolved into an
+                              integrated carpet manufacturing company in 2017.
+                              We've proudly worked for India's top export
+                              houses.
+                            </p>
+                            <p className="font-body text-base text-textDark leading-relaxed">
+                              Our commitment to quality begins with sourcing raw
+                              jute and other natural fibers like sisal,
+                              seagrass, and banana fiber. Through hand-spun,
+                              hand-braided, and hand-twisted yarn, we ensure
+                              strict quality control, delivering beautiful,
+                              high-quality natural carpets. This end-to-end
+                              control, "From Farm To Floor," is our promise to
+                              you.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                              <Link to="/products" className="inline-flex">
+                                <Button variant="gold">
+                                  View Our Products
+                                </Button>
+                              </Link>
+                              <button
+                                type="button"
+                                onClick={scrollToFooter}
+                                className="px-5 py-3 rounded-full border border-primary text-primary font-body hover:bg-primary/5 transition"
+                              >
+                                Contact Us
+                              </button>
+                            </div>
+                          </div>
+                          <div className="relative reveal">
+                            <img
+                              src="/images/ABOUT US.jpg"
+                              alt="Traditional rug making process at MKT Rugs"
+                              className="w-full h-96 object-cover rounded-lg shadow-lg"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg"></div>
+                            <div className="absolute bottom-6 left-6 right-6">
+                              <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4">
+                                <h4 className="font-heading text-lg text-textDark mb-2">
+                                  From Farm to Floor
+                                </h4>
+                                <p className="font-body text-sm text-textDark/80">
+                                  Complete control from raw fiber sourcing to
+                                  finished product delivery.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section> */}
+                    <section
+                      id="facilities"
+                      className="py-12 md:py-16 bg-bgLight"
+                    >
+                      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="flex flex-col md:flex-row items-center">
+                          <div className="w-full md:w-1/2 flex flex-col items-center justify-center mb-8 md:mb-0">
+                            <div className="relative max-w-md mx-auto">
+                              <img
+                                src="/images/ABOUT US.jpg"
+                                alt="Rolled mats in basket"
+                                className="w-full h-80 md:h-96 object-contain rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                              />
+
+                              <img
+                                src="/images/02.jpg"
+                                alt="Wooden cabinet with decor"
+                                className="w-3/4 md:w-2/3 mt-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 mx-auto"
+                              />
+
+                              <div className="absolute bottom-0 left-4 md:left-0 w-20 h-14 md:w-24 md:h-16 bg-secondary rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"></div>
+                            </div>
+                          </div>
+
+                          <div className="w-full md:w-1/2 px-4 md:px-8 flex flex-col justify-center">
+                            <h3 className="uppercase tracking-widest text-sm text-textDark text-center mb-4 font-accent">
+                              IN HARMONY WITH NATURE
+                            </h3>
+
+                            <div className="flex items-center mb-6">
+                              <div className="border-t border-primary w-1/4 md:w-1/3 mx-2"></div>
+                              <h2 className="text-xl md:text-2xl font-semibold text-textDark text-center font-heading">
+                                ABOUT MKT RUGS
+                              </h2>
+                              <div className="border-t border-primary w-1/4 md:w-1/3 mx-2"></div>
+                            </div>
+
+                            <p className="text-textDark leading-relaxed text-justify md:text-left mb-6 font-body">
+                              Established in 2024, MKT Rugs specializes in
+                              export operations from Gopalnagar, West Bengal,
+                              India. We are powered by over 100 in-house
+                              artisans and more than 1000 auxiliary workers. Our
+                              journey began in 2008 as Maa Kali Traders, a
+                              yarn-making company that evolved into an
+                              integrated carpet manufacturing company in 2017.
+                              We've proudly worked for India's top export
+                              houses.
+                            </p>
+
+                            {/* <p className="font-body text-base text-textDark leading-relaxed">
+                              Our commitment to quality begins with sourcing raw
+                              jute and other natural fibers like sisal,
+                              seagrass, and banana fiber. Through hand-spun,
+                              hand-braided, and hand-twisted yarn, we ensure
+                              strict quality control, delivering beautiful,
+                              high-quality natural carpets. This end-to-end
+                              control, "From Farm To Floor," is our promise to
+                              you.
+                            </p> */}
+
+                            {/* <div className="mb-6 flex justify-center md:justify-start">
+                              <Button
+                                variant="secondary"
+                                className="flex items-center space-x-2"
+                              >
+                                <span>Download Brochure</span>
+                                <svg
+                                  className="w-4 h-4"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                  />
+                                </svg>
+                              </Button>
+                            </div> */}
+
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                              <img
+                                src="/images/03.jpg"
+                                alt="Product thumbnail 1"
+                                className="rounded-lg shadow-sm hover:shadow-md hover:scale-105 cursor-pointer transition-all duration-300"
+                              />
+                              <img
+                                src="/images/04.jpg"
+                                alt="Product thumbnail 2"
+                                className="rounded-lg shadow-sm hover:shadow-md hover:scale-105 cursor-pointer transition-all duration-300"
+                              />
+                              <img
+                                src="/images/05.jpg"
+                                alt="Product thumbnail 3"
+                                className="rounded-lg shadow-sm hover:shadow-md hover:scale-105 cursor-pointer transition-all duration-300"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                   
+
 
                     {/* === MODAL === */}
                     {showModal && (
