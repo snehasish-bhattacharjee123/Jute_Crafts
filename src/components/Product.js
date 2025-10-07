@@ -33,7 +33,7 @@ function ProductHeroSlider() {
 
   return (
     <section
-      className="relative h-[40vh] sm:h-[50vh] lg:h-[60vh]"
+      className="relative h-[45vh] sm:h-[50vh] lg:h-[60vh] min-h-[400px]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -49,35 +49,35 @@ function ProductHeroSlider() {
       ))}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-secondary/20 to-secondary/60" />
       {/* Headline + CTA + USPs */}
-      <div className="absolute inset-0 flex items-center pt-16">
+      <div className="absolute inset-0 flex items-center pt-12 sm:pt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-3xl">
-            <h1 className="text-2xl sm:text-4xl lg:text-6xl font-heading font-semibold text-white leading-tight break-words">
+            <h1 className="text-xl sm:text-4xl lg:text-6xl font-heading font-semibold text-white leading-tight break-words">
               Material Mastery — From Farm to Floor
             </h1>
-            <p className="mt-3 sm:mt-4 text-white/90 font-body max-w-xl text-sm sm:text-base">
+            <p className="mt-2 sm:mt-4 text-white/90 font-body max-w-xl text-xs sm:text-base leading-relaxed">
               Passion for innovative natural fibre products handed down 4
               generations. Jute, banana, sea grass and more on soil. Cotton for
               softness, wool for volume, and linen for finesse.
             </p>
-            <div className="mt-5 flex flex-col sm:flex-row gap-3">
+            <div className="mt-3 sm:mt-5 flex flex-col sm:flex-row gap-2 sm:gap-3">
               <Link to="/products">
-                <Button variant="gold">Explore Collection</Button>
+                <Button variant="gold" className="w-full sm:w-auto text-sm sm:text-base">Explore Collection</Button>
               </Link>
               <Link to="/contact">
                 <Button
                   variant="secondary"
-                  className="!border-white !text-white hover:!bg-white hover:!text-secondary"
+                  className="w-full sm:w-auto text-sm sm:text-base !border-white !text-white hover:!bg-white hover:!text-secondary"
                 >
                   Contact
                 </Button>
               </Link>
             </div>
             {/* USP badges */}
-            <div className="mt-4 flex flex-wrap gap-2 text-xs sm:text-sm text-white/90">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 ring-1 ring-white/20">
+            <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-sm text-white/90">
+              <span className="inline-flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-full bg-black/30 ring-1 ring-white/20">
                 <svg
-                  className="w-4 h-4"
+                  className="w-3 h-3 sm:w-4 sm:h-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -87,9 +87,9 @@ function ProductHeroSlider() {
                 </svg>
                 Handmade
               </span>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 ring-1 ring-white/20">
+              <span className="inline-flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-full bg-black/30 ring-1 ring-white/20">
                 <svg
-                  className="w-4 h-4"
+                  className="w-3 h-3 sm:w-4 sm:h-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -99,9 +99,9 @@ function ProductHeroSlider() {
                 </svg>
                 Eco-friendly
               </span>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 ring-1 ring-white/20">
+              <span className="inline-flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-full bg-black/30 ring-1 ring-white/20">
                 <svg
-                  className="w-4 h-4"
+                  className="w-3 h-3 sm:w-4 sm:h-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -111,9 +111,9 @@ function ProductHeroSlider() {
                 </svg>
                 Durable
               </span>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 ring-1 ring-white/20">
+              <span className="inline-flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-full bg-black/30 ring-1 ring-white/20">
                 <svg
-                  className="w-4 h-4"
+                  className="w-3 h-3 sm:w-4 sm:h-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"

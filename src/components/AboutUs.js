@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import SEOHelmet from "./SEOHelmet";
 import Button from "./Button";
 
+
+//swiper 
+
+
 function CertificatesGrid() {
   const certs = [
     {
