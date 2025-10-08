@@ -932,7 +932,7 @@ function App() {
                           <div className="inline-flex items-center gap-3 mb-3">
                             <span className="w-8 h-[2px] bg-gold"></span>
                             <span className="uppercase tracking-[0.3em] text-sm text-gold font-accent">
-                              Heritage Overseas
+                              MKT Rugs
                             </span>
                           </div>
                           <h2 className="text-3xl sm:text-5xl font-heading font-semibold text-textDark">
