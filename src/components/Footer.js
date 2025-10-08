@@ -178,7 +178,7 @@ const Footer = () => {
                   Our Products
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="/enquiry"
                   className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
@@ -186,7 +186,7 @@ const Footer = () => {
                   <span className="h-1 w-1 rounded-full bg-gold mr-2 transition-transform group-hover:scale-150"></span>
                   Enquiry
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="/contact"
@@ -208,14 +208,14 @@ const Footer = () => {
               Resources
             </h5>
             <ul className="space-y-2">
-              <li>
+              {/* <li>
                 <a
                   href="/collections"
                   className="footer-link font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   Collections
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="/care"

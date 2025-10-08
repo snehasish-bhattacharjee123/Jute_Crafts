@@ -1,4 +1,30 @@
-# https://www.robotstxt.org/robotstxt.html
+# Robots.txt for MKT Rugs Website
+# https://www.mktrugs.com/robots.txt
+
 User-agent: *
-Disallow:
+Allow: /
+
+# Important pages for SEO
+Allow: /about
+Allow: /products
+Allow: /gallery
+Allow: /contact
+Allow: /blog
+Allow: /why-us
+Allow: /enquiry
+
+# Static assets
+Allow: /images/
+Allow: /static/
+Allow: /*.css$
+Allow: /*.js$
+
+# Block admin or development areas (if any)
+# Disallow: /admin/
+# Disallow: /.env
+
+# Sitemap location
 Sitemap: https://www.mktrugs.com/sitemap.xml
+
+# Crawl delay for polite crawling
+Crawl-delay: 1
