@@ -9,19 +9,16 @@ import {
 } from "react-icons/fi";
 
 const Footer = () => {
-  // Newsletter subscribe state
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
   const [error, setError] = useState("");
 
-  // Simulated subscribe handler (replace with EmailJS or backend logic)
   const handleSubscribe = async (e) => {
     e.preventDefault();
     setSubmitting(true);
     setError("");
     setSubscribed(false);
-    // Simulate async request
     setTimeout(() => {
       if (email && email.includes("@")) {
         setSubscribed(true);
@@ -62,25 +59,6 @@ const Footer = () => {
       id="site-footer"
       className="text-textLight bg-secondary relative footer-base"
     >
-      {/* Top CTA strip */}
-      {/* <div className="bg-gradient-to-r from-primary to-bronze">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h3 className="text-2xl font-heading font-semibold tracking-tight">Ready to transform your space?</h3>
-            <p className="text-sm font-body opacity-90">Premium rugs crafted with care — from farm to floor.</p>
-          </div>
-          <a
-            href="/enquiry"
-            className="inline-flex items-center justify-center rounded-full bg-secondary text-textLight px-6 py-3 text-sm font-medium shadow-md ring-1 ring-white/10 hover:bg-textLight hover:text-secondary transition-colors duration-300"
-          >
-            Get a Quote
-            <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-      </div> */}
-
       <div
         id="get-in-touch"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14"
@@ -165,7 +143,6 @@ const Footer = () => {
                   href="/about"
                   className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
-                  <span className="h-1 w-1 rounded-full bg-gold mr-2 transition-transform group-hover:scale-150"></span>
                   About Us
                 </a>
               </li>
@@ -174,25 +151,14 @@ const Footer = () => {
                   href="/products"
                   className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
-                  <span className="h-1 w-1 rounded-full bg-gold mr-2 transition-transform group-hover:scale-150"></span>
                   Our Products
                 </a>
               </li>
-              {/* <li>
-                <a
-                  href="/enquiry"
-                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
-                >
-                  <span className="h-1 w-1 rounded-full bg-gold mr-2 transition-transform group-hover:scale-150"></span>
-                  Enquiry
-                </a>
-              </li> */}
               <li>
                 <a
                   href="/contact"
                   className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
-                  <span className="h-1 w-1 rounded-full bg-gold mr-2 transition-transform group-hover:scale-150"></span>
                   Contact
                 </a>
               </li>
@@ -208,17 +174,9 @@ const Footer = () => {
               Resources
             </h5>
             <ul className="space-y-2">
-              {/* <li>
-                <a
-                  href="/collections"
-                  className="footer-link font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
-                >
-                  Collections
-                </a>
-              </li> */}
               <li>
                 <a
-                  href="/care"
+                  href="/care-guide"
                   className="footer-link font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   Care Guide
@@ -243,8 +201,8 @@ const Footer = () => {
             </ul>
           </nav>
 
+          {/* Newsletter */}
           <div className="footer-reveal">
-            {/* Newsletter/Subscribe */}
             <h5 className="text-base font-heading font-semibold mb-4 text-gold">
               Stay in the loop
             </h5>
@@ -327,12 +285,32 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} MKT RUGS. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <a href="#" className="footer-link hover:text-textLight transition">
+            <a
+              href="/privacy-policy"
+              className="footer-link hover:text-textLight transition"
+            >
               Privacy Policy
             </a>
             <span className="opacity-40">•</span>
-            <a href="#" className="footer-link hover:text-textLight transition">
-              Terms
+            <a
+              href="/terms-conditions"
+              className="footer-link hover:text-textLight transition"
+            >
+              Terms & Conditions
+            </a>
+            <span className="opacity-40">•</span>
+            <a
+              href="/refund-policy"
+              className="footer-link hover:text-textLight transition"
+            >
+              Refund Policy
+            </a>
+            <span className="opacity-40">•</span>
+            <a
+              href="/shipping-policy"
+              className="footer-link hover:text-textLight transition"
+            >
+              Shipping Policy
             </a>
             <span className="opacity-40">•</span>
             <a

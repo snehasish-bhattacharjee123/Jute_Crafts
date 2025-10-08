@@ -521,6 +521,11 @@ import Footer from "./components/Footer";
 import ErrorBoundary from "./components/ErrorBoundary";
 import BackToTop from "./components/BackToTop";
 import emailjs from "@emailjs/browser";
+import TermsConditions from "./components/TermsConditions";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import RefundPolicy from "./components/RefundPolicy";
+import ShippingPolicy from "./components/ShippingPolicy";
+
 
 const AboutUs = lazy(() => import("./components/AboutUs"));
 const Gallery = lazy(() => import("./components/Gallery"));
@@ -530,6 +535,9 @@ const Card = lazy(() => import("./components/Card"));
 const Button = lazy(() => import("./components/Button"));
 const Blog = lazy(() => import("./components/Blog"));
 const WhyUs = lazy(() => import("./components/whyUs"));
+const FAQ = lazy(() => import("./components/FAQ"));
+const CareGuide = lazy(() => import("./components/CareGuide"));
+
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -1395,9 +1403,15 @@ function App() {
               <Route path="/about" element={<AboutUs />} />
               <Route path="/products" element={<Product />} />
               <Route path="/gallery" element={<Gallery />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/care-guide" element={<CareGuide />} />
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/why-us" element={<WhyUs />} />
+              <Route path="/terms-conditions" element={<TermsConditions />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/refund-policy" element={<RefundPolicy />} />
+              <Route path="/shipping-policy" element={<ShippingPolicy />} />
             </Routes>
           </Suspense>
         </ErrorBoundary>
