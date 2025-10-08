@@ -514,17 +514,68 @@
 
 // export default CareGuide;
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import SEOHelmet from "./SEOHelmet";
 
 const CareGuide = () => {
+  const [markdown, setMarkdown] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch("/Rug-Care-Guide.md")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load care guide");
+        }
+        return response.text();
+      })
+      .then((text) => {
+        setMarkdown(text);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-bgLight flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-textDark/60 font-body">Loading care guide...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-bgLight flex items-center justify-center">
+        <div className="text-center max-w-md mx-auto px-4">
+          <p className="text-red-600 font-body mb-4">Error: {error}</p>
+          <a
+            href="/contact"
+            className="inline-block px-6 py-3 bg-primary text-white rounded-full font-body hover:bg-primary/90 transition-colors"
+          >
+            Contact Support
+          </a>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <SEOHelmet
-        title="Rug Care Guide | MKT Rugs"
-        description="Learn how to maintain and clean your natural fiber rugs. Keep your rugs fresh and long-lasting with our simple care tips."
+        title="Complete Rug Care Guide | MKT Rugs"
+        description="Comprehensive guide to maintaining and cleaning your natural fiber rugs. Expert tips for jute, sisal, banana fiber, seagrass, and cotton blend rugs."
         canonical="https://www.mktrugs.com/care-guide"
-        type="website"
+        type="article"
       />
 
       <div className="min-h-screen bg-bgLight pt-8">
@@ -534,61 +585,85 @@ const CareGuide = () => {
             <div className="inline-flex items-center gap-3 mb-4">
               <span className="w-8 h-[2px] bg-gold"></span>
               <span className="uppercase tracking-[0.3em] text-sm text-gold font-accent">
-                Care Instructions
+                Expert Care Instructions
               </span>
               <span className="w-8 h-[2px] bg-gold"></span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-semibold text-textDark mb-6">
-              Rug Care Guide
+              Complete Rug Care Guide
             </h1>
             <p className="text-lg text-textDark/80 font-body leading-relaxed max-w-3xl mx-auto">
-              Simple and effective care tips to keep your handcrafted rugs looking beautiful for years.
+              Everything you need to know to maintain your handcrafted natural fiber rugs for decades of beauty.
             </p>
           </div>
         </section>
 
-        {/* Image + Text Section */}
+        {/* Markdown Content */}
         <section className="py-12 md:py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
-            <div>
-              <img
-                src="/images/B_1.jpg"
-                alt="Rug care"
-                className="rounded-lg shadow-md border border-gray-100"
-              />
-            </div>
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-textDark mb-4">
-                How to Care for Your Rug
-              </h2>
-              <ul className="space-y-4 text-textDark/80 font-body leading-relaxed">
-                <li>• Vacuum regularly to prevent dust buildup and preserve texture.</li>
-                <li>• Clean spills immediately using a soft, dry cloth — do not rub.</li>
-                <li>• Avoid harsh chemicals or bleach-based cleaners.</li>
-                <li>• Rotate your rug every few months to ensure even wear.</li>
-                <li>• Keep away from direct sunlight to avoid color fading.</li>
-                <li>• Professional cleaning is recommended once a year for longevity.</li>
-              </ul>
-            </div>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <article className="prose prose-lg prose-slate max-w-none
+              prose-headings:font-heading prose-headings:text-textDark
+              prose-h1:text-4xl prose-h1:font-bold prose-h1:mb-6 prose-h1:mt-8
+              prose-h2:text-3xl prose-h2:font-semibold prose-h2:mb-4 prose-h2:mt-8 prose-h2:text-primary prose-h2:border-b prose-h2:border-gold/30 prose-h2:pb-2
+              prose-h3:text-2xl prose-h3:font-semibold prose-h3:mb-3 prose-h3:mt-6 prose-h3:text-textDark
+              prose-h4:text-xl prose-h4:font-semibold prose-h4:mb-2 prose-h4:mt-4 prose-h4:text-textDark/90
+              prose-p:text-textDark/80 prose-p:font-body prose-p:leading-relaxed prose-p:mb-4
+              prose-ul:my-4 prose-ul:space-y-2
+              prose-li:text-textDark/80 prose-li:font-body prose-li:leading-relaxed
+              prose-strong:text-textDark prose-strong:font-semibold
+              prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary/80 prose-a:transition-colors
+              prose-code:text-primary prose-code:bg-primary/5 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
+              prose-blockquote:border-l-4 prose-blockquote:border-gold prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-textDark/70
+              prose-hr:border-gold/30 prose-hr:my-8
+              prose-table:border-collapse prose-table:w-full
+              prose-th:bg-primary/5 prose-th:p-3 prose-th:text-left prose-th:font-semibold prose-th:text-textDark
+              prose-td:p-3 prose-td:border prose-td:border-gray-200 prose-td:text-textDark/80
+            ">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {markdown}
+              </ReactMarkdown>
+            </article>
           </div>
         </section>
 
-        {/* Contact Section */}
+        {/* CTA Section */}
         <section className="py-12 bg-gradient-to-r from-primary/5 to-gold/5">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-textDark mb-4">
-              Need Help with Rug Care?
+              Still Have Questions?
             </h2>
             <p className="text-lg text-textDark/80 font-body mb-6 leading-relaxed">
-              Our care experts are here to guide you with maintenance and cleaning support.
+              Our care specialists are ready to help with personalized advice for your specific rug.
             </p>
 
-            <a
-              href="mailto:care@mktrugs.com"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-body hover:bg-primary/90 transition-colors duration-200"
-            >
-              Email Us
-            </a>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a
+                href="mailto:care@mktrugs.com"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-body hover:bg-primary/90 transition-colors duration-200"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Email Us
+              </a>
+              <a
+                href="https://wa.me/917778886215?text=Hi%20MKT%20RUGS,%20I%20need%20care%20advice%20for%20my%20rug."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-full font-body hover:bg-green-700 transition-colors duration-200"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                WhatsApp
+              </a>
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary border-2 border-primary rounded-full font-body hover:bg-primary/5 transition-colors duration-200"
+              >
+                Contact Form
+              </a>
+            </div>
           </div>
         </section>
       </div>
