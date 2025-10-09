@@ -180,7 +180,7 @@ const Blog = () => {
                   <p className="text-sm text-[#4a3a3a]/90 mb-3">{blog.desc}</p>
                   <p className="text-xs text-gray-500 mb-3">{blog.date}</p>
                   <a
-                    href="/blog-details"
+                    href="/blog"
                     className="text-[#c49b63] font-semibold hover:underline text-sm"
                   >
                     Read More →
@@ -212,7 +212,7 @@ const Blog = () => {
                   <div>
                     <p className="text-xs text-gray-500">{item.date}</p>
                     <a
-                      href="/blog-details"
+                      href="/blog"
                       className="text-sm font-semibold hover:underline"
                     >
                       {item.title}
@@ -238,7 +238,7 @@ const Blog = () => {
                   <div>
                     <p className="text-xs text-gray-500">{item.date}</p>
                     <a
-                      href="/blog-details"
+                      href="/blog"
                       className="text-sm font-semibold hover:underline"
                     >
                       {item.title}

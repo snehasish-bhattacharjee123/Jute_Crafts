@@ -419,8 +419,7 @@ function AboutUs() {
               Milestones on the Global Loom
             </h2>
             <p className="text-textDark/70 font-body mt-2">
-              From a single loom in Howrah to five continents — FROM FARM TO
-              FLOOR
+              From making Jute braids to fully integrated carpet manufacturing
             </p>
             <div className="mx-auto mt-3 w-24 h-1 bg-gold"></div>
           </div>

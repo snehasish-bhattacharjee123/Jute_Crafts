@@ -1,279 +1,162 @@
-# Complete Rug Care Guide - MKT Rugs
+# 🧼 MKT Rugs – Complete Rug Care Guide  
 
-## Essential Care Tips for Your Handcrafted Natural Fiber Rugs
+### Caring for Your Handcrafted Natural Fiber Rugs  
 
-At MKT Rugs, our handcrafted rugs are made from premium natural fibers including jute, sisal, banana fiber, seagrass, and cotton blends. Proper care ensures these beautiful pieces maintain their appearance and durability for years to come.
-
----
-
-## Daily & Weekly Maintenance
-
-### Regular Vacuuming
-- **Frequency**: Vacuum weekly for normal traffic, 2-3 times weekly for high-traffic areas
-- **Technique**: Use suction-only mode without beater bars or rotating brushes
-- **Direction**: Vacuum in the direction of the fiber grain, then against it
-- **Special attention**: Focus on edges and corners where dirt accumulates
-- **Handheld option**: For delicate areas, use a handheld vacuum with upholstery attachment
-
-### Quick Cleaning Routine
-- **Daily**: Shake out small rugs outdoors to remove surface dust
-- **Weekly**: Use a soft-bristled brush to gently remove embedded dirt
-- **Spot checks**: Inspect for stains, loose fibers, or wear patterns
-- **Air circulation**: Ensure good airflow around and under the rug
+Our rugs are made from natural fibers like **jute, sisal, banana fiber, seagrass, and cotton blends**. With a little regular care, you can keep them beautiful and long-lasting.  
 
 ---
 
-## Stain Removal & Spot Cleaning
+## 🧹 Daily & Weekly Maintenance  
 
-### Immediate Response Protocol
-1. **Act quickly** - Address spills within minutes to prevent permanent staining
-2. **Blot, don't rub** - Use clean, white cloths to absorb liquid from outside in
-3. **Remove solids** - Scrape away solid matter with a spoon or dull knife
-4. **Test first** - Always test cleaning solutions in an inconspicuous area
+**Vacuuming**  
+- Vacuum weekly (2–3 times in high-traffic areas).  
+- Use *suction-only mode* — no beater bars or rotating brushes.  
+- Go *with and against* the fiber grain for best results.  
+- Pay attention to corners and edges.  
+- Use a handheld or upholstery attachment for delicate areas.  
 
-### Natural Cleaning Solutions
-
-#### For General Stains
-- **Mild solution**: Mix 1 tsp white vinegar + 1 tsp liquid dish soap + 1 cup warm water
-- **Application**: Spray lightly, blot with clean cloth, rinse with damp cloth
-- **Drying**: Pat dry immediately and allow to air dry completely
-
-#### For Specific Stains
-
-**Food & Beverage Stains**:
-- **Coffee/Tea**: Cold water rinse, then vinegar solution
-- **Wine**: Salt absorption immediately, then cold water and vinegar solution
-- **Oil-based**: Sprinkle cornstarch, let sit 15 minutes, vacuum, then treat with dish soap solution
-
-**Organic Stains**:
-- **Pet accidents**: Enzyme-based cleaner specifically for natural fibers
-- **Mud**: Let dry completely, vacuum, then treat remaining stain with soap solution
-- **Blood**: Cold water only, never hot water which sets the protein
-
-**Wax & Gum**:
-- **Method**: Freeze with ice cubes, scrape gently, treat residue with vinegar solution
-
-### What to Avoid
-- **Harsh chemicals**: Bleach, strong detergents, or chemical stain removers
-- **Excessive water**: Over-wetting can cause shrinkage and weakening of natural fibers
-- **Heat treatment**: Never use hot water or heat guns on natural fiber rugs
-- **Rubbing**: Aggressive scrubbing damages fiber structure
+**Quick Cleaning**  
+- Shake small rugs outdoors daily.  
+- Brush gently weekly with a soft bristle brush.  
+- Check for stains, loose fibers, or wear spots.  
+- Keep airflow around and under rugs.  
 
 ---
 
-## Environmental Considerations
+## 🧴 Stain Removal & Spot Cleaning  
 
-### Sunlight Protection
-- **UV damage**: Rotate rugs monthly to prevent uneven fading
-- **Window treatments**: Use UV-filtering blinds or curtains in sunny rooms
-- **Indoor lighting**: LED lights produce less heat and UV than incandescent bulbs
-- **Protective coating**: Ask about UV-resistant treatments for outdoor use
+**Act Fast**  
+1. Blot (don’t rub) spills immediately.  
+2. Remove solids gently.  
+3. Test cleaning solution in a hidden area first.  
 
-### Humidity & Moisture Control
-- **Optimal range**: Maintain 30-50% relative humidity
-- **Dehumidifiers**: Use in basements or naturally humid environments
-- **Air circulation**: Ensure proper ventilation in enclosed spaces
-- **Seasonal adjustments**: Monitor humidity changes during weather transitions
+**Mild Cleaning Mix**  
+- 1 tsp vinegar + 1 tsp dish soap + 1 cup warm water.  
+- Spray lightly, blot, then pat dry and air dry completely.  
 
-### Temperature Stability
-- **Consistent conditions**: Avoid placing rugs near heating/cooling vents
-- **Floor heating**: Ensure compatibility with underfloor heating systems
-- **Storage temperature**: Keep stored rugs in climate-controlled environments
+**Specific Stains**  
+- **Coffee/Tea/Wine:** Use vinegar mix; for wine, add salt first.  
+- **Oil/Grease:** Sprinkle cornstarch, let sit 15 min, vacuum, then clean.  
+- **Mud:** Let dry, vacuum, then use soap mix.  
+- **Blood:** Cold water only.  
+- **Wax/Gum:** Freeze with ice, scrape gently, clean residue.  
 
----
-
-## Professional Cleaning
-
-### When to Call Professionals
-- **Annual deep cleaning** for high-traffic areas
-- **Stubborn stains** that home remedies can't remove
-- **Water damage** from flooding or major spills
-- **Odor issues** that persist after home treatment
-- **Valuable rugs** requiring specialized care
-
-### Choosing the Right Service
-- **Natural fiber experience**: Verify expertise with jute, sisal, and other natural materials
-- **Cleaning methods**: Ensure they use gentle, fiber-appropriate techniques
-- **Drying process**: Confirm proper drying facilities to prevent mold/mildew
-- **Insurance**: Check that they carry insurance for valuable items
-
-### Professional Cleaning Process
-1. **Pre-inspection**: Assessment of fiber type, construction, and damage
-2. **Pre-treatment**: Gentle spot treatment of stains
-3. **Cleaning**: Appropriate method (dry cleaning, low-moisture, or specialized natural fiber cleaning)
-4. **Drying**: Controlled environment drying to prevent shrinkage
-5. **Final inspection**: Quality check and fiber protection application if needed
+**Avoid:** Bleach, harsh detergents, over-wetting, and heat.  
 
 ---
 
-## Proper Storage
+## 🌤 Environmental Care  
 
-### Short-term Storage (1-6 months)
-- **Clean thoroughly** before storage to prevent pest attraction
-- **Complete drying** - ensure no moisture remains
-- **Rolling method**: Roll rugs face-side in around an acid-free tube
-- **Wrapping**: Use breathable cotton sheets or muslin, never plastic
-- **Position**: Store horizontally if possible, vertically if space is limited
+**Sunlight**  
+- Rotate monthly to prevent fading.  
+- Use UV curtains/blinds in bright rooms.  
 
-### Long-term Storage (6+ months)
-- **Climate control**: Cool, dry space with stable temperature (60-70°F)
-- **Pest prevention**: Cedar blocks or lavender sachets (natural deterrents)
-- **Regular checks**: Inspect every 3-6 months for pest damage or moisture
-- **Air circulation**: Unwrap and re-roll annually to prevent permanent creases
-- **Documentation**: Photo damage before storage for insurance purposes
+**Humidity**  
+- Keep humidity between **30–50%**.  
+- Use dehumidifiers in damp areas.  
 
-### Storage Mistakes to Avoid
-- **Plastic wrapping**: Traps moisture leading to mold and mildew
-- **Folding**: Creates permanent creases in natural fibers
-- **Basement/attic storage**: Extreme temperature and humidity fluctuations
-- **Direct floor contact**: Use pallets or shelving to prevent moisture wicking
-- **Mothballs**: Chemical treatments can damage natural fibers
+**Temperature**  
+- Avoid placing rugs near heaters or AC vents.  
 
 ---
 
-## Extending Rug Lifespan
+## 🧽 Professional Cleaning  
 
-### Strategic Placement
-- **High-traffic areas**: Choose appropriate fiber types (sisal for durability)
-- **Entryways**: Use entrance mats to reduce soil tracking
-- **Under furniture**: Distribute weight with furniture pads
-- **Stairs**: Secure properly to prevent slipping and uneven wear
+**Call Experts When:**  
+- Yearly for high-traffic rugs.  
+- For tough stains, odors, or water damage.  
 
-### Rotation Schedule
-- **Monthly**: Turn rugs 180 degrees to distribute wear patterns
-- **Seasonal**: Move rugs to different rooms if possible
-- **Furniture rearrangement**: Coordinate with room layouts for even traffic distribution
-
-### Protective Measures
-- **Rug pads**: Use breathable, natural rubber pads to prevent slipping
-- **Furniture protection**: Felt pads under all furniture legs
-- **Pet considerations**: Regular nail trimming, potty training reinforcement
-- **Shoe policies**: Consider shoes-off policies in rug areas
+**Choose Services With:**  
+- Experience in natural fiber rugs.  
+- Gentle, low-moisture cleaning methods.  
+- Proper drying to avoid mold.  
 
 ---
 
-## Troubleshooting Common Issues
+## 📦 Proper Storage  
 
-### Shedding
-- **Normal process**: New natural fiber rugs shed initially
-- **Duration**: Typically reduces after 3-6 months of regular vacuuming
-- **Management**: Gentle vacuuming and occasional brushing with soft bristles
+**Before Storage:**  
+- Clean and dry completely.  
+- Roll (never fold) face-side in.  
+- Wrap in cotton or muslin — never plastic.  
 
-### Loose Threads
-- **Never pull**: Trim loose threads with sharp scissors close to the base
-- **Professional repair**: For significant fraying, consult rug restoration experts
-- **Prevention**: Address small issues quickly to prevent larger problems
-
-### Odor Management
-- **Baking soda treatment**: Sprinkle, let sit overnight, vacuum thoroughly
-- **Fresh air**: Outdoor airing on dry, breezy days
-- **Professional cleaning**: For persistent odors, especially pet-related
-
-### Uneven Wear
-- **Regular rotation**: Prevent by following rotation schedule
-- **Traffic redirection**: Use furniture placement to alter foot traffic patterns
-- **Professional restoration**: Consult experts for significant wear issues
+**Long-Term Tips:**  
+- Store in a cool, dry, pest-free area.  
+- Avoid basements or attics.  
+- Check every few months for damage.  
 
 ---
 
-## Care by Fiber Type
+## 🛋 Extending Lifespan  
 
-### Jute Rugs
-- **Durability**: Naturally strong but avoid excessive moisture
-- **Cleaning**: Dry cleaning preferred for deep cleaning
-- **Drying**: Essential to dry quickly to prevent fiber weakening
-
-### Sisal Rugs
-- **Resilience**: Excellent for high-traffic areas
-- **Cleaning**: Can handle slightly more moisture than jute
-- **Maintenance**: Regular vacuuming prevents matting
-
-### Banana Fiber Rugs
-- **Natural antimicrobial**: Resistant to bacteria and odors
-- **Cleaning**: Gentle solutions work best
-- **Care**: Protect from direct sunlight to maintain color
-
-### Seagrass Rugs
-- **Water resistance**: Natural resistance to moisture
-- **Cleaning**: Can be wiped with damp cloth for surface cleaning
-- **Indoor/outdoor**: Versatile for various environments
-
-### Cotton Blend Rugs
-- **Versatility**: More forgiving of moisture than pure natural fibers
-- **Machine washing**: Small cotton rugs may be machine washable (check label)
-- **Durability**: Regular rotation prevents premature wear
+- Use **rug pads** to prevent slipping.  
+- Rotate monthly to even out wear.  
+- Keep **furniture pads** under legs.  
+- Use entrance mats to reduce dirt.  
+- Enforce a *shoes-off* policy in rug areas.  
 
 ---
 
-## Seasonal Care Calendar
+## ⚠ Common Issues  
 
-### Spring (March-May)
-- Deep cleaning after winter
-- Inspect for moth or pest damage
-- Rotate rugs after heavy winter use
-- Professional cleaning for high-traffic pieces
-
-### Summer (June-August)
-- Monitor humidity levels
-- Protect from excessive sunlight
-- Store winter rugs properly
-- Address any mold/mildew issues promptly
-
-### Fall (September-November)
-- Prepare for increased indoor time
-- Deep vacuum before heating season
-- Check rug pads for wear
-- Professional inspection for valuable pieces
-
-### Winter (December-February)
-- Monitor for salt damage near entries
-- Maintain proper humidity with heating systems
-- Regular vacuuming due to increased indoor traffic
-- Plan for spring deep cleaning
+| Issue | Solution |
+|-------|-----------|
+| **Shedding** | Normal in first 3–6 months — vacuum gently. |
+| **Loose Threads** | Trim (don’t pull) with scissors. |
+| **Odor** | Sprinkle baking soda overnight, then vacuum. |
+| **Uneven Wear** | Rotate regularly and adjust furniture placement. |
 
 ---
 
-## Emergency Response Guide
+## 🌾 Fiber-Specific Care  
 
-### Water Damage
-1. **Remove water** immediately with towels and wet/dry vacuum
-2. **Increase air circulation** with fans and dehumidifiers
-3. **Professional help**: Contact restoration experts within 24-48 hours
-4. **Prevent mold**: Essential to dry completely within 48-72 hours
-
-### Fire/Smoke Damage
-1. **Professional assessment**: Required for all smoke-exposed textiles
-2. **Avoid DIY attempts**: Smoke particles require specialized removal
-3. **Odor elimination**: Professional ozone treatment may be necessary
-4. **Insurance documentation**: Photograph damage before any treatment
-
-### Pest Infestation
-1. **Identify pest type**: Moths, beetles, or other fabric-eating insects
-2. **Isolate affected rugs**: Prevent spread to other textiles
-3. **Professional treatment**: Required for valuable or large rugs
-4. **Prevention**: Address underlying humidity or cleanliness issues
+| Fiber | Key Tips |
+|--------|-----------|
+| **Jute** | Keep dry, vacuum often, dry clean only. |
+| **Sisal** | Tough and durable — light moisture OK. |
+| **Banana Fiber** | Gentle cleaning, avoid sunlight fading. |
+| **Seagrass** | Naturally moisture-resistant, wipe clean. |
+| **Cotton Blend** | Some are machine washable — check label. |
 
 ---
 
-## Contact MKT Rugs Care Support
+## 🗓 Seasonal Care  
 
-For specific questions about caring for your MKT Rugs products, our care specialists are available:
-
-**Care Hotline**: +91 77788 86215  
-**Email**: care@mktrugs.com  
-**WhatsApp**: [Chat with our care team](https://wa.me/917778886215?text=Hi%20MKT%20RUGS,%20I%20need%20care%20advice%20for%20my%20rug.)
-
-**Care Support Hours**: Monday-Saturday, 10:00 AM - 6:00 PM IST
-
-Our team can provide:
-- Fiber-specific care instructions
-- Professional cleaning referrals in your area
-- Warranty claim assistance
-- Repair and restoration guidance
-- Replacement part sourcing (for modular designs)
+| Season | What to Do |
+|---------|-------------|
+| **Spring** | Deep clean, rotate, inspect for pests. |
+| **Summer** | Watch humidity, protect from sunlight. |
+| **Fall** | Vacuum deeply, check rug pads. |
+| **Winter** | Keep humidity balanced, clean salt/dirt near doors. |
 
 ---
 
-*Your handcrafted MKT Rug represents generations of artisan skill and sustainable craftsmanship. With proper care, these beautiful pieces will provide decades of beauty and functionality while maintaining their natural character and charm.*
+## 🚨 Emergency Tips  
 
-**Remember**: When in doubt, consult the professionals. It's better to invest in proper care than to risk damage to your valuable handcrafted rug.
+**Water Damage:**  
+- Blot immediately, use fans/dehumidifier, call pros within 48 hours.  
+
+**Fire/Smoke:**  
+- Avoid DIY — get professional cleaning.  
+
+**Pests:**  
+- Isolate affected rugs, call pest control, clean and air out space.  
+
+---
+
+## 📞 MKT Rugs Care Support  
+
+**Hotline:** +91 77788 86215  
+**Email:** care@mktrugs.com  
+**WhatsApp:** [Chat Now](https://wa.me/917778886215?text=Hi%20MKT%20RUGS,%20I%20need%20care%20advice%20for%20my%20rug.)  
+**Hours:** Mon–Sat, 10 AM – 6 PM IST  
+
+We can help with:  
+- Fiber-specific guidance  
+- Cleaning & repair referrals  
+- Warranty and replacement support  
+
+---
+
+### 🧡 Your MKT Rug is a piece of artisan craftsmanship.  
+With simple regular care and proper handling, it will bring comfort, beauty, and natural charm to your home for years.

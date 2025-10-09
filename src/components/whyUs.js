@@ -222,14 +222,14 @@ const WhyUs = () => {
           ))}
         </div>
 
-        <div className="text-center mt-20">
+        {/* <div className="text-center mt-20">
           <a
             href="/contact"
             className="inline-block bg-[#2b1d1d] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#c49b63] transition-colors duration-300"
           >
             Get Started
           </a>
-        </div>
+        </div> */}
       </section>
 
       {/* CTA Section */}
