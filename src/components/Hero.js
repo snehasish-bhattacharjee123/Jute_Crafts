@@ -56,7 +56,7 @@ const Hero = () => {
               variant="secondary"
               className="border-2 !border-white !text-white hover:!bg-white hover:!text-secondary focus:!ring-white focus:ring-offset-secondary"
             >
-              Learn More
+              About Us 
             </Button>
           </Link>
           <button

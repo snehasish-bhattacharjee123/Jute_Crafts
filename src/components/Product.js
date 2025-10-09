@@ -61,8 +61,8 @@ function ProductHeroSlider() {
               softness, wool for volume, and linen for finesse.
             </p>
             <div className="mt-3 sm:mt-5 flex flex-col sm:flex-row gap-2 sm:gap-3">
-              <Link to="/products">
-                <Button variant="gold" className="w-full sm:w-auto text-sm sm:text-base">Explore Collection</Button>
+              <Link to="/gallery">
+                <Button variant="gold" className="w-full sm:w-auto text-sm sm:text-base">Visit Our Gallery</Button>
               </Link>
               <Link to="/contact">
                 <Button

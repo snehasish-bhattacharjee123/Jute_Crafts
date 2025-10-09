@@ -12,12 +12,13 @@ function Gallery() {
     { id: 'all', name: 'All' },
     { id: 'products', name: 'Products' },
     { id: 'facilities', name: 'Facilities' },
-    { id: 'craftsmanship', name: 'Craftsmanship' }
+    { id: 'craftsmanship', name: 'Craftsmanship' },
+    { id: 'community', name: 'community' }
   ];
 
   const galleryImages = [
     { id: 1, src: '/images/Elma Geometric Jute Rug _ Natural.jpg', alt: 'Jute rug geometric', category: 'products', title: 'Premium Jute Rugs' },
-    { id: 2, src: '/images/flat-lay-monochromatic-assortment-textiles.jpg', alt: 'Weaving textures', category: 'craftsmanship', title: 'Artisan Weaving' },
+    { id: 2, src: '/images/flat-lay-monochromatic-assortment-textiles.jpg', alt: 'Weaving textures', category: 'community', title: 'Artisan Weaving' },
     { id: 3, src: '/images/Hart in Terracotta.jpg', alt: 'Wool rug terracotta', category: 'products', title: 'Luxury Wool Rugs' },
     { id: 4, src: '/images/Jute Boucle Rug.jpg', alt: 'Sisal/jute texture', category: 'products', title: 'Sisal & Jute Rugs' },
     { id: 5, src: '/images/background-zoom-calls-with-cozy-living-room.jpg', alt: 'Studio/facility', category: 'facilities', title: 'State-of-the-Art Facility' },
@@ -298,7 +299,7 @@ function Gallery() {
 
              
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <a href="/enquiry" className="inline-flex">
+                <a href="/contact" className="inline-flex">
                   <button className="rounded-full bg-gold text-secondary px-6 py-3 font-medium shadow hover:bg-gold/90 transition">
                     Request a Quote
                   </button>

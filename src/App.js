@@ -973,7 +973,7 @@ function App() {
                               </div>
                             </div>
 
-                            <div className="flex items-start gap-4">
+                            {/* <div className="flex items-start gap-4">
                               <div className="shrink-0 w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center">
                                 <svg
                                   className="w-6 h-6"
@@ -1000,7 +1000,7 @@ function App() {
                                   inventory moving.
                                 </p>
                               </div>
-                            </div>
+                            </div> */}
 
                             <div className="flex items-start gap-4">
                               <div className="shrink-0 w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center">
@@ -1113,28 +1113,7 @@ function App() {
                           </div>
                         </div>
 
-                        <div className="text-center mt-12 reveal">
-                          <Button
-                            variant="secondary"
-                            className="flex items-center space-x-2 mx-auto"
-                            onClick={() => setShowModal(true)}
-                          >
-                            <span>Download Brochure</span>
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                              />
-                            </svg>
-                          </Button>
-                        </div>
+                        
                       </div>
                     </section>
 
@@ -1312,6 +1291,29 @@ function App() {
                                 className="rounded-lg shadow-sm hover:shadow-md hover:scale-105 cursor-pointer transition-all duration-300"
                               />
                             </div>
+
+                            <div className="text-center mt-12 reveal">
+                          <Button
+                            variant="secondary"
+                            className="flex items-center space-x-2 mx-auto"
+                            onClick={() => setShowModal(true)}
+                          >
+                            <span>Download Brochure</span>
+                            <svg
+                              className="w-4 h-4"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                              />
+                            </svg>
+                          </Button>
+                        </div>
                           </div>
                         </div>
                       </div>

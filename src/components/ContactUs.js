@@ -904,12 +904,12 @@ function ContactUs() {
                   >
                     Open in Google Maps
                   </a>
-                  <a
+                  {/* <a
                     href="#visit"
                     className="text-secondary font-semibold font-body hover:underline"
                   >
                     Schedule a Visit →
-                  </a>
+                  </a> */}
                 </div>
               </div>
               <img
