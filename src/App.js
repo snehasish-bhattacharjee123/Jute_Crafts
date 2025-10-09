@@ -526,7 +526,6 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import RefundPolicy from "./components/RefundPolicy";
 import ShippingPolicy from "./components/ShippingPolicy";
 
-
 const AboutUs = lazy(() => import("./components/AboutUs"));
 const Gallery = lazy(() => import("./components/Gallery"));
 const ContactUs = lazy(() => import("./components/ContactUs"));
@@ -537,7 +536,6 @@ const Blog = lazy(() => import("./components/Blog"));
 const WhyUs = lazy(() => import("./components/whyUs"));
 const FAQ = lazy(() => import("./components/FAQ"));
 const CareGuide = lazy(() => import("./components/CareGuide"));
-
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -872,8 +870,7 @@ function App() {
                       </div>
                     </section>
 
-
-                     {/* === PRODUCT COLLECTION SECTION === */}
+                    {/* === PRODUCT COLLECTION SECTION === */}
                     <section id="products" className="py-8 md:py-12 bg-bgLight">
                       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-8">
@@ -932,7 +929,7 @@ function App() {
                           <div className="inline-flex items-center gap-3 mb-3">
                             <span className="w-8 h-[2px] bg-gold"></span>
                             <span className="uppercase tracking-[0.3em] text-sm text-gold font-accent">
-                              Heritage Overseas
+                              MKT Rugs
                             </span>
                           </div>
                           <h2 className="text-3xl sm:text-5xl font-heading font-semibold text-textDark">
@@ -1319,9 +1316,6 @@ function App() {
                         </div>
                       </div>
                     </section>
-
-                   
-
 
                     {/* === MODAL === */}
                     {showModal && (
