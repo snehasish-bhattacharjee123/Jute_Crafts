@@ -5,49 +5,49 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://www.mktrugs.com/</loc>
-    <lastmod>2025-10-09T05:32:48.035Z</lastmod>
+    <lastmod>2025-10-09T06:51:27.879Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://www.mktrugs.com/about</loc>
-    <lastmod>2025-10-09T05:32:48.036Z</lastmod>
+    <lastmod>2025-10-09T06:51:27.880Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.mktrugs.com/products</loc>
-    <lastmod>2025-10-09T05:32:48.036Z</lastmod>
+    <lastmod>2025-10-09T06:51:27.880Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.mktrugs.com/gallery</loc>
-    <lastmod>2025-10-09T05:32:48.036Z</lastmod>
+    <lastmod>2025-10-09T06:51:27.880Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.mktrugs.com/why-us</loc>
-    <lastmod>2025-10-09T05:32:48.036Z</lastmod>
+    <lastmod>2025-10-09T06:51:27.880Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.mktrugs.com/blog</loc>
-    <lastmod>2025-10-09T05:32:48.036Z</lastmod>
+    <lastmod>2025-10-09T06:51:27.880Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.mktrugs.com/contact</loc>
-    <lastmod>2025-10-09T05:32:48.036Z</lastmod>
+    <lastmod>2025-10-09T06:51:27.880Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.mktrugs.com/enquiry</loc>
-    <lastmod>2025-10-09T05:32:48.036Z</lastmod>
+    <lastmod>2025-10-09T06:51:27.880Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
