@@ -43,9 +43,7 @@ const Hero = () => {
           Authentic, Handcrafted Rugs. From Our Farm to Your Floor.
         </h1>
         <p className="text-lg sm:text-xl font-body text-textLight mb-8 max-w-2xl mx-auto leading-relaxed">
-          Experience the journey where tradition weaves into timeless art. From
-          field-fed natural fibers to your living space, we bring you authentic
-          handcrafted rugs that tell a story of heritage and craftsmanship.
+          Experience the journey where tradition weaves into timeless art. 
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
           <Link to="/products">

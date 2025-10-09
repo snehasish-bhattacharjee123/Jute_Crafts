@@ -303,10 +303,15 @@ const Header = () => {
               className="h-16 sm:h-20 md:h-24 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
             <div className="leading-tight">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold tracking-wide text-primary">
-                MKT RUGS
+              <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold tracking-wide">
+                <span style={{ color: "#603813" }}>M</span>
+                <span style={{ color: "#1C7A67" }}>K</span>
+                <span style={{ color: "#603813" }}>T RUGS</span>
               </div>
-              <div className="hidden sm:block text-[11px] sm:text-xs md:text-sm font-body uppercase tracking-widest text-gold">
+              <div
+                className="hidden sm:block text-[11px] sm:text-xs md:text-sm font-body uppercase tracking-widest"
+                style={{ color: "#1C7A67" }}
+              >
                 From Farm to Floor
               </div>
             </div>
