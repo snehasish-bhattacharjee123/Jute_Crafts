@@ -300,7 +300,7 @@ const Header = () => {
             <img
               src="/images/MKT Rugs_1 PNG.png"
               alt="MKT RUGS Logo"
-              className="h-16 sm:h-20 md:h-24 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              className="h-20 sm:h-24 md:h-28 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
             <div className="leading-tight">
               <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold tracking-wide">
@@ -308,9 +308,17 @@ const Header = () => {
                 <span style={{ color: "#1C7A67" }}>K</span>
                 <span style={{ color: "#603813" }}>T RUGS</span>
               </div>
+
+              {/* ✅ Updated tagline */}
               <div
-                className="hidden sm:block text-[11px] sm:text-xs md:text-sm font-body uppercase tracking-widest"
-                style={{ color: "#1C7A67" }}
+                className="hidden sm:block text-[13px] sm:text-base md:text-lg font-serif italic tracking-wide"
+                style={{
+                  color: "#1C7A67",
+                  fontFamily: "'Playfair Display', 'Times New Roman', serif",
+                  fontStyle: "italic",
+                  fontWeight: "500",
+                  letterSpacing: "0.05em",
+                }}
               >
                 From Farm to Floor
               </div>

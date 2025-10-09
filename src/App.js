@@ -871,7 +871,7 @@ function App() {
                     </section>
 
                     {/* === PRODUCT COLLECTION SECTION === */}
-                    <section id="products" className="py-8 md:py-12 bg-bgLight">
+                    {/* <section id="products" className="py-8 md:py-12 bg-bgLight">
                       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-8">
                           <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-textDark mb-4">
@@ -920,7 +920,50 @@ function App() {
                           </Link>
                         </div>
                       </div>
-                    </section>
+                    </section> */}
+
+<section id="products" className="py-8 md:py-12 bg-bgLight">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Section Header */}
+    <div className="text-center mb-8">
+      <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-textDark mb-4">
+        Our Collections
+      </h2>
+      <p className="font-body text-base text-textDark max-w-2xl mx-auto leading-relaxed">
+        Discover our curated collections of authentic handcrafted rugs.
+      </p>
+    </div>
+
+    {/* Collection Cards Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-center">
+      {[
+        "Bengal Folk Craft",
+        "Coastal Wave Collection",
+        "Banana Bloom Collection",
+        "EarthBound Collection",
+        "Spectrum Weaves Collection",
+      ].map((collection) => (
+        <div
+          key={collection}
+          className="bg-amber-50 shadow-sm hover:shadow-md rounded-2xl p-6 border border-gray-200 transition-all"
+        >
+          <h3 className="text-lg font-heading font-semibold text-textDark">
+            {collection}
+          </h3>
+        </div>
+      ))}
+    </div>
+
+    {/* Explore Button */}
+    <div className="text-center mt-10">
+      <Link to="/products" className="inline-flex">
+        <Button variant="gold">Explore All Collections</Button>
+      </Link>
+    </div>
+  </div>
+</section>
+
+
 
                     {/* === WHY US SECTION === */}
                     <section id="why-us" className="py-12 md:py-16 bg-bgLight">
@@ -1321,72 +1364,95 @@ function App() {
 
                     {/* === MODAL === */}
                     {showModal && (
-                      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                        <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md relative">
-                          <button
-                            onClick={() => setShowModal(false)}
-                            className="absolute top-2 right-3 text-gray-500 hover:text-gray-700"
-                          >
-                            ✕
-                          </button>
-                          <h2 className="text-2xl font-heading text-center mb-6 text-textDark">
-                            Download Brochure
-                          </h2>
-                          <form onSubmit={handleDownload} className="space-y-4">
-                            <input
-                              type="text"
-                              name="name"
-                              value={form.name}
-                              onChange={handleChange}
-                              placeholder="Your Name"
-                              required
-                              className="w-full border rounded-md p-2"
-                            />
-                            <input
-                              type="text"
-                              name="company"
-                              value={form.company}
-                              onChange={handleChange}
-                              placeholder="Company Name"
-                              required
-                              className="w-full border rounded-md p-2"
-                            />
-                            <input
-                              type="text"
-                              name="business"
-                              value={form.business}
-                              onChange={handleChange}
-                              placeholder="Line of Business"
-                              className="w-full border rounded-md p-2"
-                            />
-                            <input
-                              type="text"
-                              name="interest"
-                              value={form.interest}
-                              onChange={handleChange}
-                              placeholder="Special Interest"
-                              className="w-full border rounded-md p-2"
-                            />
-                            <input
-                              type="email"
-                              name="email"
-                              value={form.email}
-                              onChange={handleChange}
-                              placeholder="Email Address"
-                              required
-                              className="w-full border rounded-md p-2"
-                            />
-                            <Button
-                              variant="gold"
-                              type="submit"
-                              className="w-full"
-                            >
-                              Download Now
-                            </Button>
-                          </form>
-                        </div>
-                      </div>
-                    )}
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md relative">
+      <button
+        onClick={() => setShowModal(false)}
+        className="absolute top-2 right-3 text-gray-500 hover:text-gray-700"
+      >
+        ✕
+      </button>
+      <h2 className="text-2xl font-heading text-center mb-6 text-textDark">
+        Download Brochure
+      </h2>
+      <form onSubmit={handleDownload} className="space-y-4">
+        <label className="block">
+          <span className="text-textDark font-medium">
+            Name <span className="text-red-500">*</span>
+          </span>
+          <input
+            type="text"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            placeholder="Your Name"
+            required
+            className="w-full border rounded-md p-2 mt-1"
+          />
+        </label>
+
+        <label className="block">
+          <span className="text-textDark font-medium">
+            Company Name <span className="text-red-500">*</span>
+          </span>
+          <input
+            type="text"
+            name="company"
+            value={form.company}
+            onChange={handleChange}
+            placeholder="Company Name"
+            required
+            className="w-full border rounded-md p-2 mt-1"
+          />
+        </label>
+
+        <label className="block">
+          <span className="text-textDark font-medium">Line of Business</span>
+          <input
+            type="text"
+            name="business"
+            value={form.business}
+            onChange={handleChange}
+            placeholder="Line of Business"
+            className="w-full border rounded-md p-2 mt-1"
+          />
+        </label>
+
+        <label className="block">
+          <span className="text-textDark font-medium">Special Interest</span>
+          <input
+            type="text"
+            name="interest"
+            value={form.interest}
+            onChange={handleChange}
+            placeholder="Special Interest"
+            className="w-full border rounded-md p-2 mt-1"
+          />
+        </label>
+
+        <label className="block">
+          <span className="text-textDark font-medium">
+            Email Address <span className="text-red-500">*</span>
+          </span>
+          <input
+            type="email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            placeholder="Email Address"
+            required
+            className="w-full border rounded-md p-2 mt-1"
+          />
+        </label>
+
+        <Button variant="gold" type="submit" className="w-full">
+          Download Now
+        </Button>
+      </form>
+    </div>
+  </div>
+)}
+
 
                     {/* === CONTACT SECTION ===
                     <section id="contact" className="py-12 bg-bgLight">
