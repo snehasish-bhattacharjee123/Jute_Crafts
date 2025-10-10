@@ -2,20 +2,16 @@ import React, { useState, useEffect } from "react";
 import SEOHelmet from "./SEOHelmet";
 import Button from "./Button";
 
-
-//swiper 
-
-
 function CertificatesGrid() {
   const certs = [
     {
-      src: "/images/Home_1.jpg",
+      src: "/images/HOME_1.jpg",
       alt: "ISO 9001:2015",
       desc: "Quality Management System (ISO 9001:2015) certified units.",
       pdf: "/images/page3.pdf", // 🔹 Add your PDF path here
     },
     {
-      src: "/images/Home_2.jpg",
+      src: "/images/HOME_2.jpg",
       alt: "CEPC Logo",
       desc: "Recognized by the Carpet Export Promotion Council (CEPC).",
       pdf: "/images/page3.pdf", // 🔹 Add your PDF path here
@@ -245,7 +241,7 @@ function AboutUs() {
     },
     {
       year: "2016",
-      text: "We built 2 company godowns",
+      text: "We built 2 company godowns for increased storage capacity",
       img: "/images/Jute Boucle Rug.jpg",
       side: "left",
     },
@@ -512,7 +508,7 @@ function AboutUs() {
                           </div>
                         </div>
                         <div className="text-textDark/90 font-body mt-2">
-                          Key milestone in our journey.
+                          {m.text}
                         </div>
                       </div>
                     </div>
