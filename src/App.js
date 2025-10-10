@@ -712,22 +712,22 @@ function App() {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start reveal">
                           <div className="grid grid-cols-2 gap-6">
                             <img
-                              src="images/HOME_2.jpg"
+                              src="/images/Artboard 1.jpg"
                               alt="Rug texture showing natural fiber craftsmanship"
                               className="w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                             />
                             <img
-                              src="/images/HOME_1.jpg"
+                              src="/images/Artboard 2.jpg"
                               alt="Artisan working with natural materials"
                               className="w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                             />
                             <img
-                              src="/images/HOME_3.jpg"
+                              src="/images/Artboard 3.jpg"
                               alt="Geometric jute patterns"
                               className="w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                             />
                             <img
-                              src="/images/HOME_4.jpg"
+                              src="/images/Artboard 4.jpg"
                               alt="Natural basket weaving process"
                               className="w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                             />
