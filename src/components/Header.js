@@ -228,10 +228,20 @@ const Header = () => {
     return () => window.removeEventListener("resize", setHeaderHeight);
   }, []);
 
-  // ✅ Scroll listener (only on Home page)
+  // ✅ Pages that should have transparent header initially
+  const pagesWithTransparentHeader = [
+    "/",
+    "/about", 
+    "/products", 
+    "/gallery", 
+    "/contact", 
+    "/blog"
+  ];
+
+  // ✅ Scroll listener (for pages with transparent header)
   useEffect(() => {
-    const isHome = location.pathname === "/";
-    if (!isHome) return;
+    const hasTransparentHeader = pagesWithTransparentHeader.includes(location.pathname);
+    if (!hasTransparentHeader) return;
 
     const onScroll = () => {
       const should = window.scrollY > 5;
@@ -244,8 +254,8 @@ const Header = () => {
 
   // ✅ Sync with route change
   useLayoutEffect(() => {
-    const isHome = location.pathname === "/";
-    if (!isHome) {
+    const hasTransparentHeader = pagesWithTransparentHeader.includes(location.pathname);
+    if (!hasTransparentHeader) {
       setScrolled(true);
     } else {
       const currentlyScrolled = window.scrollY > 5;
@@ -260,17 +270,17 @@ const Header = () => {
   }, []);
 
   // ✅ Inline styles (conditional)
+  const hasTransparentHeader = pagesWithTransparentHeader.includes(location.pathname);
+  const shouldBeTransparent = hasTransparentHeader && !isMobile && !scrolled;
+  
   const inlineStyle = {
-    backgroundColor:
-      isMobile || scrolled || location.pathname !== "/"
-        ? "rgba(255,255,255,1)" // solid on mobile or scrolled
-        : "transparent", // transparent on desktop at top of home
-    color:
-      isMobile || scrolled || location.pathname !== "/" ? "#230903" : "#FAFAFF",
-    boxShadow:
-      isMobile || scrolled || location.pathname !== "/"
-        ? "0 6px 18px rgba(15,15,15,0.08)"
-        : "none",
+    backgroundColor: shouldBeTransparent 
+      ? "transparent" 
+      : "rgba(255,255,255,1)",
+    color: shouldBeTransparent ? "#FAFAFF" : "#230903",
+    boxShadow: shouldBeTransparent 
+      ? "none" 
+      : "0 6px 18px rgba(15,15,15,0.08)",
     transition:
       "background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease",
   };

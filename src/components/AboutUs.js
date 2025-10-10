@@ -165,10 +165,13 @@ function HeroSlider() {
   const intervalRef = useRef(null);
   
   const images = [
-    "/images/PRODUCTS_1.jpg",
-    "/images/PRODUCTS_2.jpg",
-    "/images/PRODUCTS_3.jpg",
-    "/images/PRODUCTS_4.jpg",
+    "/images/B_5.jpg",
+    "/images/B_6.jpg",
+    "/images/B_2.jpg",
+    "/images/B_1.jpg",
+    "/images/B_7.jpg",
+    // "/images/B_3.jpg",
+    "/images/B_4.jpg",
   ];
 
   // Enhanced auto-play with pause/resume functionality
@@ -657,8 +660,12 @@ function AboutUs() {
         description="Learn about MKT Rugs: authentic handcrafted rugs from West Bengal, integrated production, and sustainable natural fibres."
         canonical="https://www.mktrugs.com/about"
       />
-      {/* Hero Slider */}
-      <HeroSlider />
+      {/* Hero Slider with header compensation */}
+      <div
+        style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}
+      >
+        <HeroSlider />
+      </div>
 
       {/* Story Section */}
       <section 
@@ -1207,31 +1214,24 @@ function AboutUs() {
             </div>
 
             <div className="text-center">
-              <div className="w-48 h-48 bg-secondary/10 rounded-full mx-auto mb-6 flex items-center justify-center">
-                <svg
-                  className="w-24 h-24 text-secondary"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
-                Dattatreyo Paul
-              </h3>
-              <p className="text-secondary font-medium mb-2">
-                Global Trade Manager
-              </p>
-              <p className="text-textDark font-body">
-                Managing global trade operations and international partnerships.
-              </p>
-            </div>
+  <div className="w-48 h-48 bg-secondary/10 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden">
+    <img
+      src="/images/DSC01496.jpg" // <-- replace with your image path
+      alt="Dattatreyo Paul"
+      className="w-full h-full object-cover"
+    />
+  </div>
+  <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
+    Dattatreyo Paul
+  </h3>
+  <p className="text-secondary font-medium mb-2">
+    Global Trade Manager
+  </p>
+  <p className="text-textDark font-body">
+    Managing global trade operations and international partnerships.
+  </p>
+</div>
+
           </div>
         </div>
       </section>

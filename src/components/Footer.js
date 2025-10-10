@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   FiMail,
   FiPhone,
@@ -6,6 +7,7 @@ import {
   FiInstagram,
   FiFacebook,
   FiTwitter,
+  FiLinkedin,
 } from "react-icons/fi";
 
 const Footer = () => {
@@ -119,13 +121,13 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                aria-label="Follow on Twitter"
-                href="https://twitter.com/mktrugs"
+                aria-label="Follow on LinkedIn"
+                href="https://www.linkedin.com/company/mkt-rugs"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-btn p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-blue-400 hover:to-blue-600 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
-                <FiTwitter className="w-5 h-5" />
+                <FiLinkedin className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -139,28 +141,28 @@ const Footer = () => {
             </h5>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="/about"
+                <Link
+                  to="/about"
                   className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/products"
+                <Link
+                  to="/products"
                   className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   Our Products
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/contact"
+                <Link
+                  to="/contact"
                   className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -175,28 +177,28 @@ const Footer = () => {
             </h5>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="/care-guide"
+                <Link
+                  to="/care-guide"
                   className="footer-link font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   Care Guide
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/faq"
+                <Link
+                  to="/faq"
                   className="footer-link font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   FAQ
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/blog"
+                <Link
+                  to="/blog"
                   className="footer-link font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
                 >
                   Blog
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -285,37 +287,38 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} MKT RUGS. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <a
-              href="/privacy-policy"
+            <Link
+              to="/privacy-policy"
               className="footer-link hover:text-textLight transition"
             >
               Privacy Policy
-            </a>
+            </Link>
             <span className="opacity-40">•</span>
-            <a
-              href="/terms-conditions"
+            <Link
+              to="/terms-conditions"
               className="footer-link hover:text-textLight transition"
             >
               Terms & Conditions
-            </a>
+            </Link>
             <span className="opacity-40">•</span>
-            <a
-              href="/refund-policy"
+            <Link
+              to="/refund-policy"
               className="footer-link hover:text-textLight transition"
             >
               Refund Policy
-            </a>
+            </Link>
             <span className="opacity-40">•</span>
-            <a
-              href="/shipping-policy"
+            <Link
+              to="/shipping-policy"
               className="footer-link hover:text-textLight transition"
             >
               Shipping Policy
-            </a>
+            </Link>
             <span className="opacity-40">•</span>
-            <a
-              href="#top"
-              className="footer-link hover:text-textLight transition inline-flex items-center"
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="footer-link hover:text-textLight transition inline-flex items-center cursor-pointer"
+              aria-label="Scroll to top"
             >
               Back to top
               <svg
@@ -331,7 +334,7 @@ const Footer = () => {
                   d="M5 15l7-7 7 7"
                 />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>
