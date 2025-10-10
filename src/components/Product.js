@@ -7,7 +7,7 @@ import Button from "./Button";
 function ProductHeroSlider() {
   const slides = [
     {
-      src: "/images/main.jpg",
+      src: "/images/product_b1.jpg",
       alt: "Assorted natural fibre rugs hanging and styled",
     },
     { src: "/images/carpet.jpg", alt: "Natural jute carpet close-up texture" },
@@ -56,11 +56,11 @@ function ProductHeroSlider() {
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-semibold text-white leading-tight break-words">
               Material Mastery — From Farm to Floor
             </h1>
-            <p className="mt-3 sm:mt-4 md:mt-5 text-white/90 font-body max-w-xl text-sm sm:text-base md:text-lg leading-relaxed">
+            {/* <p className="mt-3 sm:mt-4 md:mt-5 text-white/90 font-body max-w-xl text-sm sm:text-base md:text-lg leading-relaxed">
               Passion for innovative natural fibre products handed down 4
               generations. Jute, banana, sea grass and more on soil. Cotton for
               softness, wool for volume, and linen for finesse.
-            </p>
+            </p> */}
             <div className="mt-4 sm:mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link to="/gallery">
                 <Button variant="gold" className="w-full sm:w-auto text-sm sm:text-base">Visit Our Gallery</Button>
@@ -288,6 +288,12 @@ function Product() {
       "/images/download (2).jpg",
       "/images/download (5).jpg",
     ],
+    // Majestic Tufts — luxurious hand-tufted wool rugs
+    majestic: [
+      "/images/main.jpg",
+      "/images/carpet.jpg",
+      "/images/Jute Boucle Rug.jpg",
+    ],
   };
 
   const TextBlock = ({
@@ -376,21 +382,23 @@ function Product() {
         description="Explore handcrafted rug collections: Bengal Folk Craft, Coastal Wave, Banana Bloom, EarthBound, Spectrum Weaves."
         canonical="https://www.mktrugs.com/products"
       />
-      <ProductHeroSlider />
+      {/* Hero slider with header compensation */}
+      <div
+        style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}
+      >
+        <ProductHeroSlider />
+      </div>
 
       <section className="bg-white py-10 sm:py-14 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 items-start">
           <div className="md:col-span-3">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading text-textDark mb-4 md:mb-0">
               <span className="font-semibold">Place of Origin Advantage</span> —
-              Within 50km of our office
+              Within 150km of our Manufacturing Unit
             </h2>
           </div>
           <div className="md:col-span-2 text-textDark/80 font-body leading-relaxed text-base sm:text-lg">
-            Sourcing spans a 150km farm supply chain that breathes local air,
-            tastes tannin-fed looms and regulates price shocks better than any
-            consortium. Integrated global partnerships with rotating
-            cross-trained units.
+            The most exquisite quality, straight from the source. Our hyper-local supply chain is our promise of purity and lasting beauty.
           </div>
         </div>
       </section>
@@ -423,7 +431,7 @@ function Product() {
                 title="Bengal Folk Craft"
                 tagline="Heritage braids from the looms of Bengal"
                 bullets={[
-                  "Hand-braided jute and sisal, rooted in Bengal traditions",
+                  "Hand-braided jute and rooted in Bengal traditions",
                   "Earth-warm palettes and robust textures for daily living",
                   "From cottage looms to export-grade finishing",
                   "Sourced and crafted within our eastern India cluster",
@@ -440,8 +448,8 @@ function Product() {
                 bullets={[
                   "All-weather weaves in coastal neutrals and ocean blues",
                   "Easy-care textures designed for patios and shore homes",
-                  "PET and coir options for durability and quick dry-down",
-                  "Ripple patterns inspired by tidal lines and dune grasses",
+                  "Options for durability and quick dry-down",
+                  "Ripple patterns inspired by tidal lines and grasses",
                 ]}
                 items={thumbs.coastal}
               />
@@ -502,10 +510,10 @@ function Product() {
                 title="EarthBound Collection"
                 tagline="Grounded blends of wool and jute"
                 bullets={[
-                  "Cushy wool piles anchored by hardy jute warps",
+                 "Blending modern precision with tradition",
                   "Earth-tone palettes for calm, restorative rooms",
                   "Thermal comfort with everyday durability",
-                  "Hand-finished edges for heirloom longevity",
+                  "Artisanal Jute Rugs braided by hand, Stitched with Machines"
                 ]}
                 items={thumbs.earthbound}
               />
@@ -552,14 +560,47 @@ function Product() {
                 title="Spectrum Weaves Collection"
                 tagline="CAD-driven motifs, precision-woven"
                 bullets={[
-                  "Digitally guided looms render crisp geometric fields",
-                  "Tone-on-tone and contrast palettes for modern spaces",
                   "Premium yarn selections for definition and drape",
-                  "Studio-to-loom pipeline for rapid sampling",
+                  "Vibrant play of colours hand woven into rugs",
+                  "Spectrum of Colours that brighten every space",
                 ]}
                 items={thumbs.spectrum}
               />
             </div>
+
+            {/* Row 6: Text + Large image — Majestic Tufts Collection */}
+            <div className="md:col-span-5 order-2 md:order-none">
+              <TextBlock
+                title="Majestic Tufts"
+                tagline="Luxurious hand-tufted wool rugs"
+                bullets={[
+                  "Crafted for Comfort, Warmth and Grandeur",
+                  "Premium hand-tufted wool construction",
+                  "Exquisite textures that elevate any space",
+                  "Timeless elegance meets contemporary design",
+                ]}
+                items={thumbs.majestic}
+              />
+            </div>
+            <div className="md:col-span-7 order-1 md:order-none">
+              <img
+                src={"/images/main.jpg"}
+                alt="Luxurious hand-tufted wool rug in elegant setting"
+                loading="lazy"
+                className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
+                onClick={(e) =>
+                  openModal(
+                    {
+                      src: "/images/main.jpg",
+                      alt: "Luxurious hand-tufted wool rug in elegant setting",
+                      title: "Majestic Tufts",
+                    },
+                    e.currentTarget
+                  )
+                }
+              />
+            </div>
+            
           </div>
         </div>
       </section>
