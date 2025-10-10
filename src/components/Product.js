@@ -3,6 +3,367 @@ import SEOHelmet from "./SEOHelmet";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 
+// Smooth scroll utility
+const smoothScrollTo = (element, options = {}) => {
+  if (element && element.scrollIntoView) {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+      ...options,
+    });
+  }
+};
+
+// Enhanced Milestones Section for Product Development
+function MilestonesSection() {
+  const milestones = [
+    {
+      year: "2008",
+      title: "Foundation of Natural Fiber Expertise",
+      description: "Started with traditional jute yarn production, mastering the art of natural fiber processing",
+      image: "/images/download.jpg",
+      side: "left",
+    },
+    {
+      year: "2012",
+      title: "Expansion into Diverse Fibers",
+      description: "Introduced banana fiber, sisal, and sea grass into our production line",
+      image: "/images/download (3).jpg",
+      side: "right",
+    },
+    {
+      year: "2016",
+      title: "Innovation in Weaving Techniques",
+      description: "Developed advanced hand-braiding methods combining traditional crafts with modern durability",
+      image: "/images/Jute Boucle Rug.jpg",
+      side: "left",
+    },
+    {
+      year: "2018",
+      title: "Launch of Premium Collections",
+      description: "Introduced Bengal Folk Craft and Coastal Wave collections to international markets",
+      image: "/images/Elma Geometric Jute Rug _ Natural.jpg",
+      side: "right",
+    },
+    {
+      year: "2020",
+      title: "Sustainable Production Revolution",
+      description: "Implemented eco-friendly processes and achieved carbon-neutral manufacturing",
+      image: "/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg",
+      side: "left",
+    },
+    {
+      year: "2022",
+      title: "Digital Design Integration",
+      description: "Launched CAD-driven Spectrum Weaves collection with precision-woven patterns",
+      image: "/images/flat-lay-monochromatic-assortment-textiles.jpg",
+      side: "right",
+    },
+    {
+      year: "2024",
+      title: "Global Export Excellence",
+      description: "Achieved worldwide distribution with B2B partnerships across 5 continents",
+      image: "/images/Hart in Terracotta.jpg",
+      side: "left",
+    },
+  ];
+
+  const [visibleMilestones, setVisibleMilestones] = useState(new Set());
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const sectionRef = useRef(null);
+  const itemRefs = useRef([]);
+  const observerRef = useRef(null);
+
+  // Enhanced intersection observer with smooth animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: [0.1, 0.3, 0.5, 0.7],
+      rootMargin: "-10% 0px -10% 0px",
+    };
+
+    observerRef.current = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const index = parseInt(entry.target.dataset.index);
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+          setVisibleMilestones((prev) => new Set([...prev, index]));
+        }
+      });
+    }, observerOptions);
+
+    itemRefs.current.forEach((ref) => {
+      if (ref) observerRef.current.observe(ref);
+    });
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
+  // Smooth progress calculation
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const rect = sectionRef.current.getBoundingClientRect();
+      const sectionTop = rect.top + window.scrollY;
+      const sectionHeight = rect.height;
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const scrollCenter = scrollTop + windowHeight / 2;
+
+      if (scrollCenter >= sectionTop && scrollCenter <= sectionTop + sectionHeight) {
+        const progress = Math.max(0, Math.min(1, (scrollCenter - sectionTop) / sectionHeight));
+        setScrollProgress(progress);
+      }
+    };
+
+    let ticking = false;
+    const smoothScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", smoothScroll, { passive: true });
+    window.addEventListener("resize", smoothScroll, { passive: true });
+    handleScroll(); // Initial calculation
+
+    return () => {
+      window.removeEventListener("scroll", smoothScroll);
+      window.removeEventListener("resize", smoothScroll);
+    };
+  }, []);
+
+  // Enhanced smooth scroll to milestone
+  const scrollToMilestone = (index) => {
+    const element = itemRefs.current[index];
+    if (element) {
+      smoothScrollTo(element, {
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  };
+
+  return (
+    <section
+      ref={sectionRef}
+      className="py-16 lg:py-24 bg-gradient-to-br from-bgGrey via-white to-bgGrey relative overflow-hidden"
+      aria-label="Product Development Milestones"
+    >
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-12 lg:mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 rounded-full mb-4">
+            <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3 7h7l-5.5 4 2.5 7-7-4.5L5 20l2.5-7L2 9h7z" />
+            </svg>
+            <span className="text-sm font-semibold text-gold tracking-wide uppercase">
+              Our Evolution
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-textDark mb-4 lg:mb-6">
+            Crafting Excellence Since 2008
+          </h2>
+          <p className="text-base sm:text-lg lg:text-xl text-textDark/70 max-w-3xl mx-auto leading-relaxed font-body">
+            From traditional yarn-making to innovative global exports — witness our journey
+            of continuous innovation in natural fiber craftsmanship.
+          </p>
+          <div className="mx-auto mt-6 w-24 h-1 bg-gradient-to-r from-gold via-primary to-secondary rounded-full"></div>
+        </div>
+
+        {/* Timeline Navigation (Desktop only) */}
+        <div className="hidden lg:flex justify-center mb-12">
+          <div className="flex items-center gap-4 p-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-sm">
+            {milestones.map((milestone, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToMilestone(index)}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  visibleMilestones.has(index)
+                    ? "bg-gold text-white shadow-md scale-105"
+                    : "text-textDark/60 hover:text-textDark hover:bg-gray-100"
+                }`}
+                aria-label={`Go to ${milestone.year} milestone`}
+              >
+                {milestone.year}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Timeline Container */}
+        <div className="relative">
+          {/* Progress Line (Desktop) */}
+          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full">
+            <div className="absolute inset-0 bg-gray-200 rounded-full"></div>
+            <div
+              className="absolute top-0 left-0 w-full bg-gradient-to-b from-gold via-primary to-secondary rounded-full transition-all duration-1000 ease-out"
+              style={{ height: `${scrollProgress * 100}%` }}
+            ></div>
+            {/* Animated progress indicator */}
+            <div
+              className="absolute w-4 h-4 bg-gold rounded-full border-4 border-white shadow-lg transition-all duration-300 ease-out"
+              style={{
+                top: `${scrollProgress * 100}%`,
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                boxShadow: "0 0 20px rgba(209, 180, 119, 0.5)",
+              }}
+            ></div>
+          </div>
+
+          {/* Milestones */}
+          <div className="space-y-12 lg:space-y-20">
+            {milestones.map((milestone, index) => {
+              const isVisible = visibleMilestones.has(index);
+              const isLeft = milestone.side === "left";
+              const delay = `delay-${Math.min(index * 100, 500)}`;
+
+              return (
+                <div
+                  key={index}
+                  ref={(el) => (itemRefs.current[index] = el)}
+                  data-index={index}
+                  className="relative"
+                >
+                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center`}>
+                    {/* Image */}
+                    <div
+                      className={`${
+                        isLeft ? "lg:order-1" : "lg:order-2"
+                      } transition-all duration-700 ease-out transform ${
+                        isVisible
+                          ? "opacity-100 translate-y-0 scale-100"
+                          : "opacity-0 translate-y-8 scale-95"
+                      } ${delay}`}
+                    >
+                      <div className="relative group">
+                        <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-primary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                        <img
+                          src={milestone.image}
+                          alt={milestone.title}
+                          className="relative w-full h-64 sm:h-80 lg:h-96 object-cover rounded-2xl shadow-xl border-4 border-white group-hover:scale-[1.02] transition-all duration-500 will-change-transform"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div
+                      className={`${
+                        isLeft ? "lg:order-2" : "lg:order-1"
+                      } transition-all duration-700 ease-out transform ${
+                        isVisible
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-8"
+                      } ${delay}`}
+                    >
+                      <div className="relative">
+                        {/* Year Badge */}
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold to-primary rounded-full mb-4 shadow-lg">
+                          <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                          <span className="text-white font-bold text-lg tracking-wider">
+                            {milestone.year}
+                          </span>
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-textDark mb-4 lg:mb-6 leading-tight">
+                          {milestone.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-base sm:text-lg lg:text-xl text-textDark/80 leading-relaxed font-body mb-6 lg:mb-8">
+                          {milestone.description}
+                        </p>
+
+                        {/* Progress indicator for mobile */}
+                        <div className="lg:hidden flex items-center gap-2 mb-4">
+                          <div className="flex-1 h-1 bg-gray-200 rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-gradient-to-r from-gold to-primary transition-all duration-1000 ease-out"
+                              style={{
+                                width: `${((index + 1) / milestones.length) * 100}%`,
+                              }}
+                            ></div>
+                          </div>
+                          <span className="text-sm text-textDark/60 font-semibold min-w-0">
+                            {index + 1} of {milestones.length}
+                          </span>
+                        </div>
+
+                        {/* Decorative elements */}
+                        <div className="absolute -top-2 -left-4 w-20 h-20 bg-gold/10 rounded-full blur-2xl"></div>
+                        <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-primary/10 rounded-full blur-xl"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Timeline dot (Desktop) */}
+                  <div className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div
+                      className={`w-6 h-6 rounded-full border-4 border-white shadow-lg transition-all duration-500 ${
+                        isVisible ? "bg-gold scale-125" : "bg-gray-300 scale-100"
+                      }`}
+                    ></div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-16 lg:mt-24">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-200 max-w-2xl mx-auto">
+            <h3 className="text-xl lg:text-2xl font-heading font-bold text-textDark mb-4">
+              Ready to Experience Our Craftsmanship?
+            </h3>
+            <p className="text-textDark/70 mb-6 font-body leading-relaxed">
+              Discover our complete range of handcrafted natural fiber rugs
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href="/gallery"
+                className="inline-flex items-center justify-center px-6 py-3 bg-gold text-white rounded-full font-semibold hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                </svg>
+                View Gallery
+              </a>
+              <a
+                href="/enquiry"
+                className="inline-flex items-center justify-center px-6 py-3 bg-transparent text-primary border-2 border-primary rounded-full font-semibold hover:bg-primary hover:text-white transform hover:scale-105 transition-all duration-300"
+              >
+                <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                </svg>
+                Get Quote
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ProductHeroSlider() {
   const slides = [
     {
@@ -33,7 +394,7 @@ function ProductHeroSlider() {
 
   return (
     <section
-      className="relative h-[45vh] sm:h-[50vh] lg:h-[60vh] min-h-[400px]"
+      className="relative h-[50vh] sm:h-[55vh] md:h-[65vh] lg:h-[70vh] min-h-[450px] max-h-[800px]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -52,15 +413,15 @@ function ProductHeroSlider() {
       <div className="absolute inset-0 flex items-center pt-12 sm:pt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-3xl">
-            <h1 className="text-xl sm:text-4xl lg:text-6xl font-heading font-semibold text-white leading-tight break-words">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-semibold text-white leading-tight break-words">
               Material Mastery — From Farm to Floor
             </h1>
-            <p className="mt-2 sm:mt-4 text-white/90 font-body max-w-xl text-xs sm:text-base leading-relaxed">
+            <p className="mt-3 sm:mt-4 md:mt-5 text-white/90 font-body max-w-xl text-sm sm:text-base md:text-lg leading-relaxed">
               Passion for innovative natural fibre products handed down 4
               generations. Jute, banana, sea grass and more on soil. Cotton for
               softness, wool for volume, and linen for finesse.
             </p>
-            <div className="mt-3 sm:mt-5 flex flex-col sm:flex-row gap-2 sm:gap-3">
+            <div className="mt-4 sm:mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link to="/gallery">
                 <Button variant="gold" className="w-full sm:w-auto text-sm sm:text-base">Visit Our Gallery</Button>
               </Link>
@@ -74,8 +435,8 @@ function ProductHeroSlider() {
               </Link>
             </div>
             {/* USP badges */}
-            <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-sm text-white/90">
-              <span className="inline-flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-full bg-black/30 ring-1 ring-white/20">
+            <div className="mt-4 sm:mt-6 md:mt-8 flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-white/90">
+                <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-black/30 ring-1 ring-white/20 backdrop-blur-sm">
                 <svg
                   className="w-3 h-3 sm:w-4 sm:h-4"
                   viewBox="0 0 24 24"
@@ -179,6 +540,22 @@ function Product() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [shareCopied, setShareCopied] = useState(false);
   const lastTapRef = useRef(0);
+  
+  // Accessibility: Respect user's motion preferences
+  const prefersReducedMotion = useRef(false);
+  
+  useEffect(() => {
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    prefersReducedMotion.current = mediaQuery.matches;
+    
+    const handleChange = (e) => {
+      prefersReducedMotion.current = e.matches;
+    };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   const openModal = (image, anchor = null) => {
     setSelectedImage(image);
@@ -280,32 +657,35 @@ function Product() {
     tagline,
     items = [],
   }) => (
-    <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm border border-gray-100">
-      <div className="flex items-center justify-between mb-3">
-        <div className="hidden sm:block h-px bg-gray-300 flex-1 mr-3" />
-        <h3 className="text-lg sm:text-xl font-heading tracking-wide text-textDark font-semibold">
+    <div className="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300">
+      <div className="flex items-center justify-between mb-4 md:mb-6">
+        <div className="hidden sm:block h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent flex-1 mr-4" />
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-heading tracking-wide text-textDark font-bold text-center sm:text-left">
           {title}
         </h3>
-        <div className="hidden sm:block h-px bg-gray-300 flex-1 ml-3" />
+        <div className="hidden sm:block h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent flex-1 ml-4" />
       </div>
       {tagline && (
-        <p className="text-sm font-semibold text-secondary/90 mb-2 font-body">
+        <p className="text-sm sm:text-base font-semibold text-secondary/90 mb-3 md:mb-4 font-body italic">
           {tagline}
         </p>
       )}
       {bullets && bullets.length > 0 ? (
-        <ul className="list-disc list-inside space-y-1 text-sm sm:text-base text-textDark/80 leading-relaxed font-body">
+        <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base md:text-lg text-textDark/80 leading-relaxed font-body mb-4 md:mb-6">
           {bullets.map((b, i) => (
-            <li key={i}>{b}</li>
+            <li key={i} className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-2 h-2 bg-gold rounded-full mt-2"></span>
+              <span>{b}</span>
+            </li>
           ))}
         </ul>
       ) : (
-        <p className="text-sm sm:text-base text-textDark/80 leading-relaxed font-body">
+        <p className="text-sm sm:text-base md:text-lg text-textDark/80 leading-relaxed font-body mb-4 md:mb-6">
           {description}
         </p>
       )}
       {items.length > 0 && (
-        <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
           {items.map((src, i) => (
             <div
               key={i}
@@ -315,14 +695,33 @@ function Product() {
                   e.currentTarget
                 )
               }
-              className="group relative overflow-hidden rounded h-16 sm:h-20 cursor-zoom-in"
+              className="group relative overflow-hidden rounded-lg h-20 sm:h-24 md:h-28 cursor-zoom-in shadow-sm hover:shadow-md transition-all duration-300"
+              role="button"
+              tabIndex={0}
+              aria-label={`View ${title} image ${i + 1}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  openModal(
+                    { src, alt: `${title} ${i + 1}`, title },
+                    e.currentTarget
+                  );
+                }
+              }}
             >
               <img
                 src={src}
                 alt={`${title} ${i + 1}`}
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105 will-change-transform"
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110 will-change-transform"
+                loading="lazy"
               />
-              <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+              <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                <svg className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="6"></circle>
+                  <path d="M21 21l-4.35-4.35"></path>
+                  <path strokeLinecap="round" d="M11 8v6M8 11h6"></path>
+                </svg>
+              </div>
             </div>
           ))}
         </div>
@@ -339,15 +738,15 @@ function Product() {
       />
       <ProductHeroSlider />
 
-      <section className="bg-white py-8 sm:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+      <section className="bg-white py-10 sm:py-14 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 items-start">
           <div className="md:col-span-3">
-            <h2 className="text-2xl sm:text-3xl font-heading text-textDark">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading text-textDark mb-4 md:mb-0">
               <span className="font-semibold">Place of Origin Advantage</span> —
               Within 50km of our office
             </h2>
           </div>
-          <div className="md:col-span-2 text-textDark/80 font-body leading-relaxed">
+          <div className="md:col-span-2 text-textDark/80 font-body leading-relaxed text-base sm:text-lg">
             Sourcing spans a 150km farm supply chain that breathes local air,
             tastes tannin-fed looms and regulates price shocks better than any
             consortium. Integrated global partnerships with rotating
@@ -357,16 +756,16 @@ function Product() {
       </section>
 
       {/* Alternating image/text layout inspired by the reference */}
-      <section className="py-6 sm:py-10">
-        <div className="max-w-7xl mx-auto px-0 sm:px-4 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6">
+      <section className="py-8 sm:py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-10">
             {/* Row 1: Large image + Text — Bengal Folk Craft */}
             <div className="md:col-span-7">
               <img
                 src={"/images/carpet.jpg"}
                 alt="Hand-braided natural fibre texture"
                 loading="lazy"
-                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
+                className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
                     {
@@ -412,7 +811,7 @@ function Product() {
                 src={"/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg"}
                 alt="Coastal-ready indoor/outdoor weave in patio setting"
                 loading="lazy"
-                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
+                className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
                     {
@@ -431,7 +830,7 @@ function Product() {
                 src={"/images/Elma Geometric Jute Rug _ Natural.jpg"}
                 alt="Banana-blend flatweave in warm interior"
                 loading="lazy"
-                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
+                className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
                     {
@@ -476,7 +875,7 @@ function Product() {
                 src={"/images/Hart in Terracotta.jpg"}
                 alt="Wool–jute blend rug adding warmth to living area"
                 loading="lazy"
-                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
+                className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
                     {
@@ -495,7 +894,7 @@ function Product() {
                 src={"/images/flat-lay-monochromatic-assortment-textiles.jpg"}
                 alt="Jacquard patterns in monochrome study"
                 loading="lazy"
-                className="w-full h-60 sm:h-72 lg:h-96 object-cover rounded cursor-zoom-in"
+                className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
                     {
@@ -524,6 +923,9 @@ function Product() {
           </div>
         </div>
       </section>
+
+      {/* Product Development Milestones Timeline */}
+      <MilestonesSection />
 
       {/* Product Image Modal (similar to Gallery) */}
       {selectedImage && (
@@ -727,15 +1129,26 @@ function Product() {
     </section> */}
 
       {/* Testimonials */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-heading text-textDark">
+      <section className="py-16 sm:py-20 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 rounded-full mb-4">
+              <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3 7h7l-5.5 4 2.5 7-7-4.5L5 20l2.5-7L2 9h7z" />
+              </svg>
+              <span className="text-sm font-semibold text-gold tracking-wide uppercase">
+                Trusted Worldwide
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-textDark mb-4">
               Why Exporters & Importers Choose MKT Rugs
             </h2>
-            <div className="mx-auto mt-3 w-24 h-1 bg-gold" />
+            <p className="text-lg text-textDark/70 max-w-3xl mx-auto leading-relaxed font-body">
+              Discover why global partners trust us for their natural fiber needs
+            </p>
+            <div className="mx-auto mt-6 w-24 h-1 bg-gradient-to-r from-gold via-primary to-secondary rounded-full" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 quote:
@@ -755,37 +1168,67 @@ function Product() {
             ].map((t, i) => (
               <div
                 key={i}
-                className="bg-bgGrey rounded-lg p-6 border border-gray-100 shadow-sm"
+                className="bg-gradient-to-br from-bgGrey to-white rounded-xl p-6 md:p-8 border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
               >
-                <svg
-                  className="w-6 h-6 text-gold mb-2"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M7 7h4v10H5V9a2 2 0 012-2zm10 0h4v10h-6V9a2 2 0 012-2z" />
-                </svg>
-                <p className="text-textDark/90 font-body">{t.quote}</p>
-                <div className="mt-3 text-sm text-secondary font-semibold">
-                  {t.name}
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center group-hover:bg-gold/20 transition-colors duration-300">
+                    <svg
+                      className="w-6 h-6 text-gold"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M7 7h4v10H5V9a2 2 0 012-2zm10 0h4v10h-6V9a2 2 0 012-2z" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-sm font-semibold text-secondary/90 mb-2">
+                      {t.name}
+                    </div>
+                    <div className="flex text-gold text-sm mb-2">
+                      {[...Array(5)].map((_, starIndex) => (
+                        <svg key={starIndex} className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                          <path d="M12 2l3 7h7l-5.5 4 2.5 7-7-4.5L5 20l2.5-7L2 9h7z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
                 </div>
+                <blockquote className="text-textDark/90 font-body text-base leading-relaxed italic">
+                  "{t.quote}"
+                </blockquote>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <div className="md:hidden fixed bottom-4 right-4 z-50 flex flex-col gap-2">
-        <a href="/contact" className="shadow-lg">
-          <Button variant="gold" className="rounded-full px-4 py-3">
+      {/* Enhanced Mobile FAB */}
+      <div className="lg:hidden fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <a 
+          href="/contact" 
+          className="group shadow-xl hover:shadow-2xl transition-all duration-300"
+          aria-label="Contact us"
+        >
+          <Button variant="gold" className="rounded-full px-6 py-4 text-sm font-semibold group-hover:scale-105 transition-transform duration-300">
+            <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+            </svg>
             Contact
           </Button>
         </a>
-        <a href="/enquiry" className="shadow-lg">
+        <a 
+          href="/enquiry" 
+          className="group shadow-xl hover:shadow-2xl transition-all duration-300"
+          aria-label="Get a quote"
+        >
           <Button
             variant="secondary"
-            className="rounded-full px-4 py-3 !border-white !text-white hover:!bg-white hover:!text-secondary"
+            className="rounded-full px-6 py-4 text-sm font-semibold !border-2 !border-primary !text-primary hover:!bg-primary hover:!text-white group-hover:scale-105 transition-all duration-300"
           >
-            Get a Quote
+            <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+            Quote
           </Button>
         </a>
       </div>
