@@ -243,4 +243,441 @@ code {
   }
 }
 
+/* ===== Touch-friendly interactions ===== */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Enhanced button touch targets */
+.btn-touch {
+  min-height: 48px;
+  padding: 12px 24px;
+}
+
+/* Mobile-specific touch improvements */
+@media (max-width: 768px) {
+  .mobile-touch {
+    min-height: 48px;
+    min-width: 120px;
+    font-size: 16px; /* Prevents iOS zoom */
+  }
+  
+  .mobile-input {
+    min-height: 44px;
+    font-size: 16px; /* Prevents iOS zoom */
+    padding: 12px 16px;
+  }
+}
+
+/* ===== Enhanced Typography Scaling ===== */
+.hero-title {
+  font-size: clamp(1.75rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: clamp(0.875rem, 2.5vw, 1.25rem);
+  line-height: 1.5;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  line-height: 1.2;
+}
+
+.body-text {
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+  line-height: 1.6;
+}
+
+/* ===== Responsive Image Improvements ===== */
+.responsive-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.img-aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.img-aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+/* ===== Modal Improvements ===== */
+.modal-content {
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+@media (max-width: 640px) {
+  .modal-content {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+}
+
+/* ===== Grid Enhancements ===== */
+.grid-responsive {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    gap: 2rem;
+  }
+}
+
+/* ===== Focus Improvements ===== */
+.focus-enhanced:focus-visible {
+  outline: 3px solid #C68C53;
+  outline-offset: 2px;
+  border-radius: 0.375rem;
+}
+
+/* ===== Smooth scrolling ===== */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ===== Screen Reader Classes ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only.focus:not-sr-only,
+.sr-only:focus-visible {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: inherit;
+}
+
+/* ===== Loading Spinner Animations ===== */
+
+/* 4 Squares Loading Animation */
+@keyframes square-pulse {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.animate-square-pulse {
+  animation: square-pulse 1.2s ease-in-out infinite;
+}
+
+/* Weaving Pattern Animations */
+@keyframes weave-horizontal {
+  0%, 100% {
+    transform: scaleX(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes weave-vertical {
+  0%, 100% {
+    transform: scaleY(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.animate-weave-horizontal {
+  animation: weave-horizontal 2s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+.animate-weave-vertical {
+  animation: weave-vertical 2s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+/* Fiber Spinning Animation */
+@keyframes fiber-spin {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg) scaleY(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: rotate(180deg) scaleY(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(360deg) scaleY(1);
+  }
+}
+
+.animate-fiber-spin {
+  animation: fiber-spin 1.5s linear infinite;
+}
+
+/* Carpet Roll Animation */
+@keyframes carpet-roll {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.animate-carpet-roll {
+  animation: carpet-roll 1.8s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+/* Dot Pulse Animation */
+@keyframes dot-pulse {
+  0%, 60%, 100% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  30% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+}
+
+.animate-dot-pulse {
+  animation: dot-pulse 1.4s ease-in-out infinite;
+}
+
+/* Enhanced Loading Variants */
+@keyframes loading-shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: loading-shimmer 2s infinite;
+}
+
+/* Skeleton loading enhancements */
+@keyframes skeleton-wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-wave::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: skeleton-wave 2s infinite;
+}
+
+/* MKT Logo Loading Animations */
+@keyframes mkt-letter-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-8px) scale(1.1);
+  }
+  60% {
+    transform: translateY(-4px) scale(1.05);
+  }
+}
+
+@keyframes mkt-letter-glow {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 8px currentColor);
+  }
+}
+
+@keyframes mkt-underline {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes mkt-orbit {
+  0% {
+    transform: rotate(0deg) translateX(20px) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) translateX(20px) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+/* MKT Letter Animations */
+.animate-mkt-letter-m {
+  animation: mkt-letter-bounce 2s ease-in-out infinite;
+}
+
+.animate-mkt-letter-k {
+  animation: mkt-letter-bounce 2s ease-in-out infinite, mkt-letter-glow 2s ease-in-out infinite;
+}
+
+.animate-mkt-letter-t {
+  animation: mkt-letter-bounce 2s ease-in-out infinite;
+}
+
+.animate-mkt-underline {
+  animation: mkt-underline 2s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+.animate-mkt-orbit {
+  animation: mkt-orbit 3s linear infinite;
+}
+
+/* Enhanced MKT variations */
+@keyframes mkt-wave {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotate(-2deg);
+  }
+  75% {
+    transform: translateY(3px) rotate(2deg);
+  }
+}
+
+@keyframes mkt-pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+}
+
+/* Compact MKT Animation */
+@keyframes mkt-compact {
+  0% {
+    transform: scale(0.8) rotate(0deg);
+    opacity: 0.6;
+  }
+  33% {
+    transform: scale(1.1) rotate(120deg);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0.9) rotate(240deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.8) rotate(360deg);
+    opacity: 0.6;
+  }
+}
+
+.animate-mkt-compact {
+  animation: mkt-compact 2s ease-in-out infinite;
+}
+
+/* Reduce animations for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-square-pulse,
+  .animate-weave-horizontal,
+  .animate-weave-vertical,
+  .animate-fiber-spin,
+  .animate-carpet-roll,
+  .animate-dot-pulse,
+  .animate-mkt-letter-m,
+  .animate-mkt-letter-k,
+  .animate-mkt-letter-t,
+  .animate-mkt-underline,
+  .animate-mkt-orbit,
+  .animate-mkt-compact {
+    animation: none;
+  }
+  
+  .loading-shimmer {
+    animation: none;
+    background: #e0e0e0;
+  }
+}
+
 /* Keep existing styles below */

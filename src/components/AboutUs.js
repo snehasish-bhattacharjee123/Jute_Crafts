@@ -1,18 +1,7 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import SEOHelmet from "./SEOHelmet";
-import Button from "./Button";
-
-// Smooth scroll utility with enhanced options
-const smoothScrollTo = (element, options = {}) => {
-  if (element && element.scrollIntoView) {
-    element.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "nearest",
-      ...options,
-    });
-  }
-};
+import { smoothScrollTo } from "../utils/scrollUtils";
+import LoadingSpinner from "./LoadingSpinner";
 
 // Enhanced Certificates Grid with direct PDF opening (no modal)
 function CertificatesGrid() {
@@ -22,13 +11,13 @@ function CertificatesGrid() {
   
   const certs = [
     {
-      src: "/images/HOME_1.jpg",
+      src: "/images/ISO.jpg",
       alt: "ISO 9001:2015",
       desc: "Quality Management System (ISO 9001:2015) certified units.",
-      pdf: "Jute_Crafts/public/images/MKT RUGS ISO 9001-2015.pdf",
+      pdf: "/images/MKT RUGS ISO 9001-2015.pdf",
     },
     {
-      src: "/images/HOME_2.jpg",
+      src: "/images/CEPC.jpg",
       alt: "CEPC Logo",
       desc: "Recognized by the Carpet Export Promotion Council (CEPC).",
       pdf: "/images/MKT RUGS CEPC Membership.pdf",
@@ -84,7 +73,7 @@ function CertificatesGrid() {
             <div
               key={index}
               ref={(el) => (certRefs.current[index] = el)}
-              className={`group relative bg-white rounded-xl p-6 border-2 border-gold/20 shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden ${
+              className={`group relative touch-target bg-white rounded-xl p-6 border-2 border-gold/20 shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden focus-enhanced ${
                 isVisible 
                   ? `opacity-100 translate-y-0 scale-100 ${delay}` 
                   : 'opacity-0 translate-y-8 scale-95'
@@ -109,8 +98,9 @@ function CertificatesGrid() {
                   <img
                     src={cert.src}
                     alt={cert.alt}
-                    className="w-full h-full object-contain filter drop-shadow-sm"
+                    className="responsive-img w-full h-full object-contain filter drop-shadow-sm"
                     loading="lazy"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                 </div>
                 
@@ -262,7 +252,7 @@ function HeroSlider() {
             {/* Loading placeholder */}
             {!isLoaded && (
               <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
-                <div className="w-12 h-12 border-4 border-gold/30 border-t-gold rounded-full animate-spin"></div>
+                <LoadingSpinner variant="mkt" size="lg" color="gold" label="Loading image" />
               </div>
             )}
             
@@ -293,14 +283,14 @@ function HeroSlider() {
               </span>
             </div>
             
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-white leading-tight">
+            <h1 className="hero-title font-heading font-bold text-white leading-tight">
               <span className="block">Witness the Craftsmanship</span>
               <span className="block text-gold">of Bengal</span>
             </h1>
           </div>
           
           {/* Subtitle */}
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white/90 font-body leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 hero-subtitle text-white/90 font-body leading-relaxed max-w-2xl mx-auto">
             From Farm to Floor — Authentic handcrafted rugs from West Bengal, 
             where tradition meets modern excellence.
           </p>
@@ -309,7 +299,7 @@ function HeroSlider() {
           <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="/products" 
-              className="inline-flex items-center justify-center px-8 py-3 bg-gold text-white rounded-full font-semibold hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center mobile-touch px-8 py-3 bg-gold text-white rounded-full font-semibold hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus-enhanced"
             >
               <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
@@ -318,7 +308,7 @@ function HeroSlider() {
             </a>
             <a 
               href="/enquiry" 
-              className="inline-flex items-center justify-center px-8 py-3 bg-transparent text-white border-2 border-white rounded-full font-semibold hover:bg-white hover:text-secondary transform hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center justify-center mobile-touch px-8 py-3 bg-transparent text-white border-2 border-white rounded-full font-semibold hover:bg-white hover:text-secondary transform hover:scale-105 transition-all duration-300 focus-enhanced"
             >
               <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
@@ -332,7 +322,7 @@ function HeroSlider() {
       {/* Navigation arrows (desktop only) */}
       <button
         onClick={prevSlide}
-        className="hidden lg:flex absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full items-center justify-center text-white hover:bg-white/20 transition-all duration-300 group"
+        className="hidden lg:flex absolute left-6 top-1/2 -translate-y-1/2 touch-target w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full items-center justify-center text-white hover:bg-white/20 transition-all duration-300 group focus-enhanced"
         aria-label="Previous image"
       >
         <svg className="w-6 h-6 transform group-hover:-translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -342,7 +332,7 @@ function HeroSlider() {
       
       <button
         onClick={nextSlide}
-        className="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full items-center justify-center text-white hover:bg-white/20 transition-all duration-300 group"
+        className="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 touch-target w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full items-center justify-center text-white hover:bg-white/20 transition-all duration-300 group focus-enhanced"
         aria-label="Next image"
       >
         <svg className="w-6 h-6 transform group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -354,7 +344,7 @@ function HeroSlider() {
       <div className="absolute bottom-6 left-0 right-0 flex justify-center">
         <button
           onClick={scrollToStory}
-          className="group inline-flex flex-col items-center text-white/80 hover:text-white transition-all duration-300 transform hover:scale-105"
+          className="group touch-target inline-flex flex-col items-center text-white/80 hover:text-white transition-all duration-300 transform hover:scale-105 focus-enhanced"
           aria-label="Scroll to our story section"
         >
           <span className="text-xs tracking-widest uppercase font-semibold mb-2 group-hover:text-gold transition-colors duration-300">Discover Our Story</span>
@@ -380,10 +370,10 @@ function HeroSlider() {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`relative transition-all duration-300 ${
+              className={`relative transition-all duration-300 focus-enhanced p-2 ${
                 index === activeIndex 
-                  ? "w-8 h-3 bg-gold rounded-full" 
-                  : "w-3 h-3 bg-white/40 rounded-full hover:bg-white/60"
+                  ? "w-6 h-2 sm:w-8 sm:h-3 bg-gold rounded-full" 
+                  : "w-2 h-2 sm:w-3 sm:h-3 bg-white/40 rounded-full hover:bg-white/60"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             >
@@ -686,7 +676,7 @@ function AboutUs() {
                 </span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-textDark mb-8">
+              <h2 className="section-title font-heading font-bold text-textDark mb-8">
                 Our History
               </h2>
               
@@ -735,7 +725,7 @@ function AboutUs() {
                   <div className="flex flex-col sm:flex-row gap-4">
                     <a 
                       href="/enquiry" 
-                      className="inline-flex items-center justify-center px-8 py-3 bg-gold text-white rounded-full font-semibold hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                      className="inline-flex items-center justify-center mobile-touch px-8 py-3 bg-gold text-white rounded-full font-semibold hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus-enhanced"
                     >
                       <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
@@ -744,7 +734,7 @@ function AboutUs() {
                     </a>
                     <a 
                       href="/products" 
-                      className="inline-flex items-center justify-center px-8 py-3 bg-transparent text-primary border-2 border-primary rounded-full font-semibold hover:bg-primary hover:text-white transform hover:scale-105 transition-all duration-300"
+                      className="inline-flex items-center justify-center mobile-touch px-8 py-3 bg-transparent text-primary border-2 border-primary rounded-full font-semibold hover:bg-primary hover:text-white transform hover:scale-105 transition-all duration-300 focus-enhanced"
                     >
                       <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
@@ -761,9 +751,10 @@ function AboutUs() {
               <div className="relative group">
                 <img
                   src="/images/Naturals Basket.jpg"
-                  alt="Traditional jute weaving showcasing our heritage"
-                  className="rounded-lg shadow-lg w-full h-80 sm:h-96 lg:h-[32rem] object-cover group-hover:scale-[1.02] transition-all duration-300"
+                  alt="Traditional jute weaving showcasing our heritage - MKT Rugs authentic craftsmanship"
+                  className="responsive-img rounded-lg shadow-lg w-full h-80 sm:h-96 lg:h-[32rem] object-cover group-hover:scale-[1.02] transition-all duration-300"
                   loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
                 />
                 {/* Stats overlay */}
                 <div className="absolute top-4 right-4 bg-white rounded-lg p-3 shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -796,7 +787,7 @@ function AboutUs() {
               </span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-textDark mb-6">
+            <h2 className="section-title font-heading font-bold text-textDark mb-6">
               Milestones on the Global Loom
             </h2>
             
@@ -815,7 +806,7 @@ function AboutUs() {
                 <button
                   key={index}
                   onClick={() => scrollToMilestone(index)}
-                  className={`group relative px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  className={`group relative touch-target px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 focus-enhanced ${
                     visibleMilestones.has(index)
                       ? "bg-gold text-white shadow-md scale-105"
                       : "text-textDark/60 hover:text-textDark hover:bg-gray-100"
@@ -1190,19 +1181,11 @@ function AboutUs() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
               <div className="w-48 h-48 bg-primary/10 rounded-full mx-auto mb-6 flex items-center justify-center">
-                <svg
-                  className="w-24 h-24 text-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
+                <img
+      src="/images/IMG_5792.jpg" // <-- replace with your image path
+      alt="Dattatreyo Paul"
+      className="w-full h-full object-cover"
+    />
               </div>
               <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
                 Rahul Sarder

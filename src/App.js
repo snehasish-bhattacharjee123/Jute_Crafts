@@ -525,6 +525,7 @@ import TermsConditions from "./components/TermsConditions";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import RefundPolicy from "./components/RefundPolicy";
 import ShippingPolicy from "./components/ShippingPolicy";
+import { LoadingOverlay, InlineLoading } from "./components/LoadingSpinner";
 
 const AboutUs = lazy(() => import("./components/AboutUs"));
 const Gallery = lazy(() => import("./components/Gallery"));
@@ -553,12 +554,12 @@ function App() {
   // Auto-show expo popup when website loads
   useEffect(() => {
     // Check if popup has been shown before (optional - remove if you want it to show every time)
-    const hasSeenExpoPopup = sessionStorage.getItem('hasSeenExpoPopup');
-    
+    const hasSeenExpoPopup = sessionStorage.getItem("hasSeenExpoPopup");
+
     if (!hasSeenExpoPopup) {
       const timer = setTimeout(() => {
         setShowExpoPopup(true);
-        sessionStorage.setItem('hasSeenExpoPopup', 'true'); // Store that user has seen it this session
+        sessionStorage.setItem("hasSeenExpoPopup", "true"); // Store that user has seen it this session
       }, 2000); // Show after 2 seconds (you can adjust this)
 
       return () => clearTimeout(timer);
@@ -568,28 +569,28 @@ function App() {
   // Handle body scroll when modal is open
   React.useEffect(() => {
     if (showModal) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
-    
+
     // Cleanup function to restore body scroll
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [showModal]);
 
   // Handle escape key to close modal
   React.useEffect(() => {
     const handleEscape = (event) => {
-      if (event.key === 'Escape' && showModal) {
+      if (event.key === "Escape" && showModal) {
         setShowModal(false);
       }
     };
 
     if (showModal) {
-      document.addEventListener('keydown', handleEscape);
-      return () => document.removeEventListener('keydown', handleEscape);
+      document.addEventListener("keydown", handleEscape);
+      return () => document.removeEventListener("keydown", handleEscape);
     }
   }, [showModal]);
 
@@ -675,9 +676,9 @@ function App() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const serviceID = "service_l7jryqu"; // <-- replace with your actual Service ID
-    const templateID = "template_0zitx77"; // <-- replace with your actual Template ID
-    const publicKey = "NAS0PefIzYxrhtKz0"; // <-- replace with your actual Public Key
+    const serviceID = "service_ndpwufi"; // <-- replace with your actual Service ID
+    const templateID = "template_cgrj8vd"; // <-- replace with your actual Template ID
+    const publicKey = "uk2WLYQLBW7dXCPwX"; // <-- replace with your actual Public Key
 
     try {
       await emailjs.send(serviceID, templateID, form, publicKey);
@@ -685,7 +686,7 @@ function App() {
 
       // Now trigger the brochure download
       const link = document.createElement("a");
-      link.href = "/images/page3.pdf";
+      link.href = "/images/WEBSITE BROCHURE_07 (1).pdf";
       link.download = "MKT_Rugs_Brochure.pdf";
       document.body.appendChild(link);
       link.click();
@@ -699,9 +700,11 @@ function App() {
         interest: "",
         email: "",
       });
-      
+
       setShowModal(false);
-      alert("Thank you! The brochure download has started and details sent to your email.");
+      alert(
+        "Thank you! The brochure download has started and details sent to your email."
+      );
     } catch (err) {
       console.error("❌ Email failed:", err);
       alert(
@@ -734,9 +737,10 @@ function App() {
         ></div>
 
         <ErrorBoundary>
-          <Suspense
-            fallback={<div className="p-8 text-center">Loading...</div>}
-          >
+          <main id="main-content" role="main">
+            <Suspense
+              fallback={<LoadingOverlay message="Loading page..." variant="mkt" />}
+            >
             <Routes>
               <Route
                 path="/"
@@ -746,183 +750,209 @@ function App() {
 
                     {/* === EXPERIENCE THE JOURNEY SECTION === */}
                     <section id="journey" className="py-12 md:py-16 bg-bgLight">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-12 reveal">
-      <div className="inline-flex items-center gap-3 mb-3">
-        <span className="w-8 h-[2px] bg-gold"></span>
-        <span className="uppercase tracking-[0.3em] text-sm text-gold font-accent">
-          Our Journey
-        </span>
-      </div>
-      <h2 className="text-3xl sm:text-5xl font-heading font-semibold text-textDark">
-        Experience the Journey: From Raw Fibre to Timeless Rugs
-      </h2>
-      <p className="font-body text-base sm:text-lg text-textDark/80 max-w-3xl mx-auto mt-4 leading-relaxed">
-        Step into our world of craftsmanship — where every rug begins as a
-        natural fibre and transforms into a beautiful handmade creation,
-        woven with tradition, patience, and precision.
-      </p>
-    </div>
+                      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="text-center mb-12 reveal">
+                          <div className="inline-flex items-center gap-3 mb-3">
+                            <span className="w-8 h-[2px] bg-gold"></span>
+                            <span className="uppercase tracking-[0.3em] text-sm text-gold font-accent">
+                              Our Journey
+                            </span>
+                          </div>
+                          <h2 className="text-3xl sm:text-5xl font-heading font-semibold text-textDark">
+                            Experience the Journey: From Raw Fibre to Timeless
+                            Rugs
+                          </h2>
+                          <p className="font-body text-base sm:text-lg text-textDark/80 max-w-3xl mx-auto mt-4 leading-relaxed">
+                            Step into our world of craftsmanship — where every
+                            rug begins as a natural fibre and transforms into a
+                            beautiful handmade creation, woven with tradition,
+                            patience, and precision.
+                          </p>
+                        </div>
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start reveal">
-      {/* ✅ Image Grid */}
-      <div className="grid grid-cols-2 gap-6">
-        <img
-          src="/images/Artboard 1.jpg"
-          alt="Harvesting jute plants"
-          className="w-full h-48 sm:h-56 object-cover rounded-lg shadow"
-        />
-        <img
-          src="/images/Artboard 2.jpg"
-          alt="Extracting natural fibres"
-          className="w-full h-48 sm:h-56 object-cover rounded-lg shadow"
-        />
-        <img
-          src="/images/Artboard 3.jpg"
-          alt="Sorting and quality checking raw fibres"
-          className="w-full h-48 sm:h-56 object-cover rounded-lg shadow"
-        />
-        <img
-          src="/images/Artboard 4.jpg"
-          alt="Weaving natural fibre rugs"
-          className="w-full h-48 sm:h-56 object-cover rounded-lg shadow"
-        />
-      </div>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start reveal">
+                          {/* ✅ Image Grid */}
+                          <div className="grid grid-cols-2 gap-6">
+                            <img
+                              src="/images/Artboard 1.jpg"
+                              alt="Harvesting jute plants - Step 1 of MKT Rugs farm to floor process"
+                              className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
+                              loading="lazy"
+                              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            />
+                            <img
+                              src="/images/Artboard 2.jpg"
+                              alt="Extracting natural fibres - Quality jute processing at MKT Rugs"
+                              className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
+                              loading="lazy"
+                              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            />
+                            <img
+                              src="/images/Artboard 3.jpg"
+                              alt="Sorting and quality checking raw fibres - MKT Rugs quality control"
+                              className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
+                              loading="lazy"
+                              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            />
+                            <img
+                              src="/images/Artboard 4.jpg"
+                              alt="Weaving natural fibre rugs - Handcrafted artisan work at MKT Rugs"
+                              className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
+                              loading="lazy"
+                              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            />
+                          </div>
 
-      {/* ✅ Text Cards */}
-      <div className="space-y-8">
-        {/* 1️⃣ Card */}
-        <div className="flex items-start gap-4 reveal">
-          <div className="shrink-0 w-10 h-10 rounded-full bg-gold/20 text-secondary flex items-center justify-center">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              />
-            </svg>
-          </div>
-          <div>
-            <h3 className="text-xl font-heading text-textDark">
-              Harvesting the Golden Fibre
-            </h3>
-            <p className="text-textDark/80 font-body">
-              From <strong>Jute Plant Cutting</strong> and <strong>Fibre Extraction</strong> 
-              to <strong>Raw Jute Fibre Sorting</strong> and <strong>Quality Checking</strong> — 
-              each step in harvesting ensures purity and strength of the natural fibre.
-            </p>
-          </div>
-        </div>
+                          {/* ✅ Text Cards */}
+                          <div className="space-y-8">
+                            {/* 1️⃣ Card */}
+                            <div className="flex items-start gap-4 reveal">
+                              <div className="shrink-0 w-10 h-10 rounded-full bg-gold/20 text-secondary flex items-center justify-center">
+                                <svg
+                                  className="w-5 h-5"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                                  />
+                                </svg>
+                              </div>
+                              <div>
+                                <h3 className="text-xl font-heading text-textDark">
+                                  Harvesting the Golden Fibre
+                                </h3>
+                                <p className="text-textDark/80 font-body">
+                                  From <strong>Jute Plant Cutting</strong> and{" "}
+                                  <strong>Fibre Extraction</strong>
+                                  to <strong>
+                                    Raw Jute Fibre Sorting
+                                  </strong> and{" "}
+                                  <strong>Quality Checking</strong> — each step
+                                  in harvesting ensures purity and strength of
+                                  the natural fibre.
+                                </p>
+                              </div>
+                            </div>
 
-        {/* 2️⃣ Card */}
-        <div className="flex items-start gap-4 reveal">
-          <div className="shrink-0 w-10 h-10 rounded-full bg-gold/20 text-secondary flex items-center justify-center">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 8c-1.657 0-3 1.343-3 3 0 2.25 3 5 3 5s3-2.75 3-5c0-1.657-1.343-3-3-3z"
-              />
-            </svg>
-          </div>
-          <div>
-            <h3 className="text-xl font-heading text-textDark">
-              Crafting the Base Braids
-            </h3>
-            <p className="text-textDark/80 font-body">
-              Using <strong>Rootless Fresh Jute</strong> and <strong>Raw Seagrass Fibres</strong>, 
-              artisans hand-spin and braid the fibres, 
-              combining them with <strong>Raw Jute</strong> for a strong, eco-friendly foundation.
-            </p>
-          </div>
-        </div>
+                            {/* 2️⃣ Card */}
+                            <div className="flex items-start gap-4 reveal">
+                              <div className="shrink-0 w-10 h-10 rounded-full bg-gold/20 text-secondary flex items-center justify-center">
+                                <svg
+                                  className="w-5 h-5"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M12 8c-1.657 0-3 1.343-3 3 0 2.25 3 5 3 5s3-2.75 3-5c0-1.657-1.343-3-3-3z"
+                                  />
+                                </svg>
+                              </div>
+                              <div>
+                                <h3 className="text-xl font-heading text-textDark">
+                                  Crafting the Base Braids
+                                </h3>
+                                <p className="text-textDark/80 font-body">
+                                  Using <strong>Rootless Fresh Jute</strong> and{" "}
+                                  <strong>Raw Seagrass Fibres</strong>, artisans
+                                  hand-spin and braid the fibres, combining them
+                                  with <strong>Raw Jute</strong> for a strong,
+                                  eco-friendly foundation.
+                                </p>
+                              </div>
+                            </div>
 
-        {/* 3️⃣ Card */}
-        <div className="flex items-start gap-4 reveal">
-          <div className="shrink-0 w-10 h-10 rounded-full bg-gold/20 text-secondary flex items-center justify-center">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M3 12l2-2 4 4 8-8 2 2-10 10z"
-              />
-            </svg>
-          </div>
-          <div>
-            <h3 className="text-xl font-heading text-textDark">
-              Treatment & Colouring
-            </h3>
-            <p className="text-textDark/80 font-body">
-              Each fibre undergoes <strong>Water Treatment</strong> for even tone and cleanliness, 
-              followed by <strong>Sun Drying</strong> and <strong>Dyeing</strong> 
-              to achieve natural or vibrant hues — preparing them for <strong>Stitching & Weaving</strong>.
-            </p>
-          </div>
-        </div>
+                            {/* 3️⃣ Card */}
+                            <div className="flex items-start gap-4 reveal">
+                              <div className="shrink-0 w-10 h-10 rounded-full bg-gold/20 text-secondary flex items-center justify-center">
+                                <svg
+                                  className="w-5 h-5"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M3 12l2-2 4 4 8-8 2 2-10 10z"
+                                  />
+                                </svg>
+                              </div>
+                              <div>
+                                <h3 className="text-xl font-heading text-textDark">
+                                  Treatment & Colouring
+                                </h3>
+                                <p className="text-textDark/80 font-body">
+                                  Each fibre undergoes{" "}
+                                  <strong>Water Treatment</strong> for even tone
+                                  and cleanliness, followed by{" "}
+                                  <strong>Sun Drying</strong> and{" "}
+                                  <strong>Dyeing</strong>
+                                  to achieve natural or vibrant hues — preparing
+                                  them for <strong>Stitching & Weaving</strong>.
+                                </p>
+                              </div>
+                            </div>
 
-        {/* 4️⃣ Card */}
-        <div className="flex items-start gap-4 reveal">
-          <div className="shrink-0 w-10 h-10 rounded-full bg-gold/20 text-secondary flex items-center justify-center">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 8v4l3 3"
-              />
-            </svg>
-          </div>
-          <div>
-            <h3 className="text-xl font-heading text-textDark">
-              Finishing & Global Delivery
-            </h3>
-            <p className="text-textDark/80 font-body">
-              From <strong>Handmade Braids Stitched by Machine</strong> to 
-              <strong>Pure Hand-Weaving</strong>, every rug is finished with 
-              <strong>Firing, Clipping & Cleaning</strong> — ready to be 
-              delivered with care to homes worldwide.
-            </p>
-          </div>
-        </div>
+                            {/* 4️⃣ Card */}
+                            <div className="flex items-start gap-4 reveal">
+                              <div className="shrink-0 w-10 h-10 rounded-full bg-gold/20 text-secondary flex items-center justify-center">
+                                <svg
+                                  className="w-5 h-5"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M12 8v4l3 3"
+                                  />
+                                </svg>
+                              </div>
+                              <div>
+                                <h3 className="text-xl font-heading text-textDark">
+                                  Finishing & Global Delivery
+                                </h3>
+                                <p className="text-textDark/80 font-body">
+                                  From{" "}
+                                  <strong>
+                                    Handmade Braids Stitched by Machine
+                                  </strong>{" "}
+                                  to
+                                  <strong>Pure Hand-Weaving</strong>, every rug
+                                  is finished with
+                                  <strong>Firing, Clipping & Cleaning</strong> —
+                                  ready to be delivered with care to homes
+                                  worldwide.
+                                </p>
+                              </div>
+                            </div>
 
-        {/* Button */}
-        <div className="pt-2 reveal">
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link to="/products" className="inline-flex">
-              <button className="px-5 py-3 rounded-full bg-gold text-secondary font-body hover:bg-gold/90 transition">
-                Explore Products
-              </button>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+                            {/* Button */}
+                            <div className="pt-2 reveal">
+                              <div className="flex flex-col sm:flex-row gap-3">
+                                <Link to="/products" className="inline-flex">
+                                  <button className="px-5 py-3 rounded-full bg-gold text-secondary font-body hover:bg-gold/90 transition">
+                                    Explore Products
+                                  </button>
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
 
                     {/* === PRODUCT COLLECTION SECTION === */}
                     {/* <section id="products" className="py-8 md:py-12 bg-bgLight">
@@ -976,48 +1006,52 @@ function App() {
                       </div>
                     </section> */}
 
-<section id="products" className="py-8 md:py-12 bg-bgLight">
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    {/* Section Header */}
-    <div className="text-center mb-8">
-      <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-textDark mb-4">
-        Our Collections
-      </h2>
-      <p className="font-body text-base text-textDark max-w-2xl mx-auto leading-relaxed">
-        Discover our curated collections of authentic handcrafted rugs.
-      </p>
-    </div>
+                    <section id="products" className="py-8 md:py-12 bg-bgLight">
+                      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        {/* Section Header */}
+                        <div className="text-center mb-8">
+                          <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-textDark mb-4">
+                            Our Collections
+                          </h2>
+                          <p className="font-body text-base text-textDark max-w-2xl mx-auto leading-relaxed">
+                            Discover our curated collections of authentic
+                            handcrafted rugs.
+                          </p>
+                        </div>
 
-    {/* Collection Cards Grid */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-center">
-      {[
-        "Bengal Folk Craft",
-        "Coastal Wave Collection",
-        "Banana Bloom Collection",
-        "EarthBound Collection",
-        "Spectrum Weaves Collection",
-      ].map((collection) => (
-        <div
-          key={collection}
-          className="bg-amber-50 shadow-sm hover:shadow-md rounded-2xl p-6 border border-gray-200 transition-all"
-        >
-          <h3 className="text-lg font-heading font-semibold text-textDark">
-            {collection}
-          </h3>
-        </div>
-      ))}
-    </div>
-
-    {/* Explore Button */}
-    <div className="text-center mt-10">
-      <Link to="/products" className="inline-flex">
-        <Button variant="gold">Explore All Collections</Button>
-      </Link>
-    </div>
-  </div>
-</section>
+                        {/* Collection Cards Grid */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-center">
+                          {[
+                            "Bengal Folk Craft",
+                            "Coastal Wave Collection",
+                            "Banana Bloom Collection",
+                            "EarthBound Collection",
+                            "Spectrum Weaves Collection",
+                            "majestiC Tufts",
+                          ].map((collection) => (
+                            <div
+                              key={collection}
+                              className="bg-amber-50 shadow-sm hover:shadow-md rounded-2xl p-6 border border-gray-200 transition-all"
+                            >
+                              <h3 className="text-lg font-heading font-semibold text-textDark">
+                                {collection}
+                              </h3>
+                            </div>
+                          ))}
+                        </div>
 
 
+
+                        {/* Explore Button */}
+                        <div className="text-center mt-10">
+                          <Link to="/products" className="inline-flex">
+                            <Button variant="gold">
+                              Explore All Collections
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </section>
 
                     {/* === WHY US SECTION === */}
                     <section id="why-us" className="py-12 md:py-16 bg-bgLight">
@@ -1209,8 +1243,6 @@ function App() {
                             </div>
                           </div>
                         </div>
-
-                        
                       </div>
                     </section>
 
@@ -1390,14 +1422,49 @@ function App() {
                             </div>
 
                             <div className="text-center mt-12 reveal">
-                          <Button
-                            variant="secondary"
-                            className="flex items-center space-x-2 mx-auto"
-                            onClick={() => setShowModal(true)}
+                              <Button
+                                variant="secondary"
+                                className="flex items-center space-x-2 mx-auto"
+                                onClick={() => setShowModal(true)}
+                              >
+                                <span>Download Brochure</span>
+                                <svg
+                                  className="w-4 h-4"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                  />
+                                </svg>
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    {/* === ENHANCED MODAL === */}
+                    {showModal && (
+                      <div
+                        className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[9999] p-4 sm:p-6 lg:p-8 transition-all duration-300 ease-out"
+                        onClick={(e) =>
+                          e.target === e.currentTarget && setShowModal(false)
+                        }
+                      >
+                        <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md lg:max-w-lg mx-4 sm:mx-auto relative transform transition-all duration-300 ease-out scale-100 opacity-100 max-h-[90vh] overflow-y-auto">
+                          {/* Close Button - Enhanced for mobile */}
+                          <button
+                            onClick={() => setShowModal(false)}
+                            className="absolute top-4 right-4 z-10 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-800 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                            aria-label="Close modal"
                           >
-                            <span>Download Brochure</span>
                             <svg
-                              className="w-4 h-4"
+                              className="w-5 h-5"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -1406,189 +1473,195 @@ function App() {
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 strokeWidth={2}
-                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                d="M6 18L18 6M6 6l12 12"
                               />
                             </svg>
-                          </Button>
-                        </div>
+                          </button>
+
+                          {/* Header */}
+                          <div className="px-6 sm:px-8 pt-8 pb-2">
+                            <div className="text-center">
+                              <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg
+                                  className="w-8 h-8 text-gold"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                  />
+                                </svg>
+                              </div>
+                              <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-textDark mb-2">
+                                Download Our Brochure
+                              </h2>
+                              <p className="text-textDark/70 font-body text-sm sm:text-base">
+                                Get instant access to our complete product
+                                catalog
+                              </p>
+                            </div>
                           </div>
+
+                          {/* Form */}
+                          <form
+                            onSubmit={handleDownload}
+                            className="px-6 sm:px-8 pb-8"
+                          >
+                            <div className="space-y-5">
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <label className="block">
+                                  <span className="text-textDark font-medium text-sm mb-2 block">
+                                    Name <span className="text-red-500">*</span>
+                                  </span>
+                                  <input
+                                    type="text"
+                                    name="name"
+                                    value={form.name}
+                                    onChange={handleChange}
+                                    placeholder="Your full name"
+                                    required
+                                    className="w-full mobile-input border border-gray-300 rounded-xl px-4 py-3 text-textDark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all duration-200 text-sm sm:text-base focus-enhanced"
+                                  />
+                                </label>
+
+                                <label className="block">
+                                  <span className="text-textDark font-medium text-sm mb-2 block">
+                                    Email{" "}
+                                    <span className="text-red-500">*</span>
+                                  </span>
+                                  <input
+                                    type="email"
+                                    name="email"
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    placeholder="your@email.com"
+                                    required
+                                    className="w-full mobile-input border border-gray-300 rounded-xl px-4 py-3 text-textDark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all duration-200 text-sm sm:text-base focus-enhanced"
+                                  />
+                                </label>
+                              </div>
+
+                              <label className="block">
+                                <span className="text-textDark font-medium text-sm mb-2 block">
+                                  Company Name{" "}
+                                  <span className="text-red-500">*</span>
+                                </span>
+                                <input
+                                  type="text"
+                                  name="company"
+                                  value={form.company}
+                                  onChange={handleChange}
+                                  placeholder="Your company name"
+                                  required
+                                  className="w-full mobile-input border border-gray-300 rounded-xl px-4 py-3 text-textDark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all duration-200 text-sm sm:text-base focus-enhanced"
+                                />
+                              </label>
+
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <label className="block">
+                                  <span className="text-textDark font-medium text-sm mb-2 block">
+                                    Line of Business
+                                  </span>
+                                  <input
+                                    type="text"
+                                    name="business"
+                                    value={form.business}
+                                    onChange={handleChange}
+                                    placeholder="e.g., Interior Design"
+                                    className="w-full mobile-input border border-gray-300 rounded-xl px-4 py-3 text-textDark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all duration-200 text-sm sm:text-base focus-enhanced"
+                                  />
+                                </label>
+
+                                <label className="block">
+                                  <span className="text-textDark font-medium text-sm mb-2 block">
+                                    Special Interest
+                                  </span>
+                                  <input
+                                    type="text"
+                                    name="interest"
+                                    value={form.interest}
+                                    onChange={handleChange}
+                                    placeholder="e.g., Jute Rugs"
+                                    className="w-full mobile-input border border-gray-300 rounded-xl px-4 py-3 text-textDark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all duration-200 text-sm sm:text-base focus-enhanced"
+                                  />
+                                </label>
+                              </div>
+                            </div>
+
+                            {/* Submit Button */}
+                            <div className="mt-8">
+                              <Button
+                                variant="gold"
+                                type="submit"
+                                disabled={isSubmitting}
+                                className="w-full mobile-touch py-4 text-base sm:text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none focus-enhanced"
+                              >
+                                {isSubmitting ? (
+                                  <InlineLoading 
+                                    variant="mkt-compact" 
+                                    size="sm" 
+                                    color="white" 
+                                    text="Processing..." 
+                                    className="justify-center"
+                                  />
+                                ) : (
+                                  <span className="flex items-center justify-center gap-2">
+                                    <svg
+                                      className="w-5 h-5"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+                                      />
+                                    </svg>
+                                    Download Brochure Now
+                                  </span>
+                                )}
+                              </Button>
+                            </div>
+
+                            {/* Footer note */}
+                            <p className="text-center text-xs text-gray-500 mt-4">
+                              By downloading, you agree to receive updates about
+                              our products and services.
+                            </p>
+                          </form>
                         </div>
                       </div>
-                    </section>
+                    )}
 
-                    {/* === ENHANCED MODAL === */}
-                    {showModal && (
-  <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[9999] p-4 sm:p-6 lg:p-8 transition-all duration-300 ease-out"
-       onClick={(e) => e.target === e.currentTarget && setShowModal(false)}>
-    <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-auto relative transform transition-all duration-300 ease-out scale-100 opacity-100 max-h-[90vh] overflow-y-auto">
-      
-      {/* Close Button - Enhanced for mobile */}
-      <button
-        onClick={() => setShowModal(false)}
-        className="absolute top-4 right-4 z-10 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-800 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-        aria-label="Close modal"
-      >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-
-      {/* Header */}
-      <div className="px-6 sm:px-8 pt-8 pb-2">
-        <div className="text-center">
-          <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-textDark mb-2">
-            Download Our Brochure
-          </h2>
-          <p className="text-textDark/70 font-body text-sm sm:text-base">
-            Get instant access to our complete product catalog
-          </p>
-        </div>
-      </div>
-
-      {/* Form */}
-      <form onSubmit={handleDownload} className="px-6 sm:px-8 pb-8">
-        <div className="space-y-5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <label className="block">
-              <span className="text-textDark font-medium text-sm mb-2 block">
-                Name <span className="text-red-500">*</span>
-              </span>
-              <input
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                placeholder="Your full name"
-                required
-                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-textDark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all duration-200 text-sm sm:text-base"
-              />
-            </label>
-
-            <label className="block">
-              <span className="text-textDark font-medium text-sm mb-2 block">
-                Email <span className="text-red-500">*</span>
-              </span>
-              <input
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="your@email.com"
-                required
-                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-textDark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all duration-200 text-sm sm:text-base"
-              />
-            </label>
-          </div>
-
-          <label className="block">
-            <span className="text-textDark font-medium text-sm mb-2 block">
-              Company Name <span className="text-red-500">*</span>
-            </span>
-            <input
-              type="text"
-              name="company"
-              value={form.company}
-              onChange={handleChange}
-              placeholder="Your company name"
-              required
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-textDark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all duration-200 text-sm sm:text-base"
-            />
-          </label>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <label className="block">
-              <span className="text-textDark font-medium text-sm mb-2 block">
-                Line of Business
-              </span>
-              <input
-                type="text"
-                name="business"
-                value={form.business}
-                onChange={handleChange}
-                placeholder="e.g., Interior Design"
-                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-textDark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all duration-200 text-sm sm:text-base"
-              />
-            </label>
-
-            <label className="block">
-              <span className="text-textDark font-medium text-sm mb-2 block">
-                Special Interest
-              </span>
-              <input
-                type="text"
-                name="interest"
-                value={form.interest}
-                onChange={handleChange}
-                placeholder="e.g., Jute Rugs"
-                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-textDark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all duration-200 text-sm sm:text-base"
-              />
-            </label>
-          </div>
-        </div>
-
-        {/* Submit Button */}
-        <div className="mt-8">
-          <Button 
-            variant="gold" 
-            type="submit" 
-            disabled={isSubmitting}
-            className="w-full py-4 text-base sm:text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
-          >
-            {isSubmitting ? (
-              <span className="flex items-center justify-center gap-2">
-                <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Processing...
-              </span>
-            ) : (
-              <span className="flex items-center justify-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
-                </svg>
-                Download Brochure Now
-              </span>
-            )}
-          </Button>
-        </div>
-
-        {/* Footer note */}
-        <p className="text-center text-xs text-gray-500 mt-4">
-          By downloading, you agree to receive updates about our products and services.
-        </p>
-      </form>
-    </div>
-  </div>
-)}
-
-{/* Add modal styles */}
-<style jsx>{`
-  .modal-enter {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  .modal-enter-active {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 300ms ease-out, transform 300ms ease-out;
-  }
-  .modal-exit {
-    opacity: 1;
-    transform: scale(1);
-  }
-  .modal-exit-active {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 200ms ease-in, transform 200ms ease-in;
-  }
-`}</style>
-
+                    {/* Add modal styles */}
+                    <style jsx>{`
+                      .modal-enter {
+                        opacity: 0;
+                        transform: scale(0.9);
+                      }
+                      .modal-enter-active {
+                        opacity: 1;
+                        transform: scale(1);
+                        transition: opacity 300ms ease-out,
+                          transform 300ms ease-out;
+                      }
+                      .modal-exit {
+                        opacity: 1;
+                        transform: scale(1);
+                      }
+                      .modal-exit-active {
+                        opacity: 0;
+                        transform: scale(0.9);
+                        transition: opacity 200ms ease-in,
+                          transform 200ms ease-in;
+                      }
+                    `}</style>
 
                     {/* === CONTACT SECTION ===
                     <section id="contact" className="py-12 bg-bgLight">
@@ -1611,17 +1684,18 @@ function App() {
               <Route path="/refund-policy" element={<RefundPolicy />} />
               <Route path="/shipping-policy" element={<ShippingPolicy />} />
             </Routes>
-          </Suspense>
+            </Suspense>
+          </main>
         </ErrorBoundary>
 
         <Footer />
         <BackToTop />
-        
+
         {/* Expo Popup */}
         <Suspense fallback={null}>
-          <ExpoPopup 
-            isOpen={showExpoPopup} 
-            onClose={() => setShowExpoPopup(false)} 
+          <ExpoPopup
+            isOpen={showExpoPopup}
+            onClose={() => setShowExpoPopup(false)}
           />
         </Suspense>
       </div>

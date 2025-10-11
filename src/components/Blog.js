@@ -218,8 +218,8 @@ const Blog = () => {
         canonical="https://www.mktrugs.com/blog"
       />
       {/* Hero Section */}
-      <div style={{ marginTop: 'calc(-1 * var(--header-height, 80px))' }}>
-        <section className="relative bg-gradient-to-br from-[#f8f5f2] via-[#f5f1eb] to-[#f0ebe2] py-16 sm:py-24 px-4 sm:px-6" style={{ paddingTop: 'calc(var(--header-height, 80px) + 4rem)' }}>
+      <div style={{ marginTop: 'calc(-1 * var(--header-h, 80px))' }}>
+        <section className="relative bg-gradient-to-br from-[#f8f5f2] via-[#f5f1eb] to-[#f0ebe2] py-16 sm:py-24 px-4 sm:px-6 pt-[calc(var(--header-h,80px)+4rem)]" style={{ paddingTop: '4rem' }}>
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c49b63]/10 border border-[#c49b63]/20 rounded-full mb-6">
@@ -229,12 +229,12 @@ const Blog = () => {
           </div>
           
           {/* Main Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-[#3c2f2f] mb-6 leading-tight">
+          <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-[#3c2f2f] mb-6 leading-tight">
             Stories of Craft &
             <span className="text-[#c49b63]"> Sustainability</span>
           </h1>
           
-          <p className="text-base sm:text-lg md:text-xl text-[#4a3a3a]/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="hero-subtitle text-base sm:text-lg md:text-xl text-[#4a3a3a]/80 max-w-2xl mx-auto mb-10 leading-relaxed">
             From artisan craftsmanship to sustainable design — explore our latest insights and inspirations from the world of natural fiber rugs.
           </p>
 
@@ -251,12 +251,12 @@ const Blog = () => {
                 placeholder="Search articles..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="flex-1 pl-12 pr-4 py-4 bg-transparent focus:outline-none text-[#3c2f2f] placeholder-[#4a3a3a]/50"
+                className="mobile-touch focus-enhanced flex-1 pl-12 pr-4 py-4 bg-transparent focus:outline-none text-[#3c2f2f] placeholder-[#4a3a3a]/50"
               />
               {searchTerm && (
                 <button
                   onClick={clearSearch}
-                  className="px-4 py-2 text-[#4a3a3a]/60 hover:text-[#c49b63] transition-colors"
+                  className="touch-target focus-enhanced px-4 py-2 text-[#4a3a3a]/60 hover:text-[#c49b63] transition-colors"
                   aria-label="Clear search"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -274,7 +274,7 @@ const Blog = () => {
                 key={category.id}
                 onClick={() => handleCategoryChange(category.id)}
                 disabled={isLoading}
-                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
+                className={`touch-target focus-enhanced px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
                   selectedCategory === category.id
                     ? 'bg-[#c49b63] text-white shadow-lg transform scale-105'
                     : 'bg-white text-[#4a3a3a] border border-[#d6c6b8]/50 hover:border-[#c49b63]/50 hover:bg-[#c49b63]/5 hover:scale-105 shadow-sm'
@@ -303,10 +303,10 @@ const Blog = () => {
         <section className="bg-white py-16 sm:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-[#3c2f2f] mb-4">
+              <h2 className="section-title text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-[#3c2f2f] mb-4">
                 Featured Articles
               </h2>
-              <p className="text-base sm:text-lg text-[#4a3a3a]/70 max-w-2xl mx-auto">
+              <p className="section-subtitle text-base sm:text-lg text-[#4a3a3a]/70 max-w-2xl mx-auto">
                 Our most popular and insightful content, handpicked for you.
               </p>
             </div>
@@ -320,9 +320,10 @@ const Blog = () => {
                   <div className="relative overflow-hidden">
                     <img
                       src={blog.img}
-                      alt={blog.title}
-                      className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
+                      alt={`Featured article: ${blog.title}`}
+                      className="responsive-image w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
                       loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-[#c49b63] text-white text-xs font-semibold rounded-full capitalize">
@@ -353,7 +354,7 @@ const Blog = () => {
                     
                     <a
                       href={`/blog/${blog.id}`}
-                      className="inline-flex items-center gap-2 text-[#c49b63] font-semibold hover:text-[#2b1d1d] transition-colors group"
+                      className="touch-target focus-enhanced inline-flex items-center gap-2 text-[#c49b63] font-semibold hover:text-[#2b1d1d] transition-colors group"
                     >
                       <span>Read More</span>
                       <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -374,7 +375,7 @@ const Blog = () => {
           {/* Results Header */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-heading font-bold text-[#3c2f2f] mb-2">
+              <h2 className="section-title text-2xl sm:text-3xl font-heading font-bold text-[#3c2f2f] mb-2">
                 {searchTerm ? `Search Results for "${searchTerm}"` : 
                  selectedCategory === "all" ? "All Articles" : 
                  categories.find(c => c.id === selectedCategory)?.name}
@@ -408,9 +409,10 @@ const Blog = () => {
                   <div className="relative overflow-hidden">
                     <img
                       src={blog.img}
-                      alt={blog.title}
-                      className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+                      alt={`Article: ${blog.title} - ${blog.category}`}
+                      className="responsive-image w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[#3c2f2f] text-xs font-semibold rounded-full capitalize border border-white/50">
@@ -443,7 +445,7 @@ const Blog = () => {
                     
                     <a
                       href={`/blog/${blog.id}`}
-                      className="inline-flex items-center gap-2 text-[#c49b63] font-semibold hover:text-[#2b1d1d] transition-colors text-sm group"
+                      className="touch-target focus-enhanced inline-flex items-center gap-2 text-[#c49b63] font-semibold hover:text-[#2b1d1d] transition-colors text-sm group"
                     >
                       <span>Read Article</span>
                       <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -472,14 +474,14 @@ const Blog = () => {
                     {searchTerm && (
                       <button
                         onClick={clearSearch}
-                        className="px-6 py-3 bg-[#c49b63] text-white rounded-full hover:bg-[#2b1d1d] transition-colors font-semibold"
+                        className="mobile-touch focus-enhanced px-6 py-3 bg-[#c49b63] text-white rounded-full hover:bg-[#2b1d1d] transition-colors font-semibold"
                       >
                         Clear Search
                       </button>
                     )}
                     <button
                       onClick={() => handleCategoryChange("all")}
-                      className="px-6 py-3 border border-[#c49b63] text-[#c49b63] rounded-full hover:bg-[#c49b63] hover:text-white transition-colors font-semibold"
+                      className="mobile-touch focus-enhanced px-6 py-3 border border-[#c49b63] text-[#c49b63] rounded-full hover:bg-[#c49b63] hover:text-white transition-colors font-semibold"
                     >
                       View All Articles
                     </button>
@@ -501,18 +503,18 @@ const Blog = () => {
             </svg>
           </div>
           
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-4">
+          <h3 className="section-title text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-4">
             Stay Updated on Natural Fiber Trends
           </h3>
           
-          <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="section-subtitle text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
             Get the latest insights on sustainable rugs, craftsmanship techniques, and design trends delivered to your inbox.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
             <a
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#c49b63] rounded-full font-bold hover:bg-gray-50 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="mobile-touch focus-enhanced inline-flex items-center justify-center px-8 py-4 bg-white text-[#c49b63] rounded-full font-bold hover:bg-gray-50 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -521,7 +523,7 @@ const Blog = () => {
             </a>
             <a
               href="/products"
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white border-2 border-white rounded-full font-bold hover:bg-white hover:text-[#c49b63] transform hover:scale-105 transition-all duration-300"
+              className="mobile-touch focus-enhanced inline-flex items-center justify-center px-8 py-4 bg-transparent text-white border-2 border-white rounded-full font-bold hover:bg-white hover:text-[#c49b63] transform hover:scale-105 transition-all duration-300"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />

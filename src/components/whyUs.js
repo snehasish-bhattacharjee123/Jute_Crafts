@@ -171,15 +171,15 @@ const WhyUs = () => {
 
       {/* Hero Section */}
       <section
-        className="relative bg-cover bg-center h-[40vh] sm:h-[50vh] lg:h-[60vh] flex items-center justify-center"
-        style={{ backgroundImage: "url('/images/Home_1.jpg')" }}
+        className="relative bg-cover bg-center h-[40vh] sm:h-[50vh] lg:h-[60vh] flex items-center justify-center pt-[calc(var(--header-h,80px))]"
+        style={{ backgroundImage: "url('/images/Home_1.jpg')", marginTop: "calc(var(--header-h, 0px) * -1)" }}
       >
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center px-6">
-          <h1 className="text-3xl sm:text-5xl font-heading text-textLight font-semibold drop-shadow-lg">
+          <h1 className="hero-title text-3xl sm:text-5xl font-heading text-textLight font-semibold drop-shadow-lg">
             Why Choose MKT Rugs
           </h1>
-          <p className="mt-3 text-textLight/90 max-w-2xl mx-auto text-sm sm:text-base">
+          <p className="hero-subtitle mt-3 text-textLight/90 max-w-2xl mx-auto text-sm sm:text-base">
             Solving common rug industry problems with sustainable, authentic craftsmanship.
           </p>
         </div>
@@ -187,7 +187,7 @@ const WhyUs = () => {
 
       {/* Problem → Solution Section */}
       <section className="max-w-6xl mx-auto py-20 px-6 sm:px-10">
-        <h2 className="text-center text-2xl sm:text-3xl font-heading font-semibold mb-16 text-textDark">
+        <h2 className="section-title text-center text-2xl sm:text-3xl font-heading font-semibold mb-16 text-textDark">
           How MKT Rugs Solves Your Problems
         </h2>
 
@@ -234,12 +234,12 @@ const WhyUs = () => {
 
       {/* CTA Section */}
       <section className="bg-[#f3ebe3] py-16 text-center">
-        <h4 className="text-xl sm:text-2xl font-semibold mb-6 text-[#2b1d1d]">
+        <h4 className="section-title text-xl sm:text-2xl font-semibold mb-6 text-[#2b1d1d]">
           Ready to Transform Your Space?
         </h4>
         <a
           href="/contact"
-          className="inline-block bg-[#c49b63] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#2b1d1d] transition-colors duration-300"
+          className="mobile-touch focus-enhanced inline-block bg-[#c49b63] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#2b1d1d] transition-colors duration-300"
         >
           Contact Us Today
         </a>

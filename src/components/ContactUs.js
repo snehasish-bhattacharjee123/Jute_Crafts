@@ -539,6 +539,7 @@ import React, { useState, useCallback, useMemo } from "react";
 import SEOHelmet from "./SEOHelmet";
 import emailjs from "@emailjs/browser";
 import Button from "./Button";
+import { InlineLoading } from "./LoadingSpinner";
 
 function ContactUs() {
   const [formData, setFormData] = useState({
@@ -639,9 +640,9 @@ function ContactUs() {
     setIsSending(true);
     setSubmitStatus(null);
 
-    const serviceID = "service_l7jryqu";
-    const templateID = "template_0zitx77";
-    const publicKey = "NAS0PefIzYxrhtKz0";
+    const serviceID = "service_ndpwufi";
+    const templateID = "template_cgrj8vd";
+    const publicKey = "uk2WLYQLBW7dXCPwX";
 
     try {
       await emailjs.send(serviceID, templateID, formData, publicKey);
@@ -682,7 +683,7 @@ function ContactUs() {
       />
       {/* Hero Section with header compensation */}
       <section 
-        className="relative h-[50vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] min-h-[400px] max-h-[600px]"
+        className="relative h-[50vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] min-h-[400px] max-h-[600px] pt-[calc(var(--header-h,80px))]"
         style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}
       >
         <img
@@ -700,25 +701,25 @@ function ContactUs() {
               </span>
             </div>
             
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-white mb-4 sm:mb-6 leading-tight">
+            <h1 className="hero-title font-heading font-bold text-white mb-4 sm:mb-6 leading-tight">
               Let's Talk Rugs — We'd Love to 
               <span className="text-gold">Hear From You</span>
             </h1>
             
-            <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-body mb-8">
+            <p className="hero-subtitle text-white/90 max-w-3xl mx-auto leading-relaxed font-body mb-8">
               Whether you're looking for a custom design, wholesale partnership,
               or have questions about our natural fibre rugs — we're here to
               help.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#contact-form" className="inline-flex items-center justify-center px-8 py-3 bg-gold text-white rounded-full font-semibold hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <a href="#contact-form" className="inline-flex items-center justify-center mobile-touch px-8 py-3 bg-gold text-white rounded-full font-semibold hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus-enhanced">
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 Send Message
               </a>
-              <a href="tel:+917778886215" className="inline-flex items-center justify-center px-8 py-3 bg-transparent text-white border-2 border-white rounded-full font-semibold hover:bg-white hover:text-secondary transform hover:scale-105 transition-all duration-300">
+              <a href="tel:+917778886215" className="inline-flex items-center justify-center mobile-touch px-8 py-3 bg-transparent text-white border-2 border-white rounded-full font-semibold hover:bg-white hover:text-secondary transform hover:scale-105 transition-all duration-300 focus-enhanced">
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
@@ -764,7 +765,7 @@ function ContactUs() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Left Column: Info */}
             <div className="lg:pr-8">
-              <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-textDark mb-6 sm:mb-8">
+              <h2 className="section-title font-heading font-semibold text-textDark mb-6 sm:mb-8">
                 Get In Touch with MKT RUGS
               </h2>
 
@@ -797,9 +798,11 @@ function ContactUs() {
                       Address
                     </h3>
                     <p className="text-textDark font-body">
-                      India, Gopalnagar, Near Post Office,
+                      Gopalnagar, Near Post Office,
                       <br />
-                      North 24 Parganas, Kolkata
+                      North 24 Parganas, West Bengal
+                      <br />
+                      India - 743262
                     </p>
                   </div>
                 </div>
@@ -917,7 +920,7 @@ function ContactUs() {
 
             {/* Right Column: Form */}
             <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-10">
-              <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-textDark mb-6 sm:mb-8">
+              <h2 className="section-title font-heading font-semibold text-textDark mb-6 sm:mb-8">
                 Send Us a Message
               </h2>
               
@@ -934,7 +937,7 @@ function ContactUs() {
                       onBlur={handleBlur}
                       required
                       placeholder="Your full name"
-                      className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 font-body ${
+                      className={`w-full mobile-input px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 font-body focus-enhanced ${
                         errors.name && touched.name 
                           ? 'border-red-300 bg-red-50' 
                           : formData.name 
@@ -964,7 +967,7 @@ function ContactUs() {
                       onBlur={handleBlur}
                       required
                       placeholder="your.email@example.com"
-                      className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 font-body ${
+                      className={`w-full mobile-input px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 font-body focus-enhanced ${
                         errors.email && touched.email 
                           ? 'border-red-300 bg-red-50' 
                           : formData.email && !errors.email 
@@ -996,7 +999,7 @@ function ContactUs() {
                       onBlur={handleBlur}
                       required
                       placeholder="+91 12345 67890"
-                      className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 font-body ${
+                      className={`w-full mobile-input px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 font-body focus-enhanced ${
                         errors.phone && touched.phone 
                           ? 'border-red-300 bg-red-50' 
                           : formData.phone && !errors.phone 
@@ -1025,7 +1028,7 @@ function ContactUs() {
                       onBlur={handleBlur}
                       required
                       placeholder="Your company name"
-                      className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 font-body ${
+                      className={`w-full mobile-input px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 font-body focus-enhanced ${
                         errors.subject && touched.subject 
                           ? 'border-red-300 bg-red-50' 
                           : formData.subject && !errors.subject 
@@ -1056,7 +1059,7 @@ function ContactUs() {
                     required
                     rows={6}
                     placeholder="Tell us about your inquiry, requirements, or any questions you have..."
-                    className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 font-body resize-vertical min-h-[120px] ${
+                    className={`w-full mobile-input px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 font-body resize-vertical min-h-[120px] focus-enhanced ${
                       errors.message && touched.message 
                         ? 'border-red-300 bg-red-50' 
                         : formData.message && !errors.message 
@@ -1097,7 +1100,7 @@ function ContactUs() {
                   <Button
                     variant="gold"
                     type="submit"
-                    className={`flex-1 sm:flex-none py-3 px-8 font-semibold transition-all duration-300 ${
+                    className={`mobile-touch flex-1 sm:flex-none py-3 px-8 font-semibold transition-all duration-300 focus-enhanced ${
                       isSending 
                         ? 'cursor-not-allowed opacity-70' 
                         : isFormValid 
@@ -1107,13 +1110,13 @@ function ContactUs() {
                     disabled={isSending || !isFormValid}
                   >
                     {isSending ? (
-                      <div className="flex items-center justify-center">
-                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending Message...
-                      </div>
+                      <InlineLoading 
+                        variant="mkt-compact" 
+                        size="sm" 
+                        color="white" 
+                        text="Sending Message..." 
+                        className="justify-center"
+                      />
                     ) : (
                       <div className="flex items-center justify-center">
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

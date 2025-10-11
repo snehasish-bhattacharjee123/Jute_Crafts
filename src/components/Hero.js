@@ -94,7 +94,7 @@ const Hero = ({ onDownloadClick }) => {
 
       <section
         id="hero"
-        className="relative min-h-[100svh] flex items-center justify-center bg-cover bg-center bg-fixed animate-slide-in-left"
+        className="relative min-h-[100svh] flex items-center justify-center bg-cover bg-center bg-fixed animate-slide-in-left pt-[calc(var(--header-h,80px))]"
         style={{
           backgroundImage: "url('/images/main.jpg')",
           marginTop: "calc(var(--header-h, 0px) * -1)",
@@ -106,13 +106,13 @@ const Hero = ({ onDownloadClick }) => {
 
         {/* Content */}
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-heading font-bold text-textLight mb-4 sm:mb-6 leading-tight animate-fade-in">
+          <h1 className="hero-title font-heading font-bold text-textLight mb-4 sm:mb-6 leading-tight animate-fade-in">
             Authentic, Handcrafted Rugs.
             <br className="hidden sm:block" />
             <span className="text-gold">From Our Farm to Your Floor.</span>
           </h1>
 
-          <p className="text-base sm:text-lg lg:text-xl font-body text-textLight/90 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in delay-150">
+          <p className="hero-subtitle font-body text-textLight/90 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in delay-150">
             Experience the journey where tradition weaves into timeless art. 
             <span className="hidden sm:inline">Discover premium natural fiber rugs crafted by skilled artisans.</span>
           </p>
@@ -121,7 +121,7 @@ const Hero = ({ onDownloadClick }) => {
             <Link to="/products" className="w-full sm:w-auto">
               <Button 
                 variant="gold" 
-                className="hero-button w-full sm:w-auto px-8 py-4 text-base sm:text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="hero-button mobile-touch w-full sm:w-auto px-8 py-4 text-base sm:text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus-enhanced"
               >
                 <span className="flex items-center justify-center gap-2">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,7 +135,7 @@ const Hero = ({ onDownloadClick }) => {
             <Link to="/about" className="w-full sm:w-auto">
               <Button
                 variant="secondary"
-                className="hero-button w-full sm:w-auto border-2 !border-white !text-white hover:!bg-white hover:!text-secondary focus:!ring-white focus:ring-offset-secondary px-8 py-4 text-base sm:text-lg font-semibold rounded-full transition-all duration-300"
+                className="hero-button mobile-touch w-full sm:w-auto border-2 !border-white !text-white hover:!bg-white hover:!text-secondary focus:!ring-white focus:ring-offset-secondary px-8 py-4 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 focus-enhanced"
               >
                 <span className="flex items-center justify-center gap-2">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -151,14 +151,14 @@ const Hero = ({ onDownloadClick }) => {
               type="button"
               onClick={handleDownloadClick}
               aria-label="Download brochure"
-              className="hero-button relative w-full sm:w-auto px-8 py-4 rounded-full 
+              className="hero-button mobile-touch relative w-full sm:w-auto px-8 py-4 rounded-full 
                          bg-gradient-to-r from-[#A86533] to-[#C08457] text-white 
                          font-bold text-base sm:text-lg shadow-xl 
                          hover:shadow-2xl transition-all duration-500 
                          hover:scale-105 animate-soft-breathe animate-pulse-glow
                          focus-visible:outline-none focus-visible:ring-4 
                          focus-visible:ring-[#A86533]/50 focus-visible:ring-offset-2
-                         transform active:scale-95 group overflow-hidden"
+                         transform active:scale-95 group overflow-hidden focus-enhanced"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
               <span className="relative flex items-center justify-center gap-2">

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import SEOHelmet from "./SEOHelmet";
 import { Link } from "react-router-dom";
 import Button from "./Button";
+import { ImagePlaceholder } from "./LoadingSpinner";
 
 
 function ProductHeroSlider() {
@@ -53,7 +54,7 @@ function ProductHeroSlider() {
       <div className="absolute inset-0 flex items-center pt-12 sm:pt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-3xl">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-semibold text-white leading-tight break-words">
+            <h1 className="hero-title font-heading font-semibold text-white leading-tight break-words">
               Material Mastery — From Farm to Floor
             </h1>
             {/* <p className="mt-3 sm:mt-4 md:mt-5 text-white/90 font-body max-w-xl text-sm sm:text-base md:text-lg leading-relaxed">
@@ -63,12 +64,12 @@ function ProductHeroSlider() {
             </p> */}
             <div className="mt-4 sm:mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link to="/gallery">
-                <Button variant="gold" className="w-full sm:w-auto text-sm sm:text-base">Visit Our Gallery</Button>
+                <Button variant="gold" className="mobile-touch w-full sm:w-auto text-sm sm:text-base focus-enhanced">Visit Our Gallery</Button>
               </Link>
               <Link to="/contact">
                 <Button
                   variant="secondary"
-                  className="w-full sm:w-auto text-sm sm:text-base !border-white !text-white hover:!bg-white hover:!text-secondary"
+                  className="mobile-touch w-full sm:w-auto text-sm sm:text-base !border-white !text-white hover:!bg-white hover:!text-secondary focus-enhanced"
                 >
                   Contact
                 </Button>
@@ -132,7 +133,7 @@ function ProductHeroSlider() {
       <button
         aria-label="Previous"
         onClick={prev}
-        className="hidden sm:block absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow"
+        className="hidden sm:block absolute left-3 top-1/2 -translate-y-1/2 touch-target bg-white/80 hover:bg-white rounded-full p-2 shadow focus-enhanced"
       >
         <svg
           className="w-5 h-5"
@@ -151,7 +152,7 @@ function ProductHeroSlider() {
       <button
         aria-label="Next"
         onClick={next}
-        className="hidden sm:block absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow"
+        className="hidden sm:block absolute right-3 top-1/2 -translate-y-1/2 touch-target bg-white/80 hover:bg-white rounded-full p-2 shadow focus-enhanced"
       >
         <svg
           className="w-5 h-5"
@@ -306,7 +307,7 @@ function Product() {
     <div className="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300">
       <div className="flex items-center justify-between mb-4 md:mb-6">
         <div className="hidden sm:block h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent flex-1 mr-4" />
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-heading tracking-wide text-textDark font-bold text-center sm:text-left">
+        <h3 className="section-title font-heading tracking-wide text-textDark font-bold text-center sm:text-left">
           {title}
         </h3>
         <div className="hidden sm:block h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent flex-1 ml-4" />
@@ -341,7 +342,7 @@ function Product() {
                   e.currentTarget
                 )
               }
-              className="group relative overflow-hidden rounded-lg h-20 sm:h-24 md:h-28 cursor-zoom-in shadow-sm hover:shadow-md transition-all duration-300"
+              className="group relative touch-target overflow-hidden rounded-lg h-20 sm:h-24 md:h-28 cursor-zoom-in shadow-sm hover:shadow-md transition-all duration-300 focus-enhanced"
               role="button"
               tabIndex={0}
               aria-label={`View ${title} image ${i + 1}`}
@@ -357,9 +358,10 @@ function Product() {
             >
               <img
                 src={src}
-                alt={`${title} ${i + 1}`}
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110 will-change-transform"
+                alt={`${title} ${i + 1} - MKT Rugs handcrafted collection`}
+                className="responsive-img w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110 will-change-transform"
                 loading="lazy"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
               <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                 <svg className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -392,7 +394,7 @@ function Product() {
       <section className="bg-white py-10 sm:py-14 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 items-start">
           <div className="md:col-span-3">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading text-textDark mb-4 md:mb-0">
+            <h2 className="section-title font-heading text-textDark mb-4 md:mb-0">
               <span className="font-semibold">Place of Origin Advantage</span> —
               Within 150km of our Manufacturing Unit
             </h2>
@@ -411,9 +413,10 @@ function Product() {
             <div className="md:col-span-7">
               <img
                 src={"/images/carpet.jpg"}
-                alt="Hand-braided natural fibre texture"
+                alt="Hand-braided natural fibre texture - Bengal Folk Craft collection by MKT Rugs"
                 loading="lazy"
-                className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
+                className="responsive-img w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 60vw"
                 onClick={(e) =>
                   openModal(
                     {
@@ -841,7 +844,7 @@ function Product() {
               },
               {
                 quote:
-                  "Transparent Costing — Line item quotes shield from currency swings. SEDEX-SMETA certified.",
+                  "Transparent Costing — Line item quotes shield from currency swings. ISO-9001,CEPC certified.",
                 name: "Import House",
               },
             ].map((t, i) => (

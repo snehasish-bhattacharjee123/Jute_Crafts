@@ -92,7 +92,7 @@ const Footer = () => {
                 href="https://instagram.com/mktrugs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-btn p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-pink-500 hover:to-yellow-400 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                className="social-btn touch-target p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-pink-500 hover:to-yellow-400 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
                 <FiInstagram className="w-5 h-5" />
               </a>
@@ -101,7 +101,7 @@ const Footer = () => {
                 href="https://facebook.com/mktrugs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-btn p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-blue-600 hover:to-blue-300 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                className="social-btn touch-target p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-blue-600 hover:to-blue-300 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
                 <FiFacebook className="w-5 h-5" />
               </a>
@@ -110,7 +110,7 @@ const Footer = () => {
                 href="https://youtube.com/@mktrugs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-btn p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-red-600 hover:to-yellow-400 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                className="social-btn touch-target p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-red-600 hover:to-yellow-400 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
                 <svg
                   className="w-5 h-5"
@@ -125,7 +125,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/mkt-rugs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-btn p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-blue-400 hover:to-blue-600 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                className="social-btn touch-target p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-blue-500 hover:to-teal-400 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
                 <FiLinkedin className="w-5 h-5" />
               </a>
@@ -254,8 +254,8 @@ const Footer = () => {
               <p className="flex items-start gap-2">
                 <FiMapPin className="w-4 h-4 mt-0.5" aria-hidden="true" />
                 <span>
-                  India, Gopalnagar, Near Post Office, North 24 Parganas,
-                  Kolkata
+                  Gopalnagar, Near Post Office, North 24 Parganas, West Bengal,
+                  India - 743262
                 </span>
               </p>
               <p className="pt-2">
@@ -316,7 +316,7 @@ const Footer = () => {
             </Link>
             <span className="opacity-40">•</span>
             <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="footer-link hover:text-textLight transition inline-flex items-center cursor-pointer"
               aria-label="Scroll to top"
             >

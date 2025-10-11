@@ -296,13 +296,23 @@ const Header = () => {
   ];
 
   return (
-    <header
-      ref={headerRef}
-      style={inlineStyle}
-      className={`fixed top-0 left-0 right-0 w-full z-[100] ${
-        mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
-      }`}
-    >
+    <>
+      {/* Skip navigation link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-md z-[9999] focus-enhanced"
+      >
+        Skip to main content
+      </a>
+      
+      <header
+        ref={headerRef}
+        style={inlineStyle}
+        className={`fixed top-0 left-0 right-0 w-full z-[100] ${
+          mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+        }`}
+        role="banner"
+      >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4 md:py-5">
           {/* ✅ Logo Section */}
@@ -359,8 +369,10 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="hover:scale-110 transition-transform duration-200 focus:outline-none"
+              className="touch-target hover:scale-110 transition-transform duration-200 focus:outline-none focus-enhanced p-2"
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
               <svg
                 className="h-6 w-6"
@@ -395,7 +407,7 @@ const Header = () => {
               className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[90]"
               onClick={() => setIsOpen(false)}
             />
-            <div className="md:hidden absolute top-full left-0 w-full z-[100]">
+            <div id="mobile-menu" className="md:hidden absolute top-full left-0 w-full z-[100]">
               <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md border-t border-primary/20 shadow-lg">
                 {navLinks.map(({ path, label }) => (
                   <NavLink
@@ -404,7 +416,7 @@ const Header = () => {
                     end={path === "/"}
                     onClick={() => setIsOpen(false)}
                     className={({ isActive }) =>
-                      `block px-3 py-2 font-body text-base uppercase transition-transform duration-200 ${
+                      `block touch-target px-3 py-3 font-body text-base uppercase transition-transform duration-200 focus-enhanced ${
                         isActive
                           ? "border-l-4 border-current pl-2"
                           : "hover:translate-x-2 hover:text-primary"
@@ -420,6 +432,7 @@ const Header = () => {
         )}
       </div>
     </header>
+    </>
   );
 };
 

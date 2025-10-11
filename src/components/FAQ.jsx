@@ -313,10 +313,10 @@ const FAQ = () => {
       <div className="min-h-screen bg-white py-16">
         {/* Header */}
         <header className="max-w-3xl mx-auto text-center px-4 mb-12">
-          <h1 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-3">
+          <h1 className="hero-title text-3xl md:text-4xl font-semibold text-gray-800 mb-3">
             Frequently Asked Questions
           </h1>
-          <p className="text-gray-600 text-lg">
+          <p className="hero-subtitle text-gray-600 text-lg">
             Find quick answers about our products, customization, and order process.
           </p>
         </header>
@@ -329,7 +329,7 @@ const FAQ = () => {
               className="border border-gray-200 rounded-lg shadow-sm"
             >
               <button
-                className="w-full flex justify-between items-center px-5 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 transition"
+                className="mobile-touch focus-enhanced w-full flex justify-between items-center px-5 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 transition"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 {faq.question}
@@ -360,16 +360,16 @@ const FAQ = () => {
 
         {/* Contact */}
         <section className="max-w-3xl mx-auto px-4 text-center mt-16">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+          <h2 className="section-title text-2xl font-semibold text-gray-800 mb-2">
             Still have questions?
           </h2>
-          <p className="text-gray-600 mb-6">
-            We’re happy to help! Reach out to our support team below.
+          <p className="section-subtitle text-gray-600 mb-6">
+            We're happy to help! Reach out to our support team below.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
               href="mailto:contact@mktrugs.com"
-              className="px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition"
+              className="mobile-touch focus-enhanced px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition"
             >
               Email Us
             </a>
@@ -377,7 +377,7 @@ const FAQ = () => {
               href="https://wa.me/917778886215?text=Hi%20MKT%20Rugs,%20I%20have%20an%20enquiry."
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-green-600 text-white rounded-full font-medium hover:bg-green-700 transition"
+              className="mobile-touch focus-enhanced px-6 py-3 bg-green-600 text-white rounded-full font-medium hover:bg-green-700 transition"
             >
               WhatsApp
             </a>
