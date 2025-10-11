@@ -172,7 +172,7 @@ const WhyUs = () => {
       {/* Hero Section */}
       <section
         className="relative bg-cover bg-center h-[40vh] sm:h-[50vh] lg:h-[60vh] flex items-center justify-center pt-[calc(var(--header-h,80px))]"
-        style={{ backgroundImage: "url('/images/Home_1.jpg')", marginTop: "calc(var(--header-h, 0px) * -1)" }}
+        style={{ backgroundImage: "url('/images/B_1.jpg')", marginTop: "calc(var(--header-h, 0px) * -1)" }}
       >
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center px-6">
