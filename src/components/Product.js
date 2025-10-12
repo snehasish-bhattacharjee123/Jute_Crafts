@@ -55,32 +55,39 @@ function ProductHeroSlider() {
       <div className="absolute inset-0 flex items-center pt-12 sm:pt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-3xl">
-            <h1 className="hero-title font-heading font-semibold text-white leading-tight break-words">
-              Material Mastery — From Farm to Floor
+            <h1 className="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-heading font-semibold text-white leading-tight break-words">
+              <span className="block text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">Material Mastery</span>
+              <span className="block sm:hidden text-xs text-gold/90 mt-0.5">From Farm to Floor</span>
+              <span className="hidden sm:block text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gold/90 mt-0.5">From Farm to Floor</span>
             </h1>
-            {/* <p className="mt-3 sm:mt-4 md:mt-5 text-white/90 font-body max-w-xl text-sm sm:text-base md:text-lg leading-relaxed">
-              Passion for innovative natural fibre products handed down 4
-              generations. Jute, banana, sea grass and more on soil. Cotton for
-              softness, wool for volume, and linen for finesse.
-            </p> */}
-            <div className="mt-4 sm:mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="mt-2 sm:mt-3 md:mt-4 flex flex-row gap-1.5 sm:gap-2 md:gap-3 justify-start">
               <Link to="/gallery">
-                <Button variant="gold" className="w-full sm:w-auto text-xs sm:text-sm md:text-base px-3 py-2 sm:px-4 sm:py-2.5 focus-enhanced">Visit Our Gallery</Button>
+                <Button variant="gold" className="px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 text-xs sm:text-sm md:text-base font-normal min-h-[26px] sm:min-h-[32px] md:min-h-[40px] focus-enhanced touch-target">
+                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span className="hidden md:inline">Gallery</span>
+                  <span className="md:hidden">View</span>
+                </Button>
               </Link>
               <Link to="/contact">
                 <Button
                   variant="secondary"
-                  className="w-full sm:w-auto text-xs sm:text-sm md:text-base px-3 py-2 sm:px-4 sm:py-2.5 !border-white !text-white hover:!bg-white hover:!text-secondary focus-enhanced"
+                  className="px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 text-xs sm:text-sm md:text-base font-normal min-h-[26px] sm:min-h-[32px] md:min-h-[40px] !border-white !text-white hover:!bg-white hover:!text-secondary focus-enhanced touch-target"
                 >
-                  Contact
+                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="hidden md:inline">Contact</span>
+                  <span className="md:hidden">Call</span>
                 </Button>
               </Link>
             </div>
-            {/* USP badges */}
-            <div className="mt-4 sm:mt-6 md:mt-8 flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-white/90">
-                <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-black/30 ring-1 ring-white/20 backdrop-blur-sm">
+            {/* USP badges - Fully responsive */}
+            <div className="mt-3 sm:mt-4 md:mt-6 flex flex-wrap gap-1 sm:gap-1.5 md:gap-2 text-xs sm:text-sm text-white/90">
+              <span className="inline-flex items-center gap-1 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-md bg-black/30 ring-1 ring-white/20 backdrop-blur-sm">
                 <svg
-                  className="w-3 h-3 sm:w-4 sm:h-4"
+                  className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -88,11 +95,11 @@ function ProductHeroSlider() {
                 >
                   <path d="M12 2l3 7h7l-5.5 4 2.5 7-7-4.5L5 20l2.5-7L2 9h7z" />
                 </svg>
-                Handmade
+                <span className="text-xs sm:text-sm">Handmade</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-full bg-black/30 ring-1 ring-white/20">
+              <span className="inline-flex items-center gap-1 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-md bg-black/30 ring-1 ring-white/20">
                 <svg
-                  className="w-3 h-3 sm:w-4 sm:h-4"
+                  className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -100,11 +107,11 @@ function ProductHeroSlider() {
                 >
                   <path d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z" />
                 </svg>
-                Eco-friendly
+                <span className="text-xs sm:text-sm">Eco</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-full bg-black/30 ring-1 ring-white/20">
+              <span className="inline-flex items-center gap-1 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-md bg-black/30 ring-1 ring-white/20">
                 <svg
-                  className="w-3 h-3 sm:w-4 sm:h-4"
+                  className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -112,11 +119,11 @@ function ProductHeroSlider() {
                 >
                   <path d="M3 12h18M3 6h18M3 18h18" />
                 </svg>
-                Durable
+                <span className="text-xs sm:text-sm">Durable</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-full bg-black/30 ring-1 ring-white/20">
+              <span className="inline-flex items-center gap-1 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-md bg-black/30 ring-1 ring-white/20">
                 <svg
-                  className="w-3 h-3 sm:w-4 sm:h-4"
+                  className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -124,7 +131,7 @@ function ProductHeroSlider() {
                 >
                   <path d="M4 7h16M4 12h16M4 17h16" />
                 </svg>
-                Custom Sizes
+                <span className="text-xs sm:text-sm">Custom</span>
               </span>
             </div>
           </div>
@@ -318,35 +325,35 @@ function Product() {
     tagline,
     items = [],
   }) => (
-    <div className="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300">
-      <div className="flex items-center justify-between mb-4 md:mb-6">
-        <div className="hidden sm:block h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent flex-1 mr-4" />
-        <h3 className="section-title font-heading tracking-wide text-textDark font-bold text-center sm:text-left">
+    <div className="bg-white p-3 sm:p-4 md:p-6 lg:p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300">
+      <div className="flex items-center justify-between mb-3 sm:mb-4 md:mb-6">
+        <div className="hidden md:block h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent flex-1 mr-4" />
+        <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-heading tracking-wide text-textDark font-bold text-center md:text-left">
           {title}
         </h3>
-        <div className="hidden sm:block h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent flex-1 ml-4" />
+        <div className="hidden md:block h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent flex-1 ml-4" />
       </div>
       {tagline && (
-        <p className="text-sm sm:text-base font-semibold text-secondary/90 mb-3 md:mb-4 font-body italic">
+        <p className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-secondary/90 mb-2 sm:mb-3 md:mb-4 font-body italic">
           {tagline}
         </p>
       )}
       {bullets && bullets.length > 0 ? (
-        <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base md:text-lg text-textDark/80 leading-relaxed font-body mb-4 md:mb-6">
+        <ul className="space-y-1.5 sm:space-y-2 md:space-y-3 text-xs sm:text-sm md:text-base lg:text-lg text-textDark/80 leading-relaxed font-body mb-3 sm:mb-4 md:mb-6">
           {bullets.map((b, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-2 h-2 bg-gold rounded-full mt-2"></span>
+            <li key={i} className="flex items-start gap-2 sm:gap-3">
+              <span className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gold rounded-full mt-1.5 sm:mt-2"></span>
               <span>{b}</span>
             </li>
           ))}
         </ul>
       ) : (
-        <p className="text-sm sm:text-base md:text-lg text-textDark/80 leading-relaxed font-body mb-4 md:mb-6">
+        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-textDark/80 leading-relaxed font-body mb-3 sm:mb-4 md:mb-6">
           {description}
         </p>
       )}
       {items.length > 0 && (
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
           {items.map((src, i) => (
             <div
               key={i}
@@ -356,7 +363,7 @@ function Product() {
                   e.currentTarget
                 )
               }
-              className="group relative touch-target overflow-hidden rounded-lg h-20 sm:h-24 md:h-28 cursor-zoom-in shadow-sm hover:shadow-md transition-all duration-300 focus-enhanced"
+              className="group relative touch-target overflow-hidden rounded-lg h-16 sm:h-20 md:h-24 lg:h-28 cursor-zoom-in shadow-sm hover:shadow-md transition-all duration-300 focus-enhanced"
               role="button"
               tabIndex={0}
               aria-label={`View ${title} image ${i + 1}`}
@@ -378,7 +385,7 @@ function Product() {
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
               <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                <svg className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="11" cy="11" r="6"></circle>
                   <path d="M21 21l-4.35-4.35"></path>
                   <path strokeLinecap="round" d="M11 8v6M8 11h6"></path>
@@ -405,31 +412,31 @@ function Product() {
         <ProductHeroSlider />
       </div>
 
-      <section className="bg-white py-10 sm:py-14 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 items-start">
+      <section className="bg-white py-8 sm:py-12 md:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 items-start">
           <div className="md:col-span-3">
-            <h2 className="section-title font-heading text-textDark mb-4 md:mb-0">
-              <span className="font-semibold">Place of Origin Advantage</span> —
-              Within 150km of our Manufacturing Unit
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading text-textDark mb-3 sm:mb-4 md:mb-0">
+              <span className="font-semibold">Place of Origin Advantage</span>
+              <span className="block sm:inline"> — Within 150km of our Manufacturing Unit</span>
             </h2>
           </div>
-          <div className="md:col-span-2 text-textDark/80 font-body leading-relaxed text-base sm:text-lg">
+          <div className="md:col-span-2 text-textDark/80 font-body leading-relaxed text-sm sm:text-base md:text-lg lg:text-xl">
             The most exquisite quality, straight from the source. Our hyper-local supply chain is our promise of purity and lasting beauty.
           </div>
         </div>
       </section>
 
-      {/* Alternating image/text layout inspired by the reference */}
-      <section className="py-8 sm:py-12 md:py-16">
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-10">
+      {/* Alternating image/text layout - Fully responsive */}
+      <section className="py-6 sm:py-8 md:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
             {/* Row 1: Large image + Text — Bengal Folk Craft */}
             <div className="md:col-span-7">
               <img
                 src={"/images/carpet.jpg"}
                 alt="Hand-braided natural fibre texture - Bengal Folk Craft collection by MKT Rugs"
                 loading="lazy"
-                className="responsive-img w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
+                className="responsive-img w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 60vw"
                 onClick={(e) =>
                   openModal(
@@ -476,7 +483,7 @@ function Product() {
                 src={"/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg"}
                 alt="Coastal-ready indoor/outdoor weave in patio setting"
                 loading="lazy"
-                className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
                     {
@@ -495,7 +502,7 @@ function Product() {
                 src={"/images/Elma Geometric Jute Rug _ Natural.jpg"}
                 alt="Banana-blend flatweave in warm interior"
                 loading="lazy"
-                className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
                     {
@@ -540,7 +547,7 @@ function Product() {
                 src={"/images/Hart in Terracotta.jpg"}
                 alt="Wool–jute blend rug adding warmth to living area"
                 loading="lazy"
-                className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
                     {
@@ -559,7 +566,7 @@ function Product() {
                 src={"/images/flat-lay-monochromatic-assortment-textiles.jpg"}
                 alt="Jacquard patterns in monochrome study"
                 loading="lazy"
-                className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
                     {
@@ -604,7 +611,7 @@ function Product() {
                 src={"/images/main.jpg"}
                 alt="Luxurious hand-tufted wool rug in elegant setting"
                 loading="lazy"
-                className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
                     {
@@ -623,10 +630,10 @@ function Product() {
       </section>
 
 
-      {/* Product Image Modal (similar to Gallery) */}
+      {/* Product Image Modal - Enhanced responsiveness */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm md:backdrop-blur flex items-center justify-center z-[9999] p-4"
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm md:backdrop-blur flex items-center justify-center z-[9999] p-2 sm:p-4"
           onClick={closeModal}
         >
           <div
@@ -636,25 +643,25 @@ function Product() {
             aria-label="Product image viewer"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Title centered at top like reference */}
+            {/* Title centered at top - responsive */}
             <div
-              className="fixed left-1/2 -translate-x-1/2 z-[10000]"
-              style={{ top: "calc(env(safe-area-inset-top) + 10px)" }}
+              className="fixed left-1/2 -translate-x-1/2 z-[10000] px-2 sm:px-0"
+              style={{ top: "calc(env(safe-area-inset-top) + 8px)" }}
             >
-              <div className="px-3 py-1 rounded bg-black/60 text-white text-[13px] md:text-sm font-semibold shadow-sm">
+              <div className="px-2 py-0.5 sm:px-3 sm:py-1 rounded bg-black/60 text-white text-xs sm:text-sm md:text-base font-semibold shadow-sm">
                 {selectedImage.title || "Untitled"}
               </div>
             </div>
 
-            {/* Controls at top-right (icons updated to match requested set) */}
+            {/* Controls at top-right - responsive sizing */}
             <div
-              className="fixed z-[10000] flex items-center gap-2 md:gap-2.5"
+              className="fixed z-[10000] flex items-center gap-1.5 sm:gap-2 md:gap-2.5 pr-2 sm:pr-0"
               style={{
-                top: "calc(env(safe-area-inset-top) + 10px)",
-                right: "calc(env(safe-area-inset-right) + 12px)",
+                top: "calc(env(safe-area-inset-top) + 8px)",
+                right: "calc(env(safe-area-inset-right) + 8px)",
               }}
             >
-              {/* Fullscreen corners icon for view toggle */}
+              {/* Fullscreen corners icon for view toggle - responsive */}
               <button
                 type="button"
                 tabIndex={0}
@@ -669,10 +676,10 @@ function Product() {
                 title={
                   squareView ? "Show full (contain)" : "Show square (cover)"
                 }
-                className="inline-flex items-center justify-center h-11 w-11 p-2.5 rounded-full text-white bg-black/40 hover:bg-black/50 ring-1 ring-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-white/40"
+                className="inline-flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 p-2 sm:p-2.5 rounded-full text-white bg-black/40 hover:bg-black/50 ring-1 ring-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-white/40 touch-target"
               >
                 <svg
-                  className="w-5 h-5 md:w-6 md:h-6"
+                  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -686,17 +693,17 @@ function Product() {
                 </svg>
               </button>
 
-              {/* Magnify with plus icon for Details toggle */}
+              {/* Magnify with plus icon for Details toggle - responsive */}
               <button
                 type="button"
                 tabIndex={0}
                 onClick={() => setShowMeta((v) => !v)}
                 aria-label="Details"
                 title={showMeta ? "Hide details" : "Show details"}
-                className="inline-flex items-center justify-center h-11 w-11 p-2.5 rounded-full text-white bg-black/40 hover:bg-black/50 ring-1 ring-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-white/40"
+                className="inline-flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 p-2 sm:p-2.5 rounded-full text-white bg-black/40 hover:bg-black/50 ring-1 ring-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-white/40 touch-target"
               >
                 <svg
-                  className="w-5 h-5 md:w-6 md:h-6"
+                  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -712,17 +719,17 @@ function Product() {
                 </svg>
               </button>
 
-              {/* Share arrow */}
+              {/* Share arrow - responsive */}
               <button
                 type="button"
                 tabIndex={0}
                 onClick={handleShare}
                 aria-label="Share"
                 title="Share"
-                className="inline-flex items-center justify-center h-11 w-11 p-2.5 rounded-full text-white bg-black/40 hover:bg-black/50 ring-1 ring-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-white/40"
+                className="inline-flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 p-2 sm:p-2.5 rounded-full text-white bg-black/40 hover:bg-black/50 ring-1 ring-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-white/40 touch-target"
               >
                 <svg
-                  className="w-5 h-5 md:w-6 md:h-6"
+                  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -736,17 +743,17 @@ function Product() {
                 </svg>
               </button>
 
-              {/* Close */}
+              {/* Close - responsive with enhanced touch target */}
               <button
                 type="button"
                 tabIndex={0}
                 onClick={closeModal}
                 aria-label="Close"
                 title="Close"
-                className="inline-flex items-center justify-center h-11 w-11 p-2.5 rounded-full text-white bg-primary/90 hover:bg-primary ring-1 ring-white/20 shadow focus:outline-none focus:ring-2 focus:ring-white/40"
+                className="inline-flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 p-2 sm:p-2.5 rounded-full text-white bg-primary/90 hover:bg-primary ring-1 ring-white/20 shadow focus:outline-none focus:ring-2 focus:ring-white/40 touch-target"
               >
                 <svg
-                  className="w-5 h-5 md:w-6 md:h-6"
+                  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -764,11 +771,11 @@ function Product() {
             <div
               className={
                 squareView
-                  ? "w-[90vw] max-w-[640px] aspect-square"
-                  : "w-[92vw] max-w-[1100px] max-h-[80vh]"
+                  ? "w-[88vw] sm:w-[90vw] max-w-[480px] sm:max-w-[640px] aspect-square"
+                  : "w-[94vw] sm:w-[92vw] max-w-[800px] sm:max-w-[1100px] max-h-[75vh] sm:max-h-[80vh]"
               }
             >
-              <div className="w-full h-full bg-black/40 rounded-lg overflow-hidden flex items-center justify-center">
+              <div className="w-full h-full bg-black/40 rounded-md sm:rounded-lg overflow-hidden flex items-center justify-center">
                 <img
                   src={selectedImage.src}
                   alt={selectedImage.alt}
@@ -790,15 +797,15 @@ function Product() {
             </div>
 
             {showMeta && (
-              <div className="mt-4 bg-black/50 rounded-lg p-3 text-textLight">
+              <div className="mt-3 sm:mt-4 bg-black/50 rounded-md sm:rounded-lg p-2.5 sm:p-3 text-textLight mx-2 sm:mx-0">
                 {selectedImage.alt && (
-                  <p className="text-sm font-body">{selectedImage.alt}</p>
+                  <p className="text-xs sm:text-sm md:text-base font-body">{selectedImage.alt}</p>
                 )}
               </div>
             )}
 
             {shareCopied && (
-              <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[10000] px-3 py-1.5 rounded-full bg-black/70 text-white text-sm shadow">
+              <div className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[10000] px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-black/70 text-white text-xs sm:text-sm shadow">
                 Copied
               </div>
             )}
@@ -825,26 +832,26 @@ function Product() {
     </section> */}
 
       {/* Testimonials */}
-      <section className="py-16 sm:py-20 md:py-24 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 md:mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 rounded-full mb-4">
-              <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="currentColor">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gold/10 rounded-full mb-3 sm:mb-4">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gold" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2l3 7h7l-5.5 4 2.5 7-7-4.5L5 20l2.5-7L2 9h7z" />
               </svg>
-              <span className="text-sm font-semibold text-gold tracking-wide uppercase">
+              <span className="text-xs sm:text-sm md:text-base font-semibold text-gold tracking-wide uppercase">
                 Trusted Worldwide
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-textDark mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-textDark mb-3 sm:mb-4">
               Why Exporters & Importers Choose MKT Rugs
             </h2>
-            <p className="text-lg text-textDark/70 max-w-3xl mx-auto leading-relaxed font-body">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-textDark/70 max-w-3xl mx-auto leading-relaxed font-body">
               Discover why global partners trust us for their natural fiber needs
             </p>
-            <div className="mx-auto mt-6 w-24 h-1 bg-gradient-to-r from-gold via-primary to-secondary rounded-full" />
+            <div className="mx-auto mt-4 sm:mt-6 w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-gold via-primary to-secondary rounded-full" />
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
                 quote:
@@ -864,12 +871,12 @@ function Product() {
             ].map((t, i) => (
               <div
                 key={i}
-                className="bg-gradient-to-br from-bgGrey to-white rounded-xl p-6 md:p-8 border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
+                className="bg-gradient-to-br from-bgGrey to-white rounded-xl p-4 sm:p-6 md:p-8 border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
               >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center group-hover:bg-gold/20 transition-colors duration-300">
+                <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gold/10 rounded-full flex items-center justify-center group-hover:bg-gold/20 transition-colors duration-300">
                     <svg
-                      className="w-6 h-6 text-gold"
+                      className="w-5 h-5 sm:w-6 sm:h-6 text-gold"
                       viewBox="0 0 24 24"
                       fill="currentColor"
                     >
@@ -877,19 +884,19 @@ function Product() {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <div className="text-sm font-semibold text-secondary/90 mb-2">
+                    <div className="text-xs sm:text-sm md:text-base font-semibold text-secondary/90 mb-1 sm:mb-2">
                       {t.name}
                     </div>
-                    <div className="flex text-gold text-sm mb-2">
+                    <div className="flex text-gold text-xs sm:text-sm mb-1 sm:mb-2">
                       {[...Array(5)].map((_, starIndex) => (
-                        <svg key={starIndex} className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <svg key={starIndex} className="w-3 h-3 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24">
                           <path d="M12 2l3 7h7l-5.5 4 2.5 7-7-4.5L5 20l2.5-7L2 9h7z" />
                         </svg>
                       ))}
                     </div>
                   </div>
                 </div>
-                <blockquote className="text-textDark/90 font-body text-base leading-relaxed italic">
+                <blockquote className="text-textDark/90 font-body text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed italic">
                   "{t.quote}"
                 </blockquote>
               </div>
@@ -898,33 +905,35 @@ function Product() {
         </div>
       </section>
 
-      {/* Enhanced Mobile FAB */}
-      <div className="lg:hidden fixed bottom-4 right-4 z-50 flex flex-col gap-2">
+      {/* Enhanced Mobile FAB - Better responsiveness */}
+      <div className="md:hidden fixed bottom-3 sm:bottom-4 right-3 sm:right-4 z-50 flex flex-col gap-1.5 sm:gap-2">
         <a 
           href="/contact" 
-          className="group shadow-xl hover:shadow-2xl transition-all duration-300"
+          className="group shadow-lg hover:shadow-xl transition-all duration-300"
           aria-label="Contact us"
         >
-          <Button variant="gold" className="rounded-full px-3 py-2.5 text-xs font-semibold group-hover:scale-105 transition-transform duration-300">
-            <svg className="w-4 h-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <Button variant="gold" className="rounded-full px-2.5 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-semibold group-hover:scale-105 transition-transform duration-300 touch-target">
+            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1 sm:mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
             </svg>
-            Contact
+            <span className="hidden sm:inline">Contact</span>
+            <span className="sm:hidden">Call</span>
           </Button>
         </a>
         <a 
           href="/enquiry" 
-          className="group shadow-xl hover:shadow-2xl transition-all duration-300"
+          className="group shadow-lg hover:shadow-xl transition-all duration-300"
           aria-label="Get a quote"
         >
           <Button
             variant="secondary"
-            className="rounded-full px-3 py-2.5 text-xs font-semibold !border-2 !border-primary !text-primary hover:!bg-primary hover:!text-white group-hover:scale-105 transition-all duration-300"
+            className="rounded-full px-2.5 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-semibold !border-2 !border-primary !text-primary hover:!bg-primary hover:!text-white group-hover:scale-105 transition-all duration-300 touch-target"
           >
-            <svg className="w-4 h-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1 sm:mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
             </svg>
-            Quote
+            <span className="hidden sm:inline">Quote</span>
+            <span className="sm:hidden">Get</span>
           </Button>
         </a>
       </div>

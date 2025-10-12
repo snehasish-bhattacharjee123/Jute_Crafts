@@ -313,17 +313,17 @@ const Header = () => {
         }`}
         role="banner"
       >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4 md:py-5">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-3 sm:py-4 md:py-5">
           {/* ✅ Logo Section */}
-          <div className="flex-shrink-0 flex items-center gap-3 md:gap-4">
+          <div className="flex-shrink-0 flex items-center gap-2 sm:gap-3 md:gap-4">
             <img
               src="/images/MKT Rugs_1 PNG.png"
               alt="MKT RUGS Logo"
-              className="h-20 sm:h-24 md:h-28 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              className="h-16 sm:h-18 md:h-20 lg:h-24 xl:h-28 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
             <div className="leading-tight">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold tracking-wide">
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-bold tracking-wide">
                 <span style={{ color: "#603813" }}>M</span>
                 <span style={{ color: "#1C7A67" }}>K</span>
                 <span style={{ color: "#603813" }}>T RUGS</span>
@@ -331,7 +331,7 @@ const Header = () => {
 
               {/* ✅ Updated tagline */}
               <div
-                className="hidden sm:block text-[13px] sm:text-base md:text-lg font-serif italic tracking-wide"
+                className="hidden sm:block text-xs sm:text-sm md:text-base lg:text-lg font-serif italic tracking-wide"
                 style={{
                   color: "#1C7A67",
                   fontFamily: "'Playfair Display', 'Times New Roman', serif",
@@ -346,14 +346,14 @@ const Header = () => {
           </div>
 
           {/* ✅ Desktop Nav */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-4 lg:space-x-6 xl:space-x-8">
             {navLinks.map(({ path, label }) => (
               <NavLink
                 key={path}
                 to={path}
                 end={path === "/"}
                 className={({ isActive }) =>
-                  `font-body text-base uppercase py-2 transition-transform duration-200 ${
+                  `font-body text-sm md:text-base lg:text-base uppercase py-2 transition-transform duration-200 focus-enhanced ${
                     isActive
                       ? "border-b-2 border-current"
                       : "hover:scale-110 hover:text-primary"
@@ -369,29 +369,28 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="touch-target hover:scale-110 transition-transform duration-200 focus:outline-none focus-enhanced p-2"
+              className="touch-target hover:scale-110 transition-transform duration-200 focus:outline-none focus-enhanced p-2 rounded-lg hover:bg-white/10 active:bg-white/20"
               aria-label="Toggle menu"
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
             >
               <svg
-                className="h-6 w-6"
+                className="h-5 w-5 sm:h-6 sm:w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                strokeWidth={2.5}
               >
                 {isOpen ? (
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
                     d="M6 18L18 6M6 6l12 12"
                   />
                 ) : (
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                 )}
@@ -408,7 +407,7 @@ const Header = () => {
               onClick={() => setIsOpen(false)}
             />
             <div id="mobile-menu" className="md:hidden absolute top-full left-0 w-full z-[100]">
-              <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md border-t border-primary/20 shadow-lg">
+              <div className="px-3 pt-3 pb-4 space-y-2 bg-white border-t border-gray-200 shadow-lg">
                 {navLinks.map(({ path, label }) => (
                   <NavLink
                     key={path}
@@ -416,10 +415,10 @@ const Header = () => {
                     end={path === "/"}
                     onClick={() => setIsOpen(false)}
                     className={({ isActive }) =>
-                      `block touch-target px-3 py-3 font-body text-base uppercase transition-transform duration-200 focus-enhanced ${
+                      `block touch-target px-4 py-3 font-body text-sm sm:text-base uppercase transition-all duration-200 focus-enhanced rounded-lg text-gray-700 ${
                         isActive
-                          ? "border-l-4 border-current pl-2"
-                          : "hover:translate-x-2 hover:text-primary"
+                          ? "bg-primary/10 border-l-4 border-primary text-primary font-semibold"
+                          : "hover:translate-x-1 hover:bg-gray/5 hover:text-primary active:bg-primary/10"
                       }`
                     }
                   >

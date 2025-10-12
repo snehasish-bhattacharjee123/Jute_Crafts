@@ -169,52 +169,60 @@ const WhyUs = () => {
         <link rel="canonical" href="https://www.mktrugs.com/why-us" />
       </Helmet>
 
-      {/* Hero Section */}
+      {/* Hero Section - Enhanced mobile responsiveness */}
       <section
-        className="relative bg-cover bg-center h-[40vh] sm:h-[50vh] lg:h-[60vh] flex items-center justify-center pt-[calc(var(--header-h,80px))]"
-        style={{ backgroundImage: "url('/images/B_1.jpg')", marginTop: "calc(var(--header-h, 0px) * -1)" }}
+        className="relative bg-cover bg-center h-[50vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] min-h-[400px] sm:min-h-[500px] flex items-center justify-center overflow-hidden"
+        style={{ 
+          backgroundImage: "url('/images/B_1.jpg')",
+          backgroundPosition: 'center center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
       >
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center px-6">
-          <h1 className="hero-title text-3xl sm:text-5xl font-heading text-textLight font-semibold drop-shadow-lg">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60" />
+        <div className="relative z-10 text-center px-3 sm:px-4 md:px-6 lg:px-8 max-w-4xl mx-auto">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading text-textLight font-semibold drop-shadow-2xl mb-3 sm:mb-4">
             Why Choose MKT Rugs
           </h1>
-          <p className="hero-subtitle mt-3 text-textLight/90 max-w-2xl mx-auto text-sm sm:text-base">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-textLight/95 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
             Solving common rug industry problems with sustainable, authentic craftsmanship.
           </p>
         </div>
+        
+        {/* Mobile optimized overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent sm:hidden" />
       </section>
 
-      {/* Problem → Solution Section */}
-      <section className="max-w-6xl mx-auto py-20 px-6 sm:px-10">
-        <h2 className="section-title text-center text-2xl sm:text-3xl font-heading font-semibold mb-16 text-textDark">
+      {/* Problem → Solution Section - Enhanced mobile spacing */}
+      <section className="max-w-6xl mx-auto py-12 sm:py-16 md:py-20 px-3 sm:px-6 md:px-10">
+        <h2 className="text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-semibold mb-12 sm:mb-14 md:mb-16 text-textDark">
           How MKT Rugs Solves Your Problems
         </h2>
 
-        <div className="space-y-20">
+        <div className="space-y-12 sm:space-y-16 md:space-y-20">
           {problemSolutions.map((item, index) => (
             <div
               key={index}
-              className={`flex flex-col sm:flex-row items-start gap-8 ${
+              className={`flex flex-col sm:flex-row items-start gap-6 sm:gap-8 ${
                 index % 2 === 1
                   ? "sm:flex-row-reverse sm:items-center"
                   : "sm:items-center"
               }`}
             >
-              {/* Number */}
-              <div className="text-gold text-5xl sm:text-6xl font-bold font-heading leading-none flex-shrink-0 sm:w-[100px] text-center opacity-80">
+              {/* Number - Mobile responsive sizing */}
+              <div className="text-gold text-4xl sm:text-5xl md:text-6xl font-bold font-heading leading-none flex-shrink-0 sm:w-[80px] md:w-[100px] text-center opacity-80">
                 {(index + 1).toString().padStart(2, "0")}
               </div>
 
-              {/* Content */}
+              {/* Content - Enhanced mobile typography */}
               <div className="flex-1 text-center sm:text-left">
-                <h4 className="text-sm sm:text-base text-red-600 font-semibold mb-1">
+                <h4 className="text-xs sm:text-sm md:text-base text-red-600 font-semibold mb-1 sm:mb-1.5">
                   Problem: {item.problem}
                 </h4>
-                <h3 className="font-heading text-lg sm:text-xl font-semibold mb-2 text-textDark">
+                <h3 className="font-heading text-base sm:text-lg md:text-xl lg:text-2xl font-semibold mb-2 sm:mb-3 text-textDark">
                   Solution: {item.solutionTitle}
                 </h3>
-                <p className="text-sm sm:text-base text-textDark/80 leading-relaxed max-w-xl mx-auto sm:mx-0">
+                <p className="text-sm sm:text-base md:text-lg text-textDark/80 leading-relaxed max-w-xl mx-auto sm:mx-0">
                   {item.solutionDesc}
                 </p>
               </div>
@@ -232,17 +240,19 @@ const WhyUs = () => {
         </div> */}
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-[#f3ebe3] py-16 text-center">
-        <h4 className="section-title text-xl sm:text-2xl font-semibold mb-6 text-[#2b1d1d]">
-          Ready to Transform Your Space?
-        </h4>
-        <a
-          href="/contact"
-          className="mobile-touch focus-enhanced inline-block bg-[#c49b63] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#2b1d1d] transition-colors duration-300"
-        >
-          Contact Us Today
-        </a>
+      {/* CTA Section - Enhanced mobile responsiveness */}
+      <section className="bg-[#f3ebe3] py-12 sm:py-16 text-center">
+        <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6">
+          <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-4 sm:mb-6 text-[#2b1d1d]">
+            Ready to Transform Your Space?
+          </h4>
+          <a
+            href="/contact"
+            className="touch-target focus-enhanced inline-block bg-[#c49b63] text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base rounded-full hover:bg-[#2b1d1d] transition-colors duration-300 min-h-[44px] shadow-lg hover:shadow-xl"
+          >
+            Contact Us Today
+          </a>
+        </div>
       </section>
     </div>
   );

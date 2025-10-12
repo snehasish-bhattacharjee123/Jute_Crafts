@@ -245,9 +245,9 @@ function Gallery() {
         canonical="https://www.mktrugs.com/gallery"
       />
 
-      {/* Hero section with header compensation */}
+      {/* Hero section with header compensation - Enhanced mobile responsiveness */}
       <section
-        className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[85vh] min-h-[500px] max-h-[800px] pt-[calc(var(--header-h,80px))]"
+        className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[85vh] min-h-[400px] sm:min-h-[500px] max-h-[800px] pt-[calc(var(--header-h,80px))]"
         style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}
       >
         <img
@@ -255,13 +255,13 @@ function Gallery() {
           alt="Gallery hero background"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/40 sm:bg-black/35" />
         <div className="relative z-10 flex items-end h-full">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 text-center w-full">
-            <h1 className="section-title font-heading font-semibold text-white mb-3">
+          <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pb-4 sm:pb-6 text-center w-full">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading font-semibold text-white mb-2 sm:mb-3">
               Our Gallery
             </h1>
-            <p className="text-white/90 max-w-3xl mx-auto leading-relaxed font-body">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-body px-2 sm:px-0">
               Explore our world of natural fibers, traditional craftsmanship,
               and modern design excellence.
             </p>
@@ -269,15 +269,15 @@ function Gallery() {
         </div>
       </section>
 
-      <section className="py-8 bg-bgGrey">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8">
+      <section className="py-6 sm:py-8 bg-bgGrey">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => handleCategoryChange(category.id)}
                 disabled={isLoading}
-                className={`touch-target px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm disabled:opacity-50 disabled:cursor-not-allowed focus-enhanced ${
+                className={`touch-target px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed focus-enhanced min-h-[44px] ${
                   selectedCategory === category.id
                     ? "bg-primary text-textLight shadow-lg transform scale-105"
                     : "bg-white text-textDark hover:bg-primary hover:text-textLight shadow-md hover:scale-105 hover:shadow-lg"
@@ -285,7 +285,7 @@ function Gallery() {
                 aria-pressed={selectedCategory === category.id}
               >
                 {isLoading && selectedCategory === category.id ? (
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5 sm:gap-2">
                     <LoadingSpinner variant="mkt-compact" size="xs" color="white" />
                     <span>{category.name}</span>
                   </div>
@@ -298,23 +298,23 @@ function Gallery() {
         </div>
       </section>
 
-      <section className="py-8 bg-bgGrey">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Loading state */}
+      <section className="py-6 sm:py-8 bg-bgGrey">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          {/* Loading state - Enhanced mobile spacing */}
           {isLoading && (
-            <div className="flex justify-center items-center py-12">
-              <div className="flex items-center gap-3">
-                <LoadingSpinner variant="mkt" size="lg" color="gold" />
-                <span className="text-textDark font-medium">
+            <div className="flex justify-center items-center py-8 sm:py-12">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <LoadingSpinner variant="mkt" size="md" color="gold" />
+                <span className="text-textDark font-medium text-sm sm:text-base">
                   Loading images...
                 </span>
               </div>
             </div>
           )}
 
-          {/* Gallery grid */}
+          {/* Gallery grid - Enhanced responsiveness */}
           <div
-            className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 transition-opacity duration-300 ${
+            className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 transition-opacity duration-300 ${
               isLoading ? "opacity-50" : "opacity-100"
             }`}
           >
@@ -325,7 +325,7 @@ function Gallery() {
               return (
                 <div
                   key={image.id}
-                  className="group relative touch-target overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer bg-white focus-enhanced"
+                  className="group relative touch-target overflow-hidden rounded-md sm:rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer bg-white focus-enhanced"
                   onClick={() => !hasImageFailed && openModal(image)}
                   role="button"
                   tabIndex={0}
@@ -347,11 +347,11 @@ function Gallery() {
                     </div>
                   )}
 
-                  {/* Error state */}
+                  {/* Error state - Responsive height */}
                   {hasImageFailed && (
-                    <div className="w-full h-64 bg-gray-100 flex flex-col items-center justify-center text-gray-400">
+                    <div className="w-full h-40 sm:h-48 md:h-56 lg:h-64 bg-gray-100 flex flex-col items-center justify-center text-gray-400">
                       <svg
-                        className="w-12 h-12 mb-2"
+                        className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mb-2"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -363,7 +363,7 @@ function Gallery() {
                           d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                         />
                       </svg>
-                      <span className="text-sm">Failed to load</span>
+                      <span className="text-xs sm:text-sm">Failed to load</span>
                     </div>
                   )}
 
@@ -372,7 +372,7 @@ function Gallery() {
                     <img
                       src={image.src}
                       alt={`${image.alt} - ${image.title} from MKT Rugs gallery`}
-                      className={`responsive-img w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-110 transition-transform duration-300 ${
+                      className={`responsive-img w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-300 ${
                         isImageLoading ? "opacity-0" : "opacity-100"
                       }`}
                       loading="lazy"
@@ -383,19 +383,19 @@ function Gallery() {
                     />
                   )}
 
-                  {/* Hover overlay */}
+                  {/* Hover overlay - Enhanced mobile responsiveness */}
                   {!hasImageFailed && (
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
-                      <div className="text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4">
-                        <h3 className="text-textLight text-lg sm:text-xl font-semibold mb-2 font-heading">
+                      <div className="text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-2 sm:px-4">
+                        <h3 className="text-textLight text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-1 sm:mb-2 font-heading">
                           {image.title}
                         </h3>
-                        <p className="text-textLight/90 font-body text-sm sm:text-base">
+                        <p className="text-textLight/90 font-body text-xs sm:text-sm md:text-base">
                           Click to view larger
                         </p>
-                        <div className="mt-2 inline-flex items-center gap-1 px-3 py-1 bg-white/20 rounded-full backdrop-blur-sm">
+                        <div className="mt-1.5 sm:mt-2 inline-flex items-center gap-1 px-2 py-1 sm:px-3 sm:py-1 bg-white/20 rounded-full backdrop-blur-sm">
                           <svg
-                            className="w-4 h-4"
+                            className="w-3 h-3 sm:w-4 sm:h-4"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -417,10 +417,10 @@ function Gallery() {
             })}
           </div>
 
-          {/* No results */}
+          {/* No results - Enhanced mobile responsiveness */}
           {filteredImages.length === 0 && !isLoading && (
-            <div className="text-center py-12">
-              <div className="w-24 h-24 mx-auto mb-4 text-gray-300">
+            <div className="text-center py-8 sm:py-12">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto mb-3 sm:mb-4 text-gray-300">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -435,10 +435,10 @@ function Gallery() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-textDark mb-2">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-textDark mb-2">
                 No images found
               </h3>
-              <p className="text-textDark/70">
+              <p className="text-sm sm:text-base text-textDark/70">
                 Try selecting a different category.
               </p>
             </div>
@@ -448,7 +448,7 @@ function Gallery() {
 
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-[10000] p-3 sm:p-4 transition-all duration-300 ease-out"
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-[10000] p-2 sm:p-3 md:p-4 transition-all duration-300 ease-out"
           onClick={closeModal}
           role="dialog"
           aria-modal="true"
@@ -458,15 +458,15 @@ function Gallery() {
             className="relative w-full max-w-7xl mx-auto transform transition-all duration-300 ease-out scale-100 opacity-100"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Enhanced centered title */}
-            <div className="absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 z-10 px-2">
-              <div className="px-4 py-2 sm:px-5 sm:py-3 rounded-xl bg-black/90 backdrop-blur-md text-white text-sm sm:text-base font-semibold shadow-xl border border-white/20 max-w-xs sm:max-w-md truncate">
+            {/* Enhanced centered title - Mobile responsive */}
+            <div className="absolute top-2 sm:top-3 md:top-4 left-1/2 -translate-x-1/2 z-10 px-1 sm:px-2">
+              <div className="px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-3 rounded-lg sm:rounded-xl bg-black/90 backdrop-blur-md text-white text-xs sm:text-sm md:text-base font-semibold shadow-xl border border-white/20 max-w-[280px] sm:max-w-xs md:max-w-md truncate">
                 {selectedImage.title || "Untitled"}
               </div>
             </div>
 
-            {/* Enhanced controls with better mobile touch targets */}
-            <div className="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 flex items-center gap-2 sm:gap-3">
+            {/* Enhanced controls - Mobile optimized touch targets */}
+            <div className="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 z-10 flex items-center gap-1.5 sm:gap-2 md:gap-3">
               {/* View toggle button */}
               <button
                 type="button"
@@ -477,10 +477,10 @@ function Gallery() {
                 title={
                   squareView ? "Show full (contain)" : "Show square (cover)"
                 }
-                className="flex items-center justify-center touch-target w-12 h-12 sm:w-14 sm:h-14 rounded-full text-white bg-black/70 backdrop-blur-md border border-white/30 hover:bg-black/80 hover:scale-110 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/60 shadow-xl focus-enhanced"
+                className="flex items-center justify-center touch-target w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full text-white bg-black/70 backdrop-blur-md border border-white/30 hover:bg-black/80 hover:scale-110 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/60 shadow-xl focus-enhanced"
               >
                 <svg
-                  className="w-5 h-5 sm:w-6 sm:h-6"
+                  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -500,10 +500,10 @@ function Gallery() {
                 onClick={() => setShowMeta((v) => !v)}
                 aria-label={showMeta ? "Hide details" : "Show details"}
                 title={showMeta ? "Hide details" : "Show details"}
-                className="flex items-center justify-center touch-target w-12 h-12 sm:w-14 sm:h-14 rounded-full text-white bg-black/70 backdrop-blur-md border border-white/30 hover:bg-black/80 hover:scale-110 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/60 shadow-xl focus-enhanced"
+                className="flex items-center justify-center touch-target w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full text-white bg-black/70 backdrop-blur-md border border-white/30 hover:bg-black/80 hover:scale-110 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/60 shadow-xl focus-enhanced"
               >
                 <svg
-                  className="w-5 h-5 sm:w-6 sm:h-6"
+                  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -525,10 +525,10 @@ function Gallery() {
                 onClick={handleShare}
                 aria-label="Share image"
                 title="Share image"
-                className="flex items-center justify-center touch-target w-12 h-12 sm:w-14 sm:h-14 rounded-full text-white bg-black/70 backdrop-blur-md border border-white/30 hover:bg-black/80 hover:scale-110 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/60 shadow-xl focus-enhanced"
+                className="flex items-center justify-center touch-target w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full text-white bg-black/70 backdrop-blur-md border border-white/30 hover:bg-black/80 hover:scale-110 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/60 shadow-xl focus-enhanced"
               >
                 <svg
-                  className="w-5 h-5 sm:w-6 sm:h-6"
+                  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -548,10 +548,10 @@ function Gallery() {
                 onClick={closeModal}
                 aria-label="Close gallery"
                 title="Close gallery"
-                className="flex items-center justify-center touch-target w-12 h-12 sm:w-14 sm:h-14 rounded-full text-white bg-gradient-to-br from-primary/90 to-primary backdrop-blur-md border border-white/30 hover:from-primary hover:to-primary/80 hover:scale-110 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/60 shadow-xl focus-enhanced"
+                className="flex items-center justify-center touch-target w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full text-white bg-gradient-to-br from-primary/90 to-primary backdrop-blur-md border border-white/30 hover:from-primary hover:to-primary/80 hover:scale-110 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/60 shadow-xl focus-enhanced"
               >
                 <svg
-                  className="w-6 h-6 sm:w-7 sm:h-7"
+                  className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -566,15 +566,15 @@ function Gallery() {
               </button>
             </div>
 
-            {/* Enhanced image viewer */}
+            {/* Enhanced image viewer - Mobile optimized dimensions */}
             <div
               className={`mx-auto transition-all duration-300 ease-out ${
                 squareView
-                  ? "w-[88vw] sm:w-[75vw] md:w-[65vw] lg:w-[55vw] max-w-[650px] aspect-square"
-                  : "w-[92vw] sm:w-[88vw] md:w-[82vw] lg:w-[75vw] max-w-[1300px] max-h-[80vh]"
+                  ? "w-[85vw] sm:w-[75vw] md:w-[65vw] lg:w-[55vw] max-w-[480px] sm:max-w-[650px] aspect-square"
+                  : "w-[90vw] sm:w-[85vw] md:w-[80vw] lg:w-[75vw] max-w-[800px] sm:max-w-[1300px] max-h-[70vh] sm:max-h-[80vh]"
               }`}
             >
-              <div className="w-full h-full bg-gradient-to-br from-black/30 to-black/60 rounded-xl overflow-hidden flex items-center justify-center border border-white/20 shadow-2xl backdrop-blur-sm">
+              <div className="w-full h-full bg-gradient-to-br from-black/30 to-black/60 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center border border-white/20 shadow-2xl backdrop-blur-sm">
                 <img
                   src={selectedImage.src}
                   alt={selectedImage.alt}
@@ -597,22 +597,22 @@ function Gallery() {
               </div>
             </div>
 
-            {/* Enhanced metadata section */}
+            {/* Enhanced metadata section - Mobile responsive */}
             {showMeta && (
-              <div className="mt-4 sm:mt-6 bg-gradient-to-br from-black/90 to-black/80 backdrop-blur-md rounded-xl p-4 sm:p-6 text-white border border-white/20 shadow-xl">
-                <div className="space-y-3 sm:space-y-4">
-                  <h3 className="font-bold text-base sm:text-lg text-gold">
+              <div className="mt-3 sm:mt-4 md:mt-6 mx-2 sm:mx-0 bg-gradient-to-br from-black/90 to-black/80 backdrop-blur-md rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 text-white border border-white/20 shadow-xl">
+                <div className="space-y-2 sm:space-y-3 md:space-y-4">
+                  <h3 className="font-bold text-sm sm:text-base md:text-lg text-gold">
                     {selectedImage.title}
                   </h3>
                   {selectedImage.alt && (
-                    <p className="text-sm sm:text-base text-white/90 font-body leading-relaxed">
+                    <p className="text-xs sm:text-sm md:text-base text-white/90 font-body leading-relaxed">
                       {selectedImage.alt}
                     </p>
                   )}
-                  <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/20 rounded-full capitalize font-medium border border-primary/30">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+                    <span className="inline-flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 bg-primary/20 rounded-full capitalize font-medium border border-primary/30">
                       <svg
-                        className="w-3 h-3"
+                        className="w-2.5 h-2.5 sm:w-3 sm:h-3"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -624,9 +624,9 @@ function Gallery() {
                       </svg>
                       {selectedImage.category}
                     </span>
-                    <span className="text-white/70 flex items-center gap-1.5">
+                    <span className="text-white/70 flex items-center gap-1 sm:gap-1.5">
                       <svg
-                        className="w-3 h-3"
+                        className="w-2.5 h-2.5 sm:w-3 sm:h-3"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -638,19 +638,20 @@ function Gallery() {
                           d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
                         />
                       </svg>
-                      Double-tap to zoom
+                      <span className="hidden sm:inline">Double-tap to zoom</span>
+                      <span className="sm:hidden">Tap to zoom</span>
                     </span>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* Enhanced share toast */}
+            {/* Enhanced share toast - Mobile responsive */}
             {shareCopied && (
-              <div className="fixed bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-[10001] px-5 py-3 rounded-xl bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-semibold shadow-xl border border-green-400/30 backdrop-blur-sm transform transition-all duration-300 ease-out">
-                <div className="flex items-center gap-2">
+              <div className="fixed bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-[10001] mx-4 px-3 py-2 sm:px-4 sm:py-2.5 md:px-5 md:py-3 rounded-lg sm:rounded-xl bg-gradient-to-r from-green-500 to-green-600 text-white text-xs sm:text-sm md:text-base font-semibold shadow-xl border border-green-400/30 backdrop-blur-sm transform transition-all duration-300 ease-out">
+                <div className="flex items-center gap-1.5 sm:gap-2">
                   <svg
-                    className="w-4 h-4"
+                    className="w-3 h-3 sm:w-4 sm:h-4"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -662,7 +663,7 @@ function Gallery() {
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  Link copied to clipboard
+                  <span className="whitespace-nowrap">Link copied to clipboard</span>
                 </div>
               </div>
             )}
@@ -670,7 +671,7 @@ function Gallery() {
         </div>
       )}
 
-      <section className="relative py-16 sm:py-20">
+      <section className="relative py-12 sm:py-16 md:py-20">
         <div className="absolute inset-0">
           <img
             src="/images/Hart in Terracotta.jpg"
@@ -680,58 +681,58 @@ function Gallery() {
           <div className="absolute inset-0 bg-gradient-to-r from-secondary/80 via-secondary/60 to-secondary/40"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-textLight">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading font-semibold text-textLight">
                 Bring Natural Elegance to Your Space
               </h2>
-              <p className="mt-3 sm:mt-4 text-textLight/90 max-w-xl font-body">
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-textLight/90 max-w-xl font-body">
                 Handcrafted rugs in sustainable fibres — designed for modern
                 living, made to last.
               </p>
 
-              <div className="mt-5 flex flex-wrap gap-2 text-xs sm:text-sm">
-                <span className="px-3 py-1 rounded-full bg-white/10 text-white ring-1 ring-white/20">
+              <div className="mt-4 sm:mt-5 flex flex-wrap gap-2 text-xs sm:text-sm">
+                <span className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-full bg-white/10 text-white ring-1 ring-white/20">
                   Eco‑friendly
                 </span>
-                <span className="px-3 py-1 rounded-full bg-white/10 text-white ring-1 ring-white/20">
+                <span className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-full bg-white/10 text-white ring-1 ring-white/20">
                   Handwoven
                 </span>
-                <span className="px-3 py-1 rounded-full bg-white/10 text-white ring-1 ring-white/20">
+                <span className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-full bg-white/10 text-white ring-1 ring-white/20">
                   Custom Sizes
                 </span>
               </div>
 
-              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-3">
                 <a href="/contact" className="inline-flex w-full sm:w-auto">
-                  <button className="rounded-full bg-gold text-secondary px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-medium shadow hover:bg-gold/90 transition w-full sm:w-auto min-h-[44px]">
+                  <button className="touch-target rounded-full bg-gold text-secondary px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-medium shadow hover:bg-gold/90 transition w-full sm:w-auto min-h-[44px]">
                     Request a Quote
                   </button>
                 </a>
                 <a href="/products" className="inline-flex w-full sm:w-auto">
-                  <button className="rounded-full border border-white text-white px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-medium hover:bg-white hover:text-secondary transition w-full sm:w-auto min-h-[44px]">
+                  <button className="touch-target rounded-full border border-white text-white px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-medium hover:bg-white hover:text-secondary transition w-full sm:w-auto min-h-[44px]">
                     View Products
                   </button>
                 </a>
               </div>
             </div>
 
-            <div className="hidden lg:grid grid-cols-2 gap-4">
+            <div className="hidden lg:grid grid-cols-2 gap-3 sm:gap-4">
               <img
                 src="/images/Elma Geometric Jute Rug _ Natural.jpg"
                 alt="Geometric jute rug"
-                className="w-full h-40 xl:h-48 object-cover rounded-lg shadow"
+                className="w-full h-36 lg:h-40 xl:h-48 object-cover rounded-lg shadow"
               />
               <img
                 src="/images/Naturals Basket.jpg"
                 alt="Natural fibres and basket"
-                className="w-full h-40 xl:h-48 object-cover rounded-lg shadow"
+                className="w-full h-36 lg:h-40 xl:h-48 object-cover rounded-lg shadow"
               />
               <img
                 src="/images/flat-lay-monochromatic-assortment-textiles.jpg"
                 alt="Textile flat lay"
-                className="w-full h-40 xl:h-48 object-cover rounded-lg shadow col-span-2"
+                className="w-full h-36 lg:h-40 xl:h-48 object-cover rounded-lg shadow col-span-2"
               />
             </div>
           </div>

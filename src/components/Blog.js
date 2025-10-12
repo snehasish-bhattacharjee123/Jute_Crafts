@@ -217,32 +217,32 @@ const Blog = () => {
         description="Read insights on natural fibre rugs, sustainability, and artisan craftsmanship from MKT Rugs."
         canonical="https://www.mktrugs.com/blog"
       />
-      {/* Hero Section */}
+      {/* Hero Section - Enhanced mobile responsiveness */}
       <div style={{ marginTop: 'calc(-1 * var(--header-h, 80px))' }}>
-        <section className="relative bg-gradient-to-br from-[#f8f5f2] via-[#f5f1eb] to-[#f0ebe2] py-16 sm:py-24 px-4 sm:px-6 pt-[calc(var(--header-h,80px)+4rem)]" style={{ paddingTop: '4rem' }}>
+        <section className="relative bg-gradient-to-br from-[#f8f5f2] via-[#f5f1eb] to-[#f0ebe2] py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-6 pt-[calc(var(--header-h,80px)+3rem)] sm:pt-[calc(var(--header-h,80px)+4rem)]" style={{ paddingTop: '3rem' }}>
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c49b63]/10 border border-[#c49b63]/20 rounded-full mb-6">
-            <span className="text-sm font-semibold text-[#c49b63] tracking-wide uppercase">
+          {/* Badge - Mobile responsive */}
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-[#c49b63]/10 border border-[#c49b63]/20 rounded-full mb-4 sm:mb-6">
+            <span className="text-xs sm:text-sm font-semibold text-[#c49b63] tracking-wide uppercase">
               Blog & Insights
             </span>
           </div>
           
-          {/* Main Heading */}
-          <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-[#3c2f2f] mb-6 leading-tight">
+          {/* Main Heading - Enhanced mobile typography */}
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-[#3c2f2f] mb-4 sm:mb-6 leading-tight">
             Stories of Craft &
             <span className="text-[#c49b63]"> Sustainability</span>
           </h1>
           
-          <p className="hero-subtitle text-base sm:text-lg md:text-xl text-[#4a3a3a]/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#4a3a3a]/80 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0">
             From artisan craftsmanship to sustainable design — explore our latest insights and inspirations from the world of natural fiber rugs.
           </p>
 
-          {/* Search Bar */}
-          <div className="max-w-lg mx-auto mb-8">
+          {/* Search Bar - Mobile optimized */}
+          <div className="max-w-lg mx-auto mb-6 sm:mb-8 px-2 sm:px-0">
             <div className="relative flex items-center bg-white rounded-full shadow-md border border-[#d6c6b8]/30 overflow-hidden">
-              <div className="absolute left-4 text-[#4a3a3a]/50">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="absolute left-3 sm:left-4 text-[#4a3a3a]/50">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
@@ -251,15 +251,15 @@ const Blog = () => {
                 placeholder="Search articles..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="mobile-touch focus-enhanced flex-1 pl-12 pr-4 py-4 bg-transparent focus:outline-none text-[#3c2f2f] placeholder-[#4a3a3a]/50"
+                className="touch-target focus-enhanced flex-1 pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 bg-transparent focus:outline-none text-[#3c2f2f] placeholder-[#4a3a3a]/50 text-sm sm:text-base min-h-[44px]"
               />
               {searchTerm && (
                 <button
                   onClick={clearSearch}
-                  className="touch-target focus-enhanced px-4 py-2 text-[#4a3a3a]/60 hover:text-[#c49b63] transition-colors"
+                  className="touch-target focus-enhanced px-3 sm:px-4 py-2 text-[#4a3a3a]/60 hover:text-[#c49b63] transition-colors"
                   aria-label="Clear search"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
@@ -267,14 +267,14 @@ const Blog = () => {
             </div>
           </div>
 
-          {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+          {/* Category Filters - Enhanced mobile responsiveness */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 px-2 sm:px-0">
             {categories.map(category => (
               <button
                 key={category.id}
                 onClick={() => handleCategoryChange(category.id)}
                 disabled={isLoading}
-                className={`touch-target focus-enhanced px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
+                className={`touch-target focus-enhanced px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 rounded-full text-xs sm:text-sm md:text-base font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] ${
                   selectedCategory === category.id
                     ? 'bg-[#c49b63] text-white shadow-lg transform scale-105'
                     : 'bg-white text-[#4a3a3a] border border-[#d6c6b8]/50 hover:border-[#c49b63]/50 hover:bg-[#c49b63]/5 hover:scale-105 shadow-sm'
@@ -298,57 +298,57 @@ const Blog = () => {
         </section>
       </div>
 
-      {/* Featured Posts Section */}
+      {/* Featured Posts Section - Enhanced mobile spacing */}
       {featuredBlogs.length > 0 && selectedCategory === "all" && !searchTerm && (
-        <section className="bg-white py-16 sm:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="section-title text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-[#3c2f2f] mb-4">
+        <section className="bg-white py-12 sm:py-16 md:py-20">
+          <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+            <div className="text-center mb-8 sm:mb-10 md:mb-12">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-[#3c2f2f] mb-3 sm:mb-4">
                 Featured Articles
               </h2>
-              <p className="section-subtitle text-base sm:text-lg text-[#4a3a3a]/70 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg text-[#4a3a3a]/70 max-w-2xl mx-auto px-2 sm:px-0">
                 Our most popular and insightful content, handpicked for you.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {featuredBlogs.map((blog) => (
                 <article
                   key={blog.id}
-                  className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-[#e9ddd1]/50 hover:border-[#c49b63]/30 transform hover:-translate-y-2"
+                  className="group bg-white rounded-lg sm:rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-[#e9ddd1]/50 hover:border-[#c49b63]/30 transform hover:-translate-y-2"
                 >
                   <div className="relative overflow-hidden">
                     <img
                       src={blog.img}
                       alt={`Featured article: ${blog.title}`}
-                      className="responsive-image w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="responsive-image w-full h-48 sm:h-52 md:h-56 object-cover group-hover:scale-110 transition-transform duration-300"
                       loading="lazy"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-[#c49b63] text-white text-xs font-semibold rounded-full capitalize">
+                    <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
+                      <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-[#c49b63] text-white text-xs font-semibold rounded-full capitalize">
                         {blog.category}
                       </span>
                     </div>
-                    <div className="absolute top-4 right-4">
-                      <span className="px-2 py-1 bg-black/60 text-white text-xs rounded-full backdrop-blur-sm">
+                    <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+                      <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-black/60 text-white text-xs rounded-full backdrop-blur-sm">
                         Featured
                       </span>
                     </div>
                   </div>
                   
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 text-sm text-[#4a3a3a]/60 mb-3">
+                  <div className="p-4 sm:p-5 md:p-6">
+                    <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-[#4a3a3a]/60 mb-2 sm:mb-3">
                       <time>{blog.date}</time>
                       <span>•</span>
                       <span>{blog.readTime}</span>
                     </div>
                     
-                    <h3 className="text-xl font-heading font-bold text-[#3c2f2f] mb-3 group-hover:text-[#c49b63] transition-colors line-clamp-2">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-heading font-bold text-[#3c2f2f] mb-2 sm:mb-3 group-hover:text-[#c49b63] transition-colors line-clamp-2">
                       {blog.title}
                     </h3>
                     
-                    <p className="text-[#4a3a3a]/80 mb-4 line-clamp-3 leading-relaxed">
+                    <p className="text-sm sm:text-base text-[#4a3a3a]/80 mb-3 sm:mb-4 line-clamp-3 leading-relaxed">
                       {blog.desc}
                     </p>
                     
@@ -369,18 +369,18 @@ const Blog = () => {
         </section>
       )}
 
-      {/* Main Blog Section */}
-      <section className="bg-[#f8f5f2] py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Results Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
+      {/* Main Blog Section - Enhanced mobile spacing */}
+      <section className="bg-[#f8f5f2] py-12 sm:py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          {/* Results Header - Mobile responsive */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 sm:mb-8">
             <div>
-              <h2 className="section-title text-2xl sm:text-3xl font-heading font-bold text-[#3c2f2f] mb-2">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-heading font-bold text-[#3c2f2f] mb-1 sm:mb-2">
                 {searchTerm ? `Search Results for "${searchTerm}"` : 
                  selectedCategory === "all" ? "All Articles" : 
                  categories.find(c => c.id === selectedCategory)?.name}
               </h2>
-              <p className="text-[#4a3a3a]/70">
+              <p className="text-sm sm:text-base text-[#4a3a3a]/70">
                 {filteredBlogs.length} {filteredBlogs.length === 1 ? 'article' : 'articles'} found
               </p>
             </div>
@@ -388,58 +388,58 @@ const Blog = () => {
             {/* Sort options could go here */}
           </div>
 
-          {/* Loading State */}
+          {/* Loading State - Mobile optimized */}
           {isLoading && (
-            <div className="flex justify-center items-center py-20">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 border-4 border-[#c49b63]/30 border-t-[#c49b63] rounded-full animate-spin"></div>
-                <span className="text-[#4a3a3a] font-medium">Loading articles...</span>
+            <div className="flex justify-center items-center py-12 sm:py-16 md:py-20">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 border-4 border-[#c49b63]/30 border-t-[#c49b63] rounded-full animate-spin"></div>
+                <span className="text-sm sm:text-base text-[#4a3a3a] font-medium">Loading articles...</span>
               </div>
             </div>
           )}
 
-          {/* Blog Grid */}
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity duration-300 ${isLoading ? 'opacity-50' : 'opacity-100'}`}>
+          {/* Blog Grid - Enhanced mobile grid */}
+          <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 transition-opacity duration-300 ${isLoading ? 'opacity-50' : 'opacity-100'}`}>
             {filteredBlogs.length > 0 ? (
               filteredBlogs.map((blog) => (
                 <article
                   key={blog.id}
-                  className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#e9ddd1]/30 hover:border-[#c49b63]/30"
+                  className="group bg-white rounded-lg sm:rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#e9ddd1]/30 hover:border-[#c49b63]/30"
                 >
                   <div className="relative overflow-hidden">
                     <img
                       src={blog.img}
                       alt={`Article: ${blog.title} - ${blog.category}`}
-                      className="responsive-image w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="responsive-image w-full h-40 sm:h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[#3c2f2f] text-xs font-semibold rounded-full capitalize border border-white/50">
+                    <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
+                      <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/90 backdrop-blur-sm text-[#3c2f2f] text-xs font-semibold rounded-full capitalize border border-white/50">
                         {blog.category}
                       </span>
                     </div>
                     {blog.featured && (
-                      <div className="absolute top-4 right-4">
-                        <span className="px-2 py-1 bg-[#c49b63] text-white text-xs rounded-full">
+                      <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+                        <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-[#c49b63] text-white text-xs rounded-full">
                           ★ Featured
                         </span>
                       </div>
                     )}
                   </div>
                   
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 text-sm text-[#4a3a3a]/60 mb-3">
+                  <div className="p-4 sm:p-5 md:p-6">
+                    <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-[#4a3a3a]/60 mb-2 sm:mb-3">
                       <time>{blog.date}</time>
                       <span>•</span>
                       <span>{blog.readTime}</span>
                     </div>
                     
-                    <h3 className="text-lg sm:text-xl font-heading font-semibold text-[#3c2f2f] mb-3 group-hover:text-[#c49b63] transition-colors line-clamp-2">
+                    <h3 className="text-base sm:text-lg md:text-xl font-heading font-semibold text-[#3c2f2f] mb-2 sm:mb-3 group-hover:text-[#c49b63] transition-colors line-clamp-2">
                       {blog.title}
                     </h3>
                     
-                    <p className="text-[#4a3a3a]/80 mb-4 line-clamp-3 text-sm sm:text-base leading-relaxed">
+                    <p className="text-sm sm:text-base text-[#4a3a3a]/80 mb-3 sm:mb-4 line-clamp-3 leading-relaxed">
                       {blog.desc}
                     </p>
                     
@@ -457,31 +457,31 @@ const Blog = () => {
               ))
             ) : (
               !isLoading && (
-                <div className="col-span-full text-center py-20">
-                  <div className="w-24 h-24 mx-auto mb-6 text-[#4a3a3a]/30">
+                <div className="col-span-full text-center py-12 sm:py-16 md:py-20">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto mb-4 sm:mb-6 text-[#4a3a3a]/30">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364-.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold text-[#3c2f2f] mb-3">No articles found</h3>
-                  <p className="text-[#4a3a3a]/70 mb-6">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#3c2f2f] mb-2 sm:mb-3">No articles found</h3>
+                  <p className="text-sm sm:text-base text-[#4a3a3a]/70 mb-4 sm:mb-6 px-4 sm:px-0">
                     {searchTerm 
                       ? `No articles match your search for "${searchTerm}". Try different keywords or browse all categories.`
                       : `No articles found in the ${categories.find(c => c.id === selectedCategory)?.name} category.`
                     }
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center px-4 sm:px-0">
                     {searchTerm && (
                       <button
                         onClick={clearSearch}
-                        className="mobile-touch focus-enhanced px-6 py-3 bg-[#c49b63] text-white rounded-full hover:bg-[#2b1d1d] transition-colors font-semibold"
+                        className="touch-target focus-enhanced px-6 py-3 bg-[#c49b63] text-white rounded-full hover:bg-[#2b1d1d] transition-colors font-semibold text-sm sm:text-base min-h-[44px]"
                       >
                         Clear Search
                       </button>
                     )}
                     <button
                       onClick={() => handleCategoryChange("all")}
-                      className="mobile-touch focus-enhanced px-6 py-3 border border-[#c49b63] text-[#c49b63] rounded-full hover:bg-[#c49b63] hover:text-white transition-colors font-semibold"
+                      className="touch-target focus-enhanced px-6 py-3 border border-[#c49b63] text-[#c49b63] rounded-full hover:bg-[#c49b63] hover:text-white transition-colors font-semibold text-sm sm:text-base min-h-[44px]"
                     >
                       View All Articles
                     </button>
@@ -493,46 +493,46 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Newsletter CTA Section */}
-      <section className="relative bg-gradient-to-r from-[#c49b63] via-[#b8925a] to-[#c49b63] py-20">
+      {/* Newsletter CTA Section - Enhanced mobile responsiveness */}
+      <section className="relative bg-gradient-to-r from-[#c49b63] via-[#b8925a] to-[#c49b63] py-16 sm:py-20">
         <div className="absolute inset-0 bg-black/10"></div>
-        <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <div className="mb-6">
-            <svg className="w-16 h-16 mx-auto text-white/80 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="relative max-w-4xl mx-auto text-center px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="mb-4 sm:mb-6">
+            <svg className="w-12 h-12 sm:w-16 sm:h-16 mx-auto text-white/80 mb-3 sm:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>
           
-          <h3 className="section-title text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-4">
+          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-white mb-3 sm:mb-4">
             Stay Updated on Natural Fiber Trends
           </h3>
           
-          <p className="section-subtitle text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
             Get the latest insights on sustainable rugs, craftsmanship techniques, and design trends delivered to your inbox.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md mx-auto">
             <a
               href="/contact"
-              className="mobile-touch focus-enhanced inline-flex items-center justify-center px-8 py-4 bg-white text-[#c49b63] rounded-full font-bold hover:bg-gray-50 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="touch-target focus-enhanced inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#c49b63] rounded-full font-bold hover:bg-gray-50 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base min-h-[44px]"
             >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               Subscribe Now
             </a>
             <a
               href="/products"
-              className="mobile-touch focus-enhanced inline-flex items-center justify-center px-8 py-4 bg-transparent text-white border-2 border-white rounded-full font-bold hover:bg-white hover:text-[#c49b63] transform hover:scale-105 transition-all duration-300"
+              className="touch-target focus-enhanced inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-transparent text-white border-2 border-white rounded-full font-bold hover:bg-white hover:text-[#c49b63] transform hover:scale-105 transition-all duration-300 text-sm sm:text-base min-h-[44px]"
             >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
               </svg>
               Explore Products
             </a>
           </div>
           
-          <p className="text-white/60 text-sm mt-6">
+          <p className="text-white/60 text-xs sm:text-sm mt-4 sm:mt-6">
             Join 1,000+ readers who receive our monthly newsletter
           </p>
         </div>

@@ -63,57 +63,57 @@ const Footer = () => {
     >
       <div
         id="get-in-touch"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14"
       >
         <div id="contact" className="sr-only" aria-hidden="true"></div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
           <div className="footer-reveal">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
               <img
                 src="/images/MKT Rugs_1 PNG.png"
                 alt="MKT RUGS Logo"
-                className="h-12 sm:h-14 w-auto object-contain bg-white rounded-md p-1 ring-1 ring-white/20 shadow"
+                className="h-10 sm:h-12 md:h-14 w-auto object-contain bg-white rounded-md p-1 ring-1 ring-white/20 shadow"
                 loading="lazy"
               />
-              <h4 className="footer-heading text-lg font-heading font-semibold">
+              <h4 className="footer-heading text-base sm:text-lg font-heading font-semibold">
                 MKT RUGS
               </h4>
             </div>
-            <p className="font-body text-sm leading-relaxed text-bgLight/90">
+            <p className="font-body text-xs sm:text-sm leading-relaxed text-bgLight/90">
               MKT Rugs is a B2B export specialist in handcrafted natural carpets
               from West Bengal, India. With 100+ in-house artisans and over 1000
               auxiliary workers, we deliver high-quality rugs with full control
               from raw fiber to finished floor.
             </p>
 
-            <div className="mt-5 flex items-center gap-3">
+            <div className="mt-4 sm:mt-5 flex items-center gap-2 sm:gap-3">
               <a
                 aria-label="Follow on Instagram"
                 href="https://instagram.com/mktrugs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-btn touch-target p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-pink-500 hover:to-yellow-400 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                className="social-btn touch-target p-1.5 sm:p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-pink-500 hover:to-yellow-400 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
-                <FiInstagram className="w-5 h-5" />
+                <FiInstagram className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
                 aria-label="Follow on Facebook"
                 href="https://facebook.com/mktrugs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-btn touch-target p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-blue-600 hover:to-blue-300 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                className="social-btn touch-target p-1.5 sm:p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-blue-600 hover:to-blue-300 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
-                <FiFacebook className="w-5 h-5" />
+                <FiFacebook className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
                 aria-label="Follow on YouTube"
                 href="https://youtube.com/@mktrugs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-btn touch-target p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-red-600 hover:to-yellow-400 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                className="social-btn touch-target p-1.5 sm:p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-red-600 hover:to-yellow-400 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4 sm:w-5 sm:h-5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -125,9 +125,9 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/mkt-rugs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-btn touch-target p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-blue-500 hover:to-teal-400 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                className="social-btn touch-target p-1.5 sm:p-2 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-blue-500 hover:to-teal-400 hover:scale-110 transition-all duration-300 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
-                <FiLinkedin className="w-5 h-5" />
+                <FiLinkedin className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
             </div>
           </div>
@@ -135,15 +135,15 @@ const Footer = () => {
           <nav aria-labelledby="footer-quick-links" className="footer-reveal">
             <h5
               id="footer-quick-links"
-              className="footer-heading text-base font-heading font-semibold mb-4 text-gold"
+              className="footer-heading text-sm sm:text-base font-heading font-semibold mb-3 sm:mb-4 text-gold"
             >
               Quick Links
             </h5>
-            <ul className="space-y-2">
+            <ul className="space-y-1.5 sm:space-y-2">
               <li>
                 <Link
                   to="/about"
-                  className="footer-link group inline-flex items-center font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
+                  className="footer-link group inline-flex items-center font-body text-xs sm:text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200 focus-enhanced"
                 >
                   About Us
                 </Link>
@@ -171,7 +171,7 @@ const Footer = () => {
           <nav aria-labelledby="footer-resources" className="footer-reveal">
             <h5
               id="footer-resources"
-              className="footer-heading text-base font-heading font-semibold mb-4 text-gold"
+              className="footer-heading text-sm sm:text-base font-heading font-semibold mb-3 sm:mb-4 text-gold"
             >
               Resources
             </h5>
@@ -179,7 +179,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/care-guide"
-                  className="footer-link font-body text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200"
+                  className="footer-link font-body text-xs sm:text-sm text-bgLight/90 hover:text-gold hover:translate-x-1 transition-all duration-200 focus-enhanced"
                 >
                   Care Guide
                 </Link>
@@ -205,12 +205,12 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div className="footer-reveal">
-            <h5 className="text-base font-heading font-semibold mb-4 text-gold">
+            <h5 className="text-sm sm:text-base font-heading font-semibold mb-3 sm:mb-4 text-gold">
               Stay in the loop
             </h5>
             <form
               onSubmit={handleSubscribe}
-              className="flex flex-col sm:flex-row gap-3"
+              className="flex flex-col gap-2 sm:gap-3"
             >
               <label htmlFor="newsletter" className="sr-only">
                 Email address
@@ -220,13 +220,13 @@ const Footer = () => {
                 type="email"
                 required
                 placeholder="Enter your email"
-                className="w-full rounded-full bg-white/10 placeholder:text-white/60 text-white px-4 py-3 text-sm outline-none ring-1 ring-white/15 focus:ring-2 focus:ring-gold"
+                className="w-full rounded-full bg-white/10 placeholder:text-white/60 text-white px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none ring-1 ring-white/15 focus:ring-2 focus:ring-gold focus-enhanced"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-medium text-white hover:bg-gold hover:scale-105 transition-all duration-200"
+                className="inline-flex items-center justify-center rounded-full bg-primary px-4 sm:px-5 py-2 sm:py-3 text-xs sm:text-sm font-medium text-white hover:bg-gold hover:scale-105 transition-all duration-200 focus-enhanced touch-target"
                 aria-label="Subscribe to newsletter"
                 disabled={submitting}
               >
@@ -242,17 +242,17 @@ const Footer = () => {
               <p className="mt-2 text-[13px] text-red-300 font-body">{error}</p>
             )}
 
-            <div className="mt-6 space-y-2 text-sm font-body text-bgLight/90">
+            <div className="mt-4 sm:mt-6 space-y-1.5 sm:space-y-2 text-xs sm:text-sm font-body text-bgLight/90">
               <p className="flex items-start gap-2">
-                <FiMail className="w-4 h-4 mt-0.5" aria-hidden="true" />
+                <FiMail className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5" aria-hidden="true" />
                 <span>contact@mktrugs.com</span>
               </p>
               <p className="flex items-start gap-2">
-                <FiPhone className="w-4 h-4 mt-0.5" aria-hidden="true" />
+                <FiPhone className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5" aria-hidden="true" />
                 <span>+91 77788 86215</span>
               </p>
               <p className="flex items-start gap-2">
-                <FiMapPin className="w-4 h-4 mt-0.5" aria-hidden="true" />
+                <FiMapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5" aria-hidden="true" />
                 <span>
                   Gopalnagar, Near Post Office, North 24 Parganas, West Bengal,
                   India - 743262
@@ -263,11 +263,11 @@ const Footer = () => {
                   href="https://wa.me/917778886215?text=Hi%20MKT%20RUGS,%20I%20have%20an%20enquiry."
                   target="_blank"
                   rel="noreferrer"
-                  className="social-btn inline-flex items-center gap-2 px-3 py-2 rounded-full bg-green-600 text-white hover:bg-green-500 transition shadow ring-1 ring-white/10"
+                  className="social-btn inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full bg-green-600 text-white hover:bg-green-500 transition shadow ring-1 ring-white/10 touch-target focus-enhanced"
                   aria-label="Start WhatsApp chat"
                 >
                   <svg
-                    className="w-4 h-4"
+                    className="w-3.5 h-3.5 sm:w-4 sm:h-4"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -282,11 +282,11 @@ const Footer = () => {
 
         <div className="footer-reveal mt-12 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"></div>
 
-        <div className="footer-reveal mt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-bgLight/75">
+        <div className="footer-reveal mt-5 sm:mt-6 flex flex-col md:flex-row items-center justify-between gap-2 sm:gap-3 text-xs text-bgLight/75">
           <p className="font-body">
             &copy; {new Date().getFullYear()} MKT RUGS. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-3 md:gap-4 text-center md:text-left flex-wrap justify-center md:justify-end">
             <Link
               to="/privacy-policy"
               className="footer-link hover:text-textLight transition"

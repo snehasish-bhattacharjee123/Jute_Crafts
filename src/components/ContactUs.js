@@ -695,35 +695,37 @@ function ContactUs() {
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-secondary/30 to-secondary/70" />
         <div className="relative z-10 flex items-center h-full">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/20">
-              <span className="text-sm font-semibold text-white tracking-wide uppercase">
-                Get In Touch
+            <div className="inline-flex items-center gap-1 px-2 py-1 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full mb-3 sm:mb-6 border border-white/20">
+              <span className="text-xs sm:text-sm font-semibold text-white tracking-wide uppercase">
+                <span className="hidden sm:inline">Get In Touch</span>
+                <span className="sm:hidden">Contact</span>
               </span>
             </div>
             
-            <h1 className="hero-title font-heading font-bold text-white mb-4 sm:mb-6 leading-tight">
-              Let's Talk Rugs — We'd Love to 
-              <span className="text-gold">Hear From You</span>
+            <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-white mb-2 sm:mb-4 md:mb-6 leading-tight">
+              <span className="block text-sm sm:text-xl md:text-2xl lg:text-3xl">Let's Talk Rugs</span>
+              <span className="block text-gold text-xs sm:text-lg md:text-xl lg:text-2xl mt-0.5">We'd Love to Hear From You</span>
             </h1>
             
-            <p className="hero-subtitle text-white/90 max-w-3xl mx-auto leading-relaxed font-body mb-8">
-              Whether you're looking for a custom design, wholesale partnership,
-              or have questions about our natural fibre rugs — we're here to
-              help.
+            <p className="text-xs sm:text-sm md:text-base text-white/90 max-w-2xl mx-auto leading-relaxed font-body mb-4 sm:mb-6 md:mb-8">
+              <span className="hidden sm:inline">Whether you're looking for a custom design, wholesale partnership, or have questions about our natural fibre rugs — we're here to help.</span>
+              <span className="sm:hidden">Custom designs, wholesale partnerships, and more.</span>
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="#contact-form" className="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2.5 sm:px-6 sm:py-3 bg-gold text-white rounded-full font-medium text-sm sm:text-base hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus-enhanced min-h-[44px]">
-                <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex flex-row gap-2 sm:gap-3 justify-center">
+              <a href="#contact-form" className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2.5 bg-gold text-white rounded-md sm:rounded-full font-medium text-xs hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow focus-enhanced min-h-[28px] sm:min-h-[44px]">
+                <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                Send Message
+                <span className="hidden sm:inline">Send Message</span>
+                <span className="sm:hidden">Message</span>
               </a>
-              <a href="tel:+917778886215" className="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2.5 sm:px-6 sm:py-3 bg-transparent text-white border-2 border-white rounded-full font-medium text-sm sm:text-base hover:bg-white hover:text-secondary transform hover:scale-105 transition-all duration-300 focus-enhanced min-h-[44px]">
-                <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <a href="tel:+917778886215" className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2.5 bg-transparent text-white border border-white rounded-md sm:rounded-full font-medium text-xs hover:bg-white hover:text-secondary transform hover:scale-105 transition-all duration-300 focus-enhanced min-h-[28px] sm:min-h-[44px]">
+                <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                Call Now
+                <span className="hidden sm:inline">Call Now</span>
+                <span className="sm:hidden">Call</span>
               </a>
             </div>
           </div>

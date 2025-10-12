@@ -276,45 +276,48 @@ function HeroSlider() {
       {/* Content overlay */}
       <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
-          {/* Main heading */}
-          <div className="mb-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/20 rounded-full mb-6">
-              <span className="text-sm font-semibold text-white tracking-wide uppercase">
-                Heritage & Excellence
+              {/* Main heading - Fully responsive */}
+          <div className="mb-2 sm:mb-3 md:mb-4">
+            <div className="inline-flex items-center gap-1 px-2 py-1 sm:px-3 md:px-4 py-1.5 sm:py-2 bg-black/20 rounded-full mb-2 sm:mb-4 md:mb-6">
+              <span className="text-xs sm:text-sm md:text-base font-semibold text-white tracking-wide uppercase">
+                <span className="hidden md:inline">Heritage & Excellence</span>
+                <span className="md:hidden">Heritage</span>
               </span>
             </div>
             
-            <h1 className="hero-title font-heading font-bold text-white leading-tight">
-              <span className="block">Witness the Craftsmanship</span>
-              <span className="block text-gold">of Bengal</span>
+            <h1 className="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-heading font-bold text-white leading-tight">
+              <span className="block text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">Witness the Craftsmanship</span>
+              <span className="block text-gold text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-0.5">of Bengal</span>
             </h1>
           </div>
           
-          {/* Subtitle */}
-          <p className="mt-4 sm:mt-6 hero-subtitle text-white/90 font-body leading-relaxed max-w-2xl mx-auto">
-            From Farm to Floor — Authentic handcrafted rugs from West Bengal, 
-            where tradition meets modern excellence.
+          {/* Subtitle - Fully responsive */}
+          <p className="mt-2 sm:mt-3 md:mt-4 lg:mt-6 text-xs sm:text-sm md:text-base lg:text-lg text-white/90 font-body leading-relaxed max-w-2xl mx-auto">
+            <span className="hidden md:inline">From Farm to Floor — Authentic handcrafted rugs from West Bengal, where tradition meets modern excellence.</span>
+            <span className="md:hidden">Handcrafted rugs from West Bengal.</span>
           </p>
           
-          {/* CTA Buttons */}
-          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+          {/* CTA Buttons - Responsive sizing */}
+          <div className="mt-3 sm:mt-4 md:mt-6 flex flex-row gap-1.5 sm:gap-2 md:gap-3 justify-center">
             <a 
               href="/products" 
-              className="inline-flex items-center justify-center w-full sm:w-auto px-3 py-2 sm:px-4 sm:py-2.5 bg-gold text-white rounded-lg sm:rounded-full font-medium text-xs sm:text-sm hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg focus-enhanced min-h-[36px]"
+              className="inline-flex items-center justify-center px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-3 bg-gold text-white rounded-md md:rounded-lg font-medium text-xs sm:text-sm md:text-base hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow focus-enhanced touch-target min-h-[24px] sm:min-h-[32px] md:min-h-[40px]"
             >
-              <svg className="w-4 h-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
               </svg>
-              Explore Products
+              <span className="hidden md:inline">Explore Products</span>
+              <span className="md:hidden">Products</span>
             </a>
             <a 
               href="/enquiry" 
-              className="inline-flex items-center justify-center w-full sm:w-auto px-3 py-2 sm:px-4 sm:py-2.5 bg-transparent text-white border-2 border-white rounded-lg sm:rounded-full font-medium text-xs sm:text-sm hover:bg-white hover:text-secondary transform hover:scale-105 transition-all duration-300 focus-enhanced min-h-[36px]"
+              className="inline-flex items-center justify-center px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-3 bg-transparent text-white border border-white rounded-md md:rounded-lg font-medium text-xs sm:text-sm md:text-base hover:bg-white hover:text-secondary transform hover:scale-105 transition-all duration-300 focus-enhanced touch-target min-h-[24px] sm:min-h-[32px] md:min-h-[40px]"
             >
-              <svg className="w-4 h-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
               </svg>
-              Get Quote
+              <span className="hidden md:inline">Get Quote</span>
+              <span className="md:hidden">Quote</span>
             </a>
           </div>
         </div>
@@ -360,8 +363,8 @@ function HeroSlider() {
           className="group touch-target inline-flex flex-col items-center text-white/80 hover:text-white transition-all duration-300 transform hover:scale-105 focus-enhanced px-4 py-2 rounded-full bg-black/20 backdrop-blur-sm border border-white/20"
           aria-label="Scroll to our story section"
         >
-          <span className="text-xs sm:text-sm tracking-widest uppercase font-semibold mb-2 group-hover:text-gold transition-colors duration-300 hidden sm:block">Discover Our Story</span>
-          <span className="text-xs tracking-wide uppercase font-semibold mb-2 group-hover:text-gold transition-colors duration-300 sm:hidden">Our Story</span>
+            <span className="text-xs sm:text-sm md:text-base tracking-widest uppercase font-semibold mb-2 group-hover:text-gold transition-colors duration-300 hidden md:block">Discover Our Story</span>
+          <span className="text-xs sm:text-sm tracking-wide uppercase font-semibold mb-2 group-hover:text-gold transition-colors duration-300 md:hidden">Our Story</span>
           <div className="flex flex-col items-center">
             <div className="w-px h-4 sm:h-6 bg-white/50 mb-2"></div>
             <svg
@@ -694,13 +697,13 @@ function AboutUs() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Enhanced text content */}
             <div className="order-2 lg:order-1">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 rounded-full mb-4">
-                <span className="text-sm font-semibold text-gold tracking-wide uppercase">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2 py-1 sm:px-3 bg-gold/10 rounded-full mb-3 sm:mb-4">
+                <span className="text-xs sm:text-sm md:text-base font-semibold text-gold tracking-wide uppercase">
                   Our Heritage
                 </span>
               </div>
 
-              <h2 className="section-title font-heading font-bold text-textDark mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-textDark mb-6 sm:mb-8">
                 Our History
               </h2>
               
@@ -724,19 +727,19 @@ function AboutUs() {
                 ].map((item, index) => (
                   <div key={index} className="group relative">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-16 h-16 bg-gold rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+                      <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gold rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base md:text-lg shadow-md group-hover:scale-105 transition-transform duration-300">
                         {item.year.slice(-2)}
                       </div>
-                      <div className="flex-1 pt-2">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h3 className="text-xl sm:text-2xl font-heading font-semibold text-textDark group-hover:text-primary transition-colors duration-300">
+                      <div className="flex-1 pt-1 sm:pt-2">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3 mb-2">
+                          <h3 className="text-lg sm:text-xl md:text-2xl font-heading font-semibold text-textDark group-hover:text-primary transition-colors duration-300">
                             {item.title}
                           </h3>
-                          <span className="px-2 py-1 bg-primary/10 text-primary rounded text-xs font-semibold">
+                          <span className="px-2 py-1 bg-primary/10 text-primary rounded text-xs sm:text-sm font-semibold">
                             {item.year}
                           </span>
                         </div>
-                        <p className="text-base sm:text-lg text-textDark/80 font-body leading-relaxed">
+                        <p className="text-sm sm:text-base md:text-lg text-textDark/80 font-body leading-relaxed">
                           {item.text}
                         </p>
                       </div>
@@ -745,25 +748,27 @@ function AboutUs() {
                   </div>
                 ))}
                 
-                <div className="pt-6">
-                  <div className="flex flex-col sm:flex-row gap-4">
+                <div className="pt-4 sm:pt-6">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4">
                     <a 
                       href="/enquiry" 
-                      className="inline-flex items-center justify-center mobile-touch px-8 py-3 bg-gold text-white rounded-full font-semibold hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus-enhanced"
+                      className="inline-flex items-center justify-center mobile-touch px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3 bg-gold text-white rounded-full font-semibold text-sm sm:text-base hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus-enhanced touch-target"
                     >
-                      <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
                       </svg>
-                      Request a Quote
+                      <span className="hidden sm:inline">Request a Quote</span>
+                      <span className="sm:hidden">Quote</span>
                     </a>
                     <a 
                       href="/products" 
-                      className="inline-flex items-center justify-center mobile-touch px-8 py-3 bg-transparent text-primary border-2 border-primary rounded-full font-semibold hover:bg-primary hover:text-white transform hover:scale-105 transition-all duration-300 focus-enhanced"
+                      className="inline-flex items-center justify-center mobile-touch px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3 bg-transparent text-primary border-2 border-primary rounded-full font-semibold text-sm sm:text-base hover:bg-primary hover:text-white transform hover:scale-105 transition-all duration-300 focus-enhanced touch-target"
                     >
-                      <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
                       </svg>
-                      Explore Products
+                      <span className="hidden sm:inline">Explore Products</span>
+                      <span className="sm:hidden">Products</span>
                     </a>
                   </div>
                 </div>
@@ -776,15 +781,15 @@ function AboutUs() {
                 <img
                   src="/images/Naturals Basket.jpg"
                   alt="Traditional jute weaving showcasing our heritage - MKT Rugs authentic craftsmanship"
-                  className="responsive-img rounded-lg shadow-lg w-full h-80 sm:h-96 lg:h-[32rem] object-cover group-hover:scale-[1.02] transition-all duration-300"
+                  className="responsive-img rounded-lg shadow-lg w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] object-cover group-hover:scale-[1.02] transition-all duration-300"
                   loading="lazy"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
                 />
                 {/* Stats overlay */}
-                <div className="absolute top-4 right-4 bg-white rounded-lg p-3 shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white rounded-lg p-2 sm:p-3 shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-gold">16+</div>
-                    <div className="text-xs text-textDark/70 font-semibold">Years Experience</div>
+                    <div className="text-xl sm:text-2xl font-bold text-gold">16+</div>
+                    <div className="text-xs sm:text-sm text-textDark/70 font-semibold">Years</div>
                   </div>
                 </div>
               </div>
@@ -981,21 +986,21 @@ function AboutUs() {
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Heading */}
     <div className="text-center mb-12">
-      <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textDark mb-4">
-        Our Values
-      </h2>
-      <p className="text-lg text-textDark max-w-2xl mx-auto leading-relaxed font-body">
-        Quality is at the heart of everything we do.
-      </p>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-textDark mb-3 sm:mb-4">
+              Our Values
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-textDark max-w-2xl mx-auto leading-relaxed font-body">
+              Quality is at the heart of everything we do.
+            </p>
     </div>
 
     {/* Cards */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
       {/* 1️⃣ Quality */}
-      <div className="text-center p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
-        <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+      <div className="text-center p-4 sm:p-6 md:p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
           <svg
-            className="w-10 h-10 text-textLight"
+            className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-textLight"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -1008,20 +1013,20 @@ function AboutUs() {
             />
           </svg>
         </div>
-        <h3 className="text-2xl font-semibold text-textDark mb-4 font-heading">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-textDark mb-3 sm:mb-4 font-heading">
           Quality
         </h3>
-        <p className="text-textDark font-body text-lg leading-relaxed">
+        <p className="text-textDark font-body text-sm sm:text-base md:text-lg leading-relaxed">
           Every product undergoes a 5-step quality control process to ensure
           the highest standards of excellence.
         </p>
       </div>
 
       {/* 2️⃣ Sustainability */}
-      <div className="text-center p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
-        <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+      <div className="text-center p-4 sm:p-6 md:p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
           <svg
-            className="w-10 h-10 text-white"
+            className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -1034,20 +1039,20 @@ function AboutUs() {
             />
           </svg>
         </div>
-        <h3 className="text-2xl font-semibold text-textDark mb-4 font-heading">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-textDark mb-3 sm:mb-4 font-heading">
           Sustainability
         </h3>
-        <p className="text-textDark font-body text-lg leading-relaxed">
+        <p className="text-textDark font-body text-sm sm:text-base md:text-lg leading-relaxed">
           We prioritize eco-friendly materials and responsible production to
           protect our planet for future generations.
         </p>
       </div>
 
       {/* 3️⃣ Craftsmanship */}
-      <div className="text-center p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
-        <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+      <div className="text-center p-4 sm:p-6 md:p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
           <svg
-            className="w-10 h-10 text-white"
+            className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -1060,10 +1065,10 @@ function AboutUs() {
             />
           </svg>
         </div>
-        <h3 className="text-2xl font-semibold text-textDark mb-4 font-heading">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-textDark mb-3 sm:mb-4 font-heading">
           Craftsmanship
         </h3>
-        <p className="text-textDark font-body text-lg leading-relaxed">
+        <p className="text-textDark font-body text-sm sm:text-base md:text-lg leading-relaxed">
           Our skilled artisans blend traditional weaving with modern design
           precision to create timeless, high-quality rugs.
         </p>
@@ -1078,10 +1083,10 @@ function AboutUs() {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       {/* Left Content */}
       <div>
-        <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textDark mb-4">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-textDark mb-3 sm:mb-4">
           Our Facilities
         </h2>
-        <div className="w-24 h-1 bg-gold mb-8"></div>
+        <div className="w-16 sm:w-20 md:w-24 h-1 bg-gold mb-6 sm:mb-8"></div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-2 gap-6 mb-10">
@@ -1097,12 +1102,12 @@ function AboutUs() {
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-white rounded-xl p-6 text-center shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="bg-white rounded-xl p-3 sm:p-4 md:p-6 text-center shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="text-3xl font-heading text-secondary mb-2">
+              <div className="text-xl sm:text-2xl md:text-3xl font-heading text-secondary mb-1 sm:mb-2">
                 {item.value}
               </div>
-              <div className="text-sm text-textDark/80 font-body leading-relaxed">
+              <div className="text-xs sm:text-sm md:text-base text-textDark/80 font-body leading-relaxed">
                 {item.label}
               </div>
             </div>
@@ -1193,10 +1198,10 @@ function AboutUs() {
       <section className="py-16 bg-bgGrey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textDark mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-textDark mb-3 sm:mb-4">
               Meet Our Team
             </h2>
-            <p className="text-lg text-textDark max-w-2xl mx-auto leading-relaxed font-body">
+            <p className="text-sm sm:text-base md:text-lg text-textDark max-w-2xl mx-auto leading-relaxed font-body">
               The passionate individuals behind our success, dedicated to
               preserving tradition while embracing the future.
             </p>

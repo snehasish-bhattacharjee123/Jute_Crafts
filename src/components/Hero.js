@@ -205,27 +205,47 @@ const Hero = ({ onDownloadClick }) => {
         /* Mobile touch improvements */
         @media (max-width: 640px) {
           .hero-button {
-            min-height: 32px;
-            font-size: 11px;
-            padding: 4px 8px;
+            min-height: 30px;
+            font-size: 10px;
+            padding: 3px 6px;
+            gap: 2px;
+          }
+          
+          .hero-button svg {
+            width: 11px;
+            height: 11px;
           }
           
           /* Minimize content overlay for better video visibility */
           .hero-content {
-            padding: 8px;
+            padding: 6px;
+          }
+        }
+        
+        /* Tablet optimization */
+        @media (min-width: 641px) and (max-width: 1024px) {
+          .hero-button {
+            min-height: 36px;
+            font-size: 13px;
+            padding: 6px 12px;
+          }
+          
+          .hero-button svg {
+            width: 14px;
+            height: 14px;
           }
         }
         
         /* Extra small mobile optimization */
         @media (max-width: 360px) {
           .hero-button {
-            font-size: 10px;
-            padding: 3px 6px;
-            min-height: 28px;
+            font-size: 9px;
+            padding: 2px 5px;
+            min-height: 26px;
           }
           .hero-button svg {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
           }
         }
         
@@ -316,49 +336,36 @@ const Hero = ({ onDownloadClick }) => {
           </div>
         )}
         
-        {/* Mobile Video Play Button */}
-        {isMobile && !userInteracted && videoLoaded && !videoError && (
-          <div className="absolute inset-0 flex items-center justify-center z-30">
-            <button
-              onClick={handleUserInteraction}
-              className="bg-black/70 backdrop-blur-sm rounded-full p-6 text-white hover:bg-black/80 transition-all duration-300 transform hover:scale-110 shadow-2xl"
-              aria-label="Play video"
-            >
-              <svg className="w-12 h-12 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </button>
-          </div>
-        )}
         {/* Enhanced Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-secondary/60 via-secondary/40 to-transparent backdrop-blur-[1px]"></div>
         <div className="absolute inset-0 bg-black/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 text-center px-3 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-textLight mb-2 sm:mb-4 md:mb-6 leading-tight animate-fade-in">
-            <span className="block text-base sm:text-2xl md:text-3xl lg:text-4xl">Authentic, Handcrafted Rugs</span>
-            <span className="block text-gold text-sm sm:text-xl md:text-2xl lg:text-3xl mt-1">From Our Farm to Your Floor</span>
+        <div className="relative z-10 text-center px-2 sm:px-4 md:px-6 lg:px-8 max-w-4xl mx-auto">
+          <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-textLight mb-2 sm:mb-3 md:mb-4 lg:mb-6 leading-tight animate-fade-in">
+            <span className="block text-sm sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">Authentic, Handcrafted Rugs</span>
+            <span className="block text-gold text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mt-1">From Our Farm to Your Floor</span>
           </h1>
 
-          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-body text-textLight/90 mb-4 sm:mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in delay-150">
-            <span className="hidden sm:inline">Experience the journey where tradition weaves into timeless art. </span>
-            <span className="sm:hidden">Handcrafted natural fiber rugs.</span>
-            <span className="hidden md:inline">Discover premium natural fiber rugs crafted by skilled artisans.</span>
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-body text-textLight/90 mb-3 sm:mb-4 md:mb-6 lg:mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in delay-150">
+            <span className="hidden md:inline">Experience the journey where tradition weaves into timeless art. </span>
+            <span className="md:hidden">Handcrafted natural fiber rugs.</span>
+            <span className="hidden lg:inline">Discover premium natural fiber rugs crafted by skilled artisans.</span>
           </p>
 
-          <div className="flex flex-row gap-2 sm:gap-3 md:gap-4 justify-center items-center animate-fade-in delay-300 flex-wrap">
+          <div className="flex flex-row gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 justify-center items-center animate-fade-in delay-300 flex-wrap">
+            <div className="flex gap-1.5 sm:gap-2 md:gap-3 lg:gap-4">
             <Link to="/products">
               <Button 
                 variant="gold" 
-                className="hero-button px-2 py-1 sm:px-3 sm:py-2 text-xs font-medium rounded-md sm:rounded-lg hover:scale-105 transition-all duration-300 shadow focus-enhanced"
+                className="hero-button px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-3 md:py-2 text-xs font-medium rounded-md md:rounded-lg hover:scale-105 transition-all duration-300 shadow focus-enhanced"
               >
                 <span className="flex items-center justify-center gap-1">
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
-                  <span className="hidden sm:inline">Explore Collection</span>
-                  <span className="sm:hidden">Shop</span>
+                  <span className="hidden md:inline">Explore Collection</span>
+                  <span className="md:hidden">Products</span>
                 </span>
               </Button>
             </Link>
@@ -366,59 +373,61 @@ const Hero = ({ onDownloadClick }) => {
             <Link to="/about">
               <Button
                 variant="secondary"
-                className="hero-button border-2 !border-white !text-white hover:!bg-white hover:!text-secondary focus:!ring-white focus:ring-offset-secondary px-2 py-1 sm:px-3 sm:py-2 text-xs font-medium rounded-md sm:rounded-lg transition-all duration-300 focus-enhanced"
+                className="hero-button border-2 !border-white !text-white hover:!bg-white hover:!text-secondary focus:!ring-white focus:ring-offset-secondary px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-3 md:py-2 text-xs font-medium rounded-md md:rounded-lg transition-all duration-300 focus-enhanced"
               >
                 <span className="flex items-center justify-center gap-1">
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span className="hidden sm:inline">About Us</span>
-                  <span className="sm:hidden">About</span>
+                  <span className="hidden md:inline">About Us</span>
+                  <span className="md:hidden">About</span>
                 </span>
               </Button>
             </Link>
 
-            {/* Enhanced Download Button */}
+            </div>
+            
+            {/* Enhanced Download Button - Right Side */}
             <button
               type="button"
               onClick={handleDownloadClick}
               aria-label="Download brochure"
-              className="hero-button relative px-2 py-1 sm:px-3 sm:py-2 rounded-md sm:rounded-lg 
+              className="hero-button relative px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-3 md:py-2 rounded-md md:rounded-lg 
                          bg-gradient-to-r from-[#A86533] to-[#C08457] text-white 
                          font-medium text-xs shadow 
                          hover:shadow-lg transition-all duration-300 
                          hover:scale-105
                          focus-visible:outline-none focus-visible:ring-2 
                          focus-visible:ring-[#A86533]/50 focus-visible:ring-offset-1
-                         transform active:scale-95 group overflow-hidden focus-enhanced min-h-[32px] sm:min-h-[36px]"
+                         transform active:scale-95 group overflow-hidden focus-enhanced"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-              <span className="relative flex items-center justify-center gap-1">
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="relative flex items-center justify-center gap-0.5 sm:gap-1">
+                <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                <span className="hidden sm:inline">Download</span>
-                <span className="sm:hidden">PDF</span>
+                <span className="hidden md:inline">Download</span>
+                <span className="md:hidden">PDF</span>
               </span>
             </button>
           </div>
 
           {/* Trust indicators - Minimized for mobile */}
-          <div className="mt-6 sm:mt-8 md:mt-12 animate-fade-in delay-500">
-            <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 md:gap-6 text-textLight/70">
-              <div className="flex items-center gap-1 text-xs sm:text-sm">
+          <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-12 animate-fade-in delay-500">
+            <div className="flex flex-wrap justify-center items-center gap-1.5 sm:gap-2 md:gap-4 lg:gap-6 text-textLight/70">
+              <div className="flex items-center gap-0.5 sm:gap-1 text-xs sm:text-sm">
                 <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span className="font-medium">15+ Years</span>
               </div>
-              <div className="flex items-center gap-1 text-xs sm:text-sm">
+              <div className="flex items-center gap-0.5 sm:gap-1 text-xs sm:text-sm">
                 <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span className="font-medium">Eco-Friendly</span>
               </div>
-              <div className="flex items-center gap-1 text-xs sm:text-sm">
+              <div className="flex items-center gap-0.5 sm:gap-1 text-xs sm:text-sm">
                 <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>

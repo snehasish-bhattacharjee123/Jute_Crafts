@@ -1456,7 +1456,7 @@ function App() {
                           e.target === e.currentTarget && setShowModal(false)
                         }
                       >
-                        <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md lg:max-w-lg mx-4 sm:mx-auto relative transform transition-all duration-300 ease-out scale-100 opacity-100 max-h-[90vh] overflow-y-auto">
+                        <div className="bg-white rounded-2xl shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-4 sm:mx-auto relative transform transition-all duration-300 ease-out scale-100 opacity-100 max-h-[90vh] overflow-y-auto">
                           {/* Close Button - Enhanced for mobile */}
                           <button
                             onClick={() => setShowModal(false)}
@@ -1479,9 +1479,9 @@ function App() {
                           </button>
 
                           {/* Header */}
-                          <div className="px-6 sm:px-8 pt-8 pb-2">
+                          <div className="px-4 sm:px-6 md:px-8 pt-6 sm:pt-8 pb-2">
                             <div className="text-center">
-                              <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                              <div className="w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
                                 <svg
                                   className="w-8 h-8 text-gold"
                                   fill="none"
@@ -1496,10 +1496,10 @@ function App() {
                                   />
                                 </svg>
                               </div>
-                              <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-textDark mb-2">
+                              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-heading font-semibold text-textDark mb-2">
                                 Download Our Brochure
                               </h2>
-                              <p className="text-textDark/70 font-body text-sm sm:text-base">
+                              <p className="text-textDark/70 font-body text-xs sm:text-sm md:text-base">
                                 Get instant access to our complete product
                                 catalog
                               </p>
@@ -1509,10 +1509,10 @@ function App() {
                           {/* Form */}
                           <form
                             onSubmit={handleDownload}
-                            className="px-6 sm:px-8 pb-8"
+                            className="px-4 sm:px-6 md:px-8 pb-6 sm:pb-8"
                           >
-                            <div className="space-y-5">
-                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="space-y-4 sm:space-y-5">
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                 <label className="block">
                                   <span className="text-textDark font-medium text-sm mb-2 block">
                                     Name <span className="text-red-500">*</span>
@@ -1524,7 +1524,7 @@ function App() {
                                     onChange={handleChange}
                                     placeholder="Your full name"
                                     required
-                                    className="w-full mobile-input border border-gray-300 rounded-xl px-4 py-3 text-textDark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all duration-200 text-sm sm:text-base focus-enhanced"
+                                    className="w-full mobile-input border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-textDark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all duration-200 text-sm sm:text-base focus-enhanced"
                                   />
                                 </label>
 
@@ -1593,12 +1593,12 @@ function App() {
                             </div>
 
                             {/* Submit Button */}
-                            <div className="mt-8">
+                            <div className="mt-6 sm:mt-8">
                               <Button
                                 variant="gold"
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full mobile-touch py-4 text-base sm:text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none focus-enhanced"
+                                className="w-full mobile-touch py-3 sm:py-4 text-sm sm:text-base md:text-lg font-semibold rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none focus-enhanced"
                               >
                                 {isSubmitting ? (
                                   <InlineLoading 
@@ -1630,7 +1630,7 @@ function App() {
                             </div>
 
                             {/* Footer note */}
-                            <p className="text-center text-xs text-gray-500 mt-4">
+                            <p className="text-center text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4">
                               By downloading, you agree to receive updates about
                               our products and services.
                             </p>
