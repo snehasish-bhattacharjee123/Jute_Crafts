@@ -1,8 +1,127 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 
 const Hero = ({ onDownloadClick }) => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [userInteracted, setUserInteracted] = useState(false);
+  const videoRef = useRef(null);
+  
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth <= 768;
+      
+      setIsMobile(isMobileDevice || (hasTouch && isSmallScreen));
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  // Video loading handlers
+  const handleVideoLoad = () => {
+    console.log('Video loaded successfully');
+    setVideoLoaded(true);
+    setVideoError(false);
+  };
+  
+  const handleVideoError = (error) => {
+    console.log('Video error:', error);
+    setVideoError(true);
+    setVideoLoaded(false);
+  };
+  
+  const handleVideoLoadStart = () => {
+    console.log('Video loading started');
+  };
+  
+  // Handle user interaction for mobile video playback
+  const handleUserInteraction = () => {
+    if (!userInteracted) {
+      setUserInteracted(true);
+      if (videoRef.current && isMobile) {
+        videoRef.current.play().catch(console.log);
+      }
+    }
+  };
+  
+  // Check video file availability and mobile-specific handling
+  useEffect(() => {
+    const checkVideoFile = async () => {
+      try {
+        const response = await fetch('/images/Mkt Promo V3.mp4', { method: 'HEAD' });
+        if (!response.ok) {
+          console.log('Video file not found, using fallback image');
+          setVideoError(true);
+          return;
+        }
+        
+        // Check if we're on a slow connection (mobile data)
+        if ('connection' in navigator) {
+          const connection = navigator.connection;
+          if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+            console.log('Slow connection detected, using fallback image');
+            setVideoError(true);
+            return;
+          }
+        }
+        
+        // For mobile devices, give preference to image on very slow connections
+        if (isMobile && 'connection' in navigator) {
+          const connection = navigator.connection;
+          if (connection.downlink && connection.downlink < 1.5) {
+            console.log('Slow mobile connection, using fallback image');
+            setVideoError(true);
+            return;
+          }
+        }
+        
+        console.log('Video file available and connection is suitable');
+      } catch (error) {
+        console.log('Error checking video file:', error);
+        setVideoError(true);
+      }
+    };
+    
+    // Only check after mobile detection is complete
+    if (isMobile !== undefined) {
+      checkVideoFile();
+    }
+  }, [isMobile]);
+  
+  // Video loading timeout
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (!videoLoaded && !videoError) {
+        console.log('Video loading timeout, switching to fallback');
+        setVideoError(true);
+      }
+    }, isMobile ? 8000 : 5000); // Longer timeout for mobile
+    
+    return () => clearTimeout(timeout);
+  }, [videoLoaded, videoError, isMobile]);
+  
+  // Auto-play attempt for mobile after user interaction
+  useEffect(() => {
+    if (videoRef.current && videoLoaded && !videoError) {
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          // Auto-play was prevented, which is normal on mobile
+          console.log('Auto-play prevented:', error);
+        });
+      }
+    }
+  }, [videoLoaded, videoError]);
+  
   const scrollToContact = () => {
     try {
       const header = document.querySelector(".site-header.nav");
@@ -86,62 +205,175 @@ const Hero = ({ onDownloadClick }) => {
         /* Mobile touch improvements */
         @media (max-width: 640px) {
           .hero-button {
-            min-height: 48px;
-            min-width: 120px;
+            min-height: 32px;
+            font-size: 11px;
+            padding: 4px 8px;
           }
+          
+          /* Minimize content overlay for better video visibility */
+          .hero-content {
+            padding: 8px;
+          }
+        }
+        
+        /* Extra small mobile optimization */
+        @media (max-width: 360px) {
+          .hero-button {
+            font-size: 10px;
+            padding: 3px 6px;
+            min-height: 28px;
+          }
+          .hero-button svg {
+            width: 12px;
+            height: 12px;
+          }
+        }
+        
+        /* Video optimization for mobile */
+        @media (max-width: 768px) {
+          video {
+            object-position: center;
+            transform: scale(1.1); /* Slight zoom for mobile */
+          }
+          
+          .hero-video-container {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+          }
+        }
+        
+        /* Ensure video covers properly on all devices */
+        .hero-video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
         }
       `}</style>
 
       <section
         id="hero"
-        className="relative min-h-[100svh] flex items-center justify-center bg-cover bg-center bg-fixed animate-slide-in-left pt-[calc(var(--header-h,80px))]"
+        className="relative min-h-[100svh] flex items-center justify-center overflow-hidden animate-slide-in-left pt-[calc(var(--header-h,80px))]"
         style={{
-          backgroundImage: "url('/images/main.jpg')",
           marginTop: "calc(var(--header-h, 0px) * -1)",
         }}
+        onClick={handleUserInteraction}
+        onTouchStart={handleUserInteraction}
       >
+        {/* Background Video with Mobile Optimization */}
+        {!videoError && (
+          <video
+            ref={videoRef}
+            className={`absolute inset-0 hero-video transition-opacity duration-500 ${
+              videoLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            autoPlay={!isMobile}
+            muted
+            loop
+            playsInline
+            preload={isMobile ? "metadata" : "auto"}
+            poster="/images/main.jpg"
+            onLoadStart={handleVideoLoadStart}
+            onLoadedData={handleVideoLoad}
+            onError={handleVideoError}
+            onCanPlay={handleVideoLoad}
+            onLoadedMetadata={() => console.log('Video metadata loaded')}
+            webkit-playsinline="true"
+            x5-playsinline="true"
+            x5-video-player-type="h5"
+            x5-video-player-fullscreen="true"
+          >
+            <source src="/images/Mkt Promo V3.mp4" type="video/mp4" />
+            <source src="/videos/hero-video.webm" type="video/webm" />
+            {/* Fallback for browsers that don't support video */}
+            Your browser does not support the video tag.
+          </video>
+        )}
+        
+        {/* Fallback Background Image */}
+        {(videoError || (!videoLoaded && isMobile)) && (
+          <div
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/images/main.jpg')",
+            }}
+          />
+        )}
+        
+        {/* Loading State */}
+        {!videoLoaded && !videoError && (
+          <div className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat flex items-center justify-center"
+               style={{
+                 backgroundImage: "url('/images/main.jpg')",
+               }}>
+            <div className="bg-black/50 backdrop-blur-sm rounded-full p-4">
+              <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          </div>
+        )}
+        
+        {/* Mobile Video Play Button */}
+        {isMobile && !userInteracted && videoLoaded && !videoError && (
+          <div className="absolute inset-0 flex items-center justify-center z-30">
+            <button
+              onClick={handleUserInteraction}
+              className="bg-black/70 backdrop-blur-sm rounded-full p-6 text-white hover:bg-black/80 transition-all duration-300 transform hover:scale-110 shadow-2xl"
+              aria-label="Play video"
+            >
+              <svg className="w-12 h-12 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+          </div>
+        )}
         {/* Enhanced Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-secondary/60 via-secondary/40 to-transparent backdrop-blur-[1px]"></div>
         <div className="absolute inset-0 bg-black/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-          <h1 className="hero-title font-heading font-bold text-textLight mb-4 sm:mb-6 leading-tight animate-fade-in">
-            Authentic, Handcrafted Rugs.
-            <br className="hidden sm:block" />
-            <span className="text-gold">From Our Farm to Your Floor.</span>
+        <div className="relative z-10 text-center px-3 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-textLight mb-2 sm:mb-4 md:mb-6 leading-tight animate-fade-in">
+            <span className="block text-base sm:text-2xl md:text-3xl lg:text-4xl">Authentic, Handcrafted Rugs</span>
+            <span className="block text-gold text-sm sm:text-xl md:text-2xl lg:text-3xl mt-1">From Our Farm to Your Floor</span>
           </h1>
 
-          <p className="hero-subtitle font-body text-textLight/90 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in delay-150">
-            Experience the journey where tradition weaves into timeless art. 
-            <span className="hidden sm:inline">Discover premium natural fiber rugs crafted by skilled artisans.</span>
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-body text-textLight/90 mb-4 sm:mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in delay-150">
+            <span className="hidden sm:inline">Experience the journey where tradition weaves into timeless art. </span>
+            <span className="sm:hidden">Handcrafted natural fiber rugs.</span>
+            <span className="hidden md:inline">Discover premium natural fiber rugs crafted by skilled artisans.</span>
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center animate-fade-in delay-300">
-            <Link to="/products" className="w-full sm:w-auto">
+          <div className="flex flex-row gap-2 sm:gap-3 md:gap-4 justify-center items-center animate-fade-in delay-300 flex-wrap">
+            <Link to="/products">
               <Button 
                 variant="gold" 
-                className="hero-button mobile-touch w-full sm:w-auto px-8 py-4 text-base sm:text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus-enhanced"
+                className="hero-button px-2 py-1 sm:px-3 sm:py-2 text-xs font-medium rounded-md sm:rounded-lg hover:scale-105 transition-all duration-300 shadow focus-enhanced"
               >
-                <span className="flex items-center justify-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="flex items-center justify-center gap-1">
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
-                  Explore Collection
+                  <span className="hidden sm:inline">Explore Collection</span>
+                  <span className="sm:hidden">Shop</span>
                 </span>
               </Button>
             </Link>
 
-            <Link to="/about" className="w-full sm:w-auto">
+            <Link to="/about">
               <Button
                 variant="secondary"
-                className="hero-button mobile-touch w-full sm:w-auto border-2 !border-white !text-white hover:!bg-white hover:!text-secondary focus:!ring-white focus:ring-offset-secondary px-8 py-4 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 focus-enhanced"
+                className="hero-button border-2 !border-white !text-white hover:!bg-white hover:!text-secondary focus:!ring-white focus:ring-offset-secondary px-2 py-1 sm:px-3 sm:py-2 text-xs font-medium rounded-md sm:rounded-lg transition-all duration-300 focus-enhanced"
               >
-                <span className="flex items-center justify-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="flex items-center justify-center gap-1">
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  About Us
+                  <span className="hidden sm:inline">About Us</span>
+                  <span className="sm:hidden">About</span>
                 </span>
               </Button>
             </Link>
@@ -151,48 +383,46 @@ const Hero = ({ onDownloadClick }) => {
               type="button"
               onClick={handleDownloadClick}
               aria-label="Download brochure"
-              className="hero-button mobile-touch relative w-full sm:w-auto px-8 py-4 rounded-full 
+              className="hero-button relative px-2 py-1 sm:px-3 sm:py-2 rounded-md sm:rounded-lg 
                          bg-gradient-to-r from-[#A86533] to-[#C08457] text-white 
-                         font-bold text-base sm:text-lg shadow-xl 
-                         hover:shadow-2xl transition-all duration-500 
-                         hover:scale-105 animate-soft-breathe animate-pulse-glow
-                         focus-visible:outline-none focus-visible:ring-4 
-                         focus-visible:ring-[#A86533]/50 focus-visible:ring-offset-2
-                         transform active:scale-95 group overflow-hidden focus-enhanced"
+                         font-medium text-xs shadow 
+                         hover:shadow-lg transition-all duration-300 
+                         hover:scale-105
+                         focus-visible:outline-none focus-visible:ring-2 
+                         focus-visible:ring-[#A86533]/50 focus-visible:ring-offset-1
+                         transform active:scale-95 group overflow-hidden focus-enhanced min-h-[32px] sm:min-h-[36px]"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-              <span className="relative flex items-center justify-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="relative flex items-center justify-center gap-1">
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                Download Brochure
-              </span>
-              <span className="relative block text-xs text-white/90 mt-1 font-medium">
-                Free Instant Access
+                <span className="hidden sm:inline">Download</span>
+                <span className="sm:hidden">PDF</span>
               </span>
             </button>
           </div>
 
-          {/* Trust indicators */}
-          <div className="mt-12 sm:mt-16 animate-fade-in delay-500">
-            <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 text-textLight/70">
-              <div className="flex items-center gap-2 text-sm">
-                <svg className="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+          {/* Trust indicators - Minimized for mobile */}
+          <div className="mt-6 sm:mt-8 md:mt-12 animate-fade-in delay-500">
+            <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 md:gap-6 text-textLight/70">
+              <div className="flex items-center gap-1 text-xs sm:text-sm">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="font-medium">15+ Years Experience</span>
+                <span className="font-medium">15+ Years</span>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <svg className="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center gap-1 text-xs sm:text-sm">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="font-medium">100% Eco-Friendly</span>
+                <span className="font-medium">Eco-Friendly</span>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <svg className="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center gap-1 text-xs sm:text-sm">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="font-medium">Global Delivery</span>
+                <span className="font-medium">Global</span>
               </div>
             </div>
           </div>

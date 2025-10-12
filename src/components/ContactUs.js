@@ -683,7 +683,7 @@ function ContactUs() {
       />
       {/* Hero Section with header compensation */}
       <section 
-        className="relative h-[50vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] min-h-[400px] max-h-[600px] pt-[calc(var(--header-h,80px))]"
+        className="relative h-[60vh] sm:h-[70vh] md:h-[75vh] lg:h-[80vh] min-h-[500px] max-h-[700px] pt-[calc(var(--header-h,80px))]"
         style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}
       >
         <img
@@ -712,15 +712,15 @@ function ContactUs() {
               help.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#contact-form" className="inline-flex items-center justify-center mobile-touch px-8 py-3 bg-gold text-white rounded-full font-semibold hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus-enhanced">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a href="#contact-form" className="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2.5 sm:px-6 sm:py-3 bg-gold text-white rounded-full font-medium text-sm sm:text-base hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus-enhanced min-h-[44px]">
+                <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 Send Message
               </a>
-              <a href="tel:+917778886215" className="inline-flex items-center justify-center mobile-touch px-8 py-3 bg-transparent text-white border-2 border-white rounded-full font-semibold hover:bg-white hover:text-secondary transform hover:scale-105 transition-all duration-300 focus-enhanced">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <a href="tel:+917778886215" className="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2.5 sm:px-6 sm:py-3 bg-transparent text-white border-2 border-white rounded-full font-medium text-sm sm:text-base hover:bg-white hover:text-secondary transform hover:scale-105 transition-all duration-300 focus-enhanced min-h-[44px]">
+                <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 Call Now
@@ -1100,7 +1100,7 @@ function ContactUs() {
                   <Button
                     variant="gold"
                     type="submit"
-                    className={`mobile-touch flex-1 sm:flex-none py-3 px-8 font-semibold transition-all duration-300 focus-enhanced ${
+                    className={`flex-1 sm:flex-none py-2.5 px-4 sm:py-3 sm:px-8 text-sm sm:text-base font-semibold transition-all duration-300 focus-enhanced ${
                       isSending 
                         ? 'cursor-not-allowed opacity-70' 
                         : isFormValid 
@@ -1336,8 +1336,8 @@ function ContactUs() {
 
           {/* Call to Action */}
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/catalogue.pdf" className="inline-flex justify-center">
-              <Button variant="secondary" className="border-gold text-textDark px-6 py-3 rounded-full hover:bg-gold hover:text-white transition-all duration-200">
+            <a href="/catalogue.pdf" className="inline-flex justify-center w-full sm:w-auto">
+              <Button variant="secondary" className="border-gold text-textDark px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full hover:bg-gold hover:text-white transition-all duration-200 w-full sm:w-auto">
                 Download 2025 Catalogue
               </Button>
             </a>
@@ -1345,9 +1345,9 @@ function ContactUs() {
               href="https://instagram.com"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex justify-center"
+              className="inline-flex justify-center w-full sm:w-auto"
             >
-              <Button variant="gold" className="px-6 py-3 rounded-full hover:shadow-lg transition-all duration-200">
+              <Button variant="gold" className="px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full hover:shadow-lg transition-all duration-200 w-full sm:w-auto">
                 Follow on Instagram
               </Button>
             </a>

@@ -35,7 +35,8 @@ function ProductHeroSlider() {
 
   return (
     <section
-      className="relative h-[50vh] sm:h-[55vh] md:h-[65vh] lg:h-[70vh] min-h-[450px] max-h-[800px]"
+      className="relative h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] min-h-[600px] max-h-[900px] pt-[calc(var(--header-h,80px))]"
+      style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -64,12 +65,12 @@ function ProductHeroSlider() {
             </p> */}
             <div className="mt-4 sm:mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link to="/gallery">
-                <Button variant="gold" className="mobile-touch w-full sm:w-auto text-sm sm:text-base focus-enhanced">Visit Our Gallery</Button>
+                <Button variant="gold" className="w-full sm:w-auto text-xs sm:text-sm md:text-base px-3 py-2 sm:px-4 sm:py-2.5 focus-enhanced">Visit Our Gallery</Button>
               </Link>
               <Link to="/contact">
                 <Button
                   variant="secondary"
-                  className="mobile-touch w-full sm:w-auto text-sm sm:text-base !border-white !text-white hover:!bg-white hover:!text-secondary focus-enhanced"
+                  className="w-full sm:w-auto text-xs sm:text-sm md:text-base px-3 py-2 sm:px-4 sm:py-2.5 !border-white !text-white hover:!bg-white hover:!text-secondary focus-enhanced"
                 >
                   Contact
                 </Button>
@@ -130,21 +131,28 @@ function ProductHeroSlider() {
         </div>
       </div>
 
+      {/* Enhanced round navigation arrows for mobile */}
       <button
         aria-label="Previous"
         onClick={prev}
-        className="hidden sm:block absolute left-3 top-1/2 -translate-y-1/2 touch-target bg-white/80 hover:bg-white rounded-full p-2 shadow focus-enhanced"
+        className="absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 
+                   w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 
+                   bg-white/80 backdrop-blur-sm border border-white/40 rounded-full 
+                   flex items-center justify-center text-secondary 
+                   hover:bg-white hover:scale-110 active:scale-95
+                   transition-all duration-300 shadow-lg hover:shadow-xl
+                   group focus-enhanced z-20"
       >
         <svg
-          className="w-5 h-5"
+          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transform group-hover:-translate-x-0.5 transition-transform"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
+          strokeWidth="2.5"
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth="2"
             d="M15 19l-7-7 7-7"
           />
         </svg>
@@ -152,18 +160,24 @@ function ProductHeroSlider() {
       <button
         aria-label="Next"
         onClick={next}
-        className="hidden sm:block absolute right-3 top-1/2 -translate-y-1/2 touch-target bg-white/80 hover:bg-white rounded-full p-2 shadow focus-enhanced"
+        className="absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 
+                   w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 
+                   bg-white/80 backdrop-blur-sm border border-white/40 rounded-full 
+                   flex items-center justify-center text-secondary 
+                   hover:bg-white hover:scale-110 active:scale-95
+                   transition-all duration-300 shadow-lg hover:shadow-xl
+                   group focus-enhanced z-20"
       >
         <svg
-          className="w-5 h-5"
+          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transform group-hover:translate-x-0.5 transition-transform"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
+          strokeWidth="2.5"
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth="2"
             d="M9 5l7 7-7 7"
           />
         </svg>
@@ -804,8 +818,8 @@ function Product() {
           We craft custom sizes, blends and designs to match your interior palette and performance needs.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-          <Link to="/enquiry"><Button variant="gold">Request Quote</Button></Link>
-          <Link to="/contact"><Button variant="secondary" className="!border-white !text-white hover:!bg-white hover:!text-secondary">Contact Us</Button></Link>
+          <Link to="/enquiry"><Button variant="gold" className="w-full sm:w-auto text-sm sm:text-base px-4 py-2.5 sm:px-6 sm:py-3">Request Quote</Button></Link>
+          <Link to="/contact"><Button variant="secondary" className="w-full sm:w-auto text-sm sm:text-base px-4 py-2.5 sm:px-6 sm:py-3 !border-white !text-white hover:!bg-white hover:!text-secondary">Contact Us</Button></Link>
         </div>
       </div>
     </section> */}
@@ -885,14 +899,14 @@ function Product() {
       </section>
 
       {/* Enhanced Mobile FAB */}
-      <div className="lg:hidden fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+      <div className="lg:hidden fixed bottom-4 right-4 z-50 flex flex-col gap-2">
         <a 
           href="/contact" 
           className="group shadow-xl hover:shadow-2xl transition-all duration-300"
           aria-label="Contact us"
         >
-          <Button variant="gold" className="rounded-full px-6 py-4 text-sm font-semibold group-hover:scale-105 transition-transform duration-300">
-            <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <Button variant="gold" className="rounded-full px-3 py-2.5 text-xs font-semibold group-hover:scale-105 transition-transform duration-300">
+            <svg className="w-4 h-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
             </svg>
             Contact
@@ -905,9 +919,9 @@ function Product() {
         >
           <Button
             variant="secondary"
-            className="rounded-full px-6 py-4 text-sm font-semibold !border-2 !border-primary !text-primary hover:!bg-primary hover:!text-white group-hover:scale-105 transition-all duration-300"
+            className="rounded-full px-3 py-2.5 text-xs font-semibold !border-2 !border-primary !text-primary hover:!bg-primary hover:!text-white group-hover:scale-105 transition-all duration-300"
           >
-            <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg className="w-4 h-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
             </svg>
             Quote

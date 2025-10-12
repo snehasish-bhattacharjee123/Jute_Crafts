@@ -247,7 +247,7 @@ function Gallery() {
 
       {/* Hero section with header compensation */}
       <section
-        className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[75vh] min-h-[400px] max-h-[800px] pt-[calc(var(--header-h,80px))]"
+        className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[85vh] min-h-[500px] max-h-[800px] pt-[calc(var(--header-h,80px))]"
         style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}
       >
         <img
@@ -277,7 +277,7 @@ function Gallery() {
                 key={category.id}
                 onClick={() => handleCategoryChange(category.id)}
                 disabled={isLoading}
-                className={`touch-target px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-all duration-300 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed focus-enhanced ${
+                className={`touch-target px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm disabled:opacity-50 disabled:cursor-not-allowed focus-enhanced ${
                   selectedCategory === category.id
                     ? "bg-primary text-textLight shadow-lg transform scale-105"
                     : "bg-white text-textDark hover:bg-primary hover:text-textLight shadow-md hover:scale-105 hover:shadow-lg"
@@ -704,13 +704,13 @@ function Gallery() {
               </div>
 
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <a href="/contact" className="inline-flex">
-                  <button className="rounded-full bg-gold text-secondary px-6 py-3 font-medium shadow hover:bg-gold/90 transition">
+                <a href="/contact" className="inline-flex w-full sm:w-auto">
+                  <button className="rounded-full bg-gold text-secondary px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-medium shadow hover:bg-gold/90 transition w-full sm:w-auto min-h-[44px]">
                     Request a Quote
                   </button>
                 </a>
-                <a href="/products" className="inline-flex">
-                  <button className="rounded-full border border-white text-white px-6 py-3 font-medium hover:bg-white hover:text-secondary transition">
+                <a href="/products" className="inline-flex w-full sm:w-auto">
+                  <button className="rounded-full border border-white text-white px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-medium hover:bg-white hover:text-secondary transition w-full sm:w-auto min-h-[44px]">
                     View Products
                   </button>
                 </a>
