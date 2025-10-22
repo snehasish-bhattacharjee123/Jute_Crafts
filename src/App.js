@@ -1728,6 +1728,7 @@ function App() {
           <ExpoPopup
             isOpen={showExpoPopup}
             onClose={() => setShowExpoPopup(false)}
+            imageSrc="/images/bhaiduj.jpeg" // 🖼 Replace with your image path
           />
         </Suspense>
       </div>
