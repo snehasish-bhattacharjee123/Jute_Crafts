@@ -231,16 +231,18 @@ const Header = () => {
   // ✅ Pages that should have transparent header initially
   const pagesWithTransparentHeader = [
     "/",
-    "/about", 
-    "/products", 
-    "/gallery", 
-    "/contact", 
-    "/blog"
+    "/about",
+    "/products",
+    "/gallery",
+    "/contact",
+    "/blog",
   ];
 
   // ✅ Scroll listener (for pages with transparent header)
   useEffect(() => {
-    const hasTransparentHeader = pagesWithTransparentHeader.includes(location.pathname);
+    const hasTransparentHeader = pagesWithTransparentHeader.includes(
+      location.pathname
+    );
     if (!hasTransparentHeader) return;
 
     const onScroll = () => {
@@ -254,7 +256,9 @@ const Header = () => {
 
   // ✅ Sync with route change
   useLayoutEffect(() => {
-    const hasTransparentHeader = pagesWithTransparentHeader.includes(location.pathname);
+    const hasTransparentHeader = pagesWithTransparentHeader.includes(
+      location.pathname
+    );
     if (!hasTransparentHeader) {
       setScrolled(true);
     } else {
@@ -270,17 +274,17 @@ const Header = () => {
   }, []);
 
   // ✅ Inline styles (conditional)
-  const hasTransparentHeader = pagesWithTransparentHeader.includes(location.pathname);
+  const hasTransparentHeader = pagesWithTransparentHeader.includes(
+    location.pathname
+  );
   const shouldBeTransparent = hasTransparentHeader && !isMobile && !scrolled;
-  
+
   const inlineStyle = {
-    backgroundColor: shouldBeTransparent 
-      ? "transparent" 
+    backgroundColor: shouldBeTransparent
+      ? "transparent"
       : "rgba(255,255,255,1)",
     color: shouldBeTransparent ? "#FAFAFF" : "#230903",
-    boxShadow: shouldBeTransparent 
-      ? "none" 
-      : "0 6px 18px rgba(15,15,15,0.08)",
+    boxShadow: shouldBeTransparent ? "none" : "0 6px 18px rgba(15,15,15,0.08)",
     transition:
       "background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease",
   };
@@ -304,7 +308,7 @@ const Header = () => {
       >
         Skip to main content
       </a>
-      
+
       <header
         ref={headerRef}
         style={inlineStyle}
@@ -313,124 +317,127 @@ const Header = () => {
         }`}
         role="banner"
       >
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-3 sm:py-4 md:py-5">
-          {/* ✅ Logo Section */}
-          <div className="flex-shrink-0 flex items-center gap-2 sm:gap-3 md:gap-4">
-            <img
-              src="/images/MKT Rugs_1 PNG.png"
-              alt="MKT RUGS Logo"
-              className="h-16 sm:h-18 md:h-20 lg:h-24 xl:h-28 w-auto object-contain transition-transform duration-300 hover:scale-105"
-            />
-            <div className="leading-tight">
-              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-bold tracking-wide">
-                <span style={{ color: "#603813" }}>M</span>
-                <span style={{ color: "#1C7A67" }}>K</span>
-                <span style={{ color: "#603813" }}>T RUGS</span>
-              </div>
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-3 sm:py-4 md:py-5">
+            {/* ✅ Logo Section */}
+            <div className="flex-shrink-0 flex items-center gap-2 sm:gap-3 md:gap-4">
+              <img
+                src="/images/MKT Rugs_1 PNG.png"
+                alt="MKT RUGS Logo"
+                className="h-16 sm:h-18 md:h-20 lg:h-24 xl:h-28 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              />
+              <div className="leading-tight">
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-bold tracking-wide">
+                  <span style={{ color: "#603813" }}>M</span>
+                  <span style={{ color: "#1C7A67" }}>K</span>
+                  <span style={{ color: "#603813" }}>T RUGS</span>
+                </div>
 
-              {/* ✅ Updated tagline */}
+                {/* ✅ Updated tagline */}
+                <div
+                  className="hidden sm:block text-xs sm:text-sm md:text-base lg:text-lg font-serif italic tracking-wide"
+                  style={{
+                    color: "#1C7A67",
+                    fontFamily: "'Playfair Display', 'Times New Roman', serif",
+                    fontStyle: "italic",
+                    fontWeight: "500",
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  From Farm to Floor
+                </div>
+              </div>
+            </div>
+
+            {/* ✅ Desktop Nav */}
+            <nav className="hidden md:flex space-x-4 lg:space-x-6 xl:space-x-8">
+              {navLinks.map(({ path, label }) => (
+                <NavLink
+                  key={path}
+                  to={path}
+                  end={path === "/"}
+                  className={({ isActive }) =>
+                    `font-body text-sm md:text-base lg:text-base uppercase py-2 transition-transform duration-200 focus-enhanced ${
+                      isActive
+                        ? "border-b-2 border-current"
+                        : "hover:scale-110 hover:text-primary"
+                    }`
+                  }
+                >
+                  {label}
+                </NavLink>
+              ))}
+            </nav>
+
+            {/* ✅ Mobile Menu Button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="touch-target hover:scale-110 transition-transform duration-200 focus:outline-none focus-enhanced p-2 rounded-lg hover:bg-white/10 active:bg-white/20"
+                aria-label="Toggle menu"
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu"
+              >
+                <svg
+                  className="h-5 w-5 sm:h-6 sm:w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  {isOpen ? (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* ✅ Mobile Nav Drawer */}
+          {isOpen && (
+            <>
               <div
-                className="hidden sm:block text-xs sm:text-sm md:text-base lg:text-lg font-serif italic tracking-wide"
-                style={{
-                  color: "#1C7A67",
-                  fontFamily: "'Playfair Display', 'Times New Roman', serif",
-                  fontStyle: "italic",
-                  fontWeight: "500",
-                  letterSpacing: "0.05em",
-                }}
+                className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[90]"
+                onClick={() => setIsOpen(false)}
+              />
+              <div
+                id="mobile-menu"
+                className="md:hidden absolute top-full left-0 w-full z-[100]"
               >
-                From Farm to Floor
+                <div className="px-3 pt-3 pb-4 space-y-2 bg-white border-t border-gray-200 shadow-lg">
+                  {navLinks.map(({ path, label }) => (
+                    <NavLink
+                      key={path}
+                      to={path}
+                      end={path === "/"}
+                      onClick={() => setIsOpen(false)}
+                      className={({ isActive }) =>
+                        `block touch-target px-4 py-3 font-body text-sm sm:text-base uppercase transition-all duration-200 focus-enhanced rounded-lg text-gray-700 ${
+                          isActive
+                            ? "bg-primary/10 border-l-4 border-primary text-primary font-semibold"
+                            : "hover:translate-x-1 hover:bg-gray/5 hover:text-primary active:bg-primary/10"
+                        }`
+                      }
+                    >
+                      {label}
+                    </NavLink>
+                  ))}
+                </div>
               </div>
-            </div>
-          </div>
-
-          {/* ✅ Desktop Nav */}
-          <nav className="hidden md:flex space-x-4 lg:space-x-6 xl:space-x-8">
-            {navLinks.map(({ path, label }) => (
-              <NavLink
-                key={path}
-                to={path}
-                end={path === "/"}
-                className={({ isActive }) =>
-                  `font-body text-sm md:text-base lg:text-base uppercase py-2 transition-transform duration-200 focus-enhanced ${
-                    isActive
-                      ? "border-b-2 border-current"
-                      : "hover:scale-110 hover:text-primary"
-                  }`
-                }
-              >
-                {label}
-              </NavLink>
-            ))}
-          </nav>
-
-          {/* ✅ Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="touch-target hover:scale-110 transition-transform duration-200 focus:outline-none focus-enhanced p-2 rounded-lg hover:bg-white/10 active:bg-white/20"
-              aria-label="Toggle menu"
-              aria-expanded={isOpen}
-              aria-controls="mobile-menu"
-            >
-              <svg
-                className="h-5 w-5 sm:h-6 sm:w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2.5}
-              >
-                {isOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
-            </button>
-          </div>
+            </>
+          )}
         </div>
-
-        {/* ✅ Mobile Nav Drawer */}
-        {isOpen && (
-          <>
-            <div
-              className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[90]"
-              onClick={() => setIsOpen(false)}
-            />
-            <div id="mobile-menu" className="md:hidden absolute top-full left-0 w-full z-[100]">
-              <div className="px-3 pt-3 pb-4 space-y-2 bg-white border-t border-gray-200 shadow-lg">
-                {navLinks.map(({ path, label }) => (
-                  <NavLink
-                    key={path}
-                    to={path}
-                    end={path === "/"}
-                    onClick={() => setIsOpen(false)}
-                    className={({ isActive }) =>
-                      `block touch-target px-4 py-3 font-body text-sm sm:text-base uppercase transition-all duration-200 focus-enhanced rounded-lg text-gray-700 ${
-                        isActive
-                          ? "bg-primary/10 border-l-4 border-primary text-primary font-semibold"
-                          : "hover:translate-x-1 hover:bg-gray/5 hover:text-primary active:bg-primary/10"
-                      }`
-                    }
-                  >
-                    {label}
-                  </NavLink>
-                ))}
-              </div>
-            </div>
-          </>
-        )}
-      </div>
-    </header>
+      </header>
     </>
   );
 };
