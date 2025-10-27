@@ -8,7 +8,7 @@ function CertificatesGrid() {
   const [visibleCerts, setVisibleCerts] = useState(new Set());
   const observerRef = useRef(null);
   const certRefs = useRef([]);
-  
+
   const certs = [
     {
       src: "/images/ISO.jpg",
@@ -42,7 +42,7 @@ function CertificatesGrid() {
 
     certRefs.current.forEach((ref, index) => {
       if (ref) {
-        ref.setAttribute('data-cert-index', index);
+        ref.setAttribute("data-cert-index", index);
         observerRef.current.observe(ref);
       }
     });
@@ -57,7 +57,7 @@ function CertificatesGrid() {
   // Direct PDF opening function
   const openCertificate = useCallback((cert) => {
     if (cert.pdf) {
-      window.open(cert.pdf, '_blank', 'noopener,noreferrer');
+      window.open(cert.pdf, "_blank", "noopener,noreferrer");
     }
   }, []);
 
@@ -68,22 +68,22 @@ function CertificatesGrid() {
         {certs.map((cert, index) => {
           const isVisible = visibleCerts.has(index);
           const delay = `delay-${index * 100}`;
-          
+
           return (
             <div
               key={index}
               ref={(el) => (certRefs.current[index] = el)}
               className={`group relative touch-target bg-white rounded-xl p-6 border-2 border-gold/20 shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden focus-enhanced ${
-                isVisible 
-                  ? `opacity-100 translate-y-0 scale-100 ${delay}` 
-                  : 'opacity-0 translate-y-8 scale-95'
+                isVisible
+                  ? `opacity-100 translate-y-0 scale-100 ${delay}`
+                  : "opacity-0 translate-y-8 scale-95"
               }`}
               onClick={() => openCertificate(cert)}
               role="button"
               tabIndex={0}
               aria-label={`View ${cert.alt} certificate PDF`}
               onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
+                if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
                   openCertificate(cert);
                 }
@@ -91,7 +91,7 @@ function CertificatesGrid() {
             >
               {/* Background decoration */}
               <div className="absolute inset-0 bg-gold/5 group-hover:bg-gold/10 transition-all duration-300"></div>
-              
+
               {/* Certificate image */}
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div className="w-20 h-20 mb-4 p-3 bg-gold/10 rounded-full flex items-center justify-center group-hover:bg-gold/20 transition-all duration-300 group-hover:scale-110">
@@ -103,20 +103,26 @@ function CertificatesGrid() {
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                 </div>
-                
+
                 {/* Certificate name */}
                 <h4 className="text-lg font-heading font-semibold text-textDark mb-2 group-hover:text-primary transition-colors duration-300">
                   {cert.alt}
                 </h4>
-                
+
                 {/* Description */}
                 <p className="text-sm text-textDark/70 font-body leading-relaxed mb-4">
                   {cert.desc}
                 </p>
-                
+
                 {/* PDF button */}
                 <div className="flex items-center gap-2 px-4 py-2 bg-gold text-white rounded-full text-sm font-semibold group-hover:bg-gold/90 transform group-hover:scale-105 transition-all duration-300">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
                     <polyline points="14,2 14,8 20,8" />
                     <line x1="16" y1="13" x2="8" y2="13" />
@@ -126,10 +132,16 @@ function CertificatesGrid() {
                   View Certificate
                 </div>
               </div>
-              
+
               {/* Hover indicator */}
               <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-                <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-5 h-5 text-gold"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M7 17L17 7" />
                   <path d="M7 7h10v10" />
                 </svg>
@@ -138,7 +150,7 @@ function CertificatesGrid() {
           );
         })}
       </div>
-      
+
       {/* Info text */}
       <p className="text-center text-sm text-textDark/60 font-body italic">
         Click on any certificate to view the PDF document
@@ -153,7 +165,7 @@ function HeroSlider() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [loadedImages, setLoadedImages] = useState(new Set());
   const intervalRef = useRef(null);
-  
+
   const images = [
     "/images/B_5.jpg",
     "/images/B_6.jpg",
@@ -194,7 +206,7 @@ function HeroSlider() {
     images.forEach((src, index) => {
       const img = new Image();
       img.onload = () => {
-        setLoadedImages(prev => new Set([...prev, index]));
+        setLoadedImages((prev) => new Set([...prev, index]));
       };
       img.src = src;
     });
@@ -203,11 +215,11 @@ function HeroSlider() {
   // Enhanced smooth scroll to story section
   const scrollToStory = useCallback((e) => {
     e.preventDefault();
-    const storyElement = document.getElementById('story');
+    const storyElement = document.getElementById("story");
     if (storyElement) {
       smoothScrollTo(storyElement, {
-        behavior: 'smooth',
-        block: 'start',
+        behavior: "smooth",
+        block: "start",
       });
     }
   }, []);
@@ -228,7 +240,7 @@ function HeroSlider() {
   }, [images.length]);
 
   return (
-    <section 
+    <section
       className="relative w-full h-[70vh] sm:h-[75vh] md:h-[85vh] lg:h-[90vh] min-h-[600px] max-h-[900px] overflow-hidden pt-[calc(var(--header-h,80px))]"
       style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}
       onMouseEnter={() => setIsPlaying(false)}
@@ -239,7 +251,7 @@ function HeroSlider() {
       {images.map((image, index) => {
         const isActive = index === activeIndex;
         const isLoaded = loadedImages.has(index);
-        
+
         return (
           <div
             key={index}
@@ -247,23 +259,28 @@ function HeroSlider() {
               isActive ? "opacity-100 scale-100" : "opacity-0 scale-105"
             }`}
             style={{
-              transform: isActive ? 'scale(1)' : 'scale(1.05)',
+              transform: isActive ? "scale(1)" : "scale(1.05)",
             }}
           >
             {/* Loading placeholder */}
             {!isLoaded && (
               <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
-                <LoadingSpinner variant="mkt" size="lg" color="gold" label="Loading image" />
+                <LoadingSpinner
+                  variant="mkt"
+                  size="lg"
+                  color="gold"
+                  label="Loading image"
+                />
               </div>
             )}
-            
+
             <img
               src={image}
               alt={`Craftsmanship showcase ${index + 1}`}
               className={`w-full h-full object-cover transition-opacity duration-500 ${
-                isLoaded ? 'opacity-100' : 'opacity-0'
+                isLoaded ? "opacity-100" : "opacity-0"
               }`}
-              loading={index <= 1 ? 'eager' : 'lazy'} // Load first two images eagerly
+              loading={index <= 1 ? "eager" : "lazy"} // Load first two images eagerly
             />
           </div>
         );
@@ -271,12 +288,11 @@ function HeroSlider() {
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
-      
 
       {/* Content overlay */}
       <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
-              {/* Main heading - Fully responsive */}
+          {/* Main heading - Fully responsive */}
           <div className="mb-2 sm:mb-3 md:mb-4">
             <div className="inline-flex items-center gap-1 px-2 py-1 sm:px-3 md:px-4 py-1.5 sm:py-2 bg-black/20 rounded-full mb-2 sm:mb-4 md:mb-6">
               <span className="text-xs sm:text-sm md:text-base font-semibold text-white tracking-wide uppercase">
@@ -284,36 +300,57 @@ function HeroSlider() {
                 <span className="md:hidden">Heritage</span>
               </span>
             </div>
-            
+
             <h1 className="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-heading font-bold text-white leading-tight">
-              <span className="block text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">Witness the Craftsmanship</span>
-              <span className="block text-gold text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-0.5">of Bengal</span>
+              <span className="block text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
+                Witness the Craftsmanship
+              </span>
+              <span className="block text-gold text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-0.5">
+                of Bengal
+              </span>
             </h1>
           </div>
-          
+
           {/* Subtitle - Fully responsive */}
           <p className="mt-2 sm:mt-3 md:mt-4 lg:mt-6 text-xs sm:text-sm md:text-base lg:text-lg text-white/90 font-body leading-relaxed max-w-2xl mx-auto">
-            <span className="hidden md:inline">From Farm to Floor — Authentic handcrafted rugs from West Bengal, where tradition meets modern excellence.</span>
-            <span className="md:hidden">Handcrafted rugs from West Bengal.</span>
+            <span className="hidden md:inline">
+              From Farm to Floor — Authentic handcrafted rugs from West Bengal,
+              where tradition meets modern excellence.
+            </span>
+            <span className="md:hidden">
+              Handcrafted rugs from West Bengal.
+            </span>
           </p>
-          
+
           {/* CTA Buttons - Responsive sizing */}
           <div className="mt-3 sm:mt-4 md:mt-6 flex flex-row gap-1.5 sm:gap-2 md:gap-3 justify-center">
-            <a 
-              href="/products" 
+            <a
+              href="/products"
               className="inline-flex items-center justify-center px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-3 bg-gold text-white rounded-md md:rounded-lg font-medium text-xs sm:text-sm md:text-base hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow focus-enhanced touch-target min-h-[24px] sm:min-h-[32px] md:min-h-[40px]"
             >
-              <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 mr-1"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
               </svg>
               <span className="hidden md:inline">Explore Products</span>
               <span className="md:hidden">Products</span>
             </a>
-            <a 
-              href="/enquiry" 
+            <a
+              href="/enquiry"
               className="inline-flex items-center justify-center px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-3 bg-transparent text-white border border-white rounded-md md:rounded-lg font-medium text-xs sm:text-sm md:text-base hover:bg-white hover:text-secondary transform hover:scale-105 transition-all duration-300 focus-enhanced touch-target min-h-[24px] sm:min-h-[32px] md:min-h-[40px]"
             >
-              <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 mr-1"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
               </svg>
               <span className="hidden md:inline">Get Quote</span>
@@ -335,11 +372,17 @@ function HeroSlider() {
                    group focus-enhanced z-20"
         aria-label="Previous image"
       >
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transform group-hover:-translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <svg
+          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transform group-hover:-translate-x-0.5 transition-transform"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+        >
           <polyline points="15,18 9,12 15,6"></polyline>
         </svg>
       </button>
-      
+
       <button
         onClick={nextSlide}
         className="absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 
@@ -351,7 +394,13 @@ function HeroSlider() {
                    group focus-enhanced z-20"
         aria-label="Next image"
       >
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transform group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <svg
+          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transform group-hover:translate-x-0.5 transition-transform"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+        >
           <polyline points="9,18 15,12 9,6"></polyline>
         </svg>
       </button>
@@ -363,8 +412,12 @@ function HeroSlider() {
           className="group touch-target inline-flex flex-col items-center text-white/80 hover:text-white transition-all duration-300 transform hover:scale-105 focus-enhanced px-4 py-2 rounded-full bg-black/20 backdrop-blur-sm border border-white/20"
           aria-label="Scroll to our story section"
         >
-            <span className="text-xs sm:text-sm md:text-base tracking-widest uppercase font-semibold mb-2 group-hover:text-gold transition-colors duration-300 hidden md:block">Discover Our Story</span>
-          <span className="text-xs sm:text-sm tracking-wide uppercase font-semibold mb-2 group-hover:text-gold transition-colors duration-300 md:hidden">Our Story</span>
+          <span className="text-xs sm:text-sm md:text-base tracking-widest uppercase font-semibold mb-2 group-hover:text-gold transition-colors duration-300 hidden md:block">
+            Discover Our Story
+          </span>
+          <span className="text-xs sm:text-sm tracking-wide uppercase font-semibold mb-2 group-hover:text-gold transition-colors duration-300 md:hidden">
+            Our Story
+          </span>
           <div className="flex flex-col items-center">
             <div className="w-px h-4 sm:h-6 bg-white/50 mb-2"></div>
             <svg
@@ -374,7 +427,11 @@ function HeroSlider() {
               stroke="currentColor"
               strokeWidth="2.5"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </div>
         </button>
@@ -388,18 +445,20 @@ function HeroSlider() {
               key={index}
               onClick={() => goToSlide(index)}
               className={`relative transition-all duration-300 focus-enhanced touch-target flex items-center justify-center ${
-                index === activeIndex 
-                  ? "w-6 h-2 sm:w-8 sm:h-3 bg-gold rounded-full" 
+                index === activeIndex
+                  ? "w-6 h-2 sm:w-8 sm:h-3 bg-gold rounded-full"
                   : "w-2 h-2 sm:w-3 sm:h-3 bg-white/40 rounded-full hover:bg-white/60"
               }`}
               aria-label={`Go to slide ${index + 1}`}
-              style={{ minWidth: '24px', minHeight: '24px' }}
+              style={{ minWidth: "24px", minHeight: "24px" }}
             >
-              <div className={`rounded-full transition-all duration-300 ${
-                index === activeIndex 
-                  ? "w-6 h-2 sm:w-8 sm:h-3 bg-gold" 
-                  : "w-2 h-2 sm:w-3 sm:h-3 bg-white/40"
-              }`}>
+              <div
+                className={`rounded-full transition-all duration-300 ${
+                  index === activeIndex
+                    ? "w-6 h-2 sm:w-8 sm:h-3 bg-gold"
+                    : "w-2 h-2 sm:w-3 sm:h-3 bg-white/40"
+                }`}
+              >
                 {index === activeIndex && (
                   <div className="absolute inset-0 bg-gold rounded-full animate-pulse"></div>
                 )}
@@ -408,17 +467,19 @@ function HeroSlider() {
           ))}
         </div>
       </div>
-      
+
       {/* Play/Pause indicator - Mobile optimized */}
       <div className="absolute top-4 right-4 sm:top-6 sm:right-6 flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 bg-black/30 backdrop-blur-md rounded-full border border-white/20">
-        <div className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-          isPlaying ? 'bg-green-400 animate-pulse' : 'bg-yellow-400'
-        }`}></div>
+        <div
+          className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+            isPlaying ? "bg-green-400 animate-pulse" : "bg-yellow-400"
+          }`}
+        ></div>
         <span className="text-xs text-white/80 font-medium hidden sm:inline">
-          {isPlaying ? 'Auto' : 'Paused'}
+          {isPlaying ? "Auto" : "Paused"}
         </span>
         <span className="text-xs text-white/80 font-medium sm:hidden">
-          {isPlaying ? '▶' : '⏸'}
+          {isPlaying ? "▶" : "⏸"}
         </span>
       </div>
     </section>
@@ -435,22 +496,22 @@ function AboutUs() {
 
   // Check for reduced motion preference
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mediaQuery.matches);
-    
+
     const handleChange = (e) => {
       setPrefersReducedMotion(e.matches);
     };
-    
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
   // Enhanced intersection observer for smooth animations
   useEffect(() => {
     const observerOptions = {
       threshold: [0.1, 0.2, 0.3],
-      rootMargin: '-5% 0px -10% 0px',
+      rootMargin: "-5% 0px -10% 0px",
     };
 
     observerRef.current = new IntersectionObserver((entries) => {
@@ -465,13 +526,13 @@ function AboutUs() {
     // Observe all sections
     sectionRefs.current.forEach((ref, index) => {
       if (ref) {
-        ref.setAttribute('data-section-id', `section-${index}`);
+        ref.setAttribute("data-section-id", `section-${index}`);
         observerRef.current.observe(ref);
       }
     });
 
     // Fallback for older reveal system
-    const elements = document.querySelectorAll('.reveal');
+    const elements = document.querySelectorAll(".reveal");
     elements.forEach((el) => {
       if (observerRef.current && !el.dataset.sectionId) {
         observerRef.current.observe(el);
@@ -494,7 +555,7 @@ function AboutUs() {
       img: "/images/download.jpg",
       side: "left",
       icon: "🌱",
-      category: "Foundation"
+      category: "Foundation",
     },
     {
       year: "2011",
@@ -503,7 +564,7 @@ function AboutUs() {
       img: "/images/download (3).jpg",
       side: "right",
       icon: "📈",
-      category: "Growth"
+      category: "Growth",
     },
     {
       year: "2016",
@@ -512,7 +573,7 @@ function AboutUs() {
       img: "/images/Jute Boucle Rug.jpg",
       side: "left",
       icon: "🏭",
-      category: "Infrastructure"
+      category: "Infrastructure",
     },
     {
       year: "2017",
@@ -521,7 +582,7 @@ function AboutUs() {
       img: "/images/carpet.jpg",
       side: "right",
       icon: "🔄",
-      category: "Transformation"
+      category: "Transformation",
     },
     {
       year: "2019",
@@ -530,7 +591,7 @@ function AboutUs() {
       img: "/images/flat-lay-monochromatic-assortment-textiles.jpg",
       side: "left",
       icon: "⚡",
-      category: "Innovation"
+      category: "Innovation",
     },
     {
       year: "2022",
@@ -539,7 +600,7 @@ function AboutUs() {
       img: "/images/Naturals Basket.jpg",
       side: "right",
       icon: "🎯",
-      category: "Achievement"
+      category: "Achievement",
     },
     {
       year: "2024",
@@ -548,10 +609,10 @@ function AboutUs() {
       img: "/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg",
       side: "left",
       icon: "🌍",
-      category: "Global Expansion"
+      category: "Global Expansion",
     },
   ];
-  
+
   // Enhanced timeline state management
   const [visibleMilestones, setVisibleMilestones] = useState(new Set());
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -563,7 +624,7 @@ function AboutUs() {
   useEffect(() => {
     const milestoneObserverOptions = {
       threshold: [0.1, 0.3, 0.5, 0.7],
-      rootMargin: '-10% 0px -10% 0px',
+      rootMargin: "-10% 0px -10% 0px",
     };
 
     const milestoneObserver = new IntersectionObserver((entries) => {
@@ -580,7 +641,7 @@ function AboutUs() {
 
     milestoneRefs.current.forEach((ref, index) => {
       if (ref) {
-        ref.setAttribute('data-milestone-index', index);
+        ref.setAttribute("data-milestone-index", index);
         milestoneObserver.observe(ref);
       }
     });
@@ -591,12 +652,12 @@ function AboutUs() {
   // Enhanced smooth progress calculation with requestAnimationFrame
   useEffect(() => {
     let ticking = false;
-    
+
     const calculateProgress = () => {
       ticking = false;
-      
+
       if (!timelineSectionRef.current) return;
-      
+
       const section = timelineSectionRef.current;
       const rect = section.getBoundingClientRect();
       const sectionTop = rect.top + window.scrollY;
@@ -604,19 +665,23 @@ function AboutUs() {
       const windowHeight = window.innerHeight;
       const scrollTop = window.scrollY;
       const viewCenter = scrollTop + windowHeight * 0.5;
-      
+
       // Calculate progress based on section visibility
-      if (viewCenter >= sectionTop && viewCenter <= sectionTop + sectionHeight) {
-        const progress = Math.max(0, Math.min(1, 
-          (viewCenter - sectionTop) / sectionHeight
-        ));
+      if (
+        viewCenter >= sectionTop &&
+        viewCenter <= sectionTop + sectionHeight
+      ) {
+        const progress = Math.max(
+          0,
+          Math.min(1, (viewCenter - sectionTop) / sectionHeight)
+        );
         setScrollProgress(progress);
       } else if (viewCenter > sectionTop + sectionHeight) {
         setScrollProgress(1);
       } else {
         setScrollProgress(0);
       }
-      
+
       // Calculate milestone visibility
       const milestoneElements = milestoneRefs.current.filter(Boolean);
       const milestonePositions = milestoneElements.map((el) => {
@@ -624,7 +689,7 @@ function AboutUs() {
         const elRect = el.getBoundingClientRect();
         return window.scrollY + elRect.top + elRect.height / 2;
       });
-      
+
       // Find the most visible milestone
       let activeIndex = 0;
       milestonePositions.forEach((pos, index) => {
@@ -632,10 +697,10 @@ function AboutUs() {
           activeIndex = index;
         }
       });
-      
+
       setActiveTimelineIndex(activeIndex);
     };
-    
+
     const handleScroll = () => {
       if (!ticking && !prefersReducedMotion) {
         requestAnimationFrame(calculateProgress);
@@ -644,17 +709,17 @@ function AboutUs() {
         calculateProgress();
       }
     };
-    
+
     // Initial calculation
     calculateProgress();
-    
+
     // Add event listeners
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll, { passive: true });
-    
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, [prefersReducedMotion]);
 
@@ -663,9 +728,9 @@ function AboutUs() {
     const element = milestoneRefs.current[index];
     if (element) {
       smoothScrollTo(element, {
-        behavior: 'smooth',
-        block: 'center',
-        inline: 'nearest'
+        behavior: "smooth",
+        block: "center",
+        inline: "nearest",
       });
     }
   }, []);
@@ -678,21 +743,20 @@ function AboutUs() {
         canonical="https://www.mktrugs.com/about"
       />
       {/* Hero Slider with header compensation */}
-      <div
-        style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}
-      >
+      <div style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}>
         <HeroSlider />
       </div>
 
       {/* Story Section */}
-      <section 
-        id="story" 
+      <section
+        id="story"
         ref={(el) => (sectionRefs.current[0] = el)}
         className={`py-16 md:py-20 bg-bgGrey transition-all duration-700 ${
-          visibleSections.has('section-0') ? 'opacity-100 transform-none' : 'opacity-0 translate-y-8'
+          visibleSections.has("section-0")
+            ? "opacity-100 transform-none"
+            : "opacity-0 translate-y-8"
         }`}
       >
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Enhanced text content */}
@@ -706,7 +770,7 @@ function AboutUs() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-textDark mb-6 sm:mb-8">
                 Our History
               </h2>
-              
+
               <div className="space-y-8">
                 {[
                   {
@@ -716,7 +780,7 @@ function AboutUs() {
                   },
                   {
                     year: "2017",
-                    title: "Industrial Evolution", 
+                    title: "Industrial Evolution",
                     text: "We evolved into an integrated carpet manufacturing company.",
                   },
                   {
@@ -747,24 +811,36 @@ function AboutUs() {
                     <div className="absolute left-8 top-16 w-px h-8 bg-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 ))}
-                
+
                 <div className="pt-4 sm:pt-6">
                   <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4">
-                    <a 
-                      href="/enquiry" 
+                    <a
+                      href="/enquiry"
                       className="inline-flex items-center justify-center mobile-touch px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3 bg-gold text-white rounded-full font-semibold text-sm sm:text-base hover:bg-gold/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus-enhanced touch-target"
                     >
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg
+                        className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
                         <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
                       </svg>
                       <span className="hidden sm:inline">Request a Quote</span>
                       <span className="sm:hidden">Quote</span>
                     </a>
-                    <a 
-                      href="/products" 
+                    <a
+                      href="/products"
                       className="inline-flex items-center justify-center mobile-touch px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3 bg-transparent text-primary border-2 border-primary rounded-full font-semibold text-sm sm:text-base hover:bg-primary hover:text-white transform hover:scale-105 transition-all duration-300 focus-enhanced touch-target"
                     >
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg
+                        className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
                         <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
                       </svg>
                       <span className="hidden sm:inline">Explore Products</span>
@@ -774,7 +850,7 @@ function AboutUs() {
                 </div>
               </div>
             </div>
-            
+
             {/* Image */}
             <div className="order-1 lg:order-2 relative">
               <div className="relative group">
@@ -788,8 +864,12 @@ function AboutUs() {
                 {/* Stats overlay */}
                 <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white rounded-lg p-2 sm:p-3 shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300">
                   <div className="text-center">
-                    <div className="text-xl sm:text-2xl font-bold text-gold">16+</div>
-                    <div className="text-xs sm:text-sm text-textDark/70 font-semibold">Years</div>
+                    <div className="text-xl sm:text-2xl font-bold text-gold">
+                      16+
+                    </div>
+                    <div className="text-xs sm:text-sm text-textDark/70 font-semibold">
+                      Years
+                    </div>
                   </div>
                 </div>
               </div>
@@ -801,12 +881,11 @@ function AboutUs() {
       {/* Awards & Gallery removed per request */}
 
       {/* Milestones Timeline Section */}
-      <section 
+      <section
         ref={timelineSectionRef}
         className="py-20 md:py-28 bg-white"
         aria-label="Company milestones timeline"
       >
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-12 md:mb-20">
@@ -815,16 +894,16 @@ function AboutUs() {
                 Our Journey
               </span>
             </div>
-            
+
             <h2 className="section-title font-heading font-bold text-textDark mb-6">
               Milestones on the Global Loom
             </h2>
-            
+
             <p className="text-lg md:text-xl text-textDark/70 max-w-3xl mx-auto leading-relaxed font-body">
               From making Jute braids to fully integrated carpet manufacturing —
               witness our evolution into a global leader.
             </p>
-            
+
             <div className="mx-auto mt-6 w-24 h-1 bg-gold rounded-full"></div>
           </div>
 
@@ -878,11 +957,11 @@ function AboutUs() {
                 const isVisible = visibleMilestones.has(index);
                 const isLeft = milestone.side === "left";
                 const delay = `delay-${Math.min(index * 100, 500)}`;
-                const animationClass = prefersReducedMotion 
-                  ? 'opacity-100 translate-y-0 translate-x-0 scale-100'
+                const animationClass = prefersReducedMotion
+                  ? "opacity-100 translate-y-0 translate-x-0 scale-100"
                   : isVisible
-                    ? `opacity-100 translate-y-0 translate-x-0 scale-100 ${delay}`
-                    : 'opacity-0 translate-y-8 scale-95';
+                  ? `opacity-100 translate-y-0 translate-x-0 scale-100 ${delay}`
+                  : "opacity-0 translate-y-8 scale-95";
 
                 return (
                   <div
@@ -906,8 +985,12 @@ function AboutUs() {
                               loading="lazy"
                             />
                             <figcaption className="absolute bottom-4 left-4 right-4 bg-black/60 text-white p-4 rounded opacity-0 group-hover:opacity-100 transition-all duration-300">
-                              <h4 className="font-heading font-semibold text-lg mb-1">{milestone.title}</h4>
-                              <p className="text-sm font-body leading-relaxed">{milestone.text}</p>
+                              <h4 className="font-heading font-semibold text-lg mb-1">
+                                {milestone.title}
+                              </h4>
+                              <p className="text-sm font-body leading-relaxed">
+                                {milestone.text}
+                              </p>
                             </figcaption>
                           </figure>
                         </div>
@@ -949,7 +1032,9 @@ function AboutUs() {
                               <div
                                 className="h-full bg-gold transition-all duration-1000 ease-out"
                                 style={{
-                                  width: `${((index + 1) / milestones.length) * 100}%`,
+                                  width: `${
+                                    ((index + 1) / milestones.length) * 100
+                                  }%`,
                                 }}
                               ></div>
                             </div>
@@ -957,7 +1042,6 @@ function AboutUs() {
                               {index + 1} of {milestones.length}
                             </span>
                           </div>
-
                         </div>
                       </div>
                     </div>
@@ -966,7 +1050,9 @@ function AboutUs() {
                     <div className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                       <div
                         className={`w-8 h-8 rounded-full border-4 border-white shadow-lg transition-all duration-500 ${
-                          isVisible ? "bg-gold scale-125" : "bg-gray-300 scale-100"
+                          isVisible
+                            ? "bg-gold scale-125"
+                            : "bg-gray-300 scale-100"
                         }`}
                       >
                         <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-xs">
@@ -983,156 +1069,193 @@ function AboutUs() {
       </section>
 
       <section className="py-20 bg-bgLight reveal">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    {/* Heading */}
-    <div className="text-center mb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Heading */}
+          <div className="text-center mb-12">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-textDark mb-3 sm:mb-4">
               Our Values
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-textDark max-w-2xl mx-auto leading-relaxed font-body">
               Quality is at the heart of everything we do.
             </p>
-    </div>
+          </div>
 
-    {/* Cards */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-      {/* 1️⃣ Quality */}
-      <div className="text-center p-4 sm:p-6 md:p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
-        <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-          <svg
-            className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-textLight"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
+          {/* Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+            {/* 1️⃣ Quality */}
+            <div className="text-center p-4 sm:p-6 md:p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <svg
+                  className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-textLight"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-textDark mb-3 sm:mb-4 font-heading">
+                Quality
+              </h3>
+              <p className="text-textDark font-body text-sm sm:text-base md:text-lg leading-relaxed">
+                Every product undergoes a 5-step quality control process to
+                ensure the highest standards of excellence.
+              </p>
+            </div>
+
+            {/* 2️⃣ Sustainability */}
+            <div className="text-center p-4 sm:p-6 md:p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <svg
+                  className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8c-1.657 0-3 1.343-3 3 0 2 3 5 3 5s3-3 3-5c0-1.657-1.343-3-3-3zM12 4v1m0 14v1m8-8h1M4 12H3m15.364 6.364l.707.707M6.343 6.343l-.707-.707m12.728 0l.707-.707M6.343 17.657l-.707.707"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-textDark mb-3 sm:mb-4 font-heading">
+                Sustainability
+              </h3>
+              <p className="text-textDark font-body text-sm sm:text-base md:text-lg leading-relaxed">
+                We prioritize eco-friendly materials and responsible production
+                to protect our planet for future generations.
+              </p>
+            </div>
+
+            {/* 3️⃣ Craftsmanship */}
+            <div className="text-center p-4 sm:p-6 md:p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <svg
+                  className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-textDark mb-3 sm:mb-4 font-heading">
+                Craftsmanship
+              </h3>
+              <p className="text-textDark font-body text-sm sm:text-base md:text-lg leading-relaxed">
+                Our skilled artisans blend traditional weaving with modern
+                design precision to create timeless, high-quality rugs.
+              </p>
+            </div>
+          </div>
         </div>
-        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-textDark mb-3 sm:mb-4 font-heading">
-          Quality
-        </h3>
-        <p className="text-textDark font-body text-sm sm:text-base md:text-lg leading-relaxed">
-          Every product undergoes a 5-step quality control process to ensure
-          the highest standards of excellence.
-        </p>
-      </div>
-
-      {/* 2️⃣ Sustainability */}
-      <div className="text-center p-4 sm:p-6 md:p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
-        <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-          <svg
-            className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 8c-1.657 0-3 1.343-3 3 0 2 3 5 3 5s3-3 3-5c0-1.657-1.343-3-3-3zM12 4v1m0 14v1m8-8h1M4 12H3m15.364 6.364l.707.707M6.343 6.343l-.707-.707m12.728 0l.707-.707M6.343 17.657l-.707.707"
-            />
-          </svg>
-        </div>
-        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-textDark mb-3 sm:mb-4 font-heading">
-          Sustainability
-        </h3>
-        <p className="text-textDark font-body text-sm sm:text-base md:text-lg leading-relaxed">
-          We prioritize eco-friendly materials and responsible production to
-          protect our planet for future generations.
-        </p>
-      </div>
-
-      {/* 3️⃣ Craftsmanship */}
-      <div className="text-center p-4 sm:p-6 md:p-8 bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-md mx-auto">
-        <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-          <svg
-            className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-        </div>
-        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-textDark mb-3 sm:mb-4 font-heading">
-          Craftsmanship
-        </h3>
-        <p className="text-textDark font-body text-sm sm:text-base md:text-lg leading-relaxed">
-          Our skilled artisans blend traditional weaving with modern design
-          precision to create timeless, high-quality rugs.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
+      </section>
 
       <section className="py-20 bg-bgGrey reveal">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      {/* Left Content */}
-      <div>
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-textDark mb-3 sm:mb-4">
-          Our Facilities
-        </h2>
-        <div className="w-16 sm:w-20 md:w-24 h-1 bg-gold mb-6 sm:mb-8"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-textDark mb-3 sm:mb-4">
+                Our Facilities
+              </h2>
+              <div className="w-16 sm:w-20 md:w-24 h-1 bg-gold mb-6 sm:mb-8"></div>
 
-        {/* Stats Cards */}
-        <div className="grid grid-cols-2 gap-6 mb-10">
-          {[
-            { value: "150 MT", label: "Monthly Yarn Manufacturing Capacity" },
-            { value: "20,000+", label: "Monthly Carpet Making Capacity (sqm)" },
-            { value: "6", label: "Owned Manufacturing Facilities" },
-            {
-              value: "✓",
-              label:
-                "Integrated Facility – From Raw Fibre Processing to Carpet Manufacturing",
-            },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-xl p-3 sm:p-4 md:p-6 text-center shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="text-xl sm:text-2xl md:text-3xl font-heading text-secondary mb-1 sm:mb-2">
-                {item.value}
+              {/* Stats Cards */}
+              <div className="grid grid-cols-2 gap-6 mb-10">
+                {[
+                  {
+                    value: "150 MT",
+                    label: "Monthly Yarn Manufacturing Capacity",
+                  },
+                  {
+                    value: "20,000+",
+                    label: "Monthly Carpet Making Capacity (sqm)",
+                  },
+                  { value: "6", label: "Owned Manufacturing Facilities" },
+                  {
+                    value: "✓",
+                    label:
+                      "Integrated Facility – From Raw Fibre Processing to Carpet Manufacturing",
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="bg-white rounded-xl p-3 sm:p-4 md:p-6 text-center shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <div className="text-xl sm:text-2xl md:text-3xl font-heading text-secondary mb-1 sm:mb-2">
+                      {item.value}
+                    </div>
+                    <div className="text-xs sm:text-sm md:text-base text-textDark/80 font-body leading-relaxed">
+                      {item.label}
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="text-xs sm:text-sm md:text-base text-textDark/80 font-body leading-relaxed">
-                {item.label}
+
+              {/* Certificates */}
+              <CertificatesGrid />
+            </div>
+
+            {/* Right Image */}
+            <div className="flex justify-center items-center">
+              <div className="relative">
+                <div className="absolute inset-0 -translate-x-4 -translate-y-4 bg-gold/10 rounded-2xl blur-md"></div>
+                <img
+                  src="/images/flat-lay-monochromatic-assortment-textiles.jpg"
+                  alt="Craftsmanship and facilities"
+                  className="relative rounded-2xl w-full h-96 object-cover shadow-xl border border-white"
+                />
               </div>
             </div>
-          ))}
+          </div>
         </div>
+      </section>
 
-        {/* Certificates */}
-        <CertificatesGrid />
-      </div>
+      <section className="py-20 bg-white reveal">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textDark mb-4">
+              See Our Craftsmanship in Action
+            </h2>
+            <p className="text-lg text-textDark max-w-2xl mx-auto leading-relaxed font-body">
+              Watch how we transform natural fibres into beautiful, handcrafted
+              rugs
+            </p>
+          </div>
 
-      {/* Right Image */}
-      <div className="flex justify-center items-center">
-        <div className="relative">
-          <div className="absolute inset-0 -translate-x-4 -translate-y-4 bg-gold/10 rounded-2xl blur-md"></div>
-          <img
-            src="/images/flat-lay-monochromatic-assortment-textiles.jpg"
-            alt="Craftsmanship and facilities"
-            className="relative rounded-2xl w-full h-96 object-cover shadow-xl border border-white"
-          />
+          <div className="flex justify-center">
+            <div className="w-full max-w-6xl">
+              <div
+                className="relative w-full overflow-hidden rounded-2xl shadow-xl"
+                style={{ paddingBottom: "56.25%" }}
+              >
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/mQMLQfeGC6Q?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1"
+                  title="NC John & Sons"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {false && (
         <section className="py-16 bg-white reveal">
@@ -1211,10 +1334,10 @@ function AboutUs() {
             <div className="text-center">
               <div className="w-48 h-48 bg-primary/10 rounded-full mx-auto mb-6 flex items-center justify-center">
                 <img
-      src="/images/IMG_5792.jpg" // <-- replace with your image path
-      alt="Dattatreyo Paul"
-      className="w-full h-full object-cover"
-    />
+                  src="/images/IMG_5792.jpg" // <-- replace with your image path
+                  alt="Dattatreyo Paul"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
                 Rahul Sarder
@@ -1226,24 +1349,23 @@ function AboutUs() {
             </div>
 
             <div className="text-center">
-  <div className="w-48 h-48 bg-secondary/10 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden">
-    <img
-      src="/images/DSC01496.jpg" // <-- replace with your image path
-      alt="Dattatreyo Paul"
-      className="w-full h-full object-cover"
-    />
-  </div>
-  <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
-    Dattatreyo Paul
-  </h3>
-  <p className="text-secondary font-medium mb-2">
-    Global Trade Manager
-  </p>
-  <p className="text-textDark font-body">
-    Managing global trade operations and international partnerships.
-  </p>
-</div>
-
+              <div className="w-48 h-48 bg-secondary/10 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                <img
+                  src="/images/DSC01496.jpg" // <-- replace with your image path
+                  alt="Dattatreyo Paul"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
+                Dattatreyo Paul
+              </h3>
+              <p className="text-secondary font-medium mb-2">
+                Global Trade Manager
+              </p>
+              <p className="text-textDark font-body">
+                Managing global trade operations and international partnerships.
+              </p>
+            </div>
           </div>
         </div>
       </section>

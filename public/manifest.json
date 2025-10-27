@@ -1,25 +1,23 @@
 {
   "short_name": "MKT Rugs",
-  "name": "MKT Rugs",
+  "name": "MKT Rugs - From Farm to Floor",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "images/MKT Rugs_1 PNG.png",
+      "type": "image/png",
+      "sizes": "any",
+      "purpose": "any"
     },
     {
-      "src": "logo192.png",
+      "src": "images/MKT Rugs_1 PNG.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "any",
+      "purpose": "maskable"
     }
   ],
   "start_url": ".",
   "display": "standalone",
+  "scope": "/",
   "theme_color": "#116054",
   "background_color": "#ffffff"
 }
