@@ -58,7 +58,9 @@ const downloadAndProcessImage = () => {
         // Fallback: just copy the buffer as-is
         fs.writeFileSync(path.join(publicDir, 'logo192.png'), buffer);
         fs.writeFileSync(path.join(publicDir, 'logo512.png'), buffer);
+        fs.writeFileSync(path.join(publicDir, 'favicon.ico'), buffer);
         console.log('✓ Logo files updated (resizing not available, copied as-is)');
+        console.log('✓ Favicon updated');
       }
     });
   }).on('error', (err) => {
