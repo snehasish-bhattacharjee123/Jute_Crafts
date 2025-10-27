@@ -675,6 +675,34 @@ function AboutUs() {
   </div>
 </section>
 
+<section className="py-20 bg-white reveal">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textDark mb-4">
+        See Our Craftsmanship in Action
+      </h2>
+      <p className="text-lg text-textDark max-w-2xl mx-auto leading-relaxed font-body">
+        Watch how we transform natural fibres into beautiful, handcrafted rugs
+      </p>
+    </div>
+
+    <div className="flex justify-center">
+      <div className="w-full max-w-3xl">
+        <div className="relative w-full overflow-hidden rounded-2xl shadow-xl" style={{ paddingBottom: "56.25%" }}>
+          <iframe
+            className="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube.com/embed/mQMLQfeGC6Q?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1"
+            title="NC John & Sons"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {false && (
         <section className="py-16 bg-white reveal">
