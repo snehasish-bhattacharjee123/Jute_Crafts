@@ -42,30 +42,29 @@
       content="https://www.mktrugs.com/images/HOME_1.jpg"
     />
 
-    <!-- Favicon - Google recommended format -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="%PUBLIC_URL%/images/MKT%20Rugs_1%20PNG.png"
-      sizes="any"
-    />
-
-    <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!-- Favicons (Google recommended 48x48 PNG + multi-size support) -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
 
     <!-- Manifest for PWA -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Organization Schema -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "MKT Rugs",
         "url": "https://www.mktrugs.com/",
-        "logo": "https://www.mktrugs.com/images/MKT%20Rugs_1%20PNG.png",
+        "logo": "https://www.mktrugs.com/favicon.png",
         "sameAs": []
       }
     </script>
 
+    <!-- LocalBusiness Schema -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -95,6 +94,7 @@
 
     <title>MKT RUGS – FROM FARM TO FLOOR</title>
   </head>
+
   <body>
     <noscript>
       <nav>
