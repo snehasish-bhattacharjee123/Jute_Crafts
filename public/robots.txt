@@ -18,6 +18,9 @@ Allow: /images/
 Allow: /static/
 Allow: /*.css$
 Allow: /*.js$
+Allow: /favicon.png
+Allow: /favicon.ico
+Allow: /manifest.json
 
 # Block admin or development areas (if any)
 # Disallow: /admin/
