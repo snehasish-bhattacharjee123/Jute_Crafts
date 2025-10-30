@@ -23,12 +23,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "clean": "rm -rf build || rmdir /s /q build 2>nul || echo 'Build directory cleaned or does not exist'",
+    "prebuild": "npm run generate:sitemap",
     "build": "npm run generate:sitemap && react-scripts build",
+    "build:prod": "npm run clean && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "generate:sitemap": "node src/utils/generateSitemap.js",
-    "seo:audit": "echo 'Run Google Lighthouse or other SEO audit tools'",
-    "prebuild": "npm run generate:sitemap"
+    "seo:audit": "echo 'Run Google Lighthouse or other SEO audit tools'"
   },
   "eslintConfig": {
     "extends": [
