@@ -1242,7 +1242,7 @@ function AboutUs() {
                 className="relative w-full overflow-hidden rounded-2xl shadow-xl"
                 style={{ paddingBottom: "56.25%" }}
               >
-                <iframe
+                {/* <iframe
                   className="absolute top-0 left-0 w-full h-full"
                   src="https://www.youtube.com/embed/mQMLQfeGC6Q?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1"
                   title="NC John & Sons"
@@ -1250,6 +1250,16 @@ function AboutUs() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
+                ></iframe> */}
+
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/HznZ_RvmX9s?si=Zh5xCYnXEl4y0kZM"
+                  title="MKT Rugs - From Farm to Floor"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
                 ></iframe>
               </div>
             </div>
