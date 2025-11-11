@@ -1205,7 +1205,7 @@ function ContactUs() {
               </div>
               <div className="flex justify-center">
                 <img
-                  src="/images/Hart in Terracotta.jpg"
+                  src="/images/WhatsApp Image 2025-11-12 at 12.37.05 AM.jpeg"
                   alt="Facility preview"
                   className="w-full max-w-xs h-32 sm:h-36 object-cover rounded-xl shadow-md"
                   loading="lazy"

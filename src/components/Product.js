@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 import { ImagePlaceholder } from "./LoadingSpinner";
 
-
 function ProductHeroSlider() {
   const slides = [
     {
@@ -56,15 +55,34 @@ function ProductHeroSlider() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-3xl">
             <h1 className="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-heading font-semibold text-white leading-tight break-words">
-              <span className="block text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">Material Mastery</span>
-              <span className="block sm:hidden text-xs text-gold/90 mt-0.5">From Farm to Floor</span>
-              <span className="hidden sm:block text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gold/90 mt-0.5">From Farm to Floor</span>
+              <span className="block text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
+                Material Mastery
+              </span>
+              <span className="block sm:hidden text-xs text-gold/90 mt-0.5">
+                From Farm to Floor
+              </span>
+              <span className="hidden sm:block text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gold/90 mt-0.5">
+                From Farm to Floor
+              </span>
             </h1>
             <div className="mt-2 sm:mt-3 md:mt-4 flex flex-row gap-1.5 sm:gap-2 md:gap-3 justify-start">
               <Link to="/gallery">
-                <Button variant="gold" className="px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 text-xs sm:text-sm md:text-base font-normal min-h-[26px] sm:min-h-[32px] md:min-h-[40px] focus-enhanced touch-target">
-                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <Button
+                  variant="gold"
+                  className="px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 text-xs sm:text-sm md:text-base font-normal min-h-[26px] sm:min-h-[32px] md:min-h-[40px] focus-enhanced touch-target"
+                >
+                  <svg
+                    className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 mr-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
                   </svg>
                   <span className="hidden md:inline">Gallery</span>
                   <span className="md:hidden">View</span>
@@ -75,8 +93,18 @@ function ProductHeroSlider() {
                   variant="secondary"
                   className="px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 text-xs sm:text-sm md:text-base font-normal min-h-[26px] sm:min-h-[32px] md:min-h-[40px] !border-white !text-white hover:!bg-white hover:!text-secondary focus-enhanced touch-target"
                 >
-                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  <svg
+                    className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 mr-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
                   </svg>
                   <span className="hidden md:inline">Contact</span>
                   <span className="md:hidden">Call</span>
@@ -182,11 +210,7 @@ function ProductHeroSlider() {
           stroke="currentColor"
           strokeWidth="2.5"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 5l7 7-7 7"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
     </section>
@@ -202,21 +226,21 @@ function Product() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [shareCopied, setShareCopied] = useState(false);
   const lastTapRef = useRef(0);
-  
+
   // Accessibility: Respect user's motion preferences
   const prefersReducedMotion = useRef(false);
-  
+
   useEffect(() => {
     // Check for reduced motion preference
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     prefersReducedMotion.current = mediaQuery.matches;
-    
+
     const handleChange = (e) => {
       prefersReducedMotion.current = e.matches;
     };
-    
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
   const openModal = (image, anchor = null) => {
@@ -282,9 +306,9 @@ function Product() {
   const thumbs = {
     // Bengal Folk Craft — heritage jute/sisal craftsmanship
     bengal: [
-      "/images/Jute Boucle Rug.jpg",
-      "/images/Elma Geometric Jute Rug _ Natural.jpg",
-      "/images/Naturals Basket.jpg",
+      "/images/MOCKUP_4 (4) (1).jpg",
+      "/images/MOCKUP_4 (3).jpg",
+      "/images/MOCKUP_4.jpg",
     ],
     // Coastal Wave — indoor/outdoor, coastal tones and practical textures
     coastal: [
@@ -368,7 +392,7 @@ function Product() {
               tabIndex={0}
               aria-label={`View ${title} image ${i + 1}`}
               onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
+                if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
                   openModal(
                     { src, alt: `${title} ${i + 1}`, title },
@@ -385,7 +409,13 @@ function Product() {
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
               <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <circle cx="11" cy="11" r="6"></circle>
                   <path d="M21 21l-4.35-4.35"></path>
                   <path strokeLinecap="round" d="M11 8v6M8 11h6"></path>
@@ -406,9 +436,7 @@ function Product() {
         canonical="https://www.mktrugs.com/products"
       />
       {/* Hero slider with header compensation */}
-      <div
-        style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}
-      >
+      <div style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}>
         <ProductHeroSlider />
       </div>
 
@@ -417,11 +445,16 @@ function Product() {
           <div className="md:col-span-3">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading text-textDark mb-3 sm:mb-4 md:mb-0">
               <span className="font-semibold">Place of Origin Advantage</span>
-              <span className="block sm:inline"> — Within 150km of our Manufacturing Unit</span>
+              <span className="block sm:inline">
+                {" "}
+                — Within 150km of our Manufacturing Unit
+              </span>
             </h2>
           </div>
           <div className="md:col-span-2 text-textDark/80 font-body leading-relaxed text-sm sm:text-base md:text-lg lg:text-xl">
-            The most exquisite quality, straight from the source. Our hyper-local supply chain is our promise of purity and lasting beauty.
+            The most exquisite quality, straight from the source. Our
+            hyper-local supply chain is our promise of purity and lasting
+            beauty.
           </div>
         </div>
       </section>
@@ -433,7 +466,7 @@ function Product() {
             {/* Row 1: Large image + Text — Bengal Folk Craft */}
             <div className="md:col-span-7">
               <img
-                src={"/images/carpet.jpg"}
+                src={"/images/MOCKUP_4 (1).jpg"}
                 alt="Hand-braided natural fibre texture - Bengal Folk Craft collection by MKT Rugs"
                 loading="lazy"
                 className="responsive-img w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
@@ -441,7 +474,7 @@ function Product() {
                 onClick={(e) =>
                   openModal(
                     {
-                      src: "/images/carpet.jpg",
+                      src: "/images/MOCKUP_4 (1).jpg",
                       alt: "Hand-braided natural fibre texture",
                       title: "Bengal Folk Craft",
                     },
@@ -533,10 +566,10 @@ function Product() {
                 title="EarthBound Collection"
                 tagline="Rugs that Braided by Hand, Stitched with Machines"
                 bullets={[
-                 "Blending modern precision with tradition",
+                  "Blending modern precision with tradition",
                   "Earth-tone palettes for calm, restorative rooms",
                   "Thermal comfort light weight and with everyday durability",
-                  "Artisanal Jute Rugs braided by hand, Stitched with Machines"
+                  "Artisanal Jute Rugs braided by hand, Stitched with Machines",
                 ]}
                 items={thumbs.earthbound}
               />
@@ -623,11 +656,9 @@ function Product() {
                 }
               />
             </div>
-            
           </div>
         </div>
       </section>
-
 
       {/* Product Image Modal - Enhanced responsiveness */}
       {selectedImage && (
@@ -798,7 +829,9 @@ function Product() {
             {showMeta && (
               <div className="mt-3 sm:mt-4 bg-black/50 rounded-md sm:rounded-lg p-2.5 sm:p-3 text-textLight mx-2 sm:mx-0">
                 {selectedImage.alt && (
-                  <p className="text-xs sm:text-sm md:text-base font-body">{selectedImage.alt}</p>
+                  <p className="text-xs sm:text-sm md:text-base font-body">
+                    {selectedImage.alt}
+                  </p>
                 )}
               </div>
             )}
@@ -835,7 +868,11 @@ function Product() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gold/10 rounded-full mb-3 sm:mb-4">
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gold" viewBox="0 0 24 24" fill="currentColor">
+              <svg
+                className="w-4 h-4 sm:w-5 sm:h-5 text-gold"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
                 <path d="M12 2l3 7h7l-5.5 4 2.5 7-7-4.5L5 20l2.5-7L2 9h7z" />
               </svg>
               <span className="text-xs sm:text-sm md:text-base font-semibold text-gold tracking-wide uppercase">
@@ -846,7 +883,8 @@ function Product() {
               Why Exporters & Importers Choose MKT Rugs
             </h2>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-textDark/70 max-w-3xl mx-auto leading-relaxed font-body">
-              Discover why global partners trust us for their natural fiber needs
+              Discover why global partners trust us for their natural fiber
+              needs
             </p>
             <div className="mx-auto mt-4 sm:mt-6 w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-gold via-primary to-secondary rounded-full" />
           </div>
@@ -888,7 +926,11 @@ function Product() {
                     </div>
                     <div className="flex text-gold text-xs sm:text-sm mb-1 sm:mb-2">
                       {[...Array(5)].map((_, starIndex) => (
-                        <svg key={starIndex} className="w-3 h-3 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24">
+                        <svg
+                          key={starIndex}
+                          className="w-3 h-3 sm:w-4 sm:h-4 fill-current"
+                          viewBox="0 0 24 24"
+                        >
                           <path d="M12 2l3 7h7l-5.5 4 2.5 7-7-4.5L5 20l2.5-7L2 9h7z" />
                         </svg>
                       ))}
@@ -906,21 +948,30 @@ function Product() {
 
       {/* Enhanced Mobile FAB - Better responsiveness */}
       <div className="md:hidden fixed bottom-3 sm:bottom-4 right-3 sm:right-4 z-50 flex flex-col gap-1.5 sm:gap-2">
-        <a 
-          href="/contact" 
+        <a
+          href="/contact"
           className="group shadow-lg hover:shadow-xl transition-all duration-300"
           aria-label="Contact us"
         >
-          <Button variant="gold" className="rounded-full px-2.5 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-semibold group-hover:scale-105 transition-transform duration-300 touch-target">
-            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1 sm:mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <Button
+            variant="gold"
+            className="rounded-full px-2.5 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-semibold group-hover:scale-105 transition-transform duration-300 touch-target"
+          >
+            <svg
+              className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1 sm:mr-1.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
             </svg>
             <span className="hidden sm:inline">Contact</span>
             <span className="sm:hidden">Call</span>
           </Button>
         </a>
-        <a 
-          href="/enquiry" 
+        <a
+          href="/enquiry"
           className="group shadow-lg hover:shadow-xl transition-all duration-300"
           aria-label="Get a quote"
         >
@@ -928,7 +979,13 @@ function Product() {
             variant="secondary"
             className="rounded-full px-2.5 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-semibold !border-2 !border-primary !text-primary hover:!bg-primary hover:!text-white group-hover:scale-105 transition-all duration-300 touch-target"
           >
-            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1 sm:mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1 sm:mr-1.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
             </svg>
             <span className="hidden sm:inline">Quote</span>
@@ -941,5 +998,3 @@ function Product() {
 }
 
 export default Product;
-
-

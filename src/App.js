@@ -1198,10 +1198,13 @@ function App() {
                                   </h3>
                                   <p className="text-textDark/80 font-body">
                                     Access to genuine traditional techniques.
-                                    Our 25000+ skilled artisans preserve authentic
-                                    hand-spinning, hand-braiding, and
+                                    Our 25000+ skilled artisans preserve
+                                    authentic hand-spinning, hand-braiding, and
                                     hand-twisting methods passed down through
-                                    generations and our 300p weaver convert that yarn to Beautiful Rugs , Carpets By using their Hand Stiched , Hand Loom , Hand Weave Technique.
+                                    generations and our 300p weaver convert that
+                                    yarn to Beautiful Rugs , Carpets By using
+                                    their Hand Stiched , Hand Loom , Hand Weave
+                                    Technique.
                                   </p>
                                 </div>
                               </div>
@@ -1724,13 +1727,13 @@ function App() {
         <BackToTop />
 
         {/* Expo Popup */}
-        <Suspense fallback={null}>
+        {/* <Suspense fallback={null}>
           <ExpoPopup
             isOpen={showExpoPopup}
             onClose={() => setShowExpoPopup(false)}
             imageSrc="/images/bhaiduj.jpeg" // 🖼 Replace with your image path
           />
-        </Suspense>
+        </Suspense> */}
       </div>
     </Router>
   );

@@ -57,7 +57,7 @@ function Gallery() {
     },
     {
       id: 5,
-      src: "/images/background-zoom-calls-with-cozy-living-room.jpg",
+      src: "/images/Facilities category.jpg",
       alt: "Studio/facility",
       category: "facilities",
       title: "State-of-the-Art Facility",
