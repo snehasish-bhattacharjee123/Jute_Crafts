@@ -78,7 +78,7 @@ function Gallery() {
     },
     {
       id: 8,
-      src: "/images/download (3).jpg",
+      src: "/images/Facilities category (1).jpg",
       alt: "Quality check",
       category: "facilities",
       title: "Quality Control Center",
@@ -110,6 +110,20 @@ function Gallery() {
       alt: "Carpet close-up",
       category: "products",
       title: "Natural Carpets",
+    },
+    {
+      id: 13,
+      src: "/images/Facilities category (2).jpg",
+      alt: "Hand Stiched check",
+      category: "facilities",
+      title: "Quality Control Center",
+    },
+    {
+      id: 14,
+      src: "/images/Facilities category (3).jpg",
+      alt: " Hand Crafting",
+      category: "facilities",
+      title: "Quality Hand Crafting",
     },
   ];
 
@@ -286,7 +300,11 @@ function Gallery() {
               >
                 {isLoading && selectedCategory === category.id ? (
                   <div className="flex items-center gap-1.5 sm:gap-2">
-                    <LoadingSpinner variant="mkt-compact" size="xs" color="white" />
+                    <LoadingSpinner
+                      variant="mkt-compact"
+                      size="xs"
+                      color="white"
+                    />
                     <span>{category.name}</span>
                   </div>
                 ) : (
@@ -343,7 +361,11 @@ function Gallery() {
                   {/* Loading skeleton */}
                   {isImageLoading && (
                     <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
-                      <LoadingSpinner variant="mkt-compact" size="md" color="primary" />
+                      <LoadingSpinner
+                        variant="mkt-compact"
+                        size="md"
+                        color="primary"
+                      />
                     </div>
                   )}
 
@@ -638,7 +660,9 @@ function Gallery() {
                           d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
                         />
                       </svg>
-                      <span className="hidden sm:inline">Double-tap to zoom</span>
+                      <span className="hidden sm:inline">
+                        Double-tap to zoom
+                      </span>
                       <span className="sm:hidden">Tap to zoom</span>
                     </span>
                   </div>
@@ -663,7 +687,9 @@ function Gallery() {
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span className="whitespace-nowrap">Link copied to clipboard</span>
+                  <span className="whitespace-nowrap">
+                    Link copied to clipboard
+                  </span>
                 </div>
               </div>
             )}
