@@ -1198,10 +1198,10 @@ function App() {
                                   </h3>
                                   <p className="text-textDark/80 font-body">
                                     Access to genuine traditional techniques.
-                                    Our 100+ skilled artisans preserve authentic
+                                    Our 25000+ skilled artisans preserve authentic
                                     hand-spinning, hand-braiding, and
                                     hand-twisting methods passed down through
-                                    generations.
+                                    generations and our 300p weaver convert that yarn to Beautiful Rugs , Carpets By using their Hand Stiched , Hand Loom , Hand Weave Technique.
                                   </p>
                                 </div>
                               </div>

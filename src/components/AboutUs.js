@@ -551,7 +551,7 @@ function AboutUs() {
     {
       year: "2008",
       title: "Foundation of Excellence",
-      text: "Our journey began as Maa Kali Traders, a small yarn-making company with 10 Ton Monthly Capacity",
+      text: "Our journey began as Maa Kali Traders, a small hand Spum Jute yarn-making company with 10 Ton Monthly Capacity",
       img: "/images/download.jpg",
       side: "left",
       icon: "🌱",
@@ -569,7 +569,7 @@ function AboutUs() {
     {
       year: "2016",
       title: "Infrastructure Development",
-      text: "We built 2 company godowns for increased storage capacity",
+      text: "We built godowns facility for increased storage capacity with 50000+ SQFt area",
       img: "/images/Jute Boucle Rug.jpg",
       side: "left",
       icon: "🏭",
@@ -578,7 +578,7 @@ function AboutUs() {
     {
       year: "2017",
       title: "Industry Evolution",
-      text: "We evolved into an integrated carpet manufacturing company",
+      text: "We evolved into an integrated carpet manufacturing company along with our yarn making Business",
       img: "/images/carpet.jpg",
       side: "right",
       icon: "🔄",
@@ -605,7 +605,7 @@ function AboutUs() {
     {
       year: "2024",
       title: "Global Reach",
-      text: "MKT Rugs was established, specializing in B2B export operations from Gopalnagar, West Bengal, India",
+      text: "From MAA KALI TRADERS to our new company MKT Rugs was established, specializing in B2B export operations from Gopalnagar, West Bengal, India",
       img: "/images/Beige Contemporary Polka Dotted Handwoven Rectangular Luxury Rugs - 250 cm x 350 cm.jpg",
       side: "left",
       icon: "🌍",

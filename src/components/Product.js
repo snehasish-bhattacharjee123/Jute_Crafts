@@ -455,10 +455,10 @@ function Product() {
                 title="Bengal Folk Craft"
                 tagline="Heritage braids from the looms of Bengal"
                 bullets={[
-                  "Hand-braided jute and rooted in Bengal traditions",
+                  "Hand-braided jute yarn which is rooted in Bengal traditions",
                   "Earth-warm palettes and robust textures for daily living",
                   "From cottage looms to export-grade finishing",
-                  "Sourced and crafted within our eastern India cluster",
+                  "Fully hand stiched crafted by Bengal Artisans",
                 ]}
                 items={thumbs.bengal}
               />
@@ -468,10 +468,9 @@ function Product() {
             <div className="md:col-span-5 order-2 md:order-none">
               <TextBlock
                 title="Coastal Wave Collection"
-                tagline="Sea-breeze hues, indoor–outdoor ease"
+                tagline="Fiber that come from Costal Area"
                 bullets={[
-                  "All-weather weaves in coastal neutrals and ocean blues",
-                  "Easy-care textures designed for patios and shore homes",
+                  "Costal fiber like Sisal, Seagrass, Banana Fiber",
                   "Options for durability and quick dry-down",
                   "Ripple patterns inspired by tidal lines and grasses",
                 ]}
@@ -497,7 +496,7 @@ function Product() {
               />
             </div>
 
-            <div className="md:col-span-7">
+            {/* <div className="md:col-span-7">
               <img
                 src={"/images/Elma Geometric Jute Rug _ Natural.jpg"}
                 alt="Banana-blend flatweave in warm interior"
@@ -514,8 +513,8 @@ function Product() {
                   )
                 }
               />
-            </div>
-            <div className="md:col-span-5">
+            </div> */}
+            {/* <div className="md:col-span-5">
               <TextBlock
                 title="Banana Bloom Collection"
                 tagline="Banana fibre stories, spun with sunshine"
@@ -527,16 +526,16 @@ function Product() {
                 ]}
                 items={thumbs.banana}
               />
-            </div>
+            </div> */}
 
             <div className="md:col-span-5 order-2 md:order-none">
               <TextBlock
                 title="EarthBound Collection"
-                tagline="Grounded blends of wool and jute"
+                tagline="Rugs that Braided by Hand, Stitched with Machines"
                 bullets={[
                  "Blending modern precision with tradition",
                   "Earth-tone palettes for calm, restorative rooms",
-                  "Thermal comfort with everyday durability",
+                  "Thermal comfort light weight and with everyday durability",
                   "Artisanal Jute Rugs braided by hand, Stitched with Machines"
                 ]}
                 items={thumbs.earthbound}
@@ -561,7 +560,7 @@ function Product() {
               />
             </div>
 
-            <div className="md:col-span-7">
+            {/* <div className="md:col-span-7">
               <img
                 src={"/images/flat-lay-monochromatic-assortment-textiles.jpg"}
                 alt="Jacquard patterns in monochrome study"
@@ -590,7 +589,7 @@ function Product() {
                 ]}
                 items={thumbs.spectrum}
               />
-            </div>
+            </div> */}
 
             {/* Row 6: Text + Large image — Majestic Tufts Collection */}
             <div className="md:col-span-5 order-2 md:order-none">

@@ -6,7 +6,7 @@
 //   const advantages = [
 //     {
 //       title: "From Farm to Floor",
-//       desc: "We source raw jute and natural fibers within a 50 km radius — reducing carbon footprint while ensuring authentic, traceable craftsmanship.",
+//       desc: "We source Only raw jute and natural fibers within a 150 km radius — reducing carbon footprint while ensuring authentic, traceable craftsmanship.",
 //       icon: "🌾",
 //     },
 //     {
@@ -118,7 +118,7 @@ const problemSolutions = [
     problem: "Late Shipments",
     solutionTitle: "From Farm to Floor",
     solutionDesc:
-      "We source raw jute and natural fibers locally within a 50 km radius. Close sourcing and integrated production reduce delays — your rugs arrive on time.",
+      "We source only raw jute and natural fibers locally within a 150 km radius. Close sourcing and integrated production reduce delays — your rugs arrive on time.",
   },
   {
     problem: "Quality Doesn’t Match Samples",
