@@ -703,7 +703,7 @@ function ContactUs() {
             </div>
             
             <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-white mb-2 sm:mb-4 md:mb-6 leading-tight">
-              <span className="block text-sm sm:text-xl md:text-2xl lg:text-3xl">Let's Talk Rugs</span>
+              <span className="block text-sm sm:text-xl md:text-2xl lg:text-3xl">Let's Talk</span>
               <span className="block text-gold text-xs sm:text-lg md:text-xl lg:text-2xl mt-0.5">We'd Love to Hear From You</span>
             </h1>
             
