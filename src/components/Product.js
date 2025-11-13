@@ -336,9 +336,9 @@ function Product() {
     ],
     // Majestic Tufts — luxurious hand-tufted wool rugs
     majestic: [
-      "/images/main.jpg",
-      "/images/carpet.jpg",
-      "/images/Jute Boucle Rug.jpg",
+      "/images/Image_3 (1).jpg",
+      "/images/Image_2 (1).jpg",
+      "/images/Image_4 (1).jpg",
     ],
   };
 
@@ -640,14 +640,14 @@ function Product() {
             </div>
             <div className="md:col-span-7 order-1 md:order-none">
               <img
-                src={"/images/main.jpg"}
+                src={"/images/Image_5 (1).jpg"}
                 alt="Luxurious hand-tufted wool rug in elegant setting"
                 loading="lazy"
                 className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
                     {
-                      src: "/images/main.jpg",
+                      src: "/images/Image_5 (1).jpg",
                       alt: "Luxurious hand-tufted wool rug in elegant setting",
                       title: "Majestic Tufts",
                     },

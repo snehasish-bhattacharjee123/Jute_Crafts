@@ -780,28 +780,28 @@ function App() {
                             {/* ✅ Image Grid */}
                             <div className="grid grid-cols-2 gap-6">
                               <img
-                                src="/images/Artboard 1.jpg"
+                                src="/images/collage01.jpg"
                                 alt="Harvesting jute plants - Step 1 of MKT Rugs farm to floor process"
                                 className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                                 loading="lazy"
                                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                               />
                               <img
-                                src="/images/Artboard 2.jpg"
+                                src="/images/collage02.jpg"
                                 alt="Extracting natural fibres - Quality jute processing at MKT Rugs"
                                 className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                                 loading="lazy"
                                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                               />
                               <img
-                                src="/images/Artboard 3.jpg"
+                                src="/images/collage03.jpg"
                                 alt="Sorting and quality checking raw fibres - MKT Rugs quality control"
                                 className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                                 loading="lazy"
                                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                               />
                               <img
-                                src="/images/Artboard 4.jpg"
+                                src="/images/collage04.jpg"
                                 alt="Weaving natural fibre rugs - Handcrafted artisan work at MKT Rugs"
                                 className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                                 loading="lazy"
