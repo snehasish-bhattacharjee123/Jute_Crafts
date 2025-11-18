@@ -392,9 +392,6 @@ function AboutUs() {
                     <a href="/enquiry" className="inline-flex">
                       <Button variant="gold">Request a Quote</Button>
                     </a>
-                    {/* <a href="/products" className="inline-flex">
-                      <Button variant="secondary">Shop Our Collection</Button>
-                    </a> */}
                   </div>
                 </div>
               </div>
@@ -675,6 +672,34 @@ function AboutUs() {
   </div>
 </section>
 
+<section className="py-20 bg-white reveal">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textDark mb-4">
+        See Our Craftsmanship in Action
+      </h2>
+      <p className="text-lg text-textDark max-w-2xl mx-auto leading-relaxed font-body">
+        Watch how we transform natural fibres into beautiful, handcrafted rugs
+      </p>
+    </div>
+
+    <div className="flex justify-center">
+      <div className="w-full max-w-3xl">
+        <div className="relative w-full overflow-hidden rounded-2xl shadow-xl" style={{ paddingBottom: "56.25%" }}>
+          <iframe
+            className="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube.com/embed/mQMLQfeGC6Q?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1"
+            title="NC John & Sons"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {false && (
         <section className="py-16 bg-white reveal">
@@ -714,7 +739,7 @@ function AboutUs() {
                     "Walmart",
                     "Costco",
                     "Bed Bath & Beyond",
-                    "Sam’s Club",
+                    "Sam's Club",
                     "Crate & Barrel",
                     "Pottery Barn",
                     "Target",
@@ -804,22 +829,6 @@ function AboutUs() {
           </div>
         </div>
       </section>
-
-      {/* Call to Action */}
-      {/* <section className="py-16 bg-primary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-textLight mb-4">
-            Join Our Journey
-          </h2>
-          <p className="text-lg sm:text-xl text-textLight mb-8 leading-relaxed">
-            Experience the beauty of natural fibres — FROM FARM TO FLOOR.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/enquiry" className="inline-flex"><Button variant="gold">Request a Quote</Button></a>
-            <a href="/products" className="inline-flex"><Button variant="secondary" className="border-gold text-textLight">Shop Our Collection</Button></a>
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 }
