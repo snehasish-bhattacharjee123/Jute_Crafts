@@ -1254,7 +1254,7 @@ function AboutUs() {
 
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/HznZ_RvmX9s?si=Zh5xCYnXEl4y0kZM"
+                  src="https://www.youtube.com/embed/AW_rEW5KCSI?si=lk4LCVkzNV0RKmvv"
                   title="MKT Rugs - From Farm to Floor"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
