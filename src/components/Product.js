@@ -10,9 +10,9 @@ function ProductHeroSlider() {
       src: "/images/product_b1.jpg",
       alt: "Assorted natural fibre rugs hanging and styled",
     },
-    { src: "/images/carpet.jpg", alt: "Natural jute carpet close-up texture" },
+    { src: "/images/MKT Earth bound collection (3).jpg", alt: "Natural jute carpet close-up texture" },
     {
-      src: "/images/Elma Geometric Jute Rug _ Natural.jpg",
+      src: "/images/Costal wave collection (1).jpg",
       alt: "Geometric jute rug in living space",
     },
   ];
@@ -312,9 +312,9 @@ function Product() {
     ],
     // Coastal Wave — indoor/outdoor, coastal tones and practical textures
     coastal: [
-      "/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg",
-      "/images/Summer Novelty Coir Doormat _ The Company Store.jpg",
-      "/images/Rugs to complete a room_ #serenaandlily.jpg",
+      "/images/Costal wave collection (2).jpg",
+      "/images/Costal wave collection (3).jpg",
+      "/images/Costal wave collection (1).jpg",
     ],
     // Banana Bloom — banana fibre narratives (using natural fibre placeholders)
     banana: [
@@ -324,9 +324,9 @@ function Product() {
     ],
     // EarthBound — earthy wool and jute blends
     earthbound: [
-      "/images/Hart in Terracotta.jpg",
-      "/images/download.jpg",
-      "/images/White Natural Jute Rug, Hand Braided Rug, Jute Rug, Warm Rug, Custom Area Rug, Yoga Mat Indoor Rug.jpg",
+      "/images/MKT Earth bound collection (1).jpg",
+      "/images/MKT Earth bound collection (6).jpg",
+      "/images/MKT Earth bound collection (4).jpg",
     ],
     // Spectrum Weaves — jacquard/CAD driven designs
     spectrum: [
@@ -512,14 +512,14 @@ function Product() {
             </div>
             <div className="md:col-span-7 order-1 md:order-none">
               <img
-                src={"/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg"}
+                src={"/images/Costal wave collection.jpg"}
                 alt="Coastal-ready indoor/outdoor weave in patio setting"
                 loading="lazy"
                 className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
                     {
-                      src: "/images/Eco-Friendly DIY Natural Fiber Rugs for Home.jpg",
+                      src: "/images/Costal wave collection.jpg",
                       alt: "Coastal-ready indoor/outdoor weave in patio setting",
                       title: "Coastal Wave Collection",
                     },
@@ -576,14 +576,14 @@ function Product() {
             </div>
             <div className="md:col-span-7 order-1 md:order-none">
               <img
-                src={"/images/Hart in Terracotta.jpg"}
+                src={"/images/MKT Earth bound collection (3).jpg"}
                 alt="Wool–jute blend rug adding warmth to living area"
                 loading="lazy"
                 className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
                     {
-                      src: "/images/Hart in Terracotta.jpg",
+                      src: "/images/MKT Earth bound collection (3).jpg",
                       alt: "Wool–jute blend rug adding warmth to living area",
                       title: "EarthBound Collection",
                     },
