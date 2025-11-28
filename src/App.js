@@ -525,6 +525,7 @@ import TermsConditions from "./components/TermsConditions";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import RefundPolicy from "./components/RefundPolicy";
 import ShippingPolicy from "./components/ShippingPolicy";
+import BlogPost from "./components/BlogPost";
 import { LoadingOverlay, InlineLoading } from "./components/LoadingSpinner";
 
 const AboutUs = lazy(() => import("./components/AboutUs"));
@@ -1705,7 +1706,6 @@ function App() {
                     </>
                   }
                 />
-
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/products" element={<Product />} />
                 <Route path="/gallery" element={<Gallery />} />
@@ -1713,6 +1713,8 @@ function App() {
                 <Route path="/care-guide" element={<CareGuide />} />
                 <Route path="/contact" element={<ContactUs />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:id" element={<BlogPost />} />{" "}
+                {/* 👈 dynamic route */}
                 <Route path="/why-us" element={<WhyUs />} />
                 <Route path="/terms-conditions" element={<TermsConditions />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
