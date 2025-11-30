@@ -32,6 +32,8 @@ function ProductHeroSlider() {
   const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
   const next = () => setIndex((i) => (i + 1) % slides.length);
 
+  
+
   return (
     <section
       className="relative h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] min-h-[600px] max-h-[900px] pt-[calc(var(--header-h,80px))]"
