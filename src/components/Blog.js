@@ -145,7 +145,7 @@ export const blogs = [
     featured: true,
   },
   {
-    id: 7,
+    id: 6,
     title: "Jute Rugs' Classic Beauty: An Easy Option for Contemporary Homes",
     date: "Dec 12, 2025",
     desc: "A complete guide on why jute rugs remain a timeless choice and how MKT Rugs preserves Bengal’s weaving legacy.",
@@ -237,16 +237,16 @@ const Blog = () => {
       <div style={{ marginTop: "calc(-1 * var(--header-h, 80px))" }}>
         <section
           className="
-      relative 
-      bg-gradient-to-br 
-      from-[#f8f5f2] 
-      via-[#f5f1eb] 
-      to-[#f0ebe2] 
-      px-3 sm:px-4 md:px-6 
-      py-16 sm:py-20 md:py-28 
-      pt-[calc(var(--header-h,80px)+3rem)] 
-      animate-fadeIn
-    "
+  relative 
+  bg-gradient-to-br 
+  from-[#f8f5f2] 
+  via-[#f5f1eb] 
+  to-[#f0ebe2] 
+  px-3 sm:px-4 md:px-6 
+  py-24 sm:py-28 md:py-36
+  pt-[calc(var(--header-h,80px)+5rem)]
+  animate-fadeIn
+"
         >
           <div className="max-w-4xl mx-auto text-center">
             {/* Badge */}

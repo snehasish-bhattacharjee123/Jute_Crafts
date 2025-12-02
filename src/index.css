@@ -220,6 +220,9 @@ code {
   animation: pulse-gentle 2s ease-in-out infinite;
 }
 
+
+
+
 /* Line clamp utility for text truncation */
 .line-clamp-2 {
   overflow: hidden;
