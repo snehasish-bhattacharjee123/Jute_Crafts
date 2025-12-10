@@ -1202,7 +1202,7 @@ function App() {
                                     Our 25000+ skilled artisans preserve
                                     authentic hand-spinning, hand-braiding, and
                                     hand-twisting methods passed down through
-                                    generations and our 300p weaver convert that
+                                    generations and our 200+ weaver convert that
                                     yarn to Beautiful Rugs , Carpets By using
                                     their Hand Stiched , Hand Loom , Hand Weave
                                     Technique.

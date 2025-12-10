@@ -18,7 +18,7 @@ function CertificatesGrid() {
     },
     {
       src: "/images/CEPC.jpg",
-      alt: "CEPC Logo",
+      alt: "JPDEPC CERTIFICATE",
       desc: "Recognized by the Carpet Export Promotion Council (CEPC).",
       pdf: "/images/MKT RUGS CEPC Membership.pdf",
     },
