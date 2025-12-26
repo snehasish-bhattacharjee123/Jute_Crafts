@@ -608,6 +608,15 @@ function App() {
       { threshold: 0.01, rootMargin: "0px 0px -10% 0px" }
     );
 
+    let rafId = null;
+    const schedule = (fn) => {
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(() => {
+        rafId = null;
+        fn();
+      });
+    };
+
     const observeAll = () => {
       document
         .querySelectorAll(".reveal:not(.reveal-visible)")
@@ -630,17 +639,20 @@ function App() {
     revealInViewportNow();
 
     const mo = new MutationObserver(() => {
-      observeAll();
-      revealInViewportNow();
+      schedule(observeAll);
+      schedule(revealInViewportNow);
     });
     mo.observe(document.body, { childList: true, subtree: true });
 
-    const onResizeScroll = () => revealInViewportNow();
+    const onResizeScroll = () => schedule(revealInViewportNow);
     window.addEventListener("load", onResizeScroll);
     window.addEventListener("resize", onResizeScroll);
     window.addEventListener("scroll", onResizeScroll, { passive: true });
 
     return () => {
+      if (rafId) {
+        window.cancelAnimationFrame(rafId);
+      }
       io.disconnect();
       mo.disconnect();
       window.removeEventListener("load", onResizeScroll);

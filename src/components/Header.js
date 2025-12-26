@@ -234,15 +234,21 @@ const Header = () => {
     "/about",
     "/products",
     "/gallery",
-    "/contact",
+    "/why-us",
     "/blog",
+    "/contact",
   ];
+
+  const hasTransparentHeaderForPath = (pathname) => {
+    if (pagesWithTransparentHeader.includes(pathname)) return true;
+    // Handle dynamic routes like /blog/:id
+    if (pathname.startsWith("/blog/")) return true;
+    return false;
+  };
 
   // ✅ Scroll listener (for pages with transparent header)
   useEffect(() => {
-    const hasTransparentHeader = pagesWithTransparentHeader.includes(
-      location.pathname
-    );
+    const hasTransparentHeader = hasTransparentHeaderForPath(location.pathname);
     if (!hasTransparentHeader) return;
 
     const onScroll = () => {
@@ -256,9 +262,7 @@ const Header = () => {
 
   // ✅ Sync with route change
   useLayoutEffect(() => {
-    const hasTransparentHeader = pagesWithTransparentHeader.includes(
-      location.pathname
-    );
+    const hasTransparentHeader = hasTransparentHeaderForPath(location.pathname);
     if (!hasTransparentHeader) {
       setScrolled(true);
     } else {
@@ -274,9 +278,7 @@ const Header = () => {
   }, []);
 
   // ✅ Inline styles (conditional)
-  const hasTransparentHeader = pagesWithTransparentHeader.includes(
-    location.pathname
-  );
+  const hasTransparentHeader = hasTransparentHeaderForPath(location.pathname);
   const shouldBeTransparent = hasTransparentHeader && !isMobile && !scrolled;
 
   const inlineStyle = {

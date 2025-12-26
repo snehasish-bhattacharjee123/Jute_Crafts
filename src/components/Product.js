@@ -41,16 +41,18 @@ function ProductHeroSlider() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {slides.map((s, i) => (
-        <img
-          key={s.src}
-          src={s.src}
-          alt={s.alt}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-            i === index ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      ))}
+      <img
+        key={slides[index]?.src}
+        src={slides[index]?.src}
+        alt={slides[index]?.alt}
+        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100"
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
+        width="1920"
+        height="1080"
+        sizes="100vw"
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-secondary/20 to-secondary/60" />
       {/* Headline + CTA + USPs */}
       <div className="absolute inset-0 flex items-center pt-12 sm:pt-16">

@@ -28,19 +28,16 @@ const Hero = ({ onDownloadClick }) => {
   
   // Video loading handlers
   const handleVideoLoad = () => {
-    console.log('Video loaded successfully');
     setVideoLoaded(true);
     setVideoError(false);
   };
   
   const handleVideoError = (error) => {
-    console.log('Video error:', error);
     setVideoError(true);
     setVideoLoaded(false);
   };
   
   const handleVideoLoadStart = () => {
-    console.log('Video loading started');
   };
   
   // Handle user interaction for mobile video playback
@@ -53,47 +50,21 @@ const Hero = ({ onDownloadClick }) => {
     }
   };
   
-  // Check video file availability and mobile-specific handling
+  // Prefer image on slow connections (avoid additional video HEAD request)
   useEffect(() => {
-    const checkVideoFile = async () => {
-      try {
-        const response = await fetch('/images/Mkt Promo V3.mp4', { method: 'HEAD' });
-        if (!response.ok) {
-          console.log('Video file not found, using fallback image');
+    try {
+      if ('connection' in navigator) {
+        const connection = navigator.connection;
+        if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
           setVideoError(true);
           return;
         }
-        
-        // Check if we're on a slow connection (mobile data)
-        if ('connection' in navigator) {
-          const connection = navigator.connection;
-          if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
-            console.log('Slow connection detected, using fallback image');
-            setVideoError(true);
-            return;
-          }
+        if (isMobile && connection.downlink && connection.downlink < 1.5) {
+          setVideoError(true);
         }
-        
-        // For mobile devices, give preference to image on very slow connections
-        if (isMobile && 'connection' in navigator) {
-          const connection = navigator.connection;
-          if (connection.downlink && connection.downlink < 1.5) {
-            console.log('Slow mobile connection, using fallback image');
-            setVideoError(true);
-            return;
-          }
-        }
-        
-        console.log('Video file available and connection is suitable');
-      } catch (error) {
-        console.log('Error checking video file:', error);
-        setVideoError(true);
       }
-    };
-    
-    // Only check after mobile detection is complete
-    if (isMobile !== undefined) {
-      checkVideoFile();
+    } catch {
+      // ignore
     }
   }, [isMobile]);
   
@@ -101,7 +72,6 @@ const Hero = ({ onDownloadClick }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (!videoLoaded && !videoError) {
-        console.log('Video loading timeout, switching to fallback');
         setVideoError(true);
       }
     }, isMobile ? 8000 : 5000); // Longer timeout for mobile
@@ -116,7 +86,6 @@ const Hero = ({ onDownloadClick }) => {
       if (playPromise !== undefined) {
         playPromise.catch((error) => {
           // Auto-play was prevented, which is normal on mobile
-          console.log('Auto-play prevented:', error);
         });
       }
     }
@@ -295,13 +264,12 @@ const Hero = ({ onDownloadClick }) => {
             muted
             loop
             playsInline
-            preload={isMobile ? "metadata" : "auto"}
+            preload={isMobile ? "metadata" : "metadata"}
             poster="/images/main.jpg"
             onLoadStart={handleVideoLoadStart}
             onLoadedData={handleVideoLoad}
             onError={handleVideoError}
             onCanPlay={handleVideoLoad}
-            onLoadedMetadata={() => console.log('Video metadata loaded')}
             webkit-playsinline="true"
             x5-playsinline="true"
             x5-video-player-type="h5"
@@ -313,27 +281,20 @@ const Hero = ({ onDownloadClick }) => {
             Your browser does not support the video tag.
           </video>
         )}
-        
-        {/* Fallback Background Image */}
-        {(videoError || (!videoLoaded && isMobile)) && (
-          <div
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: "url('/images/main.jpg')",
-            }}
+
+        {/* Hero poster image (LCP) */}
+        {(!videoLoaded || videoError) && (
+          <img
+            src="/images/main.jpg"
+            alt="MKT Rugs hero background"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            width="1920"
+            height="1080"
+            sizes="100vw"
           />
-        )}
-        
-        {/* Loading State */}
-        {!videoLoaded && !videoError && (
-          <div className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat flex items-center justify-center"
-               style={{
-                 backgroundImage: "url('/images/main.jpg')",
-               }}>
-            <div className="bg-black/50 backdrop-blur-sm rounded-full p-4">
-              <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          </div>
         )}
         
         {/* Enhanced Overlay */}

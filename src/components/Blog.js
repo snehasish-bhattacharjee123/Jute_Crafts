@@ -154,6 +154,59 @@ export const blogs = [
     readTime: "10 min read",
     featured: true,
   },
+  {
+    id: 7,
+    title: "Crafted by Artisans, The MKT RUGS Promise",
+    date: "Dec 26, 2025",
+    desc: "Discover authentic handmade jute rugs crafted by skilled artisans in West Bengal. Support fair trade, ethical production, and India’s textile heritage with MKT RUGS.",
+    img: "/images/blog7.jpg",
+    category: "craftsmanship",
+    readTime: "6 min read",
+    featured: true,
+    metaTitle:
+      "Handmade Jute Rugs from West Bengal | Artisan-Made Rugs by MKT RUGS",
+    metaDescription:
+      "Discover authentic handmade jute rugs crafted by skilled artisans in West Bengal. Support fair trade, ethical production, and India’s textile heritage with MKT RUGS.",
+  },
+  {
+    id: 8,
+    title: "Caring for Your Jute Rug: A Complete Maintenance Guide",
+    date: "Dec 26, 2025",
+    desc: "Learn how to clean and maintain jute rugs properly. Simple care tips to keep your natural jute rug beautiful and long-lasting for years.",
+    img: "/images/blog2.jpg",
+    category: "care",
+    readTime: "5 min read",
+    featured: false,
+    metaTitle: "Jute Rug Cleaning & Care Guide | How to Maintain Natural Jute Rugs",
+    metaDescription:
+      "Learn how to clean and maintain jute rugs properly. Simple care tips to keep your natural jute rug beautiful and long-lasting for years.",
+  },
+  {
+    id: 9,
+    title: "Why MKT RUGS Is Preferred by Buyers in USA, Germany, Europe & Japan",
+    date: "Dec 26, 2025",
+    desc: "Trusted jute rug supplier from India for USA, Europe & Japan. Custom sizes, wholesale orders, export packaging, and authentic handcrafted quality.",
+    img: "/images/blog6.jpg",
+    category: "export",
+    readTime: "6 min read",
+    featured: true,
+    metaTitle: "Jute Rugs Supplier from India | Wholesale & Export by MKT RUGS",
+    metaDescription:
+      "Trusted jute rug supplier from India for USA, Europe & Japan. Custom sizes, wholesale orders, export packaging, and authentic handcrafted quality.",
+  },
+  {
+    id: 10,
+    title: "Shop Natural. Live Beautiful. Choose MKT RUGS.",
+    date: "Dec 26, 2025",
+    desc: "Shop affordable, eco-friendly jute rugs and luxury handwoven carpets. Custom handmade jute rugs for homes, boutiques & export worldwide.",
+    img: "/images/blog4.jpg",
+    category: "sustainability",
+    readTime: "5 min read",
+    featured: false,
+    metaTitle: "Eco-Friendly Jute Rugs & Handwoven Carpets | MKT RUGS",
+    metaDescription:
+      "Shop affordable, eco-friendly jute rugs and luxury handwoven carpets. Custom handmade jute rugs for homes, boutiques & export worldwide.",
+  },
 ];
 
 // export default blogs;
@@ -185,6 +238,11 @@ const Blog = () => {
       id: "care",
       name: "Care & Maintenance",
       count: blogs.filter((b) => b.category === "care").length,
+    },
+    {
+      id: "export",
+      name: "Export & Wholesale",
+      count: blogs.filter((b) => b.category === "export").length,
     },
   ];
 
@@ -234,9 +292,8 @@ const Blog = () => {
         canonical="https://www.mktrugs.com/blog"
       />
       {/* Hero Section - Enhanced mobile responsiveness */}
-      <div style={{ marginTop: "calc(-1 * var(--header-h, 80px))" }}>
-        <section
-          className="
+      <section
+        className="
   relative 
   bg-gradient-to-br 
   from-[#f8f5f2] 
@@ -247,8 +304,8 @@ const Blog = () => {
   pt-[calc(var(--header-h,80px)+5rem)]
   animate-fadeIn
 "
-        >
-          <div className="max-w-4xl mx-auto text-center">
+      >
+        <div className="max-w-4xl mx-auto text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c49b63]/10 border border-[#c49b63]/20 rounded-full mb-6">
               <span className="text-sm font-semibold text-[#c49b63] tracking-wide uppercase">
@@ -394,9 +451,8 @@ const Blog = () => {
                 </button>
               ))}
             </div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       {/* Featured Posts Section - Enhanced mobile spacing */}
       {featuredBlogs.length > 0 &&
@@ -425,6 +481,10 @@ const Blog = () => {
                         alt={`Featured article: ${blog.title}`}
                         className="responsive-image w-full h-48 sm:h-52 md:h-56 object-cover group-hover:scale-110 transition-transform duration-300"
                         loading="lazy"
+                        decoding="async"
+                        fetchPriority="low"
+                        width="800"
+                        height="450"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                       <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
@@ -533,6 +593,10 @@ const Blog = () => {
                         alt={`Article: ${blog.title} - ${blog.category}`}
                         className="responsive-image w-full h-40 sm:h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
+                        decoding="async"
+                        fetchPriority="low"
+                        width="800"
+                        height="450"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                       <div className="absolute top-3 sm:top-4 left-3 sm:left-4">

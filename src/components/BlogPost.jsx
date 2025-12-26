@@ -213,6 +213,217 @@ export const blogs = [
   <p>Step into a world where craftsmanship meets nature. Discover the magic of MKT Rugs.</p>
   `,
   },
+  {
+    id: 7,
+    title: "Crafted by Artisans, The MKT RUGS Promise",
+    date: "Dec 26, 2025",
+    desc: "Discover authentic handmade jute rugs crafted by skilled artisans in West Bengal. Support fair trade, ethical production, and India’s textile heritage with MKT RUGS.",
+    img: "/images/blogpost3.jpg",
+    category: "craftsmanship",
+    readTime: "6 min read",
+    featured: true,
+    metaTitle:
+      "Handmade Jute Rugs from West Bengal | Artisan-Made Rugs by MKT RUGS",
+    metaDescription:
+      "Discover authentic handmade jute rugs crafted by skilled artisans in West Bengal. Support fair trade, ethical production, and India’s textile heritage with MKT RUGS.",
+    content: `
+  <h2>Honoring India’s Timeless Weaving Traditions</h2>
+
+  <p>At MKT RUGS, every rug is more than a décor piece, it is a reflection of heritage, craftsmanship, and conscious living. Our jute rugs are hand-braided, hand-stitched, and hand-loomed by traditional artisan communities in West Bengal, India, where weaving is a cultural legacy passed down for generations.</p>
+
+  <p>Unlike factory-produced rugs, each MKT RUGS product carries subtle variations in texture and tone, making every piece unique and authentic.</p>
+
+  <h2>Empowering Artisan Communities in West Bengal</h2>
+
+  <p>When you purchase from MKT RUGS, you directly contribute to:</p>
+
+  <ul>
+    <li>Supporting local artisans and rural livelihoods</li>
+    <li>Preserving India’s centuries-old textile heritage</li>
+    <li>Encouraging fair trade and ethical employment</li>
+    <li>Promoting sustainable, eco-conscious production</li>
+  </ul>
+
+  <p>Our artisans work in respectful environments, earning fair wages that allow them to sustain their families while continuing their traditional craft.</p>
+
+  <h2>Slow Craftsmanship Over Machine Mass Production</h2>
+
+  <p>We strongly believe in slow craftsmanship, a process that values time, skill, and patience. Each rug is carefully woven over days or weeks, ensuring durability, strength, and superior quality.</p>
+
+  <p>In an era of fast décor and machine-made replicas, MKT RUGS proudly stands for authenticity. No shortcuts. No mass imitation. Just honest craftsmanship.</p>
+
+  <p>If you’re searching for handmade rugs from West Bengal, artisan-made jute rugs, or fair trade handcrafted home décor, MKT RUGS is a name you can trust.</p>
+`,
+  },
+  {
+    id: 8,
+    title: "Caring for Your Jute Rug: A Complete Maintenance Guide",
+    date: "Dec 26, 2025",
+    desc: "Learn how to clean and maintain jute rugs properly. Simple care tips to keep your natural jute rug beautiful and long-lasting for years.",
+    img: "/images/blogpost2.jpg",
+    category: "care",
+    readTime: "5 min read",
+    featured: false,
+    metaTitle: "Jute Rug Cleaning & Care Guide | How to Maintain Natural Jute Rugs",
+    metaDescription:
+      "Learn how to clean and maintain jute rugs properly. Simple care tips to keep your natural jute rug beautiful and long-lasting for years.",
+    content: `
+  <h2>Why Proper Jute Rug Care Matters</h2>
+
+  <p>Jute rugs are valued for their natural texture, eco-friendly appeal, and timeless elegance. As a natural fiber, jute requires mindful care to maintain its beauty and durability.</p>
+
+  <p>With the right maintenance routine, a handcrafted jute rug can remain stylish and functional for many years.</p>
+
+  <h2>Weekly Cleaning to Prevent Dust Build-Up</h2>
+
+  <p>Vacuum your jute rug once a week using a low-suction setting. This helps remove surface dust and dirt before it settles deep into the fibers.</p>
+
+  <p>Avoid rotating brushes or high suction, as they can pull natural fibers loose.</p>
+
+  <h2>Keep Jute Rugs Dry at All Times</h2>
+
+  <p>Moisture is the biggest enemy of jute. Always:</p>
+
+  <ul>
+    <li>Avoid placing jute rugs in damp areas</li>
+    <li>Never steam clean or wash with water</li>
+    <li>Keep rugs away from bathrooms or wet balconies</li>
+  </ul>
+
+  <p>Excess moisture can weaken fibers and cause discoloration.</p>
+
+  <h2>Spill Management: Act Gently & Quickly</h2>
+
+  <p>If a spill occurs:</p>
+
+  <ul>
+    <li>Blot immediately with a clean, dry cloth</li>
+    <li>Never rub, as it spreads stains and damages fibers</li>
+    <li>Allow the area to air dry naturally</li>
+  </ul>
+
+  <p>For stubborn stains, professional dry cleaning is recommended.</p>
+
+  <h2>Use a Rug Pad for Extra Protection</h2>
+
+  <p>A rug pad underneath your jute rug:</p>
+
+  <ul>
+    <li>Extends rug life</li>
+    <li>Prevents slipping</li>
+    <li>Improves comfort</li>
+    <li>Reduces friction with the floor</li>
+  </ul>
+
+  <p>Proper natural rug care ensures your MKT RUGS product ages beautifully while retaining its charm.</p>
+`,
+  },
+  {
+    id: 9,
+    title: "Why MKT RUGS Is Preferred by Buyers in USA, Germany, Europe & Japan",
+    date: "Dec 26, 2025",
+    desc: "Trusted jute rug supplier from India for USA, Europe & Japan. Custom sizes, wholesale orders, export packaging, and authentic handcrafted quality.",
+    img: "/images/blogpost1.jpg",
+    category: "export",
+    readTime: "6 min read",
+    featured: true,
+    metaTitle: "Jute Rugs Supplier from India | Wholesale & Export by MKT RUGS",
+    metaDescription:
+      "Trusted jute rug supplier from India for USA, Europe & Japan. Custom sizes, wholesale orders, export packaging, and authentic handcrafted quality.",
+    content: `
+  <h2>A Globally Trusted Jute Rug Exporter</h2>
+
+  <p>MKT RUGS has earned the trust of international buyers, wholesalers, and interior designers across the USA, Germany, Europe, and Japan by consistently delivering quality, reliability, and authenticity.</p>
+
+  <h2>Custom Sizes & Shapes for Global Markets</h2>
+
+  <p>We offer custom-made jute rugs tailored to your needs, including:</p>
+
+  <ul>
+    <li>Rectangle rugs</li>
+    <li>Oval rugs</li>
+    <li>Round rugs</li>
+    <li>Runner rugs</li>
+  </ul>
+
+  <p>Custom sizing ensures seamless integration into residential, commercial, and hospitality spaces.</p>
+
+  <h2>Export-Ready Packaging & Worldwide Delivery</h2>
+
+  <p>Our rugs are packed using export-standard protective packaging, ensuring safety during international transit. We understand global compliance requirements and ship worldwide with confidence.</p>
+
+  <h2>Wholesale & B2B-Friendly Rug Manufacturer</h2>
+
+  <p>MKT RUGS welcomes:</p>
+
+  <ul>
+    <li>Bulk & wholesale buyers</li>
+    <li>Interior stores & boutiques</li>
+    <li>Hotels, studios & design firms</li>
+    <li>Project-based orders</li>
+  </ul>
+
+  <p>As a reliable jute rugs supplier from India, we ensure transparent communication, production consistency, and timely delivery.</p>
+
+  <h2>Authentic Craftsmanship You Can Trust</h2>
+
+  <p>Our rugs are not factory imitations. Each piece is genuinely handcrafted, making MKT RUGS a preferred partner for buyers seeking real quality, not replicas.</p>
+
+  <p>If you’re searching for jute rugs wholesale Europe, bulk jute rugs export, or custom-size jute carpets, MKT RUGS is your trusted global supplier.</p>
+`,
+  },
+  {
+    id: 10,
+    title: "Shop Natural. Live Beautiful. Choose MKT RUGS.",
+    date: "Dec 26, 2025",
+    desc: "Shop affordable, eco-friendly jute rugs and luxury handwoven carpets. Custom handmade jute rugs for homes, boutiques & export worldwide.",
+    img: "/images/blogpost5.jpg",
+    category: "sustainability",
+    readTime: "5 min read",
+    featured: false,
+    metaTitle: "Eco-Friendly Jute Rugs & Handwoven Carpets | MKT RUGS",
+    metaDescription:
+      "Shop affordable, eco-friendly jute rugs and luxury handwoven carpets. Custom handmade jute rugs for homes, boutiques & export worldwide.",
+    content: `
+  <h2>Where Sustainability Meets Style</h2>
+
+  <p>Your home reflects your values. Choosing natural décor is more than a trend — it’s a commitment to sustainability and mindful living.</p>
+
+  <p>At MKT RUGS, we blend eco-conscious materials, artisan craftsmanship, and timeless design to create rugs that elevate any space.</p>
+
+  <h2>What We Offer at MKT RUGS</h2>
+
+  <p>We specialize in:</p>
+
+  <ul>
+    <li>Affordable natural jute rugs</li>
+    <li>Luxury handwoven rugs</li>
+    <li>Eco-friendly home décor</li>
+    <li>Custom handmade jute carpets for export</li>
+  </ul>
+
+  <p>Each rug is designed to complement modern, minimalist, bohemian, and earthy interiors.</p>
+
+  <h2>Perfect for Homes, Boutiques & Commercial Spaces</h2>
+
+  <p>Whether you’re styling a home, retail store, hotel, or interior project, MKT RUGS offers flexible solutions for:</p>
+
+  <ul>
+    <li>Individual buyers</li>
+    <li>Interior designers</li>
+    <li>Retailers</li>
+    <li>International wholesalers</li>
+  </ul>
+
+  <h2>Get Our Latest Catalog & Wholesale Details</h2>
+
+  <p>Interested in placing an order or exploring wholesale opportunities?</p>
+
+  <p>Share your email or WhatsApp number to receive our latest catalog, pricing, customization options, and export details.</p>
+
+  <p>Shop natural. Live beautifully. Choose MKT RUGS.</p>
+`,
+  },
 ];
 
 // --- BlogPost component ---
@@ -272,16 +483,19 @@ export default function BlogPost() {
   }
 
   return (
-    <article className="min-h-screen bg-[#f8f5f2] text-[#3c2f2f] font-body">
+    <article
+      className="min-h-screen bg-[#f8f5f2] text-[#3c2f2f] font-body"
+      style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}
+    >
       <SEOHelmet
-        title={`${post.title} | MKT Rugs`}
-        description={post.desc}
-        canonical={`/blog/${post.id}`}
+        title={post.metaTitle || `${post.title} | MKT Rugs`}
+        description={post.metaDescription || post.desc}
+        canonical={`https://www.mktrugs.com/blog/${post.id}`}
       />
 
       {/* Hero image */}
       <header className="relative">
-        <div className="relative w-full h-[46vh] sm:h-[52vh] md:h-[60vh] lg:h-[48vh] overflow-hidden bg-gray-100">
+        <div className="relative w-full h-[46vh] sm:h-[52vh] md:h-[60vh] lg:h-[48vh] overflow-hidden bg-gray-100 pt-[calc(var(--header-h,80px))]">
           <img
             src={post.img}
             alt={post.title}
@@ -289,6 +503,8 @@ export default function BlogPost() {
               fadeIn ? "opacity-100 scale-100" : "opacity-0 scale-105"
             } hover:scale-105`}
             loading="eager"
+            decoding="async"
+            fetchPriority="high"
           />
           {/* optional subtle overlay for contrast */}
           <div

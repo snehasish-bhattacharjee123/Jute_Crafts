@@ -60,8 +60,9 @@ const WhyUs = () => {
 
       {/* Hero Section - Enhanced mobile responsiveness */}
       <section
-        className="relative bg-cover bg-center h-[50vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] min-h-[400px] sm:min-h-[500px] flex items-center justify-center overflow-hidden"
+        className="relative bg-cover bg-center h-[50vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] min-h-[400px] sm:min-h-[500px] flex items-center justify-center overflow-hidden pt-[calc(var(--header-h,80px))]"
         style={{
+          marginTop: "calc(var(--header-h, 0px) * -1)",
           backgroundImage: "url('/images/B_1.jpg')",
           backgroundPosition: "center center",
           backgroundSize: "cover",
