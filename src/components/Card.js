@@ -14,6 +14,10 @@ const Card = ({ title, description, image, badge, featured = false, className = 
             src={image}
             alt={title}
             className="w-full h-48 object-cover hover:scale-110 transition-transform duration-300"
+            width="768"
+            height="384"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       )}

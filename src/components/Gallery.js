@@ -283,12 +283,17 @@ function Gallery() {
       {/* Hero section with header compensation - Enhanced mobile responsiveness */}
       <section
         className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[85vh] min-h-[400px] sm:min-h-[500px] max-h-[800px] pt-[calc(var(--header-h,80px))]"
+
         style={{ marginTop: "calc(var(--header-h, 0px) * -1)" }}
       >
         <img
           src="/images/background-zoom-calls-with-cozy-living-room.jpg"
           alt="Gallery hero background"
           className="absolute inset-0 w-full h-full object-cover"
+          width="1920"
+          height="1080"
+          decoding="async"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-black/40 sm:bg-black/35" />
         <div className="relative z-10 flex items-end h-full">
@@ -418,7 +423,10 @@ function Gallery() {
                       className={`responsive-img w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-300 ${
                         isImageLoading ? "opacity-0" : "opacity-100"
                       }`}
+                      width="800"
+                      height="600"
                       loading="lazy"
+                      decoding="async"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                       onLoadStart={() => handleImageLoadStart(image.id)}
                       onLoad={() => handleImageLoad(image.id)}
@@ -635,6 +643,9 @@ function Gallery() {
                     lastTapRef.current = now;
                   }}
                   loading="eager"
+                  decoding="async"
+                  width="1920"
+                  height="1080"
                   draggable={false}
                 />
               </div>
@@ -724,6 +735,10 @@ function Gallery() {
             src="/images/Hart in Terracotta.jpg"
             alt="Natural fibre rug styled"
             className="w-full h-full object-cover"
+            width="1920"
+            height="1080"
+            decoding="async"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary/80 via-secondary/60 to-secondary/40"></div>
         </div>
@@ -770,16 +785,28 @@ function Gallery() {
                 src="/images/Elma Geometric Jute Rug _ Natural.jpg"
                 alt="Geometric jute rug"
                 className="w-full h-36 lg:h-40 xl:h-48 object-cover rounded-lg shadow"
+                width="800"
+                height="600"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 src="/images/Naturals Basket.jpg"
                 alt="Natural fibres and basket"
                 className="w-full h-36 lg:h-40 xl:h-48 object-cover rounded-lg shadow"
+                width="800"
+                height="600"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 src="/images/flat-lay-monochromatic-assortment-textiles.jpg"
                 alt="Textile flat lay"
                 className="w-full h-36 lg:h-40 xl:h-48 object-cover rounded-lg shadow col-span-2"
+                width="1200"
+                height="600"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

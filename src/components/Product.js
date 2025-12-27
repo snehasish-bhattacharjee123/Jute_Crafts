@@ -410,6 +410,9 @@ function Product() {
                 alt={`${title} ${i + 1} - MKT Rugs handcrafted collection`}
                 className="responsive-img w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110 will-change-transform"
                 loading="lazy"
+                decoding="async"
+                width="600"
+                height="600"
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
               <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
@@ -473,6 +476,9 @@ function Product() {
                 src={"/images/MOCKUP_4 (1).jpg"}
                 alt="Hand-braided natural fibre texture - Bengal Folk Craft collection by MKT Rugs"
                 loading="lazy"
+                decoding="async"
+                width="1920"
+                height="1080"
                 className="responsive-img w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 60vw"
                 onClick={(e) =>
@@ -519,6 +525,9 @@ function Product() {
                 src={"/images/Costal wave collection.jpg"}
                 alt="Coastal-ready indoor/outdoor weave in patio setting"
                 loading="lazy"
+                decoding="async"
+                width="1920"
+                height="1080"
                 className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
@@ -583,6 +592,9 @@ function Product() {
                 src={"/images/MKT Earth bound collection (3).jpg"}
                 alt="Wool–jute blend rug adding warmth to living area"
                 loading="lazy"
+                decoding="async"
+                width="1920"
+                height="1080"
                 className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
@@ -647,6 +659,9 @@ function Product() {
                 src={"/images/Image_5 (1).jpg"}
                 alt="Luxurious hand-tufted wool rug in elegant setting"
                 loading="lazy"
+                decoding="async"
+                width="1920"
+                height="1080"
                 className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-lg cursor-zoom-in shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={(e) =>
                   openModal(
@@ -826,6 +841,10 @@ function Product() {
                     }
                     lastTapRef.current = now;
                   }}
+                  loading="eager"
+                  decoding="async"
+                  width="1920"
+                  height="1080"
                 />
               </div>
             </div>

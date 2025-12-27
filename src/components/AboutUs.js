@@ -100,6 +100,9 @@ function CertificatesGrid() {
                     alt={cert.alt}
                     className="responsive-img w-full h-full object-contain filter drop-shadow-sm"
                     loading="lazy"
+                    decoding="async"
+                    width="80"
+                    height="80"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                 </div>
@@ -294,7 +297,7 @@ function HeroSlider() {
         <div className="text-center max-w-4xl mx-auto">
           {/* Main heading - Fully responsive */}
           <div className="mb-2 sm:mb-3 md:mb-4">
-            <div className="inline-flex items-center gap-1 px-2 py-1 sm:px-3 md:px-4 py-1.5 sm:py-2 bg-black/20 rounded-full mb-2 sm:mb-4 md:mb-6">
+            <div className="inline-flex items-center gap-1 px-2 py-1.5 sm:px-3 md:px-4 sm:py-2 bg-black/20 rounded-full mb-2 sm:mb-4 md:mb-6">
               <span className="text-xs sm:text-sm md:text-base font-semibold text-white tracking-wide uppercase">
                 <span className="hidden md:inline">Heritage & Excellence</span>
                 <span className="md:hidden">Heritage</span>
@@ -859,6 +862,9 @@ function AboutUs() {
                   alt="Traditional jute weaving showcasing our heritage - MKT Rugs authentic craftsmanship"
                   className="responsive-img rounded-lg shadow-lg w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] object-cover group-hover:scale-[1.02] transition-all duration-300"
                   loading="lazy"
+                  decoding="async"
+                  width="1920"
+                  height="1080"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
                 />
                 {/* Stats overlay */}
@@ -983,6 +989,9 @@ function AboutUs() {
                               alt={milestone.title}
                               className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-lg shadow-lg group-hover:scale-[1.02] transition-all duration-300"
                               loading="lazy"
+                              decoding="async"
+                              width="1920"
+                              height="1080"
                             />
                             <figcaption className="absolute bottom-4 left-4 right-4 bg-black/60 text-white p-4 rounded opacity-0 group-hover:opacity-100 transition-all duration-300">
                               <h4 className="font-heading font-semibold text-lg mb-1">
@@ -1217,6 +1226,10 @@ function AboutUs() {
                   src="/images/flat-lay-monochromatic-assortment-textiles.jpg"
                   alt="Craftsmanship and facilities"
                   className="relative rounded-2xl w-full h-96 object-cover shadow-xl border border-white"
+                  loading="lazy"
+                  decoding="async"
+                  width="1920"
+                  height="1080"
                 />
               </div>
             </div>
@@ -1347,6 +1360,10 @@ function AboutUs() {
                   src="/images/IMG_5792.jpg" // <-- replace with your image path
                   alt="Dattatreyo Paul"
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width="480"
+                  height="480"
                 />
               </div>
               <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">
@@ -1364,6 +1381,10 @@ function AboutUs() {
                   src="/images/DSC01496.jpg" // <-- replace with your image path
                   alt="Dattatreyo Paul"
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width="480"
+                  height="480"
                 />
               </div>
               <h3 className="text-xl font-semibold text-textDark mb-2 font-heading">

@@ -327,6 +327,10 @@ const Header = () => {
                 src="/images/MKT Rugs_1 PNG.png"
                 alt="MKT RUGS Logo"
                 className="h-16 sm:h-18 md:h-20 lg:h-24 xl:h-28 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                width="173"
+                height="97"
+                loading="eager"
+                decoding="async"
               />
               <div className="leading-tight">
                 <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-bold tracking-wide">

@@ -691,6 +691,10 @@ function ContactUs() {
           alt="Contact hero"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
+          decoding="async"
+          fetchPriority="high"
+          width="1920"
+          height="1080"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-secondary/30 to-secondary/70" />
         <div className="relative z-10 flex items-center h-full">
@@ -1209,6 +1213,9 @@ function ContactUs() {
                   alt="Facility preview"
                   className="w-full max-w-xs h-32 sm:h-36 object-cover rounded-xl shadow-md"
                   loading="lazy"
+                  decoding="async"
+                  width="512"
+                  height="384"
                 />
               </div>
             </div>

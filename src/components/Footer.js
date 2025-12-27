@@ -73,6 +73,8 @@ const Footer = () => {
                 src="/images/MKT Rugs_1 PNG.png"
                 alt="MKT RUGS Logo"
                 className="h-10 sm:h-12 md:h-14 w-auto object-contain bg-white rounded-md p-1 ring-1 ring-white/20 shadow"
+                width="173"
+                height="97"
                 loading="lazy"
               />
               <h4 className="footer-heading text-base sm:text-lg font-heading font-semibold">

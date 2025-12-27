@@ -608,56 +608,22 @@ function App() {
       { threshold: 0.01, rootMargin: "0px 0px -10% 0px" }
     );
 
-    let rafId = null;
-    const schedule = (fn) => {
-      if (rafId) return;
-      rafId = window.requestAnimationFrame(() => {
-        rafId = null;
-        fn();
-      });
-    };
-
     const observeAll = () => {
       document
         .querySelectorAll(".reveal:not(.reveal-visible)")
         .forEach((el) => io.observe(el));
     };
 
-    const revealInViewportNow = () => {
-      document
-        .querySelectorAll(".reveal:not(.reveal-visible)")
-        .forEach((el) => {
-          const r = el.getBoundingClientRect();
-          if (r.top < window.innerHeight * 0.9) {
-            el.classList.add("reveal-visible");
-            io.unobserve(el);
-          }
-        });
-    };
-
     observeAll();
-    revealInViewportNow();
 
     const mo = new MutationObserver(() => {
-      schedule(observeAll);
-      schedule(revealInViewportNow);
+      observeAll();
     });
     mo.observe(document.body, { childList: true, subtree: true });
 
-    const onResizeScroll = () => schedule(revealInViewportNow);
-    window.addEventListener("load", onResizeScroll);
-    window.addEventListener("resize", onResizeScroll);
-    window.addEventListener("scroll", onResizeScroll, { passive: true });
-
     return () => {
-      if (rafId) {
-        window.cancelAnimationFrame(rafId);
-      }
       io.disconnect();
       mo.disconnect();
-      window.removeEventListener("load", onResizeScroll);
-      window.removeEventListener("resize", onResizeScroll);
-      window.removeEventListener("scroll", onResizeScroll);
     };
   }, []);
 
@@ -797,6 +763,9 @@ function App() {
                                 alt="Harvesting jute plants - Step 1 of MKT Rugs farm to floor process"
                                 className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                                 loading="lazy"
+                                decoding="async"
+                                width="321"
+                                height="264"
                                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                               />
                               <img
@@ -804,6 +773,9 @@ function App() {
                                 alt="Extracting natural fibres - Quality jute processing at MKT Rugs"
                                 className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                                 loading="lazy"
+                                decoding="async"
+                                width="321"
+                                height="264"
                                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                               />
                               <img
@@ -811,6 +783,9 @@ function App() {
                                 alt="Sorting and quality checking raw fibres - MKT Rugs quality control"
                                 className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                                 loading="lazy"
+                                decoding="async"
+                                width="321"
+                                height="264"
                                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                               />
                               <img
@@ -818,6 +793,9 @@ function App() {
                                 alt="Weaving natural fibre rugs - Handcrafted artisan work at MKT Rugs"
                                 className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                                 loading="lazy"
+                                decoding="async"
+                                width="321"
+                                height="264"
                                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                               />
                             </div>
@@ -1257,6 +1235,10 @@ function App() {
                                 src="/images/ABOUT US.jpg"
                                 alt="Traditional rug making process"
                                 className="w-full h-96 object-cover rounded-lg shadow-lg"
+                                loading="lazy"
+                                decoding="async"
+                                width="1920"
+                                height="1080"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg"></div>
                               <div className="absolute bottom-6 left-6 right-6">
@@ -1363,12 +1345,20 @@ function App() {
                                   src="/images/ABOUT US.jpg"
                                   alt="Rolled mats in basket"
                                   className="w-full h-80 md:h-96 object-contain rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                                  loading="lazy"
+                                  decoding="async"
+                                  width="1920"
+                                  height="1080"
                                 />
 
                                 <img
                                   src="/images/02.jpg"
                                   alt="Wooden cabinet with decor"
                                   className="w-3/4 md:w-2/3 mt-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 mx-auto"
+                                  loading="lazy"
+                                  decoding="async"
+                                  width="142"
+                                  height="197"
                                 />
 
                                 <div className="absolute bottom-0 left-4 md:left-0 w-20 h-14 md:w-24 md:h-16 bg-secondary rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"></div>
@@ -1400,54 +1390,33 @@ function App() {
                                 houses.
                               </p>
 
-                              {/* <p className="font-body text-base text-textDark leading-relaxed">
-                              Our commitment to quality begins with sourcing raw
-                              jute and other natural fibers like sisal,
-                              seagrass, and banana fiber. Through hand-spun,
-                              hand-braided, and hand-twisted yarn, we ensure
-                              strict quality control, delivering beautiful,
-                              high-quality natural carpets. This end-to-end
-                              control, "From Farm To Floor," is our promise to
-                              you.
-                            </p> */}
-
-                              {/* <div className="mb-6 flex justify-center md:justify-start">
-                              <Button
-                                variant="secondary"
-                                className="flex items-center space-x-2"
-                              >
-                                <span>Download Brochure</span>
-                                <svg
-                                  className="w-4 h-4"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                                  />
-                                </svg>
-                              </Button>
-                            </div> */}
-
                               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                                 <img
                                   src="/images/03.jpg"
                                   alt="Product thumbnail 1"
                                   className="rounded-lg shadow-sm hover:shadow-md hover:scale-105 cursor-pointer transition-all duration-300"
+                                  width="600"
+                                  height="600"
+                                  loading="lazy"
+                                  decoding="async"
                                 />
                                 <img
                                   src="/images/04.jpg"
                                   alt="Product thumbnail 2"
                                   className="rounded-lg shadow-sm hover:shadow-md hover:scale-105 cursor-pointer transition-all duration-300"
+                                  width="600"
+                                  height="600"
+                                  loading="lazy"
+                                  decoding="async"
                                 />
                                 <img
                                   src="/images/05.jpg"
                                   alt="Product thumbnail 3"
                                   className="rounded-lg shadow-sm hover:shadow-md hover:scale-105 cursor-pointer transition-all duration-300"
+                                  width="600"
+                                  height="600"
+                                  loading="lazy"
+                                  decoding="async"
                                 />
                               </div>
 
