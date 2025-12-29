@@ -473,7 +473,7 @@ function Product() {
             {/* Row 1: Large image + Text — Bengal Folk Craft */}
             <div className="md:col-span-7">
               <img
-                src={"/images/MOCKUP_4 (1).jpg"}
+                src={"/images/Bengal Folk (1).png"}
                 alt="Hand-braided natural fibre texture - Bengal Folk Craft collection by MKT Rugs"
                 loading="lazy"
                 decoding="async"
@@ -484,7 +484,7 @@ function Product() {
                 onClick={(e) =>
                   openModal(
                     {
-                      src: "/images/MOCKUP_4 (1).jpg",
+                      src: "/images/Bengal Folk (1).png",
                       alt: "Hand-braided natural fibre texture",
                       title: "Bengal Folk Craft",
                     },
