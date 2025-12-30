@@ -247,7 +247,7 @@ function App() {
                             {/* ✅ Image Grid */}
                             <div className="grid grid-cols-2 gap-6">
                               <img
-                                src="/images/collage01.jpg"
+                                src="/images/Image 1.png"
                                 alt="Harvesting jute plants - Step 1 of MKT Rugs farm to floor process"
                                 className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                                 loading="lazy"
@@ -257,7 +257,7 @@ function App() {
                                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                               />
                               <img
-                                src="/images/collage02.jpg"
+                                src="/images/Image 1 (2).png"
                                 alt="Extracting natural fibres - Quality jute processing at MKT Rugs"
                                 className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                                 loading="lazy"
@@ -267,7 +267,7 @@ function App() {
                                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                               />
                               <img
-                                src="/images/collage03.jpg"
+                                src="/images/Image 1 (3).png"
                                 alt="Sorting and quality checking raw fibres - MKT Rugs quality control"
                                 className="responsive-img w-full h-48 sm:h-56 object-cover rounded-lg shadow"
                                 loading="lazy"
