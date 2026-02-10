@@ -4,9 +4,89 @@ import SEOHelmet from "./SEOHelmet";
 
 // --- Sample blog data (you can move this to a separate module e.g. BlogData.js) ---
 export const blogs = [
-
   {
     id: 1,
+    title:
+      "MKT Rugs at 61st IHGF Delhi Fair Spring 2026 – Meet Us from 14–18 February",
+    date: "Feb 10, 2026",
+    desc: "Join MKT Rugs at the 61st IHGF Delhi Fair Spring 2026 in Greater Noida. Discover our latest collections of handcrafted rugs and sustainable home furnishings.",
+    img: "/images/bannerDelhiFair.png",
+    category: "export",
+    readTime: "5 min read",
+    featured: true,
+    metaTitle:
+      "MKT Rugs at IHGF Delhi Fair Spring 2026 | Handcrafted Rugs Exhibition",
+    metaDescription:
+      "Meet MKT Rugs at the 61st IHGF Delhi Fair Spring 2026, 14-18 February. Explore our export-quality handknotted and natural fiber rugs.",
+    content: `
+      <h2>MKT Rugs at 61st IHGF Delhi Fair Spring 2026 – Meet Us from 14–18 February</h2>
+      <p>India is globally recognised as a trusted sourcing destination for home furnishings, handicrafts, and lifestyle products. One of the biggest platforms connecting Indian manufacturers with international buyers is the IHGF Delhi Fair, and MKT Rugs is proud to be a part of the 61st IHGF Delhi Fair – Spring 2026.</p>
+      <p>We invite buyers, retailers, importers, wholesalers, and interior professionals from across the world to meet MKT Rugs at IHGF Delhi Fair 2026, scheduled from 14th to 18th February 2026 at India Expo Centre & Mart, Greater Noida, Delhi NCR.</p>
+
+      <h3>About IHGF Delhi Fair Spring 2026</h3>
+      <p>The 61st IHGF Delhi Fair Spring 2026, organised by EPCH (Export Promotion Council for Handicrafts), is one of the largest international trade fairs in the world for home, lifestyle, fashion, furnishings, furniture, gifts, and interior products.</p>
+      <p><strong>Key Highlights of IHGF Delhi Fair 2026:</strong></p>
+      <ul>
+        <li>3000+ exhibitors from across India</li>
+        <li>18 exhibition halls</li>
+        <li>197,000+ sq. mts. display area</li>
+        <li>2000+ product styles & 300+ design developments</li>
+        <li>16 major product categories</li>
+        <li>UFI approved global trade fair</li>
+      </ul>
+      <p>IHGF Delhi Fair serves as a one-stop sourcing destination for global buyers looking for premium, ethically crafted, export-quality products from India.</p>
+
+      <h3>MKT Rugs at IHGF Delhi Fair 2026</h3>
+      <p>At MKT Rugs, we specialise in handknotted rugs, handwoven carpets, and sustainable home furnishing solutions crafted by skilled Indian artisans. IHGF Delhi Fair 2026 gives us the perfect platform to showcase our craftsmanship, innovation, and quality to global buyers.</p>
+      <p><strong>What We’re Showcasing at IHGF 2026:</strong></p>
+      <ul>
+        <li>Handknotted Rugs</li>
+        <li>Jute & Natural Fiber Rugs</li>
+        <li>Custom-designed Carpets</li>
+        <li>Sustainable & Eco-friendly Rugs</li>
+        <li>Contemporary & Traditional Designs</li>
+        <li>Export-quality Home Furnishings</li>
+      </ul>
+      <p>Every rug we create reflects precision, durability, design excellence, and ethical manufacturing.</p>
+
+      <h3>Why Global Buyers Should Visit MKT Rugs at IHGF 2026</h3>
+      <ul>
+        <li><strong>✔ Premium Craftsmanship:</strong> Our rugs are handcrafted by experienced artisans using time-tested weaving techniques combined with modern design sensibilities.</li>
+        <li><strong>✔ Customisation & Bulk Orders:</strong> We offer custom rug sizes, colours, patterns, and textures tailored to buyer requirements.</li>
+        <li><strong>✔ Sustainable & Ethical Production:</strong> We focus on eco-friendly materials like jute and natural fibers while supporting artisan communities.</li>
+        <li><strong>✔ Reliable Export Partner:</strong> MKT Rugs works with international buyers across multiple markets, ensuring quality consistency, timely delivery, and transparent communication.</li>
+      </ul>
+
+      <h3>Why IHGF Delhi Fair is Important for Buyers</h3>
+      <p>IHGF is more than an exhibition, it’s a global sourcing experience. Buyers visiting IHGF Spring 2026 can:</p>
+      <ul>
+        <li>Discover exclusive Indian designs</li>
+        <li>Connect directly with manufacturers & exporters</li>
+        <li>Identify new trends for upcoming seasons</li>
+        <li>Build long-term sourcing partnerships</li>
+        <li>Explore innovation across home & lifestyle categories</li>
+      </ul>
+
+      <h3>Event Details – Save the Dates</h3>
+      <p><strong>Event:</strong> 61st IHGF Delhi Fair – Spring 2026<br/>
+      <strong>Dates:</strong> 14th – 18th February 2026<br/>
+      <strong>Time:</strong> 09:00 AM – 06:00 PM (IST)<br/>
+      <strong>Venue:</strong> India Expo Centre & Mart, Greater Noida, Delhi NCR<br/>
+      <strong>Entry:</strong> Trade visitors only (18+ with registration/invitation)</p>
+
+      <h3>Let’s Connect at IHGF Delhi Fair 2026</h3>
+      <p>If you are attending IHGF Delhi Fair Spring 2026 and looking for a trusted rug manufacturer & exporter from India, we would love to meet you.</p>
+      <ul>
+        <li>👉 Visit MKT Rugs at IHGF 2026</li>
+        <li>👉 Explore our latest rug collections</li>
+        <li>👉 Discuss sourcing, customisation & bulk orders</li>
+        <li>👉 Build long-term partnerships</li>
+      </ul>
+      <p>India makes for the world and MKT Rugs weaves it beautifully.</p>
+    `,
+  },
+  {
+    id: 2,
     title: "Crafted by Artisans, The MKT RUGS Promise",
     date: "Dec 26, 2025",
     desc: "Discover authentic handmade jute rugs crafted by skilled artisans in West Bengal. Support fair trade, ethical production, and India’s textile heritage with MKT RUGS.",
@@ -48,7 +128,7 @@ export const blogs = [
 `,
   },
   {
-    id: 2,
+    id: 3,
     title: "Caring for Your Jute Rug: A Complete Maintenance Guide",
     date: "Dec 26, 2025",
     desc: "Learn how to clean and maintain jute rugs properly. Simple care tips to keep your natural jute rug beautiful and long-lasting for years.",
@@ -111,8 +191,9 @@ export const blogs = [
 `,
   },
   {
-    id: 3,
-    title: "Why MKT RUGS Is Preferred by Buyers in USA, Germany, Europe & Japan",
+    id: 4,
+    title:
+      "Why MKT RUGS Is Preferred by Buyers in USA, Germany, Europe & Japan",
     date: "Dec 26, 2025",
     desc: "Trusted jute rug supplier from India for USA, Europe & Japan. Custom sizes, wholesale orders, export packaging, and authentic handcrafted quality.",
     img: "/images/Blog_3.png",
@@ -165,7 +246,7 @@ export const blogs = [
 `,
   },
   {
-    id: 4,
+    id: 5,
     title: "Shop Natural. Live Beautiful. Choose MKT RUGS.",
     date: "Dec 26, 2025",
     desc: "Shop affordable, eco-friendly jute rugs and luxury handwoven carpets. Custom handmade jute rugs for homes, boutiques & export worldwide.",
@@ -218,7 +299,7 @@ export const blogs = [
   },
 
   {
-    id: 5,
+    id: 6,
     title: "Why Jute Rugs Are the Most Important for Modern Decor",
     date: "Oct 5, 2025",
     desc: "Discover how raw jute fibers transform into sustainable, beautiful rugs crafted by artisans.",
@@ -248,7 +329,7 @@ export const blogs = [
   },
 
   {
-    id: 6,
+    id: 7,
     title: "5 Ways to Style Jute Rugs in Your Living Room",
     date: "Sep 20, 2025",
     desc: "Learn how to incorporate jute rugs into modern interiors using designer-approved styling tips.",
@@ -286,7 +367,7 @@ export const blogs = [
   },
 
   {
-    id: 7,
+    id: 8,
     title: "Meet the Artisans Behind Your Rug",
     date: "Sep 10, 2025",
     desc: "A peek into the lives of the artisans who bring MKT Rugs to life with their craftsmanship.",
@@ -328,7 +409,7 @@ export const blogs = [
 `,
   },
   {
-    id: 8,
+    id: 9,
     title: "MKT Rugs vs Other Brands: What Makes Us Better?",
     date: "Aug 28, 2025",
     desc: "Why customers choose MKT Rugs over other popular carpet brands across India and the world.",
@@ -360,7 +441,7 @@ export const blogs = [
   `,
   },
   {
-    id: 9,
+    id: 10,
     title: "The Reasons Jute Rugs Are Ideal for Your House",
     date: "Aug 10, 2025",
     desc: "Why jute rugs are a perfect choice for modern homes seeking natural beauty and comfort.",
@@ -393,7 +474,7 @@ export const blogs = [
   },
 
   {
-    id: 10,
+    id: 11,
     title: "Select MKT Rugs: Bring a Bit of Bengal Home",
     date: "Jul 25, 2025",
     desc: "Why choosing MKT Rugs means choosing heritage, authenticity, and handcrafted beauty.",
@@ -426,7 +507,6 @@ export const blogs = [
   <p>Step into a world where craftsmanship meets nature. Discover the magic of MKT Rugs.</p>
   `,
   },
-  
 ];
 
 // --- BlogPost component ---
@@ -502,9 +582,8 @@ export default function BlogPost() {
           <img
             src={post.img}
             alt={post.title}
-            className={`absolute inset-0 w-full h-full object-cover transform transition-all duration-700 ${
-              fadeIn ? "opacity-100 scale-100" : "opacity-0 scale-105"
-            } hover:scale-105`}
+            className={`absolute inset-0 w-full h-full object-cover transform transition-all duration-700 ${fadeIn ? "opacity-100 scale-100" : "opacity-0 scale-105"
+              } hover:scale-105`}
             loading="eager"
             decoding="async"
             fetchPriority="high"
@@ -512,9 +591,8 @@ export default function BlogPost() {
           {/* optional subtle overlay for contrast */}
           <div
             aria-hidden
-            className={`absolute inset-0 pointer-events-none transition-opacity duration-700 ${
-              fadeIn ? "opacity-30" : "opacity-0"
-            } bg-gradient-to-b from-transparent to-black/10`}
+            className={`absolute inset-0 pointer-events-none transition-opacity duration-700 ${fadeIn ? "opacity-30" : "opacity-0"
+              } bg-gradient-to-b from-transparent to-black/10`}
           />
         </div>
 

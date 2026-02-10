@@ -96,6 +96,21 @@ import SEOHelmet from "./SEOHelmet";
 export const blogs = [
   {
     id: 1,
+    title:
+      "MKT Rugs at 61st IHGF Delhi Fair Spring 2026 – Meet Us from 14–18 February",
+    date: "Feb 10, 2026",
+    desc: "Join MKT Rugs at the 61st IHGF Delhi Fair Spring 2026 in Greater Noida. Discover our latest collections of handcrafted rugs and sustainable home furnishings.",
+    img: "/images/bannerDelhiFair.png",
+    category: "export",
+    readTime: "5 min read",
+    featured: true,
+    metaTitle:
+      "MKT Rugs at IHGF Delhi Fair Spring 2026 | Handcrafted Rugs Exhibition",
+    metaDescription:
+      "Meet MKT Rugs at the 61st IHGF Delhi Fair Spring 2026, 14-18 February. Explore our export-quality handknotted and natural fiber rugs.",
+  },
+  {
+    id: 2,
     title: "Crafted by Artisans, The MKT RUGS Promise",
     date: "Dec 26, 2025",
     desc: "Discover authentic handmade jute rugs crafted by skilled artisans in West Bengal. Support fair trade, ethical production, and India’s textile heritage with MKT RUGS.",
@@ -109,7 +124,7 @@ export const blogs = [
       "Discover authentic handmade jute rugs crafted by skilled artisans in West Bengal. Support fair trade, ethical production, and India’s textile heritage with MKT RUGS.",
   },
   {
-    id: 2,
+    id: 3,
     title: "Caring for Your Jute Rug: A Complete Maintenance Guide",
     date: "Dec 26, 2025",
     desc: "Learn how to clean and maintain jute rugs properly. Simple care tips to keep your natural jute rug beautiful and long-lasting for years.",
@@ -122,8 +137,9 @@ export const blogs = [
       "Learn how to clean and maintain jute rugs properly. Simple care tips to keep your natural jute rug beautiful and long-lasting for years.",
   },
   {
-    id: 3,
-    title: "Why MKT RUGS Is Preferred by Buyers in USA, Germany, Europe & Japan",
+    id: 4,
+    title:
+      "Why MKT RUGS Is Preferred by Buyers in USA, Germany, Europe & Japan",
     date: "Dec 26, 2025",
     desc: "Trusted jute rug supplier from India for USA, Europe & Japan. Custom sizes, wholesale orders, export packaging, and authentic handcrafted quality.",
     img: "/images/Blog_3 (2).png",
@@ -135,7 +151,7 @@ export const blogs = [
       "Trusted jute rug supplier from India for USA, Europe & Japan. Custom sizes, wholesale orders, export packaging, and authentic handcrafted quality.",
   },
   {
-    id: 4,
+    id: 5,
     title: "Shop Natural. Live Beautiful. Choose MKT RUGS.",
     date: "Dec 26, 2025",
     desc: "Shop affordable, eco-friendly jute rugs and luxury handwoven carpets. Custom handmade jute rugs for homes, boutiques & export worldwide.",
@@ -149,7 +165,7 @@ export const blogs = [
   },
 
   {
-    id: 5,
+    id: 6,
     title: "Why Jute Rugs Are the Most Important for Modern Decor",
     date: "Oct 5, 2025",
     desc: "Discover how raw jute fibers transform into beautiful, sustainable rugs crafted by skilled artisans. Learn about our eco-friendly processes and traditional weaving methods.",
@@ -159,7 +175,7 @@ export const blogs = [
     featured: true,
   },
   {
-    id: 6,
+    id: 7,
     title: "5 Ways to Style Jute Rugs in Your Living Room",
     date: "Sep 20, 2025",
     desc: "Learn how to incorporate jute rugs into modern interiors using designer-approved styling tips.",
@@ -169,7 +185,7 @@ export const blogs = [
     featured: false,
   },
   {
-    id: 7,
+    id: 8,
     title: "Meet the Artisans Behind Your Rug",
     date: "Sep 10, 2025",
     desc: "A peek into the lives of the artisans who bring MKT Rugs to life with their craftsmanship.",
@@ -179,7 +195,7 @@ export const blogs = [
     featured: true,
   },
   {
-    id: 8,
+    id: 9,
     title: "Why Jute Rugs Are the Most Important Part of Modern Decor",
     date: "Dec 12, 2025",
     desc: "Why interior designers call jute rugs the perfect foundation piece for modern homes.",
@@ -189,7 +205,7 @@ export const blogs = [
     featured: false,
   },
   {
-    id: 9,
+    id: 10,
     title: "MKT Rugs: A Blend of Modern Craft and Tradition",
     date: "Dec 13, 2025",
     desc: "How MKT Rugs preserves Bengal’s weaving heritage through artisan craftsmanship.",
@@ -199,7 +215,7 @@ export const blogs = [
     featured: true,
   },
   {
-    id: 10,
+    id: 11,
     title: "Jute Rugs' Classic Beauty: An Easy Option for Contemporary Homes",
     date: "Dec 12, 2025",
     desc: "A complete guide on why jute rugs remain a timeless choice and how MKT Rugs preserves Bengal’s weaving legacy.",
@@ -208,7 +224,7 @@ export const blogs = [
     readTime: "10 min read",
     featured: true,
   },
-  
+
 ];
 
 // export default blogs;
@@ -308,46 +324,46 @@ const Blog = () => {
 "
       >
         <div className="max-w-4xl mx-auto text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c49b63]/10 border border-[#c49b63]/20 rounded-full mb-6">
-              <span className="text-sm font-semibold text-[#c49b63] tracking-wide uppercase">
-                Blog & Insights
-              </span>
-            </div>
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c49b63]/10 border border-[#c49b63]/20 rounded-full mb-6">
+            <span className="text-sm font-semibold text-[#c49b63] tracking-wide uppercase">
+              Blog & Insights
+            </span>
+          </div>
 
-            {/* Heading */}
-            <h1
-              className="
+          {/* Heading */}
+          <h1
+            className="
         text-3xl sm:text-4xl md:text-5xl lg:text-6xl 
         font-heading font-bold 
         text-[#3c2f2f]
         mb-6 
         leading-tight
       "
-            >
-              Stories of Craft &
-              <span className="text-[#c49b63]"> Sustainability</span>
-            </h1>
+          >
+            Stories of Craft &
+            <span className="text-[#c49b63]"> Sustainability</span>
+          </h1>
 
-            {/* Description */}
-            <p
-              className="
+          {/* Description */}
+          <p
+            className="
         text-base sm:text-lg md:text-xl 
         text-[#4a3a3a]/80 
         max-w-2xl mx-auto 
         mb-10 
         leading-relaxed
       "
-            >
-              From artisan craftsmanship to sustainable design — explore our
-              latest insights and inspirations from the world of natural fiber
-              rugs.
-            </p>
+          >
+            From artisan craftsmanship to sustainable design — explore our
+            latest insights and inspirations from the world of natural fiber
+            rugs.
+          </p>
 
-            {/* Search Bar */}
-            <div className="max-w-lg mx-auto mb-8">
-              <div
-                className="
+          {/* Search Bar */}
+          <div className="max-w-lg mx-auto mb-8">
+            <div
+              className="
           relative flex items-center 
           bg-white 
           rounded-full 
@@ -355,29 +371,29 @@ const Blog = () => {
           border border-[#d6c6b8]/30 
           overflow-hidden
         "
-              >
-                <div className="absolute left-4 text-[#4a3a3a]/50">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
-                </div>
+            >
+              <div className="absolute left-4 text-[#4a3a3a]/50">
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
 
-                <input
-                  type="text"
-                  placeholder="Search articles..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="
+              <input
+                type="text"
+                placeholder="Search articles..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="
               flex-1 
               pl-12 pr-4 
               py-4 
@@ -388,40 +404,40 @@ const Blog = () => {
               focus:outline-none 
               min-h-[44px]
             "
-                />
+              />
 
-                {searchTerm && (
-                  <button
-                    onClick={clearSearch}
-                    className="px-4 py-2 text-[#4a3a3a]/60 hover:text-[#c49b63] transition-colors"
-                    aria-label="Clear search"
-                  >
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
-                )}
-              </div>
-            </div>
-
-            {/* Category Filters */}
-            <div className="flex flex-wrap justify-center gap-3">
-              {categories.map((category) => (
+              {searchTerm && (
                 <button
-                  key={category.id}
-                  onClick={() => handleCategoryChange(category.id)}
-                  disabled={isLoading}
-                  className={`
+                  onClick={clearSearch}
+                  className="px-4 py-2 text-[#4a3a3a]/60 hover:text-[#c49b63] transition-colors"
+                  aria-label="Clear search"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Category Filters */}
+          <div className="flex flex-wrap justify-center gap-3">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => handleCategoryChange(category.id)}
+                disabled={isLoading}
+                className={`
               px-4 md:px-6 
               py-2.5 
               rounded-full 
@@ -430,29 +446,28 @@ const Blog = () => {
               transition-all 
               duration-300 
               min-h-[44px]
-              ${
-                selectedCategory === category.id
-                  ? "bg-[#c49b63] text-white shadow-lg scale-105"
-                  : "bg-white text-[#4a3a3a] border border-[#d6c6b8]/50 hover:border-[#c49b63]/50 hover:bg-[#c49b63]/5 hover:scale-105"
-              }
+              ${selectedCategory === category.id
+                    ? "bg-[#c49b63] text-white shadow-lg scale-105"
+                    : "bg-white text-[#4a3a3a] border border-[#d6c6b8]/50 hover:border-[#c49b63]/50 hover:bg-[#c49b63]/5 hover:scale-105"
+                  }
             `}
-                >
-                  {isLoading && selectedCategory === category.id ? (
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin"></div>
-                      <span>{category.name}</span>
-                    </div>
-                  ) : (
-                    <span>
-                      {category.name}
-                      <span className="ml-1 text-xs opacity-60">
-                        ({category.count})
-                      </span>
+              >
+                {isLoading && selectedCategory === category.id ? (
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin"></div>
+                    <span>{category.name}</span>
+                  </div>
+                ) : (
+                  <span>
+                    {category.name}
+                    <span className="ml-1 text-xs opacity-60">
+                      ({category.count})
                     </span>
-                  )}
-                </button>
-              ))}
-            </div>
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -553,8 +568,8 @@ const Blog = () => {
                 {searchTerm
                   ? `Search Results for "${searchTerm}"`
                   : selectedCategory === "all"
-                  ? "All Articles"
-                  : categories.find((c) => c.id === selectedCategory)?.name}
+                    ? "All Articles"
+                    : categories.find((c) => c.id === selectedCategory)?.name}
               </h2>
               <p className="text-sm sm:text-base text-[#4a3a3a]/70">
                 {filteredBlogs.length}{" "}
@@ -579,125 +594,123 @@ const Blog = () => {
 
           {/* Blog Grid - Enhanced mobile grid */}
           <div
-            className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 transition-opacity duration-300 ${
-              isLoading ? "opacity-50" : "opacity-100"
-            }`}
+            className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 transition-opacity duration-300 ${isLoading ? "opacity-50" : "opacity-100"
+              }`}
           >
             {filteredBlogs.length > 0
               ? filteredBlogs.map((blog) => (
-                  <article
-                    key={blog.id}
-                    className="group bg-white rounded-lg sm:rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#e9ddd1]/30 hover:border-[#c49b63]/30"
-                  >
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={blog.img}
-                        alt={`Article: ${blog.title} - ${blog.category}`}
-                        className="responsive-image w-full h-40 sm:h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                        decoding="async"
-                        fetchPriority="low"
-                        width="800"
-                        height="450"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                      <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
-                        <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/90 backdrop-blur-sm text-[#3c2f2f] text-xs font-semibold rounded-full capitalize border border-white/50">
-                          {blog.category}
+                <article
+                  key={blog.id}
+                  className="group bg-white rounded-lg sm:rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#e9ddd1]/30 hover:border-[#c49b63]/30"
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={blog.img}
+                      alt={`Article: ${blog.title} - ${blog.category}`}
+                      className="responsive-image w-full h-40 sm:h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      decoding="async"
+                      fetchPriority="low"
+                      width="800"
+                      height="450"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
+                      <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/90 backdrop-blur-sm text-[#3c2f2f] text-xs font-semibold rounded-full capitalize border border-white/50">
+                        {blog.category}
+                      </span>
+                    </div>
+                    {blog.featured && (
+                      <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+                        <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-[#c49b63] text-white text-xs rounded-full">
+                          ★ Featured
                         </span>
                       </div>
-                      {blog.featured && (
-                        <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
-                          <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-[#c49b63] text-white text-xs rounded-full">
-                            ★ Featured
-                          </span>
-                        </div>
-                      )}
+                    )}
+                  </div>
+
+                  <div className="p-4 sm:p-5 md:p-6">
+                    <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-[#4a3a3a]/60 mb-2 sm:mb-3">
+                      <time>{blog.date}</time>
+                      <span>•</span>
+                      <span>{blog.readTime}</span>
                     </div>
 
-                    <div className="p-4 sm:p-5 md:p-6">
-                      <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-[#4a3a3a]/60 mb-2 sm:mb-3">
-                        <time>{blog.date}</time>
-                        <span>•</span>
-                        <span>{blog.readTime}</span>
-                      </div>
+                    <h3 className="text-base sm:text-lg md:text-xl font-heading font-semibold text-[#3c2f2f] mb-2 sm:mb-3 group-hover:text-[#c49b63] transition-colors line-clamp-2">
+                      {blog.title}
+                    </h3>
 
-                      <h3 className="text-base sm:text-lg md:text-xl font-heading font-semibold text-[#3c2f2f] mb-2 sm:mb-3 group-hover:text-[#c49b63] transition-colors line-clamp-2">
-                        {blog.title}
-                      </h3>
+                    <p className="text-sm sm:text-base text-[#4a3a3a]/80 mb-3 sm:mb-4 line-clamp-3 leading-relaxed">
+                      {blog.desc}
+                    </p>
 
-                      <p className="text-sm sm:text-base text-[#4a3a3a]/80 mb-3 sm:mb-4 line-clamp-3 leading-relaxed">
-                        {blog.desc}
-                      </p>
-
-                      <a
-                        href={`/blog/${blog.id}`}
-                        className="touch-target focus-enhanced inline-flex items-center gap-2 text-[#c49b63] font-semibold hover:text-[#2b1d1d] transition-colors text-sm group"
-                      >
-                        <span>Read Article</span>
-                        <svg
-                          className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                  </article>
-                ))
-              : !isLoading && (
-                  <div className="col-span-full text-center py-12 sm:py-16 md:py-20">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto mb-4 sm:mb-6 text-[#4a3a3a]/30">
+                    <a
+                      href={`/blog/${blog.id}`}
+                      className="touch-target focus-enhanced inline-flex items-center gap-2 text-[#c49b63] font-semibold hover:text-[#2b1d1d] transition-colors text-sm group"
+                    >
+                      <span>Read Article</span>
                       <svg
+                        className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
-                        className="w-full h-full"
                       >
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M9.663 17h4.673M12 3v1m6.364-.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
                         />
                       </svg>
-                    </div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#3c2f2f] mb-2 sm:mb-3">
-                      No articles found
-                    </h3>
-                    <p className="text-sm sm:text-base text-[#4a3a3a]/70 mb-4 sm:mb-6 px-4 sm:px-0">
-                      {searchTerm
-                        ? `No articles match your search for "${searchTerm}". Try different keywords or browse all categories.`
-                        : `No articles found in the ${
-                            categories.find((c) => c.id === selectedCategory)
-                              ?.name
-                          } category.`}
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-3 justify-center px-4 sm:px-0">
-                      {searchTerm && (
-                        <button
-                          onClick={clearSearch}
-                          className="touch-target focus-enhanced px-6 py-3 bg-[#c49b63] text-white rounded-full hover:bg-[#2b1d1d] transition-colors font-semibold text-sm sm:text-base min-h-[44px]"
-                        >
-                          Clear Search
-                        </button>
-                      )}
-                      <button
-                        onClick={() => handleCategoryChange("all")}
-                        className="touch-target focus-enhanced px-6 py-3 border border-[#c49b63] text-[#c49b63] rounded-full hover:bg-[#c49b63] hover:text-white transition-colors font-semibold text-sm sm:text-base min-h-[44px]"
-                      >
-                        View All Articles
-                      </button>
-                    </div>
+                    </a>
                   </div>
-                )}
+                </article>
+              ))
+              : !isLoading && (
+                <div className="col-span-full text-center py-12 sm:py-16 md:py-20">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto mb-4 sm:mb-6 text-[#4a3a3a]/30">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      className="w-full h-full"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M9.663 17h4.673M12 3v1m6.364-.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#3c2f2f] mb-2 sm:mb-3">
+                    No articles found
+                  </h3>
+                  <p className="text-sm sm:text-base text-[#4a3a3a]/70 mb-4 sm:mb-6 px-4 sm:px-0">
+                    {searchTerm
+                      ? `No articles match your search for "${searchTerm}". Try different keywords or browse all categories.`
+                      : `No articles found in the ${categories.find((c) => c.id === selectedCategory)
+                        ?.name
+                      } category.`}
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center px-4 sm:px-0">
+                    {searchTerm && (
+                      <button
+                        onClick={clearSearch}
+                        className="touch-target focus-enhanced px-6 py-3 bg-[#c49b63] text-white rounded-full hover:bg-[#2b1d1d] transition-colors font-semibold text-sm sm:text-base min-h-[44px]"
+                      >
+                        Clear Search
+                      </button>
+                    )}
+                    <button
+                      onClick={() => handleCategoryChange("all")}
+                      className="touch-target focus-enhanced px-6 py-3 border border-[#c49b63] text-[#c49b63] rounded-full hover:bg-[#c49b63] hover:text-white transition-colors font-semibold text-sm sm:text-base min-h-[44px]"
+                    >
+                      View All Articles
+                    </button>
+                  </div>
+                </div>
+              )}
           </div>
         </div>
       </section>

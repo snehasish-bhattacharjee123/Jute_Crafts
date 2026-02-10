@@ -745,7 +745,7 @@ function App() {
                           </div>
                         </div>
                       </section>
-                      
+
                       <section
                         id="facilities"
                         className="py-12 md:py-16 bg-bgLight"
@@ -1115,14 +1115,17 @@ function App() {
                 <Route path="/refund-policy" element={<RefundPolicy />} />
                 <Route path="/shipping-policy" element={<ShippingPolicy />} />
               </Routes>
+              <ExpoPopup
+                isOpen={showExpoPopup}
+                onClose={() => setShowExpoPopup(false)}
+                imageSrc="/images/bannerDelhiFair.png"
+              />
             </Suspense>
           </main>
         </ErrorBoundary>
 
         <Footer />
         <BackToTop />
-
-        
       </div>
     </Router>
   );
