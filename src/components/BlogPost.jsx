@@ -10,7 +10,7 @@ export const blogs = [
       "MKT Rugs at 61st IHGF Delhi Fair Spring 2026 – Meet Us from 14–18 February",
     date: "Feb 10, 2026",
     desc: "Join MKT Rugs at the 61st IHGF Delhi Fair Spring 2026 in Greater Noida. Discover our latest collections of handcrafted rugs and sustainable home furnishings.",
-    img: "/images/bannerDelhiFair.png",
+    img: "/images/18th February.png",
     category: "export",
     readTime: "5 min read",
     featured: true,

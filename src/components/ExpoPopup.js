@@ -217,9 +217,9 @@ const ExpoPopup = ({ isOpen, onClose, imageSrc }) => {
 
       {/* Popup container */}
       <div
-        className="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-[#c49b63]/30 
+        className="relative bg-white rounded-2xl shadow-2xl overflow-y-auto border border-[#c49b63]/30 
         transform animate-[fadeZoom_0.4s_ease-out]
-        w-[80vw] sm:w-[65vw] md:w-[45vw] max-w-md"
+        w-[95vw] sm:w-[90vw] md:w-[80vw] lg:w-[70vw] max-w-5xl max-h-[90vh]"
       >
         {/* Close Button (inside the popup now) */}
         <button
@@ -247,7 +247,7 @@ const ExpoPopup = ({ isOpen, onClose, imageSrc }) => {
         <img
           src={imageSrc}
           alt="Expo Banner"
-          className="w-full h-auto object-contain select-none rounded-2xl"
+          className="w-full h-auto block select-none"
         />
 
         {/* Footer note */}

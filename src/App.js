@@ -1118,7 +1118,7 @@ function App() {
               <ExpoPopup
                 isOpen={showExpoPopup}
                 onClose={() => setShowExpoPopup(false)}
-                imageSrc="/images/bannerDelhiFair.png"
+                imageSrc="/images/DELHI FAIR WEB Page.png"
               />
             </Suspense>
           </main>
